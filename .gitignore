@@ -1,0 +1,35 @@
+# LaTeX build artifacts
+latex/*.aux
+latex/*.bbl
+latex/*.blg
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/*.pdf
+latex/*.synctex.gz
+latex/*.fls
+latex/*.fdb_latexmk
+latex/lectures/*.aux
+
+# Python virtual environment
+.venv/
+
+# Audio files (large)
+transcripts/*.mp3
+transcripts/*.webm
+transcripts/*.wav
+
+# Whisper intermediate files
+transcripts/*.tsv
+transcripts/*.vtt
+transcripts/*.srt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Handwritten notes (large PDFs)
+notes/
+
+# Claude
+.claude/

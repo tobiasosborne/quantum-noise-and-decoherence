@@ -1,0 +1,539 @@
+So welcome to quantum noise, the theory of quantum noise and
+decoherence.
+So why am I offering this course?
+Let's begin with the question, why?
+You've all met quantum mechanics.
+I assume you've all met quantum mechanics so far in your
+degree.
+It's one of the prerequisites to be here.
+But you've probably only met the quantum mechanics of
+closed systems.
+You've probably studied free particles and other closed
+systems and did not really interact much with composite
+quantum systems.
+Quantum systems comprise of many subsystems.
+And it's the objective of this course to precisely talk
+about quantum mechanics of many systems.
+Now, in contrast to classical physics, in quantum mechanics,
+we cannot copy quantum information.
+There is a so-called no-cloning theorem that prevents us
+from copying quantum information.
+So that if we want to gain information about some closed
+quantum system like this, imagine this is some closed
+quantum system, a particle in a square
+well, or something like that.
+If we want to gain information about this, we have to
+interact with this.
+And this will unavoidably have some back action on the
+system itself.
+So the act of measuring disturbs.
+This is something that you are familiar with from your
+first encounter with the postulates of quantum
+mechanics and with projective measurements.
+So this is really, in some sense, this is the defining
+feature of quantum mechanics that to gain information
+about a quantum system, it unavoidably disturbs the
+system.
+Now, this isn't just restricted to quantum mechanics.
+In fact, in everyday classical physics, we also encounter
+situations where gaining information will unavoidably
+disturb the system.
+I'll give you two examples.
+So the first example is the stock market.
+If you gain information and actually act on that
+information, then that will create a disturbance in the
+stock market because other traders will observe you
+exploiting information and then react accordingly.
+Another situation where gaining information can actually
+create a back action is the so-called observer effect in
+social psychology.
+You do an experiment.
+You want to test human behavior in some way.
+And the very act of having a device recording in the room,
+or to be even if the participants know that they are
+being observed, they will behave differently.
+So this is morally too everyday situations where the
+gaining information has a kind of a back reaction on the
+system itself.
+Economic mechanics, but you might argue, well, these are just
+a consequence of approximations.
+In quantum mechanics, it's fundamental.
+It's built into the theory itself that to gain information
+about a quantum system, you have to disturb it.
+And that's what gives us the richness of quantum mechanics
+and what makes it such a challenging theory to work with.
+And it's this concept that we want to put in the center of
+this course and explore throughout the course.
+By the end of this course, I hope we will understand this
+sentence and how to quantify that.
+And also, at the end of this course, I want to explain how when
+we look at a quantum system with our everyday measurement
+apparatus, such as our eyes, why quantum systems look
+classical?
+Why is it that where is the classical limit coming from?
+And the answer I propose in this course is because of quantum
+noise and decoherence, which are themselves a consequence of
+the statement that measuring disturbs a quantum system.
+So that's the why of this course.
+Why are we doing it?
+Why are you sitting here?
+Who?
+Well, this course is intended for anyone who's met quantum
+mechanics and anyone who is going to have something to do
+with quantum mechanics in their future life.
+If you are an experimentalist, I want this course to be as
+much for you as for a theorist.
+And I want to give you the basic tools to be able to reason
+about open quantum systems, quantum systems with more than
+one subsystem.
+Let's get to the important questions of this course.
+What's the proof-forms lie-stung?
+How do you get it?
+Well, it's a oral exam for this course.
+The student lie-stung is easier.
+And that is participation in the exercise class.
+By which I mean handing in worked problems and coming to
+the exercise class, you will get the proof of the
+student lie-stung if you come, you do not have to present
+a solution on the board to get the student lie-stung.
+So that's to the important questions.
+Before I proceed, are there any other questions concerning
+proof-forms lie-stung, student lie-stung prerequisites?
+All right.
+Then I'll give you now a brief outline of what I hope to
+cover in this course.
+So what we're going to do today, and possibly next week,
+is just review quantum mechanics according to the
+Hanover rules.
+And I'll explain what that means today.
+This is our way of working with quantum mechanics in the
+theory of quantum information courses and other quantum
+information group related courses is a little bit
+different from a textbook treatment of quantum mechanics.
+The next topic, quantum many particle systems are the next
+step, the topic of quantum noise and decarherence only
+gains its richness when we have many particles around that
+we cannot observe.
+So I have to talk about many particles in quantum mechanics.
+I hope you've probably met this before, Fox Space,
+Creation and Ilation operators.
+These are all words I hope are familiar, but nonetheless,
+we'll review it before we get in to the main material of
+this course.
+Next thing I wish to cover, there's actually a seat here
+at the front that you're welcome to use.
+There's a strongly connected with quantum many body
+systems is the topic of continuous variables.
+This is vital for any experiment involving light.
+So if you're involved in optical, if your everyday life
+involves manipulating optical degrees of freedom, this is,
+of course, a crucial topic for you.
+This is how we describe laser coherent states of laser light.
+Then we'll talk about actual realistic sources of
+quantum noise that occur in experiments, decarherence
+and experiments.
+And move on to the topic of stochastic calculus, both
+classical and quantum.
+This is a way to obtain solutions to set
+limp light equations, which are that, as I said.
+This is the core objective of this course to introduce
+these things, derive these things and solve these things,
+possibly rather briefly stochastic calculus.
+Now, if any of you have thoughts of going into the finance
+industry, I hope that this topic will do a double duty for
+you, because in the finance industry, it's certainly one of
+the central tools in pricing derivatives on financial markets.
+So there's a strange confluence of topics here in this course.
+And we'll come back to feedback and control.
+Also, a vital topic in experiments, how do you stabilize
+things when you need to exploit feedback?
+You need to gain information and then act on that
+information to carry out some task.
+That's the outline.
+Are there any questions before we proceed?
+So your questions won't be audible on the video.
+So I'll repeat them when you ask them.
+Do we get the excercise sheets before you go to the class?
+The first exercise class will be next week on Monday.
+There will be no exercise sheet for that class.
+There's not enough time.
+I won't do an exercise sheet for that particular class.
+But in general, I will prepare one a week before the exercise
+class.
+So you'll have a week to attempt the questions.
+And I'll distribute it on .ip.
+There's some references here for this course.
+There's no one book for this course.
+I'm afraid I'm going to build it from lots of different sources.
+A book by B Davies.
+I think it's Open Quantum Systems is the title.
+This is the old classic source, but it's a bit old now.
+I will use it, though.
+I will be using the books of Gardner and Solar called Quantum
+Noise and also an older book of Gardner.
+Crispin Gardner's handbook of stochastic methods.
+I think it's called.
+And there's some another quantum optics book, which
+I like rather a lot, is Wiseman and Milburn.
+And then a more modern book by one of the same authors on feedback
+and control.
+These are all books.
+But I won't be covering any particular book in any comprehensive detail.
+The course will be comprised of little pieces of these books and also some other stuff.
+So unfortunately, I can't give you a single reference for this course.
+Well, let's now come to the first main topic for the course, which is a review of quantum mechanics.
+So this should be kind of familiar and kind of new and strange the way I'm going to describe quantum mechanics to you.
+I'm going to follow what I like to call the Hanover rules for quantum mechanics.
+These differ.
+I'm not going to give you a list of postulates.
+And I especially won't be having any projection postulates in this course.
+Instead, the emphasis in this course is on operational methods where the focal point is on quantities
+that you can measure in experiments, at least in principle.
+So the Hanover rules, and I'm going to describe quantum mechanics of two pieces, kinematics and dynamics.
+Today, we're just going to do kinematics of quantum mechanics.
+And to introduce our understanding or our formulation of quantum mechanics, I'm going to describe physical experiments in a very particular way.
+I'm going to divide physical experiments into two stages, a preparation stage and a measurement stage.
+So this is our theoretical abstract caricature of a physical experiment.
+We're going to model all physical experiments as a sequence of a preparation followed by a measurement.
+And at least for all the thought experiments and even some of the real experiments that I know, this is possible.
+Everything from the Stern-Gelach experiment to, I don't know, preparation of states of quantum bits.
+They all have preparation phase and a measurement phase.
+In the next lecture, we're going to talk about dynamics where we're going to insert in here some evolution in between the preparation and the measurement.
+But that's actually an artificial thing to do because any evolution that we could stick in the middle,
+you could model by just pretending you've done a different measurement, or, which is called the Heisenberg picture,
+or you could absorb that evolution into having done a different preparation, which we would call the Schrodinger picture.
+So in some sense, we're going to do all of quantum mechanics today, but it becomes very convenient later on to divide out this intermediate evolution phase.
+Now, just to emphasize, in classical physics, there's no real need to talk of a measurement step.
+Because in classical physics, you can copy information freely without disturbing a system.
+In principle, you could take a snapshot of the locations of all the particles in some system without actually disturbing a system.
+That's in principle possible within classical physics.
+And so, typically, you won't have ever encountered this division in classical physics.
+Although, it should be pointed out that, once you've got into this kind of operational framework,
+even thinking about classical physics in these terms, can be quite helpful.
+All right. So what is a preparation? Well, a preparation is just all the things you did to prepare the system in a certain state.
+I'll introduce the word state in a minute. It's a set of operations.
+There we go.
+So putting this box of chalk here, that's a preparation.
+I prepared the system in a configuration that any subsequent measurement on that system will determine the probability distributions that I will measure.
+Now, I could have prepared this same system in another way, right? I could have walked this way and then this way, and then put the box at exactly the same location.
+More than one set of actions can determine the same configuration or state.
+Different preparations can lead to identical probability distributions when you measure.
+And that leads us to the concept of a state. And what does that do? That specifies only the details of the preparation that are important for all subsequent measurements.
+So write that out in a little box. A state describes all the details and no more.
+All the details and no more for all subsequent measurements.
+That's important, so I'm going to draw a box around it.
+Quantum mechanics is an example of a statistical theory, meaning that we can only at best describe probability distributions of possible outcomes of measurements. It's not a deterministic theory as far as we know.
+Some people really don't like statistical theories. They find it philosophically objectionable.
+But one thing's for sure, when we talk when someone who insists on the reality of the wave function talks about the same physical experiment that I talk about, we'll give the same answers.
+So I'll leave that philosophical question aside in this course. And we'll just focus on the subset of the rules of quantum mechanics that we'll all agree on when describing the outcomes of real experiments.
+So as you can probably tell, I'm not particularly interested in deterministic theories with an interpretation of reality for the wave function. I'm more an operationalist. I'm content to just supply probability distributions for possible outcomes and no more.
+You may or may not like that position, but it shouldn't matter in this course. So this is all very good. This is well and good. This is just words. Let's actually get to some actual equations.
+So mathematically, we represent division of preparations and measurements in a certain way.
+As follows, this is going to look a bit different from probably your first exposure to quantum mechanics. You might be expecting me to write down something like a state is a ray in Hilbert space, blah, blah, blah, blah. But I'm not.
+Firstly, to the operationalist, observables are somehow more fundamental than states. Well, they should be familiar to you. The Hermitian, Hermitian elements of a think of an observable algebra don't be afraid of the word observable algebra.
+For the majority of this course, you'll have no problems translating the words observable algebra to bunch of matrices.
+So whenever you see observable algebra, just think matrices that I could put in MATLAB.
+So we describe observables as Hermitian elements of some observable algebra. But we never actually directly measure an observable in an experiment.
+This symbol here, this is meant to be my version of a calligraphic A.
+So from now on, this peculiar symbol is calligraphic A. You'll have to get used to it. I'm going to do this a lot.
+So we don't actually ever measure an observable. If you go to an experimentalist and you say, what's the Hermitian operator that you're measuring right now?
+And I've done this. I've actually asked quite a lot of experimentalists this question. As a theorist, you know, observables are Hermitian matrices. So you must be measuring one, right? What is it?
+So often the answer that you'll get is instead of it, you know, it is the matrix blah, blah, blah. Instead you'll get the answer, which is somewhat perplexing, namely you'll get a description of a process.
+So they say, well, you know, we tune this laser, and then we do this, and then we do that, and then we do this, and then we get some information.
+This idea of an observable being something that you measure, you've probably heard this, is really a shorthand for something else. And I said something else, which is what's important in experiments.
+So just a word on what is an algebra? So if you, for us, oops, a C algebra, which is the ones we'll be working with, yeah, I'll be de-emphasizing the mathematical concepts in this course, but if you're interested in the mathematical concepts, I'll write them out along the way.
+So this is a set, closed under multiplication and addition, as well as multiplication by scalars from C.
+And furthermore, we'll have a star algebra, meaning that each element has an adjoint.
+I'll do daggers for adjoints in this course.
+Right, so observables are a convenient way to, they're a convenient shorthand for a set of processes in an experiment.
+One more comment about algebra's, we're going to need this idea of a positive element or a positive operator.
+So an element is positive if you can write it as a dagger times a for some a.
+Turns out there's actually two notions of positivity in algebra's, but they coincide in this course.
+So we'll just define it this way. An element is positive, a matrix is positive, if you can write it as a dagger a for some other matrix a.
+Or an operator is positive if there's some a like that. We'll do some examples in a second.
+And for us, in fact, I think basically, yeah, I'm not going to talk about statistic generalize statistical theories, generalize probabilistic theories.
+So for us, a will always be the set of bounded operators on some Hilbert space H.
+Okay, end of mathematical interlude.
+So whenever I introduce a mathematical concept like this, I'm going to attempt to give you an example so that you can have a concrete thing to keep in mind.
+And the first and simplest possible example of a quantum system apart from the trivial one is a qubit, a two level system, right?
+You take some born, born, like Adam, and you focus on two levels and you isolate those.
+Or you look at the spin of an electron or a neutrino or something. That's a two level system hidden inside a much bigger system.
+The set of all possible observables for a qubit, which is still somehow a mathematical idealization, is none other than the two by two Hermitian matrices.
+Let's call those calligraphic A subscript H. And there is subset of A, which is given by the set of two by two matrices.
+So the observables for a qubit,
+are henceforth the set of two by two Hermitian matrices.
+So far, we've been somehow focusing on this half of the diagram.
+I'm going to say a little bit more about how we model measurements mathematically before we then move to states or preparations.
+So as I said, observables there are somehow an idealization and not the things you measure and experiments.
+Instead, what happens in an experiment is you have some kind of detector that goes click.
+Photo-on-counter, for example, a zero-mini photo-on-counter, either click or not click or just not work. I guess there's a third option.
+And if you try hard enough, you can break any detector down into a sequence of clicking objects.
+Now, I don't know, that's a little bit controversial. I know it's experimentalists who will declare quite happily that everything is just clicks.
+And also theorists as well. And there's a mathematical justification for that statement, which I'll attempt to make in this course.
+And there's also a kind of physical justification for that experiment.
+So I've heard an actual debate between experimentalists on this topic.
+Is the only things in our experiment that we detect actual clicks? And the other experimentalist says,
+well, what about the voltage on a wire? That's somehow a continuous variable.
+And then the first experimentalist says, well, isn't the voltage just a sequence of clicks averaged over little time bins?
+And thus the dialogue goes. So this is the abstraction we're going to take in this course.
+We're going to say that all detections are clicks. And that's what we need to talk about when modeling measurements in our quantum system.
+So we're going to have to model clicks, yes, no, predicates.
+And we're going to do that in terms of objects cooled effects.
+So measurements are modeled by
+to each outcome of a device. So a device can have multiple outcomes.
+A thing called an effect.
+And what's an effect? Well, an effect is an observable. So I kind of lied when I said you don't measure observable.
+So that's an n by n matrix if we have matrices with a certain property.
+That property is written this way. I'll write it out in a different way in a second.
+So it satisfies an element of the observable algebra which satisfies an additional constraint, namely this.
+So what is this? So what does it mean less than equal to?
+I'll tell you what that means now.
+We say that a is less than equal to b. If b minus a can be written as x dagger x if it's somehow a positive element.
+And we'll do an example swiftly in a minute to give you some intuition about this.
+And i is the identity. This is my notation for the identity.
+If we're talking about matrices, it's the identity matrix with ones on the diagonal.
+So actually, when we do a measurement, we look at the outcome of a photon counter.
+Suppose the photon counter has two reports, two possible values, no click or click, meaning that there were one or more photons there.
+Then we assign to that photon counter, how do we model it? We model it with an object e that satisfies this constraint here.
+And in the context of photon counting, the actual element e is, I'm getting ahead of myself, but it's worth going through this.
+If you're familiar with this, we say that e is in fact zero zero, the projection onto the no photon or the vacuum state.
+And we get a click if that event does not occur. So no click corresponds to this.
+And click corresponds to another effect, which is the identity minus zero.
+And homadine detection corresponds to each effect being the projection onto a coherent state.
+For example, was that header a diagonal? I mixed the two up. I think that's header a diagonal.
+And the other guy is f, which is the identity minus zero, click.
+So this is a zero mini photon counter.
+It's a cool fact that if you have lots of zero mini photon counters, you can actually effectively build a number resolving photon counter.
+But sadly, I don't have time in this course to do that.
+So that's how we describe measurements. We actually describe them by assigning to outcomes.
+If you have a box that does a measurement, that box is going to emit to you classical information, like click or no click or zero one, two, infinity.
+We assign to each possible outcome, and think called an effect.
+Now that's pretty much all we can do in terms of describing measurements at this point.
+We now have to say, what's the empiric probability that one of these outcomes occurs if we do the experiment?
+We won't always get a deterministic outcome from a quantum mechanical experiment.
+So we have to admit that we're going to get probabilities. How do we do this?
+Well, we do this by defining mathematically a thing called a state.
+Now, you familiar, I guess, with states being defined as raised in Hilbert space, they are examples of states, but they're not all possible states.
+So mathematically, in this course, a state omega, the language we use is a state omega on the observables A.
+So you'll have to get used to that way of saying things.
+I'm going to say that a lot state omega on A is a, and here comes some math, but I'm going to try and justify these words.
+Positive, normalized linear functional on A.
+You're going to try and justify all these words to you and explain what they mean.
+They have a very precise mathematical meaning, but they also have a physical origin.
+There's a reason why I'm using these words. It's not just because I like pure math or something.
+So I'll explain mathematically what this means. That is.
+So omega, this thing that we call a state, is a linear functional.
+So a functional means that it takes, it eats an element of the algebra and gives you a number.
+That's what functional means.
+And it's linear. So if you apply omega to a sum of two things in the algebra, it's the same as applying omega to the two things separately and then summing them.
+The second word, so this is linear functional, I've just done.
+Now we're going to do positive.
+Positive means that if you put in a positive operator, remember what they were.
+Anything that you can write is x to x. You're never going to get a number that's less than equal to zero.
+It's a real positive number, non-negative number.
+Now I'm going to attempt to explain the physical origin of these three things.
+I won't be able to do it all yet because I have to talk about how we compute probabilities with states.
+But let's just focus on this here.
+So we think of states as assigning probabilities to outcomes of measurements.
+That's what a state has to do.
+I started at the beginning of the course by saying a state is the data sufficient to describe the probability distributions of all subsequent measurements.
+So it better tell me a probability when I give it a measurement.
+So an omega has to eat measurements and give me probabilities.
+That's what you should think of it as doing.
+The state omega tells me probability.
+Now certain measurements in order to give certain probabilities for.
+So if I do absolutely nothing, if I do not even do an experiment, then there is actually an element we can assign to that from the observables.
+There's an effect to doing nothing whatsoever and that's the identity effect.
+The identity is an effect. Let's check.
+Is the identity less than equal to the identity? Yes, it's bigger than zero and it's less than the identity.
+So it's definitely an effect.
+And that's the one we traditionally assigned to doing nothing whatsoever.
+And the probability of that succeeding of that event taking place, better be one, right?
+Unless probability is sort of vanishing from the universe into some black hole.
+So that's why we have this axiom here.
+This is to say that probability is conserved.
+Now secondly, if we put in a valid measurement, we better get out a valid probability.
+That's what this thing here is doing.
+And linear, this has to do with preparations.
+So the way we model preparations, we'll get to this a bit later.
+If you do an experiment, if you have two experiments, so you have measure quantity A, measure quantity B.
+And before you do the experiment, you flip a perfect unbiased coin.
+You flip it and then you do experiment A if it's heads and experiment B if it's tails.
+Then the way we model that is as a convex combination of states.
+This is two preparations we could have done.
+We could have done the preparation corresponding to experiment A or the preparation corresponding to experiment B.
+And we do each of them with equal probability.
+And the way we'll model that, and I'll get to that, is as a linear combination of the original experiments preparations,
+so these states omega.
+And we want that it doesn't matter how we do the preparation.
+And that forces us to demand that this omega is a linear functional.
+I'll say more on that later.
+And indeed, what am I going to say now?
+Oh yeah, a little bit about outcomes of observables and then we'll do another example.
+So definitely the emphasis in this course is on the minimal structure you need to describe everything, not in imposing extra structure.
+So states, when you describe states as raised in Hilbert space, you're actually describing a subset of possible states.
+They all will give rise to these omigas.
+But there are some states that get missed out when you do that.
+Namely, mixed states.
+And you haven't had to do with mixed states so much yet because you couldn't talk about closed systems that are always idealized to be in a pure state.
+But now we're going to talk about the dirty real world, where there's always noise and imperfections sucking information away from our quantum system, forcing it into a mixed state.
+And thus we need to really deal with all possible states in quantum mechanics.
+Now I want to connect observables with effects.
+So observables are the things you've been taught are the things you measure in an experiment.
+But I told you that they're not. So I better tell you why we would even talk about observables at all.
+What we do is we label the outcomes of an experiment corresponding to an observable A in terms of effects.
+If someone says go measure the observable A. Then what you have to do is you have to design an apparatus which for every possible outcome of the observable A you assign an effect.
+Oh, I've gotten ahead of myself. Sorry. I'll just.
+I wanted to say something else first.
+I haven't actually told you how to get a probability.
+Where are these probabilities?
+So if you have some detector that clicks modeled by an effect.
+What's the actual empiric probability that you measure a yes or a click over many, many runs of the experiment?
+So I'm now going to connect states and actual outcomes.
+So the actual probability is none other than this number here.
+This is kind of the opposite order to the way you've probably seen things.
+You've probably seen for raise on Hilbert space this e being this is like the expectation value from your quantum mechanics course.
+And we'll use that notation as well possibly.
+And then now we get to this bit about the outcomes.
+So when you're told to go off and measure an observable A like momentum or energy or something like that quadrature.
+When you're asked to go measure an observable A what you're really doing is you're going to assign to each possible outcome of that observable an index alpha and then assign to each index an effect.
+Now this index can be continuous.
+But the effect that itself the effect itself that models that outcome will always be an element from the observable algebra.
+And the way we assign these effects right is that the probability of the outcome occurring is none other than this number here.
+Soon getting to the example.
+So there's something crucial if we're going to do an experiment it better be that we get some outcome with probabilities are better at up to one.
+If you do an experiment something's going to happen.
+I'm writing summation notation here that's slightly wrong when you have continuous outcomes will for most of this course focus on cases where we have a finite number of possible outcomes from our experiment.
+Each of which has a certain probability of occurring.
+And the way we ensure that probability sum to one is if we're going to assign effects to outcomes it better be that when you sum up those effects you get the identity operator.
+And such a collection has a name it's called a POVM.
+And these describe the most general measurements we allow in quantum mechanics.
+So I've really written down the POVM corresponding to a photon counter it's none other than E and F.
+Now this is a historical name it's an example where if I just write it out it's not going to help you one bit.
+And it's measurement measure measure.
+There's historical reasons for calling things like this POVM's and the acronym is positive operator operator valued measure but it's really it doesn't matter.
+The precise mathematical connection between observables and the effects corresponding to them is via the eigenvalue eigenvector decomposition.
+So each of these E-alphas these spectral projections is an effect.
+Now this is why I like POVM's. Every observable gives rise to a POVM but not every POVM comes from an observable so this is a more general concept.
+And this is a case where that extra generality is very useful because as I said things like homodyne and heterodid detection don't admit interpretation as measuring an observable.
+So if you've ever done quantum optics and you're puzzled by this you know what's the observable corresponding to heterodid detection this is the explanation explanation is there is none because you're doing something more general.
+So it's kind of puzzling that this finds its way into the postulates of quantum mechanics and textbooks that observables correspond to Hermitian operators blah blah blah.
+When in actual fact when you do experiments you're doing things that are more general.
+So I'm going to do a big broad class.
+So what are they? Well they are systems whose observables are described by matrices that's the mathematical definition.
+And the nice thing about finite dimensional systems you can always represent states as matrices themselves and these matrices you probably heard of and you probably heard them described as density operators.
+So remember a state is an object that eats an element of the algebra gives you a number and the number corresponds to the probability when a is an effect and how do we can for finite dimensional systems it turns out we can always represent that calculation process as a trace of row against a where row is a thing called a density operator.
+And all those three conditions I wrote up over there still here star double star and triple star correspond to the following constraints on these matrices row namely these two you get linearity for free right this is this is a linear functional as written.
+Now let's make connection with the the rays in Hilbert space business. So a state omega is pure.
+If you can't write it as a convex combination of two other states.
+You can always write a state omega as a as a convex combination of p zero or one that's easier.
+And you can always write the state omega as a convex combination of itself with itself so we're going to just demand that these two things case and then if you can't do that and it's a pure state.
+There's a nice little exercise you can do which is to for finite dimensional systems you can prove that this definition implies that the density operator is a pure the corresponding density operator is a corresponds to a pure state if and only if the density operator is a projection.
+And that's where we finally get this connection to raise in Hilbert space.
+This is let me think not true and infinite dimensions so the problem is an infinite dimensions and I will have to comment on this throughout the course because we're going to deal with infinite dimensional systems for example the electromagnetic field.
+This thing where we identify states with density operators doesn't always work and the problem is is there exist operators that don't have a trace they just the trace is infinity.
+So even writing this down here becomes problematic when you have an infinite number of configurations available to you.
+That's why I've been emphasizing this way of thinking about states as functions of observables if you want to take that additional step of going to density operators that's only really justified when you have a finite dimensional system.
+Otherwise the set of states is strictly larger than the set of objects which are represented like this for infinite dimensional systems.
+I can even give you a heuristic proof of that later on.
+There's a really cool way to model a state of a position eigenstate so this is something that shouldn't be a state right you've been taught that position eigenstates are represented as direct delta functions but they're not really states because they're like not elements of the Hilbert space.
+And then we have to talk about the limits and so on. It actually turns out you can talk about the position eigenstate is maybe represented as a positive linear functional on the set of observables for say a harmonic oscillator it satisfies these three conditions no problems but it has a curious property it assigns zero to any predicate involving momentum so it's a very peculiar state.
+So it's momentum is undefined in a very it's maybe that's not so kind of crazy right you direct delta function has got an undefined momentum.
+Alright good so so for finite dimensional quantum systems omega is pure if and only if the corresponding density operator if you can if and only if you can represent omega is a trace of some density operator
+with row being a projection and now we come to the reason Hilbert space.
+Raising Hilbert space are another way to talk about projections one dimensional projections so remember a rain Hilbert space is like it's it's a one dimensional vector that's equivalent up to a multiplication by a phase kind of an awkward way to define something in this nice linear space.
+But that's what you're really trying to say is that if I take the outer product of psi with itself that phase cancels that's all you're trying to say with this ray business so I find this much more somehow satisfying to talk about pure states as projections rather than raising Hilbert space.
+Oh where psi is an element of some Hilbert space okay let's do even more specific example one that you know most people can spend their entire lives studying is this one example you can make your career out of this.
+And it's the qubit so according to this correspondence here qubits are finite dimensional systems so therefore you can represent any qubit state as a density operator.
+That's fine and a density operator is a two by two matrix satisfying some conditions let's see what they look like can we actually describe all qubit states.
+There they are two by two matrices satisfying that these two constraints that row is greater than equal to zero and trace of rows one well there is a you can solve those two constraints and actually explicitly parameterize all qubit states.
+Okay let's solve those constraints constraint number one is that trace of row is one well this way of parameterizing all two by two matrices explicitly solves that second constraint there if you just take the trace you get one plus x three plus one minus x three divided by two and that's one so we've we've satisfied this constraints.
+This is the most general now two by two matrix that has trace row because one can we solve the second the first constraint you mean that row is a positive operator let's see and I'm not going to do it I'm going to make an exercise because it's good for you.
+And it's you can solve this exercise however you like and one way one completely concrete way to solve this exercise is just work out the eigenvalues of that matrix it's it's it's it's it's something you can do on paper right you know how to work out the eigenvalues of two by two matrices that's something that you know I'm pretty confident everyone here can do in their sleep.
+And if you do that you'll work out that this this operator has two eigenvalues p and one minus p pretty sure there'll be those two numbers and those numbers have got to lie between zero and one or be because the trace forces them to be less than equal to one and this constraint here forces those two eigenvalues to be greater than equal to zero and that constraint there will turn into a constraint on these three numbers x one two and three and then we will discover
+a geometric representation for that first constraint there's other ways to solve this exercise I'm just telling you the most concrete way
+show that row is greater than equal to zero if an only if the length of x squared is less than equal to one
+thus this three vector x is an element of a ball in three dimensional space
+I said x y z but I should said x one x two x three
+so this is a magnificent result I really love this this is the one of the greatest things that have happened that happens in quantum mechanics
+because it takes this peculiar abstract constraint here and it translates it to something geometrical so to every qubit state every two by two matrix with trace one and positive operator
+there is a triple of numbers x one x two x three which lives inside this ball and conversely
+right every point in this ball corresponds to one of these two by two matrices here and you know what this ball is of course you will
+let me admit it before this is none other than the box sphere
+so humans are not particularly good about thinking about infinite dimensions or even more than three dimensions
+so it's like a gift to us that at least an important class of states admits a geometric representations in three dimensions
+something that we could think about and operations on these things measurements on these things all admit geometrical interpretations in terms of this object
+it is however one of the saddest things about quantum mechanics that even for qutrits three level systems there is no longer a nice geometrical representation
+if you do this game for qutrits and you can you will build a geometric object in what is it?
+nine minus one eight dimensions you have an eight dimensions dimension or g convex object that's got horrible corners and curvy bits on it
+and it's nowhere it's nothing like a sphere so sadly this only works for two level systems
+now let's talk about doing some measurements on our example state
+so consider an effect on this is still continuing the qubit example
+suppose we have this effect here it's an exercise to check that that's indeed an effect but my claim that it is
+then I should have written out the palli operators I guess I'll do that now
+so consider an effect e that has this particular form it's like you can express it as a half the identity plus signal z
+you're measuring say the spin in the up direction that's what this is this outcome is corresponding to
+then the probability of getting that outcome in this example here you put this matrix in and compute the trace of this matrix
+against this state here and the answer you get is a half one plus x three
+so why could I do that so quickly?
+well because you just there's one one here and you multiply it pointwise by every element in this matrix
+you get a zero here a zero here a zero here you get a one there and then you take a trace so you get that number there
+and that you can find this number from this representation as well
+if you like this probability is proportional to the value projected onto the x three axis
+I'll show you another way I'll give you a hint of another way to solve this constraint to get the boss fear
+it's kind of interesting I got a couple of minutes left
+so one way is just to go out and by hand work out the two eigenvalues of this matrix which is something I think
+reasonably concrete something that you could do pretty easily
+I guess I'd call that a TV problem you know one you can do while watching TV
+and a really easy one is a TV and what's app problem you know one you can do while communicating on WhatsApp and watching TV
+so I just give you a hint for this exercise
+so one way this is kind of a much more sophisticated way to solve this exercise
+because it gives you the generalization you need to go to higher dimensions
+so the idea is to look at pure states now pure states are ones that cannot be written
+as a convex combination of any other two states
+and if I find out dimensions of pure state satisfies this constraint here
+this is necessary but not sufficient for it to be a pure state
+to be a pure state you need that trace of rose that rose greedy goes wrong and that trace of rose one
+so you look at that and that determines once you use the trace condition
+that tells you that the state you have is pure if you can do that then you know you've got a pure state
+so let's try and solve that constraint and at least work out what the pure states look like
+and the trick to this is to solve this equation here
+I'm not going to do it yet
+but I invite you to do this
+you'll have some 16 terms on the left hand side and you have four terms on the right hand side
+and you'll try and solve these equations and you'll end up with an equation for R
+and if you have mathematical or MATLAB handy you don't even have to do those 16 equations
+a 16 terms you have 16 terms and four equations
+and they will constrain your three values of R
+and they will in fact lead to the equation that R the length of R is one
+so according to this way of solving the exercise you already get a bit more information
+you learn what the pure states are the pure states in this graphical representation
+here are points on the surface of the sphere
+now because trace of row is a linear functional on the algebra
+convex combination corresponds to exactly convex combination in three dimensions here
+so if you take this point here on the sphere and this point on the sphere and you take a convex combination of them
+that corresponds to exactly to a convex combination for states
+so geometrically the pure states of this convex body
+or to be the ones on the boundary where you can't write them as a convex combination
+and you get two other points
+so that you match that up with this by solving this exercise here
+now that does carry through to higher dimensions
+in fact you can do this calculation for any dimension
+and you get a horrible disgusting surface
+sadly so the box sphere doesn't generalize nicely
+but it is so useful
+because in many experiments this is quite an economic way to model what's going on in the experiment
+if you only have a two level degree of freedom that you ever interact with coherently
+then you can use this representation for your entire to describe everything that occurs in your experiment
+and it's only recently that we've ever had access to more than two coherent degrees of freedom
+and hence we've had to go beyond box sphere type representations
+so with the advent of quantum computers
+this is going to be left behind I fear
+we'll have to work with states at a more abstract level
+and that will be the topic of next week when we come to composite systems and many particles
+and the topic of entanglement
+so today we've just described what you might call isolated quantum systems
+and next week we're going to say how to put them together to get systems of many particles
+I think now is a convenient moment to stop
+if there's any questions please let me know
+otherwise thank you very much

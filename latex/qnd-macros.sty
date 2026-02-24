@@ -1,0 +1,95 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qnd-macros}[2026/02/24 Quantum Noise and Decoherence macro library]
+
+% ══════════════════════════════════════════════════════════════
+%  HILBERT SPACES & ALGEBRAS
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\hilb}{\mathcal{H}}            % Hilbert space
+\newcommand{\hilbA}{\hilb_A}               % Hilbert space of system A
+\newcommand{\hilbB}{\hilb_B}               % Hilbert space of system B
+\newcommand{\alg}{\mathcal{A}}             % Observable algebra
+\newcommand{\algB}{\mathcal{B}}            % Second algebra
+\newcommand{\BH}{\mathcal{B}(\hilb)}       % Bounded operators on H
+\newcommand{\Mn}[1]{M_{#1}(\mathbb{C})}   % n x n complex matrices
+
+% ══════════════════════════════════════════════════════════════
+%  QUANTUM STATES & OPERATORS
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\ket}[1]{\lvert #1 \rangle}              % Ket
+\newcommand{\bra}[1]{\langle #1 \rvert}              % Bra
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}     % Braket
+\newcommand{\ketbra}[2]{\lvert #1 \rangle\langle #2 \rvert}  % Outer product
+\newcommand{\expect}[1]{\langle #1 \rangle}           % Expectation value
+\newcommand{\adj}{\dagger}                             % Adjoint symbol
+\newcommand{\tp}{\otimes}                              % Tensor product
+
+% ══════════════════════════════════════════════════════════════
+%  STANDARD OPERATORS
+% ══════════════════════════════════════════════════════════════
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\spn}{span}
+
+% ══════════════════════════════════════════════════════════════
+%  VECTORS & NOTATION
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\vb}[1]{\boldsymbol{#1}}      % Bold vector
+\newcommand{\vc}[1]{\vec{#1}}             % Arrow vector
+\newcommand{\norm}[1]{\lVert #1 \rVert}   % Norm
+
+% Identity and zero
+\newcommand{\One}{\mathbb{I}}              % Identity operator
+\newcommand{\C}{\mathbb{C}}               % Complex numbers
+\newcommand{\R}{\mathbb{R}}               % Real numbers
+\newcommand{\N}{\mathbb{N}}               % Natural numbers
+
+% ══════════════════════════════════════════════════════════════
+%  PAULI MATRICES & BLOCH SPHERE
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\paulivec}{\vb{\sigma}}        % Pauli vector (sigma_x, sigma_y, sigma_z)
+\newcommand{\sx}{\sigma_x}
+\newcommand{\sy}{\sigma_y}
+\newcommand{\sz}{\sigma_z}
+
+% ══════════════════════════════════════════════════════════════
+%  CHANNELS & MAPS
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\chan}{\mathcal{E}}            % Quantum channel
+\newcommand{\idmap}{\mathrm{id}}           % Identity map
+
+% ══════════════════════════════════════════════════════════════
+%  DERIVATIVES
+% ══════════════════════════════════════════════════════════════
+
+\newcommand{\dd}{\mathrm{d}}               % Upright differential
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}  % Partial derivative
+\newcommand{\td}[2]{\frac{d #1}{d #2}}    % Total derivative
+
+% ══════════════════════════════════════════════════════════════
+%  TIKZ STYLES
+% ══════════════════════════════════════════════════════════════
+
+\tikzset{
+  % Wire style for quantum circuits / diagrams
+  qwire/.style={thick, spacecadet},
+  % Box for quantum operations
+  qbox/.style={rectangle, draw=cgblue, fill=cgblue!10,
+    minimum height=1.5em, minimum width=1.5em,
+    font=\small, inner sep=4pt},
+  % State label
+  qstate/.style={circle, draw=cgblue, fill=cgblue!10,
+    minimum size=1.2em, font=\small, inner sep=2pt},
+  % Arrow style
+  qarrow/.style={-{Stealth[length=5pt,width=4pt]}, thick, cgblue},
+}
+
+\endinput

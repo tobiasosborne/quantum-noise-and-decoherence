@@ -1,0 +1,2702 @@
+{
+  "title": "Theory of Quantum Noise and Decoherence, Lecture 1: Recapitulation of Quantum Mechanics",
+  "video_id": "mKpURUtQgZ4",
+  "url": "https://www.youtube.com/watch?v=mKpURUtQgZ4",
+  "transcript": [
+    {
+      "start": 0.0,
+      "duration": 3.6,
+      "text": "So welcome to quantum noise, the theory of quantum noise and"
+    },
+    {
+      "start": 3.6,
+      "duration": 2.64,
+      "text": "decoherence."
+    },
+    {
+      "start": 6.24,
+      "duration": 3.08,
+      "text": "So why am I offering this course?"
+    },
+    {
+      "start": 9.32,
+      "duration": 2.52,
+      "text": "Let's begin with the question, why?"
+    },
+    {
+      "start": 11.84,
+      "duration": 1.56,
+      "text": "You've all met quantum mechanics."
+    },
+    {
+      "start": 13.4,
+      "duration": 2.96,
+      "text": "I assume you've all met quantum mechanics so far in your"
+    },
+    {
+      "start": 16.36,
+      "duration": 1.32,
+      "text": "degree."
+    },
+    {
+      "start": 17.68,
+      "duration": 2.04,
+      "text": "It's one of the prerequisites to be here."
+    },
+    {
+      "start": 19.72,
+      "duration": 2.88,
+      "text": "But you've probably only met the quantum mechanics of"
+    },
+    {
+      "start": 22.6,
+      "duration": 0.8,
+      "text": "closed systems."
+    },
+    {
+      "start": 23.4,
+      "duration": 2.84,
+      "text": "You've probably studied free particles and other closed"
+    },
+    {
+      "start": 26.24,
+      "duration": 7.24,
+      "text": "systems and did not really interact much with composite"
+    },
+    {
+      "start": 33.48,
+      "duration": 1.0,
+      "text": "quantum systems."
+    },
+    {
+      "start": 34.48,
+      "duration": 3.84,
+      "text": "Quantum systems comprise of many subsystems."
+    },
+    {
+      "start": 38.32,
+      "duration": 4.32,
+      "text": "And it's the objective of this course to precisely talk"
+    },
+    {
+      "start": 42.64,
+      "duration": 4.12,
+      "text": "about quantum mechanics of many systems."
+    },
+    {
+      "start": 46.76,
+      "duration": 4.68,
+      "text": "Now, in contrast to classical physics, in quantum mechanics,"
+    },
+    {
+      "start": 51.44,
+      "duration": 2.16,
+      "text": "we cannot copy quantum information."
+    },
+    {
+      "start": 53.6,
+      "duration": 2.52,
+      "text": "There is a so-called no-cloning theorem that prevents us"
+    },
+    {
+      "start": 56.12,
+      "duration": 1.8,
+      "text": "from copying quantum information."
+    },
+    {
+      "start": 57.92,
+      "duration": 4.24,
+      "text": "So that if we want to gain information about some closed"
+    },
+    {
+      "start": 62.16,
+      "duration": 2.92,
+      "text": "quantum system like this, imagine this is some closed"
+    },
+    {
+      "start": 65.08,
+      "duration": 1.92,
+      "text": "quantum system, a particle in a square"
+    },
+    {
+      "start": 67.0,
+      "duration": 1.48,
+      "text": "well, or something like that."
+    },
+    {
+      "start": 68.48,
+      "duration": 3.88,
+      "text": "If we want to gain information about this, we have to"
+    },
+    {
+      "start": 72.36,
+      "duration": 1.16,
+      "text": "interact with this."
+    },
+    {
+      "start": 73.52,
+      "duration": 5.32,
+      "text": "And this will unavoidably have some back action on the"
+    },
+    {
+      "start": 78.84,
+      "duration": 1.48,
+      "text": "system itself."
+    },
+    {
+      "start": 80.32,
+      "duration": 7.44,
+      "text": "So the act of measuring disturbs."
+    },
+    {
+      "start": 87.76,
+      "duration": 3.64,
+      "text": "This is something that you are familiar with from your"
+    },
+    {
+      "start": 91.4,
+      "duration": 4.12,
+      "text": "first encounter with the postulates of quantum"
+    },
+    {
+      "start": 95.52,
+      "duration": 3.48,
+      "text": "mechanics and with projective measurements."
+    },
+    {
+      "start": 99.0,
+      "duration": 2.68,
+      "text": "So this is really, in some sense, this is the defining"
+    },
+    {
+      "start": 101.68,
+      "duration": 2.92,
+      "text": "feature of quantum mechanics that to gain information"
+    },
+    {
+      "start": 104.6,
+      "duration": 3.0,
+      "text": "about a quantum system, it unavoidably disturbs the"
+    },
+    {
+      "start": 107.6,
+      "duration": 1.32,
+      "text": "system."
+    },
+    {
+      "start": 108.92,
+      "duration": 2.88,
+      "text": "Now, this isn't just restricted to quantum mechanics."
+    },
+    {
+      "start": 111.8,
+      "duration": 5.04,
+      "text": "In fact, in everyday classical physics, we also encounter"
+    },
+    {
+      "start": 116.84,
+      "duration": 2.6,
+      "text": "situations where gaining information will unavoidably"
+    },
+    {
+      "start": 119.44,
+      "duration": 1.52,
+      "text": "disturb the system."
+    },
+    {
+      "start": 120.96,
+      "duration": 1.88,
+      "text": "I'll give you two examples."
+    },
+    {
+      "start": 122.84,
+      "duration": 2.44,
+      "text": "So the first example is the stock market."
+    },
+    {
+      "start": 125.28,
+      "duration": 2.28,
+      "text": "If you gain information and actually act on that"
+    },
+    {
+      "start": 127.56,
+      "duration": 3.12,
+      "text": "information, then that will create a disturbance in the"
+    },
+    {
+      "start": 130.68,
+      "duration": 2.76,
+      "text": "stock market because other traders will observe you"
+    },
+    {
+      "start": 133.44,
+      "duration": 4.08,
+      "text": "exploiting information and then react accordingly."
+    },
+    {
+      "start": 137.52,
+      "duration": 2.72,
+      "text": "Another situation where gaining information can actually"
+    },
+    {
+      "start": 140.24,
+      "duration": 3.84,
+      "text": "create a back action is the so-called observer effect in"
+    },
+    {
+      "start": 144.08,
+      "duration": 1.64,
+      "text": "social psychology."
+    },
+    {
+      "start": 145.72,
+      "duration": 1.44,
+      "text": "You do an experiment."
+    },
+    {
+      "start": 147.16,
+      "duration": 2.16,
+      "text": "You want to test human behavior in some way."
+    },
+    {
+      "start": 149.32,
+      "duration": 5.24,
+      "text": "And the very act of having a device recording in the room,"
+    },
+    {
+      "start": 154.56,
+      "duration": 2.92,
+      "text": "or to be even if the participants know that they are"
+    },
+    {
+      "start": 157.48,
+      "duration": 2.28,
+      "text": "being observed, they will behave differently."
+    },
+    {
+      "start": 159.76,
+      "duration": 5.76,
+      "text": "So this is morally too everyday situations where the"
+    },
+    {
+      "start": 165.52,
+      "duration": 3.28,
+      "text": "gaining information has a kind of a back reaction on the"
+    },
+    {
+      "start": 168.8,
+      "duration": 1.2,
+      "text": "system itself."
+    },
+    {
+      "start": 170.0,
+      "duration": 3.48,
+      "text": "Economic mechanics, but you might argue, well, these are just"
+    },
+    {
+      "start": 173.48,
+      "duration": 2.96,
+      "text": "a consequence of approximations."
+    },
+    {
+      "start": 176.44,
+      "duration": 1.36,
+      "text": "In quantum mechanics, it's fundamental."
+    },
+    {
+      "start": 177.8,
+      "duration": 2.92,
+      "text": "It's built into the theory itself that to gain information"
+    },
+    {
+      "start": 180.72,
+      "duration": 3.72,
+      "text": "about a quantum system, you have to disturb it."
+    },
+    {
+      "start": 184.44,
+      "duration": 4.08,
+      "text": "And that's what gives us the richness of quantum mechanics"
+    },
+    {
+      "start": 188.52,
+      "duration": 5.56,
+      "text": "and what makes it such a challenging theory to work with."
+    },
+    {
+      "start": 194.08,
+      "duration": 5.28,
+      "text": "And it's this concept that we want to put in the center of"
+    },
+    {
+      "start": 199.36,
+      "duration": 3.0,
+      "text": "this course and explore throughout the course."
+    },
+    {
+      "start": 202.36,
+      "duration": 3.4,
+      "text": "By the end of this course, I hope we will understand this"
+    },
+    {
+      "start": 205.76,
+      "duration": 3.44,
+      "text": "sentence and how to quantify that."
+    },
+    {
+      "start": 209.2,
+      "duration": 5.04,
+      "text": "And also, at the end of this course, I want to explain how when"
+    },
+    {
+      "start": 214.24,
+      "duration": 3.4,
+      "text": "we look at a quantum system with our everyday measurement"
+    },
+    {
+      "start": 217.64,
+      "duration": 3.76,
+      "text": "apparatus, such as our eyes, why quantum systems look"
+    },
+    {
+      "start": 221.4,
+      "duration": 0.72,
+      "text": "classical?"
+    },
+    {
+      "start": 222.12,
+      "duration": 3.24,
+      "text": "Why is it that where is the classical limit coming from?"
+    },
+    {
+      "start": 225.36,
+      "duration": 4.16,
+      "text": "And the answer I propose in this course is because of quantum"
+    },
+    {
+      "start": 229.52,
+      "duration": 4.44,
+      "text": "noise and decoherence, which are themselves a consequence of"
+    },
+    {
+      "start": 233.96,
+      "duration": 3.96,
+      "text": "the statement that measuring disturbs a quantum system."
+    },
+    {
+      "start": 237.92,
+      "duration": 1.44,
+      "text": "So that's the why of this course."
+    },
+    {
+      "start": 239.36,
+      "duration": 0.72,
+      "text": "Why are we doing it?"
+    },
+    {
+      "start": 240.08,
+      "duration": 2.08,
+      "text": "Why are you sitting here?"
+    },
+    {
+      "start": 242.16,
+      "duration": 0.48,
+      "text": "Who?"
+    },
+    {
+      "start": 242.64,
+      "duration": 3.84,
+      "text": "Well, this course is intended for anyone who's met quantum"
+    },
+    {
+      "start": 246.48,
+      "duration": 4.24,
+      "text": "mechanics and anyone who is going to have something to do"
+    },
+    {
+      "start": 250.72,
+      "duration": 2.64,
+      "text": "with quantum mechanics in their future life."
+    },
+    {
+      "start": 253.36,
+      "duration": 2.24,
+      "text": "If you are an experimentalist, I want this course to be as"
+    },
+    {
+      "start": 255.6,
+      "duration": 3.04,
+      "text": "much for you as for a theorist."
+    },
+    {
+      "start": 258.64,
+      "duration": 2.84,
+      "text": "And I want to give you the basic tools to be able to reason"
+    },
+    {
+      "start": 261.48,
+      "duration": 3.52,
+      "text": "about open quantum systems, quantum systems with more than"
+    },
+    {
+      "start": 265.0,
+      "duration": 0.84,
+      "text": "one subsystem."
+    },
+    {
+      "start": 271.8,
+      "duration": 5.52,
+      "text": "Let's get to the important questions of this course."
+    },
+    {
+      "start": 277.32,
+      "duration": 1.52,
+      "text": "What's the proof-forms lie-stung?"
+    },
+    {
+      "start": 278.84,
+      "duration": 2.6,
+      "text": "How do you get it?"
+    },
+    {
+      "start": 281.44,
+      "duration": 2.92,
+      "text": "Well, it's a oral exam for this course."
+    },
+    {
+      "start": 287.48,
+      "duration": 2.08,
+      "text": "The student lie-stung is easier."
+    },
+    {
+      "start": 298.24,
+      "duration": 3.0,
+      "text": "And that is participation in the exercise class."
+    },
+    {
+      "start": 309.84,
+      "duration": 4.68,
+      "text": "By which I mean handing in worked problems and coming to"
+    },
+    {
+      "start": 314.52,
+      "duration": 2.48,
+      "text": "the exercise class, you will get the proof of the"
+    },
+    {
+      "start": 317.0,
+      "duration": 3.04,
+      "text": "student lie-stung if you come, you do not have to present"
+    },
+    {
+      "start": 320.04,
+      "duration": 3.88,
+      "text": "a solution on the board to get the student lie-stung."
+    },
+    {
+      "start": 323.92,
+      "duration": 4.96,
+      "text": "So that's to the important questions."
+    },
+    {
+      "start": 328.88,
+      "duration": 2.12,
+      "text": "Before I proceed, are there any other questions concerning"
+    },
+    {
+      "start": 331.0,
+      "duration": 5.12,
+      "text": "proof-forms lie-stung, student lie-stung prerequisites?"
+    },
+    {
+      "start": 336.12,
+      "duration": 1.0,
+      "text": "All right."
+    },
+    {
+      "start": 337.12,
+      "duration": 3.84,
+      "text": "Then I'll give you now a brief outline of what I hope to"
+    },
+    {
+      "start": 340.96,
+      "duration": 1.0,
+      "text": "cover in this course."
+    },
+    {
+      "start": 348.04,
+      "duration": 4.2,
+      "text": "So what we're going to do today, and possibly next week,"
+    },
+    {
+      "start": 352.24,
+      "duration": 6.96,
+      "text": "is just review quantum mechanics according to the"
+    },
+    {
+      "start": 359.2,
+      "duration": 1.0,
+      "text": "Hanover rules."
+    },
+    {
+      "start": 366.28,
+      "duration": 3.04,
+      "text": "And I'll explain what that means today."
+    },
+    {
+      "start": 372.16,
+      "duration": 6.0,
+      "text": "This is our way of working with quantum mechanics in the"
+    },
+    {
+      "start": 378.16,
+      "duration": 3.76,
+      "text": "theory of quantum information courses and other quantum"
+    },
+    {
+      "start": 381.92,
+      "duration": 2.48,
+      "text": "information group related courses is a little bit"
+    },
+    {
+      "start": 384.4,
+      "duration": 2.24,
+      "text": "different from a textbook treatment of quantum mechanics."
+    },
+    {
+      "start": 390.08,
+      "duration": 20.68,
+      "text": "The next topic, quantum many particle systems are the next"
+    },
+    {
+      "start": 410.76,
+      "duration": 6.52,
+      "text": "step, the topic of quantum noise and decarherence only"
+    },
+    {
+      "start": 417.28,
+      "duration": 2.6,
+      "text": "gains its richness when we have many particles around that"
+    },
+    {
+      "start": 419.88,
+      "duration": 1.48,
+      "text": "we cannot observe."
+    },
+    {
+      "start": 421.36,
+      "duration": 2.76,
+      "text": "So I have to talk about many particles in quantum mechanics."
+    },
+    {
+      "start": 424.12,
+      "duration": 3.8,
+      "text": "I hope you've probably met this before, Fox Space,"
+    },
+    {
+      "start": 427.92,
+      "duration": 1.88,
+      "text": "Creation and Ilation operators."
+    },
+    {
+      "start": 429.8,
+      "duration": 1.92,
+      "text": "These are all words I hope are familiar, but nonetheless,"
+    },
+    {
+      "start": 431.72,
+      "duration": 9.2,
+      "text": "we'll review it before we get in to the main material of"
+    },
+    {
+      "start": 440.92,
+      "duration": 0.72,
+      "text": "this course."
+    },
+    {
+      "start": 441.64,
+      "duration": 4.2,
+      "text": "Next thing I wish to cover, there's actually a seat here"
+    },
+    {
+      "start": 445.84,
+      "duration": 6.12,
+      "text": "at the front that you're welcome to use."
+    },
+    {
+      "start": 451.96,
+      "duration": 4.44,
+      "text": "There's a strongly connected with quantum many body"
+    },
+    {
+      "start": 456.4,
+      "duration": 2.56,
+      "text": "systems is the topic of continuous variables."
+    },
+    {
+      "start": 463.12,
+      "duration": 3.2,
+      "text": "This is vital for any experiment involving light."
+    },
+    {
+      "start": 466.32,
+      "duration": 5.96,
+      "text": "So if you're involved in optical, if your everyday life"
+    },
+    {
+      "start": 472.28,
+      "duration": 2.72,
+      "text": "involves manipulating optical degrees of freedom, this is,"
+    },
+    {
+      "start": 475.0,
+      "duration": 1.92,
+      "text": "of course, a crucial topic for you."
+    },
+    {
+      "start": 476.92,
+      "duration": 3.6,
+      "text": "This is how we describe laser coherent states of laser light."
+    },
+    {
+      "start": 495.96,
+      "duration": 2.84,
+      "text": "Then we'll talk about actual realistic sources of"
+    },
+    {
+      "start": 498.8,
+      "duration": 2.88,
+      "text": "quantum noise that occur in experiments, decarherence"
+    },
+    {
+      "start": 501.68,
+      "duration": 2.6,
+      "text": "and experiments."
+    },
+    {
+      "start": 504.28,
+      "duration": 10.44,
+      "text": "And move on to the topic of stochastic calculus, both"
+    },
+    {
+      "start": 514.72,
+      "duration": 1.24,
+      "text": "classical and quantum."
+    },
+    {
+      "start": 521.92,
+      "duration": 2.72,
+      "text": "This is a way to obtain solutions to set"
+    },
+    {
+      "start": 524.64,
+      "duration": 3.96,
+      "text": "limp light equations, which are that, as I said."
+    },
+    {
+      "start": 528.6,
+      "duration": 2.52,
+      "text": "This is the core objective of this course to introduce"
+    },
+    {
+      "start": 531.12,
+      "duration": 2.92,
+      "text": "these things, derive these things and solve these things,"
+    },
+    {
+      "start": 534.04,
+      "duration": 3.92,
+      "text": "possibly rather briefly stochastic calculus."
+    },
+    {
+      "start": 537.96,
+      "duration": 3.2,
+      "text": "Now, if any of you have thoughts of going into the finance"
+    },
+    {
+      "start": 541.16,
+      "duration": 4.16,
+      "text": "industry, I hope that this topic will do a double duty for"
+    },
+    {
+      "start": 545.32,
+      "duration": 3.52,
+      "text": "you, because in the finance industry, it's certainly one of"
+    },
+    {
+      "start": 548.84,
+      "duration": 4.8,
+      "text": "the central tools in pricing derivatives on financial markets."
+    },
+    {
+      "start": 553.64,
+      "duration": 4.48,
+      "text": "So there's a strange confluence of topics here in this course."
+    },
+    {
+      "start": 561.24,
+      "duration": 3.48,
+      "text": "And we'll come back to feedback and control."
+    },
+    {
+      "start": 564.72,
+      "duration": 5.64,
+      "text": "Also, a vital topic in experiments, how do you stabilize"
+    },
+    {
+      "start": 570.36,
+      "duration": 1.64,
+      "text": "things when you need to exploit feedback?"
+    },
+    {
+      "start": 572.0,
+      "duration": 2.4,
+      "text": "You need to gain information and then act on that"
+    },
+    {
+      "start": 574.4,
+      "duration": 5.68,
+      "text": "information to carry out some task."
+    },
+    {
+      "start": 580.08,
+      "duration": 0.84,
+      "text": "That's the outline."
+    },
+    {
+      "start": 583.64,
+      "duration": 2.16,
+      "text": "Are there any questions before we proceed?"
+    },
+    {
+      "start": 585.8,
+      "duration": 8.04,
+      "text": "So your questions won't be audible on the video."
+    },
+    {
+      "start": 593.84,
+      "duration": 2.32,
+      "text": "So I'll repeat them when you ask them."
+    },
+    {
+      "start": 596.16,
+      "duration": 12.0,
+      "text": "Do we get the excercise sheets before you go to the class?"
+    },
+    {
+      "start": 608.16,
+      "duration": 5.16,
+      "text": "The first exercise class will be next week on Monday."
+    },
+    {
+      "start": 613.32,
+      "duration": 1.88,
+      "text": "There will be no exercise sheet for that class."
+    },
+    {
+      "start": 615.2,
+      "duration": 3.12,
+      "text": "There's not enough time."
+    },
+    {
+      "start": 618.32,
+      "duration": 3.2,
+      "text": "I won't do an exercise sheet for that particular class."
+    },
+    {
+      "start": 621.52,
+      "duration": 3.52,
+      "text": "But in general, I will prepare one a week before the exercise"
+    },
+    {
+      "start": 625.04,
+      "duration": 0.68,
+      "text": "class."
+    },
+    {
+      "start": 625.72,
+      "duration": 3.16,
+      "text": "So you'll have a week to attempt the questions."
+    },
+    {
+      "start": 628.88,
+      "duration": 1.68,
+      "text": "And I'll distribute it on .ip."
+    },
+    {
+      "start": 637.52,
+      "duration": 2.24,
+      "text": "There's some references here for this course."
+    },
+    {
+      "start": 646.2,
+      "duration": 2.0,
+      "text": "There's no one book for this course."
+    },
+    {
+      "start": 648.2,
+      "duration": 3.6,
+      "text": "I'm afraid I'm going to build it from lots of different sources."
+    },
+    {
+      "start": 659.92,
+      "duration": 1.4,
+      "text": "A book by B Davies."
+    },
+    {
+      "start": 665.32,
+      "duration": 2.08,
+      "text": "I think it's Open Quantum Systems is the title."
+    },
+    {
+      "start": 667.4,
+      "duration": 9.44,
+      "text": "This is the old classic source, but it's a bit old now."
+    },
+    {
+      "start": 676.84,
+      "duration": 3.96,
+      "text": "I will use it, though."
+    },
+    {
+      "start": 680.8,
+      "duration": 7.72,
+      "text": "I will be using the books of Gardner and Solar called Quantum"
+    },
+    {
+      "start": 688.52,
+      "duration": 7.64,
+      "text": "Noise and also an older book of Gardner."
+    },
+    {
+      "start": 696.16,
+      "duration": 5.72,
+      "text": "Crispin Gardner's handbook of stochastic methods."
+    },
+    {
+      "start": 701.88,
+      "duration": 0.76,
+      "text": "I think it's called."
+    },
+    {
+      "start": 714.88,
+      "duration": 5.48,
+      "text": "And there's some another quantum optics book, which"
+    },
+    {
+      "start": 720.36,
+      "duration": 4.32,
+      "text": "I like rather a lot, is Wiseman and Milburn."
+    },
+    {
+      "start": 725.48,
+      "duration": 12.68,
+      "text": "And then a more modern book by one of the same authors on feedback"
+    },
+    {
+      "start": 738.16,
+      "duration": 0.76,
+      "text": "and control."
+    },
+    {
+      "start": 746.12,
+      "duration": 1.0,
+      "text": "These are all books."
+    },
+    {
+      "start": 747.88,
+      "duration": 10.48,
+      "text": "But I won't be covering any particular book in any comprehensive detail."
+    },
+    {
+      "start": 758.36,
+      "duration": 7.4,
+      "text": "The course will be comprised of little pieces of these books and also some other stuff."
+    },
+    {
+      "start": 765.76,
+      "duration": 2.8,
+      "text": "So unfortunately, I can't give you a single reference for this course."
+    },
+    {
+      "start": 777.12,
+      "duration": 24.88,
+      "text": "Well, let's now come to the first main topic for the course, which is a review of quantum mechanics."
+    },
+    {
+      "start": 802.0,
+      "duration": 9.6,
+      "text": "So this should be kind of familiar and kind of new and strange the way I'm going to describe quantum mechanics to you."
+    },
+    {
+      "start": 811.6,
+      "duration": 6.68,
+      "text": "I'm going to follow what I like to call the Hanover rules for quantum mechanics."
+    },
+    {
+      "start": 818.28,
+      "duration": 1.64,
+      "text": "These differ."
+    },
+    {
+      "start": 819.92,
+      "duration": 2.92,
+      "text": "I'm not going to give you a list of postulates."
+    },
+    {
+      "start": 822.84,
+      "duration": 4.92,
+      "text": "And I especially won't be having any projection postulates in this course."
+    },
+    {
+      "start": 827.76,
+      "duration": 12.88,
+      "text": "Instead, the emphasis in this course is on operational methods where the focal point is on quantities"
+    },
+    {
+      "start": 840.64,
+      "duration": 3.2,
+      "text": "that you can measure in experiments, at least in principle."
+    },
+    {
+      "start": 843.84,
+      "duration": 25.72,
+      "text": "So the Hanover rules, and I'm going to describe quantum mechanics of two pieces, kinematics and dynamics."
+    },
+    {
+      "start": 869.56,
+      "duration": 17.04,
+      "text": "Today, we're just going to do kinematics of quantum mechanics."
+    },
+    {
+      "start": 886.6,
+      "duration": 8.28,
+      "text": "And to introduce our understanding or our formulation of quantum mechanics, I'm going to describe physical experiments in a very particular way."
+    },
+    {
+      "start": 894.88,
+      "duration": 16.52,
+      "text": "I'm going to divide physical experiments into two stages, a preparation stage and a measurement stage."
+    },
+    {
+      "start": 911.4,
+      "duration": 9.96,
+      "text": "So this is our theoretical abstract caricature of a physical experiment."
+    },
+    {
+      "start": 921.36,
+      "duration": 6.48,
+      "text": "We're going to model all physical experiments as a sequence of a preparation followed by a measurement."
+    },
+    {
+      "start": 927.84,
+      "duration": 10.2,
+      "text": "And at least for all the thought experiments and even some of the real experiments that I know, this is possible."
+    },
+    {
+      "start": 938.04,
+      "duration": 7.76,
+      "text": "Everything from the Stern-Gelach experiment to, I don't know, preparation of states of quantum bits."
+    },
+    {
+      "start": 945.8,
+      "duration": 6.84,
+      "text": "They all have preparation phase and a measurement phase."
+    },
+    {
+      "start": 952.64,
+      "duration": 8.08,
+      "text": "In the next lecture, we're going to talk about dynamics where we're going to insert in here some evolution in between the preparation and the measurement."
+    },
+    {
+      "start": 960.72,
+      "duration": 6.08,
+      "text": "But that's actually an artificial thing to do because any evolution that we could stick in the middle,"
+    },
+    {
+      "start": 966.8,
+      "duration": 5.88,
+      "text": "you could model by just pretending you've done a different measurement, or, which is called the Heisenberg picture,"
+    },
+    {
+      "start": 972.68,
+      "duration": 7.08,
+      "text": "or you could absorb that evolution into having done a different preparation, which we would call the Schrodinger picture."
+    },
+    {
+      "start": 979.76,
+      "duration": 14.28,
+      "text": "So in some sense, we're going to do all of quantum mechanics today, but it becomes very convenient later on to divide out this intermediate evolution phase."
+    },
+    {
+      "start": 994.04,
+      "duration": 26.4,
+      "text": "Now, just to emphasize, in classical physics, there's no real need to talk of a measurement step."
+    },
+    {
+      "start": 1020.44,
+      "duration": 6.52,
+      "text": "Because in classical physics, you can copy information freely without disturbing a system."
+    },
+    {
+      "start": 1026.96,
+      "duration": 7.48,
+      "text": "In principle, you could take a snapshot of the locations of all the particles in some system without actually disturbing a system."
+    },
+    {
+      "start": 1034.44,
+      "duration": 3.52,
+      "text": "That's in principle possible within classical physics."
+    },
+    {
+      "start": 1037.96,
+      "duration": 7.76,
+      "text": "And so, typically, you won't have ever encountered this division in classical physics."
+    },
+    {
+      "start": 1045.72,
+      "duration": 6.04,
+      "text": "Although, it should be pointed out that, once you've got into this kind of operational framework,"
+    },
+    {
+      "start": 1051.76,
+      "duration": 3.88,
+      "text": "even thinking about classical physics in these terms, can be quite helpful."
+    },
+    {
+      "start": 1075.72,
+      "duration": 27.0,
+      "text": "All right. So what is a preparation? Well, a preparation is just all the things you did to prepare the system in a certain state."
+    },
+    {
+      "start": 1102.72,
+      "duration": 7.0,
+      "text": "I'll introduce the word state in a minute. It's a set of operations."
+    },
+    {
+      "start": 1132.72,
+      "duration": 26.0,
+      "text": "There we go."
+    },
+    {
+      "start": 1158.72,
+      "duration": 7.0,
+      "text": "So putting this box of chalk here, that's a preparation."
+    },
+    {
+      "start": 1165.72,
+      "duration": 11.0,
+      "text": "I prepared the system in a configuration that any subsequent measurement on that system will determine the probability distributions that I will measure."
+    },
+    {
+      "start": 1176.72,
+      "duration": 9.0,
+      "text": "Now, I could have prepared this same system in another way, right? I could have walked this way and then this way, and then put the box at exactly the same location."
+    },
+    {
+      "start": 1185.72,
+      "duration": 7.0,
+      "text": "More than one set of actions can determine the same configuration or state."
+    },
+    {
+      "start": 1215.72,
+      "duration": 11.0,
+      "text": "Different preparations can lead to identical probability distributions when you measure."
+    },
+    {
+      "start": 1226.72,
+      "duration": 9.0,
+      "text": "And that leads us to the concept of a state. And what does that do? That specifies only the details of the preparation that are important for all subsequent measurements."
+    },
+    {
+      "start": 1235.72,
+      "duration": 23.0,
+      "text": "So write that out in a little box. A state describes all the details and no more."
+    },
+    {
+      "start": 1258.72,
+      "duration": 27.0,
+      "text": "All the details and no more for all subsequent measurements."
+    },
+    {
+      "start": 1285.72,
+      "duration": 22.0,
+      "text": "That's important, so I'm going to draw a box around it."
+    },
+    {
+      "start": 1307.72,
+      "duration": 19.0,
+      "text": "Quantum mechanics is an example of a statistical theory, meaning that we can only at best describe probability distributions of possible outcomes of measurements. It's not a deterministic theory as far as we know."
+    },
+    {
+      "start": 1326.72,
+      "duration": 14.0,
+      "text": "Some people really don't like statistical theories. They find it philosophically objectionable."
+    },
+    {
+      "start": 1340.72,
+      "duration": 13.0,
+      "text": "But one thing's for sure, when we talk when someone who insists on the reality of the wave function talks about the same physical experiment that I talk about, we'll give the same answers."
+    },
+    {
+      "start": 1353.72,
+      "duration": 17.0,
+      "text": "So I'll leave that philosophical question aside in this course. And we'll just focus on the subset of the rules of quantum mechanics that we'll all agree on when describing the outcomes of real experiments."
+    },
+    {
+      "start": 1370.72,
+      "duration": 21.0,
+      "text": "So as you can probably tell, I'm not particularly interested in deterministic theories with an interpretation of reality for the wave function. I'm more an operationalist. I'm content to just supply probability distributions for possible outcomes and no more."
+    },
+    {
+      "start": 1391.72,
+      "duration": 13.0,
+      "text": "You may or may not like that position, but it shouldn't matter in this course. So this is all very good. This is well and good. This is just words. Let's actually get to some actual equations."
+    },
+    {
+      "start": 1404.72,
+      "duration": 28.0,
+      "text": "So mathematically, we represent division of preparations and measurements in a certain way."
+    },
+    {
+      "start": 1432.72,
+      "duration": 18.0,
+      "text": "As follows, this is going to look a bit different from probably your first exposure to quantum mechanics. You might be expecting me to write down something like a state is a ray in Hilbert space, blah, blah, blah, blah. But I'm not."
+    },
+    {
+      "start": 1450.72,
+      "duration": 29.0,
+      "text": "Firstly, to the operationalist, observables are somehow more fundamental than states. Well, they should be familiar to you. The Hermitian, Hermitian elements of a think of an observable algebra don't be afraid of the word observable algebra."
+    },
+    {
+      "start": 1480.72,
+      "duration": 15.0,
+      "text": "For the majority of this course, you'll have no problems translating the words observable algebra to bunch of matrices."
+    },
+    {
+      "start": 1495.72,
+      "duration": 15.0,
+      "text": "So whenever you see observable algebra, just think matrices that I could put in MATLAB."
+    },
+    {
+      "start": 1510.72,
+      "duration": 15.0,
+      "text": "So we describe observables as Hermitian elements of some observable algebra. But we never actually directly measure an observable in an experiment."
+    },
+    {
+      "start": 1526.72,
+      "duration": 17.0,
+      "text": "This symbol here, this is meant to be my version of a calligraphic A."
+    },
+    {
+      "start": 1543.72,
+      "duration": 23.0,
+      "text": "So from now on, this peculiar symbol is calligraphic A. You'll have to get used to it. I'm going to do this a lot."
+    },
+    {
+      "start": 1566.72,
+      "duration": 7.0,
+      "text": "So we don't actually ever measure an observable. If you go to an experimentalist and you say, what's the Hermitian operator that you're measuring right now?"
+    },
+    {
+      "start": 1573.72,
+      "duration": 10.0,
+      "text": "And I've done this. I've actually asked quite a lot of experimentalists this question. As a theorist, you know, observables are Hermitian matrices. So you must be measuring one, right? What is it?"
+    },
+    {
+      "start": 1583.72,
+      "duration": 11.0,
+      "text": "So often the answer that you'll get is instead of it, you know, it is the matrix blah, blah, blah. Instead you'll get the answer, which is somewhat perplexing, namely you'll get a description of a process."
+    },
+    {
+      "start": 1594.72,
+      "duration": 8.0,
+      "text": "So they say, well, you know, we tune this laser, and then we do this, and then we do that, and then we do this, and then we get some information."
+    },
+    {
+      "start": 1602.72,
+      "duration": 12.0,
+      "text": "This idea of an observable being something that you measure, you've probably heard this, is really a shorthand for something else. And I said something else, which is what's important in experiments."
+    },
+    {
+      "start": 1614.72,
+      "duration": 23.0,
+      "text": "So just a word on what is an algebra? So if you, for us, oops, a C algebra, which is the ones we'll be working with, yeah, I'll be de-emphasizing the mathematical concepts in this course, but if you're interested in the mathematical concepts, I'll write them out along the way."
+    },
+    {
+      "start": 1637.72,
+      "duration": 27.0,
+      "text": "So this is a set, closed under multiplication and addition, as well as multiplication by scalars from C."
+    },
+    {
+      "start": 1664.72,
+      "duration": 29.0,
+      "text": "And furthermore, we'll have a star algebra, meaning that each element has an adjoint."
+    },
+    {
+      "start": 1693.72,
+      "duration": 7.0,
+      "text": "I'll do daggers for adjoints in this course."
+    },
+    {
+      "start": 1700.72,
+      "duration": 10.0,
+      "text": "Right, so observables are a convenient way to, they're a convenient shorthand for a set of processes in an experiment."
+    },
+    {
+      "start": 1760.72,
+      "duration": 15.0,
+      "text": "One more comment about algebra's, we're going to need this idea of a positive element or a positive operator."
+    },
+    {
+      "start": 1790.72,
+      "duration": 14.0,
+      "text": "So an element is positive if you can write it as a dagger times a for some a."
+    },
+    {
+      "start": 1804.72,
+      "duration": 7.0,
+      "text": "Turns out there's actually two notions of positivity in algebra's, but they coincide in this course."
+    },
+    {
+      "start": 1811.72,
+      "duration": 9.0,
+      "text": "So we'll just define it this way. An element is positive, a matrix is positive, if you can write it as a dagger a for some other matrix a."
+    },
+    {
+      "start": 1820.72,
+      "duration": 6.0,
+      "text": "Or an operator is positive if there's some a like that. We'll do some examples in a second."
+    },
+    {
+      "start": 1826.72,
+      "duration": 12.0,
+      "text": "And for us, in fact, I think basically, yeah, I'm not going to talk about statistic generalize statistical theories, generalize probabilistic theories."
+    },
+    {
+      "start": 1838.72,
+      "duration": 11.0,
+      "text": "So for us, a will always be the set of bounded operators on some Hilbert space H."
+    },
+    {
+      "start": 1868.72,
+      "duration": 14.0,
+      "text": "Okay, end of mathematical interlude."
+    },
+    {
+      "start": 1882.72,
+      "duration": 15.0,
+      "text": "So whenever I introduce a mathematical concept like this, I'm going to attempt to give you an example so that you can have a concrete thing to keep in mind."
+    },
+    {
+      "start": 1897.72,
+      "duration": 7.0,
+      "text": "And the first and simplest possible example of a quantum system apart from the trivial one is a qubit, a two level system, right?"
+    },
+    {
+      "start": 1904.72,
+      "duration": 8.0,
+      "text": "You take some born, born, like Adam, and you focus on two levels and you isolate those."
+    },
+    {
+      "start": 1912.72,
+      "duration": 13.0,
+      "text": "Or you look at the spin of an electron or a neutrino or something. That's a two level system hidden inside a much bigger system."
+    },
+    {
+      "start": 1925.72,
+      "duration": 29.0,
+      "text": "The set of all possible observables for a qubit, which is still somehow a mathematical idealization, is none other than the two by two Hermitian matrices."
+    },
+    {
+      "start": 1954.72,
+      "duration": 17.0,
+      "text": "Let's call those calligraphic A subscript H. And there is subset of A, which is given by the set of two by two matrices."
+    },
+    {
+      "start": 1971.72,
+      "duration": 28.0,
+      "text": "So the observables for a qubit,"
+    },
+    {
+      "start": 1999.72,
+      "duration": 29.0,
+      "text": "are henceforth the set of two by two Hermitian matrices."
+    },
+    {
+      "start": 2028.72,
+      "duration": 7.0,
+      "text": "So far, we've been somehow focusing on this half of the diagram."
+    },
+    {
+      "start": 2035.72,
+      "duration": 9.0,
+      "text": "I'm going to say a little bit more about how we model measurements mathematically before we then move to states or preparations."
+    },
+    {
+      "start": 2044.72,
+      "duration": 8.0,
+      "text": "So as I said, observables there are somehow an idealization and not the things you measure and experiments."
+    },
+    {
+      "start": 2052.72,
+      "duration": 7.0,
+      "text": "Instead, what happens in an experiment is you have some kind of detector that goes click."
+    },
+    {
+      "start": 2059.72,
+      "duration": 14.0,
+      "text": "Photo-on-counter, for example, a zero-mini photo-on-counter, either click or not click or just not work. I guess there's a third option."
+    },
+    {
+      "start": 2073.72,
+      "duration": 8.0,
+      "text": "And if you try hard enough, you can break any detector down into a sequence of clicking objects."
+    },
+    {
+      "start": 2081.72,
+      "duration": 9.0,
+      "text": "Now, I don't know, that's a little bit controversial. I know it's experimentalists who will declare quite happily that everything is just clicks."
+    },
+    {
+      "start": 2090.72,
+      "duration": 10.0,
+      "text": "And also theorists as well. And there's a mathematical justification for that statement, which I'll attempt to make in this course."
+    },
+    {
+      "start": 2100.72,
+      "duration": 6.0,
+      "text": "And there's also a kind of physical justification for that experiment."
+    },
+    {
+      "start": 2106.72,
+      "duration": 4.0,
+      "text": "So I've heard an actual debate between experimentalists on this topic."
+    },
+    {
+      "start": 2110.72,
+      "duration": 5.0,
+      "text": "Is the only things in our experiment that we detect actual clicks? And the other experimentalist says,"
+    },
+    {
+      "start": 2115.72,
+      "duration": 5.0,
+      "text": "well, what about the voltage on a wire? That's somehow a continuous variable."
+    },
+    {
+      "start": 2120.72,
+      "duration": 9.0,
+      "text": "And then the first experimentalist says, well, isn't the voltage just a sequence of clicks averaged over little time bins?"
+    },
+    {
+      "start": 2129.72,
+      "duration": 9.0,
+      "text": "And thus the dialogue goes. So this is the abstraction we're going to take in this course."
+    },
+    {
+      "start": 2138.72,
+      "duration": 9.0,
+      "text": "We're going to say that all detections are clicks. And that's what we need to talk about when modeling measurements in our quantum system."
+    },
+    {
+      "start": 2147.72,
+      "duration": 6.0,
+      "text": "So we're going to have to model clicks, yes, no, predicates."
+    },
+    {
+      "start": 2153.72,
+      "duration": 7.0,
+      "text": "And we're going to do that in terms of objects cooled effects."
+    },
+    {
+      "start": 2183.72,
+      "duration": 7.0,
+      "text": "So measurements are modeled by"
+    },
+    {
+      "start": 2213.72,
+      "duration": 14.0,
+      "text": "to each outcome of a device. So a device can have multiple outcomes."
+    },
+    {
+      "start": 2227.72,
+      "duration": 19.0,
+      "text": "A thing called an effect."
+    },
+    {
+      "start": 2246.72,
+      "duration": 17.0,
+      "text": "And what's an effect? Well, an effect is an observable. So I kind of lied when I said you don't measure observable."
+    },
+    {
+      "start": 2263.72,
+      "duration": 6.0,
+      "text": "So that's an n by n matrix if we have matrices with a certain property."
+    },
+    {
+      "start": 2269.72,
+      "duration": 16.0,
+      "text": "That property is written this way. I'll write it out in a different way in a second."
+    },
+    {
+      "start": 2285.72,
+      "duration": 7.0,
+      "text": "So it satisfies an element of the observable algebra which satisfies an additional constraint, namely this."
+    },
+    {
+      "start": 2292.72,
+      "duration": 6.0,
+      "text": "So what is this? So what does it mean less than equal to?"
+    },
+    {
+      "start": 2298.72,
+      "duration": 8.0,
+      "text": "I'll tell you what that means now."
+    },
+    {
+      "start": 2306.72,
+      "duration": 17.0,
+      "text": "We say that a is less than equal to b. If b minus a can be written as x dagger x if it's somehow a positive element."
+    },
+    {
+      "start": 2323.72,
+      "duration": 7.0,
+      "text": "And we'll do an example swiftly in a minute to give you some intuition about this."
+    },
+    {
+      "start": 2330.72,
+      "duration": 13.0,
+      "text": "And i is the identity. This is my notation for the identity."
+    },
+    {
+      "start": 2343.72,
+      "duration": 6.0,
+      "text": "If we're talking about matrices, it's the identity matrix with ones on the diagonal."
+    },
+    {
+      "start": 2349.72,
+      "duration": 6.0,
+      "text": "So actually, when we do a measurement, we look at the outcome of a photon counter."
+    },
+    {
+      "start": 2355.72,
+      "duration": 9.0,
+      "text": "Suppose the photon counter has two reports, two possible values, no click or click, meaning that there were one or more photons there."
+    },
+    {
+      "start": 2364.72,
+      "duration": 7.0,
+      "text": "Then we assign to that photon counter, how do we model it? We model it with an object e that satisfies this constraint here."
+    },
+    {
+      "start": 2371.72,
+      "duration": 18.0,
+      "text": "And in the context of photon counting, the actual element e is, I'm getting ahead of myself, but it's worth going through this."
+    },
+    {
+      "start": 2389.72,
+      "duration": 11.0,
+      "text": "If you're familiar with this, we say that e is in fact zero zero, the projection onto the no photon or the vacuum state."
+    },
+    {
+      "start": 2401.72,
+      "duration": 25.0,
+      "text": "And we get a click if that event does not occur. So no click corresponds to this."
+    },
+    {
+      "start": 2426.72,
+      "duration": 7.0,
+      "text": "And click corresponds to another effect, which is the identity minus zero."
+    },
+    {
+      "start": 2457.72,
+      "duration": 6.0,
+      "text": "And homadine detection corresponds to each effect being the projection onto a coherent state."
+    },
+    {
+      "start": 2464.72,
+      "duration": 6.0,
+      "text": "For example, was that header a diagonal? I mixed the two up. I think that's header a diagonal."
+    },
+    {
+      "start": 2471.72,
+      "duration": 23.0,
+      "text": "And the other guy is f, which is the identity minus zero, click."
+    },
+    {
+      "start": 2495.72,
+      "duration": 14.0,
+      "text": "So this is a zero mini photon counter."
+    },
+    {
+      "start": 2509.72,
+      "duration": 7.0,
+      "text": "It's a cool fact that if you have lots of zero mini photon counters, you can actually effectively build a number resolving photon counter."
+    },
+    {
+      "start": 2516.72,
+      "duration": 7.0,
+      "text": "But sadly, I don't have time in this course to do that."
+    },
+    {
+      "start": 2524.72,
+      "duration": 5.0,
+      "text": "So that's how we describe measurements. We actually describe them by assigning to outcomes."
+    },
+    {
+      "start": 2529.72,
+      "duration": 10.0,
+      "text": "If you have a box that does a measurement, that box is going to emit to you classical information, like click or no click or zero one, two, infinity."
+    },
+    {
+      "start": 2539.72,
+      "duration": 10.0,
+      "text": "We assign to each possible outcome, and think called an effect."
+    },
+    {
+      "start": 2549.72,
+      "duration": 4.0,
+      "text": "Now that's pretty much all we can do in terms of describing measurements at this point."
+    },
+    {
+      "start": 2553.72,
+      "duration": 7.0,
+      "text": "We now have to say, what's the empiric probability that one of these outcomes occurs if we do the experiment?"
+    },
+    {
+      "start": 2560.72,
+      "duration": 5.0,
+      "text": "We won't always get a deterministic outcome from a quantum mechanical experiment."
+    },
+    {
+      "start": 2565.72,
+      "duration": 5.0,
+      "text": "So we have to admit that we're going to get probabilities. How do we do this?"
+    },
+    {
+      "start": 2570.72,
+      "duration": 3.0,
+      "text": "Well, we do this by defining mathematically a thing called a state."
+    },
+    {
+      "start": 2573.72,
+      "duration": 10.0,
+      "text": "Now, you familiar, I guess, with states being defined as raised in Hilbert space, they are examples of states, but they're not all possible states."
+    },
+    {
+      "start": 2583.72,
+      "duration": 10.0,
+      "text": "So mathematically, in this course, a state omega, the language we use is a state omega on the observables A."
+    },
+    {
+      "start": 2593.72,
+      "duration": 4.0,
+      "text": "So you'll have to get used to that way of saying things."
+    },
+    {
+      "start": 2597.72,
+      "duration": 16.0,
+      "text": "I'm going to say that a lot state omega on A is a, and here comes some math, but I'm going to try and justify these words."
+    },
+    {
+      "start": 2613.72,
+      "duration": 16.0,
+      "text": "Positive, normalized linear functional on A."
+    },
+    {
+      "start": 2629.72,
+      "duration": 5.0,
+      "text": "You're going to try and justify all these words to you and explain what they mean."
+    },
+    {
+      "start": 2634.72,
+      "duration": 7.0,
+      "text": "They have a very precise mathematical meaning, but they also have a physical origin."
+    },
+    {
+      "start": 2641.72,
+      "duration": 9.0,
+      "text": "There's a reason why I'm using these words. It's not just because I like pure math or something."
+    },
+    {
+      "start": 2650.72,
+      "duration": 4.0,
+      "text": "So I'll explain mathematically what this means. That is."
+    },
+    {
+      "start": 2654.72,
+      "duration": 5.0,
+      "text": "So omega, this thing that we call a state, is a linear functional."
+    },
+    {
+      "start": 2659.72,
+      "duration": 6.0,
+      "text": "So a functional means that it takes, it eats an element of the algebra and gives you a number."
+    },
+    {
+      "start": 2665.72,
+      "duration": 4.0,
+      "text": "That's what functional means."
+    },
+    {
+      "start": 2669.72,
+      "duration": 15.0,
+      "text": "And it's linear. So if you apply omega to a sum of two things in the algebra, it's the same as applying omega to the two things separately and then summing them."
+    },
+    {
+      "start": 2684.72,
+      "duration": 10.0,
+      "text": "The second word, so this is linear functional, I've just done."
+    },
+    {
+      "start": 2694.72,
+      "duration": 8.0,
+      "text": "Now we're going to do positive."
+    },
+    {
+      "start": 2702.72,
+      "duration": 4.0,
+      "text": "Positive means that if you put in a positive operator, remember what they were."
+    },
+    {
+      "start": 2706.72,
+      "duration": 6.0,
+      "text": "Anything that you can write is x to x. You're never going to get a number that's less than equal to zero."
+    },
+    {
+      "start": 2712.72,
+      "duration": 12.0,
+      "text": "It's a real positive number, non-negative number."
+    },
+    {
+      "start": 2724.72,
+      "duration": 21.0,
+      "text": "Now I'm going to attempt to explain the physical origin of these three things."
+    },
+    {
+      "start": 2746.72,
+      "duration": 5.0,
+      "text": "I won't be able to do it all yet because I have to talk about how we compute probabilities with states."
+    },
+    {
+      "start": 2751.72,
+      "duration": 2.0,
+      "text": "But let's just focus on this here."
+    },
+    {
+      "start": 2753.72,
+      "duration": 6.0,
+      "text": "So we think of states as assigning probabilities to outcomes of measurements."
+    },
+    {
+      "start": 2759.72,
+      "duration": 2.0,
+      "text": "That's what a state has to do."
+    },
+    {
+      "start": 2761.72,
+      "duration": 10.0,
+      "text": "I started at the beginning of the course by saying a state is the data sufficient to describe the probability distributions of all subsequent measurements."
+    },
+    {
+      "start": 2771.72,
+      "duration": 3.0,
+      "text": "So it better tell me a probability when I give it a measurement."
+    },
+    {
+      "start": 2774.72,
+      "duration": 4.0,
+      "text": "So an omega has to eat measurements and give me probabilities."
+    },
+    {
+      "start": 2778.72,
+      "duration": 2.0,
+      "text": "That's what you should think of it as doing."
+    },
+    {
+      "start": 2780.72,
+      "duration": 3.0,
+      "text": "The state omega tells me probability."
+    },
+    {
+      "start": 2783.72,
+      "duration": 3.0,
+      "text": "Now certain measurements in order to give certain probabilities for."
+    },
+    {
+      "start": 2786.72,
+      "duration": 10.0,
+      "text": "So if I do absolutely nothing, if I do not even do an experiment, then there is actually an element we can assign to that from the observables."
+    },
+    {
+      "start": 2796.72,
+      "duration": 3.0,
+      "text": "There's an effect to doing nothing whatsoever and that's the identity effect."
+    },
+    {
+      "start": 2800.72,
+      "duration": 2.0,
+      "text": "The identity is an effect. Let's check."
+    },
+    {
+      "start": 2802.72,
+      "duration": 5.0,
+      "text": "Is the identity less than equal to the identity? Yes, it's bigger than zero and it's less than the identity."
+    },
+    {
+      "start": 2807.72,
+      "duration": 1.0,
+      "text": "So it's definitely an effect."
+    },
+    {
+      "start": 2808.72,
+      "duration": 4.0,
+      "text": "And that's the one we traditionally assigned to doing nothing whatsoever."
+    },
+    {
+      "start": 2812.72,
+      "duration": 4.0,
+      "text": "And the probability of that succeeding of that event taking place, better be one, right?"
+    },
+    {
+      "start": 2816.72,
+      "duration": 4.0,
+      "text": "Unless probability is sort of vanishing from the universe into some black hole."
+    },
+    {
+      "start": 2820.72,
+      "duration": 3.0,
+      "text": "So that's why we have this axiom here."
+    },
+    {
+      "start": 2823.72,
+      "duration": 3.0,
+      "text": "This is to say that probability is conserved."
+    },
+    {
+      "start": 2827.72,
+      "duration": 5.0,
+      "text": "Now secondly, if we put in a valid measurement, we better get out a valid probability."
+    },
+    {
+      "start": 2832.72,
+      "duration": 3.0,
+      "text": "That's what this thing here is doing."
+    },
+    {
+      "start": 2835.72,
+      "duration": 2.0,
+      "text": "And linear, this has to do with preparations."
+    },
+    {
+      "start": 2837.72,
+      "duration": 4.0,
+      "text": "So the way we model preparations, we'll get to this a bit later."
+    },
+    {
+      "start": 2841.72,
+      "duration": 7.0,
+      "text": "If you do an experiment, if you have two experiments, so you have measure quantity A, measure quantity B."
+    },
+    {
+      "start": 2848.72,
+      "duration": 4.0,
+      "text": "And before you do the experiment, you flip a perfect unbiased coin."
+    },
+    {
+      "start": 2853.72,
+      "duration": 6.0,
+      "text": "You flip it and then you do experiment A if it's heads and experiment B if it's tails."
+    },
+    {
+      "start": 2859.72,
+      "duration": 6.0,
+      "text": "Then the way we model that is as a convex combination of states."
+    },
+    {
+      "start": 2865.72,
+      "duration": 2.0,
+      "text": "This is two preparations we could have done."
+    },
+    {
+      "start": 2867.72,
+      "duration": 6.0,
+      "text": "We could have done the preparation corresponding to experiment A or the preparation corresponding to experiment B."
+    },
+    {
+      "start": 2873.72,
+      "duration": 3.0,
+      "text": "And we do each of them with equal probability."
+    },
+    {
+      "start": 2876.72,
+      "duration": 8.0,
+      "text": "And the way we'll model that, and I'll get to that, is as a linear combination of the original experiments preparations,"
+    },
+    {
+      "start": 2884.72,
+      "duration": 2.0,
+      "text": "so these states omega."
+    },
+    {
+      "start": 2886.72,
+      "duration": 7.0,
+      "text": "And we want that it doesn't matter how we do the preparation."
+    },
+    {
+      "start": 2893.72,
+      "duration": 3.0,
+      "text": "And that forces us to demand that this omega is a linear functional."
+    },
+    {
+      "start": 2896.72,
+      "duration": 4.0,
+      "text": "I'll say more on that later."
+    },
+    {
+      "start": 2900.72,
+      "duration": 8.0,
+      "text": "And indeed, what am I going to say now?"
+    },
+    {
+      "start": 2908.72,
+      "duration": 7.0,
+      "text": "Oh yeah, a little bit about outcomes of observables and then we'll do another example."
+    },
+    {
+      "start": 2931.72,
+      "duration": 7.0,
+      "text": "So definitely the emphasis in this course is on the minimal structure you need to describe everything, not in imposing extra structure."
+    },
+    {
+      "start": 2938.72,
+      "duration": 7.0,
+      "text": "So states, when you describe states as raised in Hilbert space, you're actually describing a subset of possible states."
+    },
+    {
+      "start": 2945.72,
+      "duration": 3.0,
+      "text": "They all will give rise to these omigas."
+    },
+    {
+      "start": 2948.72,
+      "duration": 6.0,
+      "text": "But there are some states that get missed out when you do that."
+    },
+    {
+      "start": 2955.72,
+      "duration": 2.0,
+      "text": "Namely, mixed states."
+    },
+    {
+      "start": 2957.72,
+      "duration": 6.0,
+      "text": "And you haven't had to do with mixed states so much yet because you couldn't talk about closed systems that are always idealized to be in a pure state."
+    },
+    {
+      "start": 2963.72,
+      "duration": 16.0,
+      "text": "But now we're going to talk about the dirty real world, where there's always noise and imperfections sucking information away from our quantum system, forcing it into a mixed state."
+    },
+    {
+      "start": 2979.72,
+      "duration": 11.0,
+      "text": "And thus we need to really deal with all possible states in quantum mechanics."
+    },
+    {
+      "start": 2996.72,
+      "duration": 2.0,
+      "text": "Now I want to connect observables with effects."
+    },
+    {
+      "start": 2998.72,
+      "duration": 4.0,
+      "text": "So observables are the things you've been taught are the things you measure in an experiment."
+    },
+    {
+      "start": 3002.72,
+      "duration": 9.0,
+      "text": "But I told you that they're not. So I better tell you why we would even talk about observables at all."
+    },
+    {
+      "start": 3011.72,
+      "duration": 22.0,
+      "text": "What we do is we label the outcomes of an experiment corresponding to an observable A in terms of effects."
+    },
+    {
+      "start": 3033.72,
+      "duration": 19.0,
+      "text": "If someone says go measure the observable A. Then what you have to do is you have to design an apparatus which for every possible outcome of the observable A you assign an effect."
+    },
+    {
+      "start": 3052.72,
+      "duration": 5.0,
+      "text": "Oh, I've gotten ahead of myself. Sorry. I'll just."
+    },
+    {
+      "start": 3057.72,
+      "duration": 8.0,
+      "text": "I wanted to say something else first."
+    },
+    {
+      "start": 3065.72,
+      "duration": 9.0,
+      "text": "I haven't actually told you how to get a probability."
+    },
+    {
+      "start": 3074.72,
+      "duration": 13.0,
+      "text": "Where are these probabilities?"
+    },
+    {
+      "start": 3087.72,
+      "duration": 6.0,
+      "text": "So if you have some detector that clicks modeled by an effect."
+    },
+    {
+      "start": 3093.72,
+      "duration": 23.0,
+      "text": "What's the actual empiric probability that you measure a yes or a click over many, many runs of the experiment?"
+    },
+    {
+      "start": 3116.72,
+      "duration": 5.0,
+      "text": "So I'm now going to connect states and actual outcomes."
+    },
+    {
+      "start": 3121.72,
+      "duration": 9.0,
+      "text": "So the actual probability is none other than this number here."
+    },
+    {
+      "start": 3130.72,
+      "duration": 3.0,
+      "text": "This is kind of the opposite order to the way you've probably seen things."
+    },
+    {
+      "start": 3133.72,
+      "duration": 15.0,
+      "text": "You've probably seen for raise on Hilbert space this e being this is like the expectation value from your quantum mechanics course."
+    },
+    {
+      "start": 3148.72,
+      "duration": 5.0,
+      "text": "And we'll use that notation as well possibly."
+    },
+    {
+      "start": 3153.72,
+      "duration": 24.0,
+      "text": "And then now we get to this bit about the outcomes."
+    },
+    {
+      "start": 3177.72,
+      "duration": 12.0,
+      "text": "So when you're told to go off and measure an observable A like momentum or energy or something like that quadrature."
+    },
+    {
+      "start": 3189.72,
+      "duration": 14.0,
+      "text": "When you're asked to go measure an observable A what you're really doing is you're going to assign to each possible outcome of that observable an index alpha and then assign to each index an effect."
+    },
+    {
+      "start": 3204.72,
+      "duration": 9.0,
+      "text": "Now this index can be continuous."
+    },
+    {
+      "start": 3213.72,
+      "duration": 15.0,
+      "text": "But the effect that itself the effect itself that models that outcome will always be an element from the observable algebra."
+    },
+    {
+      "start": 3233.72,
+      "duration": 23.0,
+      "text": "And the way we assign these effects right is that the probability of the outcome occurring is none other than this number here."
+    },
+    {
+      "start": 3256.72,
+      "duration": 23.0,
+      "text": "Soon getting to the example."
+    },
+    {
+      "start": 3279.72,
+      "duration": 17.0,
+      "text": "So there's something crucial if we're going to do an experiment it better be that we get some outcome with probabilities are better at up to one."
+    },
+    {
+      "start": 3296.72,
+      "duration": 11.0,
+      "text": "If you do an experiment something's going to happen."
+    },
+    {
+      "start": 3307.72,
+      "duration": 16.0,
+      "text": "I'm writing summation notation here that's slightly wrong when you have continuous outcomes will for most of this course focus on cases where we have a finite number of possible outcomes from our experiment."
+    },
+    {
+      "start": 3324.72,
+      "duration": 6.0,
+      "text": "Each of which has a certain probability of occurring."
+    },
+    {
+      "start": 3330.72,
+      "duration": 10.0,
+      "text": "And the way we ensure that probability sum to one is if we're going to assign effects to outcomes it better be that when you sum up those effects you get the identity operator."
+    },
+    {
+      "start": 3340.72,
+      "duration": 9.0,
+      "text": "And such a collection has a name it's called a POVM."
+    },
+    {
+      "start": 3349.72,
+      "duration": 21.0,
+      "text": "And these describe the most general measurements we allow in quantum mechanics."
+    },
+    {
+      "start": 3370.72,
+      "duration": 23.0,
+      "text": "So I've really written down the POVM corresponding to a photon counter it's none other than E and F."
+    },
+    {
+      "start": 3423.72,
+      "duration": 28.0,
+      "text": "Now this is a historical name it's an example where if I just write it out it's not going to help you one bit."
+    },
+    {
+      "start": 3451.72,
+      "duration": 5.0,
+      "text": "And it's measurement measure measure."
+    },
+    {
+      "start": 3456.72,
+      "duration": 20.0,
+      "text": "There's historical reasons for calling things like this POVM's and the acronym is positive operator operator valued measure but it's really it doesn't matter."
+    },
+    {
+      "start": 3476.72,
+      "duration": 27.0,
+      "text": "The precise mathematical connection between observables and the effects corresponding to them is via the eigenvalue eigenvector decomposition."
+    },
+    {
+      "start": 3503.72,
+      "duration": 29.0,
+      "text": "So each of these E-alphas these spectral projections is an effect."
+    },
+    {
+      "start": 3532.72,
+      "duration": 26.0,
+      "text": "Now this is why I like POVM's. Every observable gives rise to a POVM but not every POVM comes from an observable so this is a more general concept."
+    },
+    {
+      "start": 3558.72,
+      "duration": 19.0,
+      "text": "And this is a case where that extra generality is very useful because as I said things like homodyne and heterodid detection don't admit interpretation as measuring an observable."
+    },
+    {
+      "start": 3577.72,
+      "duration": 21.0,
+      "text": "So if you've ever done quantum optics and you're puzzled by this you know what's the observable corresponding to heterodid detection this is the explanation explanation is there is none because you're doing something more general."
+    },
+    {
+      "start": 3598.72,
+      "duration": 10.0,
+      "text": "So it's kind of puzzling that this finds its way into the postulates of quantum mechanics and textbooks that observables correspond to Hermitian operators blah blah blah."
+    },
+    {
+      "start": 3608.72,
+      "duration": 10.0,
+      "text": "When in actual fact when you do experiments you're doing things that are more general."
+    },
+    {
+      "start": 3638.72,
+      "duration": 29.0,
+      "text": "So I'm going to do a big broad class."
+    },
+    {
+      "start": 3667.72,
+      "duration": 26.0,
+      "text": "So what are they? Well they are systems whose observables are described by matrices that's the mathematical definition."
+    },
+    {
+      "start": 3693.72,
+      "duration": 28.0,
+      "text": "And the nice thing about finite dimensional systems you can always represent states as matrices themselves and these matrices you probably heard of and you probably heard them described as density operators."
+    },
+    {
+      "start": 3721.72,
+      "duration": 28.0,
+      "text": "So remember a state is an object that eats an element of the algebra gives you a number and the number corresponds to the probability when a is an effect and how do we can for finite dimensional systems it turns out we can always represent that calculation process as a trace of row against a where row is a thing called a density operator."
+    },
+    {
+      "start": 3749.72,
+      "duration": 26.0,
+      "text": "And all those three conditions I wrote up over there still here star double star and triple star correspond to the following constraints on these matrices row namely these two you get linearity for free right this is this is a linear functional as written."
+    },
+    {
+      "start": 3779.72,
+      "duration": 18.0,
+      "text": "Now let's make connection with the the rays in Hilbert space business. So a state omega is pure."
+    },
+    {
+      "start": 3797.72,
+      "duration": 26.0,
+      "text": "If you can't write it as a convex combination of two other states."
+    },
+    {
+      "start": 3823.72,
+      "duration": 13.0,
+      "text": "You can always write a state omega as a as a convex combination of p zero or one that's easier."
+    },
+    {
+      "start": 3836.72,
+      "duration": 22.0,
+      "text": "And you can always write the state omega as a convex combination of itself with itself so we're going to just demand that these two things case and then if you can't do that and it's a pure state."
+    },
+    {
+      "start": 3858.72,
+      "duration": 22.0,
+      "text": "There's a nice little exercise you can do which is to for finite dimensional systems you can prove that this definition implies that the density operator is a pure the corresponding density operator is a corresponds to a pure state if and only if the density operator is a projection."
+    },
+    {
+      "start": 3880.72,
+      "duration": 7.0,
+      "text": "And that's where we finally get this connection to raise in Hilbert space."
+    },
+    {
+      "start": 3887.72,
+      "duration": 21.0,
+      "text": "This is let me think not true and infinite dimensions so the problem is an infinite dimensions and I will have to comment on this throughout the course because we're going to deal with infinite dimensional systems for example the electromagnetic field."
+    },
+    {
+      "start": 3908.72,
+      "duration": 14.0,
+      "text": "This thing where we identify states with density operators doesn't always work and the problem is is there exist operators that don't have a trace they just the trace is infinity."
+    },
+    {
+      "start": 3922.72,
+      "duration": 9.0,
+      "text": "So even writing this down here becomes problematic when you have an infinite number of configurations available to you."
+    },
+    {
+      "start": 3931.72,
+      "duration": 14.0,
+      "text": "That's why I've been emphasizing this way of thinking about states as functions of observables if you want to take that additional step of going to density operators that's only really justified when you have a finite dimensional system."
+    },
+    {
+      "start": 3945.72,
+      "duration": 7.0,
+      "text": "Otherwise the set of states is strictly larger than the set of objects which are represented like this for infinite dimensional systems."
+    },
+    {
+      "start": 3952.72,
+      "duration": 8.0,
+      "text": "I can even give you a heuristic proof of that later on."
+    },
+    {
+      "start": 3960.72,
+      "duration": 18.0,
+      "text": "There's a really cool way to model a state of a position eigenstate so this is something that shouldn't be a state right you've been taught that position eigenstates are represented as direct delta functions but they're not really states because they're like not elements of the Hilbert space."
+    },
+    {
+      "start": 3978.72,
+      "duration": 27.0,
+      "text": "And then we have to talk about the limits and so on. It actually turns out you can talk about the position eigenstate is maybe represented as a positive linear functional on the set of observables for say a harmonic oscillator it satisfies these three conditions no problems but it has a curious property it assigns zero to any predicate involving momentum so it's a very peculiar state."
+    },
+    {
+      "start": 4005.72,
+      "duration": 14.0,
+      "text": "So it's momentum is undefined in a very it's maybe that's not so kind of crazy right you direct delta function has got an undefined momentum."
+    },
+    {
+      "start": 4019.72,
+      "duration": 28.0,
+      "text": "Alright good so so for finite dimensional quantum systems omega is pure if and only if the corresponding density operator if you can if and only if you can represent omega is a trace of some density operator"
+    },
+    {
+      "start": 4047.72,
+      "duration": 15.0,
+      "text": "with row being a projection and now we come to the reason Hilbert space."
+    },
+    {
+      "start": 4062.72,
+      "duration": 19.0,
+      "text": "Raising Hilbert space are another way to talk about projections one dimensional projections so remember a rain Hilbert space is like it's it's a one dimensional vector that's equivalent up to a multiplication by a phase kind of an awkward way to define something in this nice linear space."
+    },
+    {
+      "start": 4081.72,
+      "duration": 18.0,
+      "text": "But that's what you're really trying to say is that if I take the outer product of psi with itself that phase cancels that's all you're trying to say with this ray business so I find this much more somehow satisfying to talk about pure states as projections rather than raising Hilbert space."
+    },
+    {
+      "start": 4099.72,
+      "duration": 24.0,
+      "text": "Oh where psi is an element of some Hilbert space okay let's do even more specific example one that you know most people can spend their entire lives studying is this one example you can make your career out of this."
+    },
+    {
+      "start": 4123.72,
+      "duration": 28.0,
+      "text": "And it's the qubit so according to this correspondence here qubits are finite dimensional systems so therefore you can represent any qubit state as a density operator."
+    },
+    {
+      "start": 4151.72,
+      "duration": 22.0,
+      "text": "That's fine and a density operator is a two by two matrix satisfying some conditions let's see what they look like can we actually describe all qubit states."
+    },
+    {
+      "start": 4173.72,
+      "duration": 22.0,
+      "text": "There they are two by two matrices satisfying that these two constraints that row is greater than equal to zero and trace of rows one well there is a you can solve those two constraints and actually explicitly parameterize all qubit states."
+    },
+    {
+      "start": 4203.72,
+      "duration": 28.0,
+      "text": "Okay let's solve those constraints constraint number one is that trace of row is one well this way of parameterizing all two by two matrices explicitly solves that second constraint there if you just take the trace you get one plus x three plus one minus x three divided by two and that's one so we've we've satisfied this constraints."
+    },
+    {
+      "start": 4233.72,
+      "duration": 27.0,
+      "text": "This is the most general now two by two matrix that has trace row because one can we solve the second the first constraint you mean that row is a positive operator let's see and I'm not going to do it I'm going to make an exercise because it's good for you."
+    },
+    {
+      "start": 4260.72,
+      "duration": 29.0,
+      "text": "And it's you can solve this exercise however you like and one way one completely concrete way to solve this exercise is just work out the eigenvalues of that matrix it's it's it's it's it's something you can do on paper right you know how to work out the eigenvalues of two by two matrices that's something that you know I'm pretty confident everyone here can do in their sleep."
+    },
+    {
+      "start": 4290.72,
+      "duration": 28.0,
+      "text": "And if you do that you'll work out that this this operator has two eigenvalues p and one minus p pretty sure there'll be those two numbers and those numbers have got to lie between zero and one or be because the trace forces them to be less than equal to one and this constraint here forces those two eigenvalues to be greater than equal to zero and that constraint there will turn into a constraint on these three numbers x one two and three and then we will discover"
+    },
+    {
+      "start": 4321.72,
+      "duration": 20.0,
+      "text": "a geometric representation for that first constraint there's other ways to solve this exercise I'm just telling you the most concrete way"
+    },
+    {
+      "start": 4342.72,
+      "duration": 12.0,
+      "text": "show that row is greater than equal to zero if an only if the length of x squared is less than equal to one"
+    },
+    {
+      "start": 4354.72,
+      "duration": 21.0,
+      "text": "thus this three vector x is an element of a ball in three dimensional space"
+    },
+    {
+      "start": 4384.72,
+      "duration": 24.0,
+      "text": "I said x y z but I should said x one x two x three"
+    },
+    {
+      "start": 4408.72,
+      "duration": 9.0,
+      "text": "so this is a magnificent result I really love this this is the one of the greatest things that have happened that happens in quantum mechanics"
+    },
+    {
+      "start": 4417.72,
+      "duration": 17.0,
+      "text": "because it takes this peculiar abstract constraint here and it translates it to something geometrical so to every qubit state every two by two matrix with trace one and positive operator"
+    },
+    {
+      "start": 4434.72,
+      "duration": 7.0,
+      "text": "there is a triple of numbers x one x two x three which lives inside this ball and conversely"
+    },
+    {
+      "start": 4441.72,
+      "duration": 8.0,
+      "text": "right every point in this ball corresponds to one of these two by two matrices here and you know what this ball is of course you will"
+    },
+    {
+      "start": 4449.72,
+      "duration": 7.0,
+      "text": "let me admit it before this is none other than the box sphere"
+    },
+    {
+      "start": 4456.72,
+      "duration": 7.0,
+      "text": "so humans are not particularly good about thinking about infinite dimensions or even more than three dimensions"
+    },
+    {
+      "start": 4463.72,
+      "duration": 8.0,
+      "text": "so it's like a gift to us that at least an important class of states admits a geometric representations in three dimensions"
+    },
+    {
+      "start": 4471.72,
+      "duration": 9.0,
+      "text": "something that we could think about and operations on these things measurements on these things all admit geometrical interpretations in terms of this object"
+    },
+    {
+      "start": 4480.72,
+      "duration": 10.0,
+      "text": "it is however one of the saddest things about quantum mechanics that even for qutrits three level systems there is no longer a nice geometrical representation"
+    },
+    {
+      "start": 4490.72,
+      "duration": 9.0,
+      "text": "if you do this game for qutrits and you can you will build a geometric object in what is it?"
+    },
+    {
+      "start": 4499.72,
+      "duration": 10.0,
+      "text": "nine minus one eight dimensions you have an eight dimensions dimension or g convex object that's got horrible corners and curvy bits on it"
+    },
+    {
+      "start": 4509.72,
+      "duration": 6.0,
+      "text": "and it's nowhere it's nothing like a sphere so sadly this only works for two level systems"
+    },
+    {
+      "start": 4521.72,
+      "duration": 8.0,
+      "text": "now let's talk about doing some measurements on our example state"
+    },
+    {
+      "start": 4529.72,
+      "duration": 10.0,
+      "text": "so consider an effect on this is still continuing the qubit example"
+    },
+    {
+      "start": 4539.72,
+      "duration": 8.0,
+      "text": "suppose we have this effect here it's an exercise to check that that's indeed an effect but my claim that it is"
+    },
+    {
+      "start": 4547.72,
+      "duration": 7.0,
+      "text": "then I should have written out the palli operators I guess I'll do that now"
+    },
+    {
+      "start": 4554.72,
+      "duration": 22.0,
+      "text": "so consider an effect e that has this particular form it's like you can express it as a half the identity plus signal z"
+    },
+    {
+      "start": 4576.72,
+      "duration": 7.0,
+      "text": "you're measuring say the spin in the up direction that's what this is this outcome is corresponding to"
+    },
+    {
+      "start": 4583.72,
+      "duration": 10.0,
+      "text": "then the probability of getting that outcome in this example here you put this matrix in and compute the trace of this matrix"
+    },
+    {
+      "start": 4593.72,
+      "duration": 5.0,
+      "text": "against this state here and the answer you get is a half one plus x three"
+    },
+    {
+      "start": 4598.72,
+      "duration": 2.0,
+      "text": "so why could I do that so quickly?"
+    },
+    {
+      "start": 4600.72,
+      "duration": 6.0,
+      "text": "well because you just there's one one here and you multiply it pointwise by every element in this matrix"
+    },
+    {
+      "start": 4606.72,
+      "duration": 14.0,
+      "text": "you get a zero here a zero here a zero here you get a one there and then you take a trace so you get that number there"
+    },
+    {
+      "start": 4623.72,
+      "duration": 6.0,
+      "text": "and that you can find this number from this representation as well"
+    },
+    {
+      "start": 4629.72,
+      "duration": 7.0,
+      "text": "if you like this probability is proportional to the value projected onto the x three axis"
+    },
+    {
+      "start": 4645.72,
+      "duration": 5.0,
+      "text": "I'll show you another way I'll give you a hint of another way to solve this constraint to get the boss fear"
+    },
+    {
+      "start": 4650.72,
+      "duration": 7.0,
+      "text": "it's kind of interesting I got a couple of minutes left"
+    },
+    {
+      "start": 4662.72,
+      "duration": 8.0,
+      "text": "so one way is just to go out and by hand work out the two eigenvalues of this matrix which is something I think"
+    },
+    {
+      "start": 4670.72,
+      "duration": 6.0,
+      "text": "reasonably concrete something that you could do pretty easily"
+    },
+    {
+      "start": 4676.72,
+      "duration": 7.0,
+      "text": "I guess I'd call that a TV problem you know one you can do while watching TV"
+    },
+    {
+      "start": 4687.72,
+      "duration": 11.0,
+      "text": "and a really easy one is a TV and what's app problem you know one you can do while communicating on WhatsApp and watching TV"
+    },
+    {
+      "start": 4706.72,
+      "duration": 7.0,
+      "text": "so I just give you a hint for this exercise"
+    },
+    {
+      "start": 4717.72,
+      "duration": 11.0,
+      "text": "so one way this is kind of a much more sophisticated way to solve this exercise"
+    },
+    {
+      "start": 4728.72,
+      "duration": 4.0,
+      "text": "because it gives you the generalization you need to go to higher dimensions"
+    },
+    {
+      "start": 4732.72,
+      "duration": 5.0,
+      "text": "so the idea is to look at pure states now pure states are ones that cannot be written"
+    },
+    {
+      "start": 4737.72,
+      "duration": 5.0,
+      "text": "as a convex combination of any other two states"
+    },
+    {
+      "start": 4742.72,
+      "duration": 7.0,
+      "text": "and if I find out dimensions of pure state satisfies this constraint here"
+    },
+    {
+      "start": 4752.72,
+      "duration": 4.0,
+      "text": "this is necessary but not sufficient for it to be a pure state"
+    },
+    {
+      "start": 4756.72,
+      "duration": 5.0,
+      "text": "to be a pure state you need that trace of rose that rose greedy goes wrong and that trace of rose one"
+    },
+    {
+      "start": 4761.72,
+      "duration": 7.0,
+      "text": "so you look at that and that determines once you use the trace condition"
+    },
+    {
+      "start": 4768.72,
+      "duration": 5.0,
+      "text": "that tells you that the state you have is pure if you can do that then you know you've got a pure state"
+    },
+    {
+      "start": 4773.72,
+      "duration": 4.0,
+      "text": "so let's try and solve that constraint and at least work out what the pure states look like"
+    },
+    {
+      "start": 4780.72,
+      "duration": 9.0,
+      "text": "and the trick to this is to solve this equation here"
+    },
+    {
+      "start": 4790.72,
+      "duration": 6.0,
+      "text": "I'm not going to do it yet"
+    },
+    {
+      "start": 4806.72,
+      "duration": 4.0,
+      "text": "but I invite you to do this"
+    },
+    {
+      "start": 4810.72,
+      "duration": 7.0,
+      "text": "you'll have some 16 terms on the left hand side and you have four terms on the right hand side"
+    },
+    {
+      "start": 4817.72,
+      "duration": 7.0,
+      "text": "and you'll try and solve these equations and you'll end up with an equation for R"
+    },
+    {
+      "start": 4832.72,
+      "duration": 6.0,
+      "text": "and if you have mathematical or MATLAB handy you don't even have to do those 16 equations"
+    },
+    {
+      "start": 4839.72,
+      "duration": 6.0,
+      "text": "a 16 terms you have 16 terms and four equations"
+    },
+    {
+      "start": 4849.72,
+      "duration": 3.0,
+      "text": "and they will constrain your three values of R"
+    },
+    {
+      "start": 4855.72,
+      "duration": 8.0,
+      "text": "and they will in fact lead to the equation that R the length of R is one"
+    },
+    {
+      "start": 4869.72,
+      "duration": 11.0,
+      "text": "so according to this way of solving the exercise you already get a bit more information"
+    },
+    {
+      "start": 4880.72,
+      "duration": 4.0,
+      "text": "you learn what the pure states are the pure states in this graphical representation"
+    },
+    {
+      "start": 4884.72,
+      "duration": 3.0,
+      "text": "here are points on the surface of the sphere"
+    },
+    {
+      "start": 4887.72,
+      "duration": 6.0,
+      "text": "now because trace of row is a linear functional on the algebra"
+    },
+    {
+      "start": 4894.72,
+      "duration": 5.0,
+      "text": "convex combination corresponds to exactly convex combination in three dimensions here"
+    },
+    {
+      "start": 4899.72,
+      "duration": 5.0,
+      "text": "so if you take this point here on the sphere and this point on the sphere and you take a convex combination of them"
+    },
+    {
+      "start": 4904.72,
+      "duration": 4.0,
+      "text": "that corresponds to exactly to a convex combination for states"
+    },
+    {
+      "start": 4908.72,
+      "duration": 3.0,
+      "text": "so geometrically the pure states of this convex body"
+    },
+    {
+      "start": 4911.72,
+      "duration": 4.0,
+      "text": "or to be the ones on the boundary where you can't write them as a convex combination"
+    },
+    {
+      "start": 4915.72,
+      "duration": 2.0,
+      "text": "and you get two other points"
+    },
+    {
+      "start": 4917.72,
+      "duration": 6.0,
+      "text": "so that you match that up with this by solving this exercise here"
+    },
+    {
+      "start": 4926.72,
+      "duration": 2.0,
+      "text": "now that does carry through to higher dimensions"
+    },
+    {
+      "start": 4928.72,
+      "duration": 3.0,
+      "text": "in fact you can do this calculation for any dimension"
+    },
+    {
+      "start": 4931.72,
+      "duration": 3.0,
+      "text": "and you get a horrible disgusting surface"
+    },
+    {
+      "start": 4936.72,
+      "duration": 4.0,
+      "text": "sadly so the box sphere doesn't generalize nicely"
+    },
+    {
+      "start": 4941.72,
+      "duration": 2.0,
+      "text": "but it is so useful"
+    },
+    {
+      "start": 4944.72,
+      "duration": 6.0,
+      "text": "because in many experiments this is quite an economic way to model what's going on in the experiment"
+    },
+    {
+      "start": 4950.72,
+      "duration": 4.0,
+      "text": "if you only have a two level degree of freedom that you ever interact with coherently"
+    },
+    {
+      "start": 4954.72,
+      "duration": 6.0,
+      "text": "then you can use this representation for your entire to describe everything that occurs in your experiment"
+    },
+    {
+      "start": 4961.72,
+      "duration": 5.0,
+      "text": "and it's only recently that we've ever had access to more than two coherent degrees of freedom"
+    },
+    {
+      "start": 4966.72,
+      "duration": 4.0,
+      "text": "and hence we've had to go beyond box sphere type representations"
+    },
+    {
+      "start": 4970.72,
+      "duration": 2.0,
+      "text": "so with the advent of quantum computers"
+    },
+    {
+      "start": 4972.72,
+      "duration": 3.0,
+      "text": "this is going to be left behind I fear"
+    },
+    {
+      "start": 4975.72,
+      "duration": 4.0,
+      "text": "we'll have to work with states at a more abstract level"
+    },
+    {
+      "start": 4979.72,
+      "duration": 7.0,
+      "text": "and that will be the topic of next week when we come to composite systems and many particles"
+    },
+    {
+      "start": 4986.72,
+      "duration": 3.0,
+      "text": "and the topic of entanglement"
+    },
+    {
+      "start": 4989.72,
+      "duration": 5.0,
+      "text": "so today we've just described what you might call isolated quantum systems"
+    },
+    {
+      "start": 4994.72,
+      "duration": 5.0,
+      "text": "and next week we're going to say how to put them together to get systems of many particles"
+    },
+    {
+      "start": 5000.72,
+      "duration": 3.0,
+      "text": "I think now is a convenient moment to stop"
+    },
+    {
+      "start": 5003.72,
+      "duration": 4.0,
+      "text": "if there's any questions please let me know"
+    },
+    {
+      "start": 5008.72,
+      "duration": 2.0,
+      "text": "otherwise thank you very much"
+    }
+  ]
+}

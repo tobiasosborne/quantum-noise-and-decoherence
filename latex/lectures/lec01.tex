@@ -1,0 +1,496 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 1 — Recapitulation of Quantum Mechanics
+% ──────────────────────────────────────────────────────────────
+
+\section{Recapitulation of quantum mechanics}\label{sec:recap-qm}
+
+\subsection{Why quantum noise and decoherence?}
+
+You have all met quantum mechanics before---it is a prerequisite for
+this course.  But you have probably only encountered the quantum
+mechanics of \emph{closed} systems: free particles, harmonic
+oscillators, and other idealised setups that do not interact with
+their environment.  The objective of this course is to go beyond this
+and study the quantum mechanics of \emph{open} systems---quantum
+systems composed of many subsystems.
+
+In contrast to classical physics, quantum information \emph{cannot be
+copied}: the \textbf{no-cloning theorem} prevents us from duplicating
+quantum states.  If we want to gain information about a closed
+quantum system, we have to interact with it, and this interaction
+unavoidably has some back-action on the system itself.  \emph{The act
+of measuring disturbs.}  This is the defining feature of quantum
+mechanics.
+
+\begin{intuition}[Measurement disturbance in everyday life]
+  Measurement back-action is not unique to quantum mechanics.  Two
+  classical examples:
+  \begin{itemize}
+    \item \textbf{Stock markets:} acting on information about a stock
+      creates disturbance, since other traders observe and react to your
+      trades.
+    \item \textbf{Observer effect in social psychology:} subjects who
+      know they are being observed behave differently.
+  \end{itemize}
+  In classical physics, these are consequences of approximations.  In
+  quantum mechanics, measurement disturbance is \emph{fundamental}---it
+  is built into the theory itself.
+\end{intuition}
+
+By the end of this course, we aim to understand this statement
+quantitatively, and also to explain \emph{why quantum systems look
+classical} when we observe them with our everyday measurement
+apparatus.  The answer we propose: because of \textbf{quantum noise and
+decoherence}, which are themselves a consequence of the fact that
+measuring disturbs a quantum system.
+
+\subsection{Course overview}
+
+The course covers the following topics:
+\begin{enumerate}[(1)]
+  \item Recapitulation of quantum mechanics (complementarity and
+    uncertainty, quantitative statements, entanglement, entropy); 1--2
+    lectures.
+  \item Complete positivity and dilation theory (quantum channels, POVM
+    observables, state after general measurements, non-demolition
+    measurements, Naimark, Stinespring); 1~lecture.
+  \item Quantum many-particle systems (Fock space, quasi-free states,
+    mean-field limits); 2~lectures.
+  \item Continuous variables (covariance matrices, Gaussian states,
+    Wigner distributions, examples from quantum optics, standard
+    quantum limit, continuous variables from collective degrees of
+    freedom); 2~lectures.
+  \item Lindblad equations (physical background: quantum dynamics with
+    dissipation and decoherence, Markov approximation, derivations:
+    weak and strong coupling regime); 2~lectures.
+  \item Decoherence sources in experiments (the basic mechanism: losing
+    parts of the system, decoherence of Schr\"odinger cat states,
+    classical limit); 1~lecture.
+  \item Classical noise and stochastic calculus (basics of stochastic
+    processes, counting processes, photodetection, factorial moments,
+    Markov chains and processes, martingales, Langevin and
+    Fokker--Planck equations); 2~lectures.
+  \item Quantum stochastic calculus (discrete case: matrix product
+    states, unravelling of Lindblad equations, quantum statistics of
+    the output events, continuous quantum measurement, cavity
+    input--output formalism).
+  \item Feedback and control (classical and quantum feedback, Lie
+    algebra techniques, controllability, linear quantum control
+    systems); 1~lecture.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Books/Notes:}
+\begin{enumerate}[(1)]
+  \item Reinhard~--- Introduction to QM + QI~\cite{Reinhard2012}
+  \item B.~Davies~\cite{Davies76}
+  \item M.~Wolf's notes~\cite{Wolf12}
+  \item Gardiner and Zoller~\cite{GardinerZoller04}
+  \item Gardiner~\cite{Gardiner09}
+  \item Wiseman \& Milburn~\cite{WisemanMilburn10}
+  \item Walls \& Milburn~\cite{WallsMilburn08}
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Kinematics of quantum mechanics}\label{sec:kinematics}
+
+We divide physical experiments into two parts:
+
+\begin{center}
+\begin{tikzpicture}[
+  block/.style={ellipse, draw=cgblue, fill=cgblue!10,
+    minimum height=2em, minimum width=3.5cm,
+    font=\sf\small, text=spacecadet, inner sep=5pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  \node[block] (prep) {Preparation};
+  \node[block, right=2cm of prep] (meas) {Measurement};
+  \draw[arr] (prep) -- (meas);
+\end{tikzpicture}
+\end{center}
+
+In classical physics there is no real need to talk of measurements.  In
+statistical theories, such as quantum mechanics, all we can do is predict
+probabilities of outcomes in statistical experiments.
+
+\begin{definition}[Preparation]\label{def:preparation}
+  A \emph{preparation} of a quantum system is the set of actions which
+  determines all probability distributions of any possible measurement.
+  Different preparations can lead to identical probability
+  distributions~$\Rightarrow$ we introduce the concept of \emph{state},
+  which specifies only the effect of preparation regardless of how it was
+  performed.
+\end{definition}
+
+\begin{keyresult}[State]
+  A \emph{state} describes all details relevant for subsequent
+  measurement.
+\end{keyresult}
+
+Mathematically, the division of experiments into preparations and
+measurements of observables is represented, in quantum mechanics, as
+follows.
+
+\subsubsection{Observables}
+\emph{Observables} are hermitian elements of an algebra~$\alg$ (think:
+matrices of side~$n$).
+
+An \emph{algebra} is a set closed under multiplication and addition as
+well as multiplication by scalars.  Each element $A \in \alg$ has an
+adjoint $A^\adj \in \alg$.  An element $E \in \alg$ is \emph{positive}
+if $E = A^\adj A$.
+
+The algebra~$\alg$ is usually represented in terms of bounded linear
+operators $\BH$ acting on a Hilbert space~$\hilb$.
+
+\begin{example}[Qubit observables]\label{ex:qubit-obs}
+  The set of observables for a \emph{qubit} are hermitian $2\times 2$
+  matrices in
+  \[
+    \alg_n \cong \alg \cong \Mn{2}
+    = \left\{
+      \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+      \;\middle|\; a,b,c,d \in \C
+    \right\}\,,
+    \qquad
+    \alg_h = \{ X \in \alg \mid X^\adj = X \}\,.
+  \]
+\end{example}
+
+\subsubsection{Effects and measurements}\label{sec:effects}
+Measurements themselves (not observables) are described by assigning to
+each \emph{outcome} of a device an \emph{effect} $E \in \alg$: an
+element satisfying
+\begin{equation}\label{eq:effect}
+  0 \leq E \leq \One\,.
+\end{equation}
+Here $A \leq B$ means $B - A = X^\adj X$ for some~$X$.
+
+\begin{example}[Photon counter]\label{ex:photon-counter}
+  A photon counter has two possible outcomes: no click or click.  The
+  corresponding effects are:
+  \begin{align}
+    E_{\text{no click}} &= \ketbra{0}{0}\,,
+    & E_{\text{click}} &= \One - \ketbra{0}{0}\,,
+  \end{align}
+  where $\ket{0}$ is the vacuum state.  Homodyne detection, by
+  contrast, assigns to each outcome a projection onto a coherent
+  state---an example of a POVM that does \emph{not} arise from a
+  standard textbook observable.
+\end{example}
+
+\subsubsection{States}\label{sec:states}
+A \emph{state}~$\omega$ on~$\alg$ is a positive normalised linear
+functional on~$\alg$.  That is:
+\begin{equation}\label{eq:state-def}
+  \omega\colon \alg \to \C \text{ is linear},\quad
+  \omega(X^\adj X) \geq 0,\quad
+  \omega(\One) = 1\,.
+\end{equation}
+
+We think of states as assigning probabilities to outcomes of
+measurements.  Each of the three axioms has a physical origin:
+\begin{itemize}
+  \item \textbf{Normalisation} $\omega(\One) = 1$: the identity is the
+    effect corresponding to ``doing nothing whatsoever.''  Its
+    probability must be~$1$ (probability is conserved).
+  \item \textbf{Positivity} $\omega(X^\adj X) \geq 0$: if we put in a
+    valid measurement (a positive operator), we must get out a valid
+    probability (a non-negative number).
+  \item \textbf{Linearity}: if we randomise between two preparations
+    (e.g.\ flip a fair coin and perform preparation~$A$ on heads,
+    preparation~$B$ on tails), the resulting state is a convex
+    combination $\tfrac{1}{2}\omega_A + \tfrac{1}{2}\omega_B$.
+    Linearity ensures this is consistent.
+\end{itemize}
+
+\begin{remark}
+  States described as rays in Hilbert space are a \emph{subset} of all
+  possible states: they are the pure states.  In this course we deal
+  with the real world, where noise and imperfections force quantum
+  systems into \emph{mixed} states, and we therefore need the full
+  generality of the algebraic framework.
+\end{remark}
+
+\subsubsection{Probabilities and the Born rule}
+The probability of outcome~$E$ measured on a state~$\omega$ is
+\begin{equation}\label{eq:born-rule}
+  \eqbox{p(E) = \omega(E)}\,.
+\end{equation}
+
+Label outcomes corresponding to observable~$A$ by index~$\alpha$.
+We assign an effect $0 \leq E_\alpha \leq \One$ to each~$\alpha$ so
+that $p_\alpha = \text{prob.\ of outcome } \alpha$ can be calculated
+via
+\begin{equation}\label{eq:prob-outcome}
+  p_\alpha = \omega(E_\alpha)\,.
+\end{equation}
+In order that $\sum_\alpha p_\alpha = 1$, we require
+\begin{equation}\label{eq:povm-resolution}
+  \eqbox{\sum_\alpha E_\alpha = \One}\,.
+\end{equation}
+
+\begin{definition}[POVM]\label{def:povm}
+  A collection $\{E_\alpha\}$ of effects such that $\sum_\alpha E_\alpha
+  = \One$ is called a \emph{POVM} (positive operator-valued measure).
+\end{definition}
+
+\subsubsection{Connection to textbook observables}
+The connection between textbook observables~$A$ and POVMs is via the
+spectral decomposition:
+\begin{equation}\label{eq:spectral}
+  A = \sum_\alpha a_\alpha\, E_\alpha\,,
+\end{equation}
+where $a_\alpha$ are the eigenvalues and $E_\alpha$ are the spectral
+projectors.  Note $\sum_\alpha E_\alpha = \One$.
+
+POVMs are \emph{more general}: the $E_\alpha$ need not be orthogonal
+projectors.  Every observable gives rise to a POVM (via its spectral
+decomposition), but not every POVM comes from an observable.  This extra
+generality is very useful: measurements such as homodyne and heterodyne
+detection in quantum optics do \emph{not} correspond to measuring a
+standard hermitian observable---they are inherently POVM measurements.
+
+\begin{intuition}[Why POVMs matter]
+  It is somewhat puzzling that textbook quantum mechanics emphasises
+  ``observables correspond to hermitian operators,'' when in practice
+  many real experiments (heterodyne detection, weak measurements, etc.)
+  perform measurements that are strictly more general than projective
+  measurements of a hermitian operator.  The POVM framework captures
+  \emph{all} possible measurements in a unified way.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Density operators}\label{sec:density-ops}
+
+For finite-dimensional systems, e.g.\ qubits, we can \emph{always}
+represent states $\omega\colon \alg \to \C$ as \emph{density operators}
+via
+\begin{equation}\label{eq:density-op}
+  \eqbox{\omega(A) = \tr(\rho\, A)}\,,
+\end{equation}
+where
+\begin{equation}\label{eq:density-props}
+  \tr(\rho) = 1 \qquad\text{and}\qquad \rho \geq 0\,.
+\end{equation}
+Linearity of the state is automatic, since the trace is linear.
+
+\begin{remark}
+  The identification of states with density operators only works
+  reliably for finite-dimensional systems.  In infinite dimensions
+  (e.g.\ the electromagnetic field), there exist operators whose trace
+  diverges, and the set of states is strictly larger than the set of
+  density operators.  This is why we emphasise the algebraic definition
+  of states as functionals on observables---it remains valid in all
+  dimensions.
+\end{remark}
+
+\begin{definition}[Pure state]\label{def:pure-state}
+  A state~$\omega$ is \emph{pure} if it cannot be written as a
+  nontrivial convex combination (i.e.\ with $p \notin \{0,1\}$):
+  \begin{equation}\label{eq:pure-state-def}
+    \omega = (1 - p)\,\omega' + p\,\omega''\,.
+  \end{equation}
+  For finite-dimensional systems, $\omega$ is pure if and only if
+  \begin{equation}\label{eq:pure-density}
+    \omega(\cdot) = \tr(\rho\,\cdot) \quad\text{with}\quad
+    \rho = \ketbra{\psi}{\psi}\,,\quad
+    \ket{\psi} \in \hilb\,.
+  \end{equation}
+  That is, a pure state corresponds to a rank-one projector---a
+  ``ray'' in Hilbert space.
+\end{definition}
+
+\begin{example}[Qubit states and the Bloch sphere]\label{ex:bloch}
+  All qubit states~$\omega$ may be represented as $2 \times 2$
+  matrices $\rho \geq 0$, $\tr(\rho) = 1$.  The most general such
+  matrix that satisfies $\tr(\rho)=1$ can be parameterised as:
+  \begin{equation}\label{eq:bloch-rho}
+    \rho = \frac{1}{2}
+    \begin{pmatrix}
+      1 + x_3 & x_1 - ix_2 \\
+      x_1 + ix_2 & 1 - x_3
+    \end{pmatrix}
+    = \frac{\One + \vb{x}\cdot\paulivec}{2}\,,
+  \end{equation}
+  where $\paulivec = (\sx,\,\sy,\,\sz)$ are the Pauli matrices:
+  \begin{equation}\label{eq:pauli}
+    \sx = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},\quad
+    \sy = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},\quad
+    \sz = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},\quad
+    \vb{x} \in \R^3\,.
+  \end{equation}
+\end{example}
+
+\begin{exercise}\label{ex:bloch-ball}
+  Show that $\rho \geq 0 \;\Rightarrow\; \lvert\vb{x}\rvert^2 \leq 1$.
+
+  \emph{Hint:} Compute the eigenvalues of~$\rho$ (they are $p$ and
+  $1-p$ for some $p \in [0,1]$) and impose $\rho \geq 0$.
+  Alternatively, use the constraint $\rho^2 = \rho$ for pure states to
+  show that pure states satisfy $\lvert\vb{x}\rvert = 1$, and then
+  argue that mixed states lie in the interior by convexity.
+\end{exercise}
+
+Thus $\vb{x}$ lies in the unit ball of radius~$1$ in~$\R^3$---the
+\emph{Bloch ball}---and the density operator~$\rho$ is in one-to-one
+correspondence with~$\vb{x}$.  Pure states live on the
+\emph{surface} of the sphere ($\lvert\vb{x}\rvert = 1$); mixed states
+occupy the interior.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+  % Bloch sphere
+  \shade[ball color=cgblue!15, opacity=0.4] (0,0) circle (1.2);
+  \draw[thick, cgblue!60] (0,0) circle (1.2);
+  % Equator (ellipse for 3D effect)
+  \draw[cgblue!40, dashed] (0,0) ellipse (1.2 and 0.4);
+  % Axes
+  \draw[qarrow] (0,0) -- (1.6,0) node[right, font=\small]{$x_1$};
+  \draw[qarrow] (0,0) -- (0.6,0.35) node[right, font=\small]{$x_2$};
+  \draw[qarrow] (0,0) -- (0,1.6) node[above, font=\small]{$x_3$};
+  % South pole
+  \draw[qarrow, spacecadet] (0,0) -- (0,-1.5);
+  % Bloch vector
+  \draw[thick, -{Stealth[length=5pt]}, munsell] (0,0) -- (0.5,0.9)
+    node[above right, font=\small, text=munsell]{$\vb{x}$};
+  \fill[munsell] (0.5,0.9) circle (1.5pt);
+  % Labels
+  \node[font=\footnotesize, text=spacecadet] at (1.2,-1.5)
+    {pure: $|\vb{x}|=1$};
+  \node[font=\footnotesize, text=spacecadet] at (-1.5,0)
+    {mixed: $|\vb{x}|<1$};
+\end{tikzpicture}
+\end{center}
+
+\begin{intuition}[The Bloch sphere]
+  It is a remarkable fact that qubit states---abstract $2\times 2$
+  positive matrices with unit trace---admit a geometric representation
+  as points in a three-dimensional ball.  Operations on qubits
+  (rotations, measurements, decoherence) all have clean geometrical
+  interpretations in terms of this object.  Sadly, for qutrits ($3$-level
+  systems) and beyond, no comparably simple geometric picture exists:
+  the state space becomes a complicated convex body in $d^2-1$
+  dimensions with ``horrible corners and curvy bits.''
+\end{intuition}
+
+\begin{example}[Effect measurement on a qubit]\label{ex:qubit-effect}
+  Consider the effect
+  \[
+    E = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+    = \tfrac{1}{2}(\One + \sz)\,.
+  \]
+  This corresponds to measuring spin-up in the $z$-direction.  The
+  probability of this outcome is
+  \[
+    p(E) = \omega(E) = \tr(\rho\, E) = \tfrac{1}{2}(1 + x_3)\,.
+  \]
+  Geometrically, this probability is determined by the projection of the
+  Bloch vector~$\vb{x}$ onto the $x_3$-axis.
+\end{example}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Composite systems and entanglement}\label{sec:composite}
+
+The observables for a composite quantum system~$AB$ with observable
+algebras $\alg$ and~$\algB$, respectively, is
+\begin{equation}\label{eq:composite-alg}
+  \alg \tp \algB\,.
+\end{equation}
+The underlying Hilbert space for~$AB$ is a tensor product as well:
+\begin{equation}\label{eq:composite-hilb}
+  \hilb = \hilbA \tp \hilbB\,.
+\end{equation}
+
+The simplest states~$\omega$ of a composite system~$AB$ are
+\emph{products}, i.e.\
+\begin{equation}\label{eq:product-state}
+  \omega(X \tp Y) = \omega_A(X)\cdot\omega_B(Y)\,,\qquad
+  X \in \alg,\; Y \in \algB\,.
+\end{equation}
+Pure product states~$\omega$ have density operator
+\begin{equation}\label{eq:product-density}
+  \rho = \ketbra{\psi}{\psi} \tp \ketbra{\phi}{\phi}\,,\qquad
+  \ket{\psi} \in \hilbA,\;\ket{\phi} \in \hilbB\,.
+\end{equation}
+
+States which are \emph{not} product are \emph{correlated}.
+
+\subsubsection{Reduced states and partial trace}
+The state of~$AB$, when restricted to observables acting nontrivially
+only on~$A$, i.e.\ observables of the form $X_A \tp \One_B$, is called
+the \emph{reduced state}~$\omega_A$.  The corresponding \emph{reduced
+density operator} $\rho_A$ on~$\alg$ is defined by
+\begin{equation}\label{eq:reduced-state}
+  \omega_A(X) = \tr[\rho_A\, X] = \tr[\rho\,(X \tp \One)]
+  \qquad \forall\, X \in \alg\,.
+\end{equation}
+The map
+\begin{equation}\label{eq:partial-trace}
+  \eqbox{\tr_B\colon \rho \mapsto \rho_A
+  \coloneqq \sum_{j} (\One \tp \bra{j})\,\rho\,(\One \tp \ket{j})}\,,
+\end{equation}
+where $\{\ket{j}\}$ is an ONB of~$\hilbB$, is called the
+\emph{partial trace}; $\rho_A$ is the \emph{marginal} of~$\rho$.
+
+\begin{center}
+\begin{tikzpicture}[
+  sysbox/.style={rectangle, rounded corners=3pt, draw=cgblue,
+    fill=cgblue!8, minimum height=2em, minimum width=1.8cm,
+    font=\sf\small, text=spacecadet, inner sep=5pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  % Composite system
+  \node[sysbox, minimum width=4.5cm] (AB) {$\omega_{AB}$};
+  \node[font=\footnotesize, text=spacecadet] at ([yshift=8pt]AB.north) {$AB$};
+  % Subsystems inside
+  \draw[dashed, cgblue!40] (AB.center) -- (AB.south);
+  \draw[dashed, cgblue!40] (AB.center) -- (AB.north);
+  % Arrow to reduced
+  \node[sysbox, below right=1.2cm and 0.5cm of AB] (A) {$\omega_A$};
+  \node[font=\footnotesize, text=spacecadet] at ([yshift=8pt]A.north) {$A$};
+  \draw[arr] (AB.south east) -- (A.north west)
+    node[midway, right, font=\footnotesize]{$\tr_B$};
+  % Discard label
+  \node[font=\footnotesize, text=spacecadet!60, below left=1.2cm and 0.2cm of AB]
+    {discard $B$};
+\end{tikzpicture}
+\end{center}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Schmidt decomposition}\label{sec:schmidt}
+
+\begin{proposition}[Schmidt decomposition]\label{prop:schmidt}
+  For every vector $\ket{\psi} \in \hilbA \tp \hilbB$, with
+  $d = \min\{\dim(\hilbA),\, \dim(\hilbB)\}$, there exists an ONB
+  $\{\ket{g_j}\} \subset \hilbA$ and $\{\ket{f_j}\} \subset \hilbB$
+  such that
+  \begin{equation}\label{eq:schmidt}
+    \eqbox{\ket{\psi}
+      = \sum_{j=1}^{d} \sqrt{p_j}\;\ket{g_j} \tp \ket{f_j}}\,,\qquad
+    p_j \geq 0,\quad
+    \sum_j p_j = \norm{\ket{\psi}}^2\,.
+  \end{equation}
+  The $\sqrt{p_j}$ are called the \emph{Schmidt coefficients}; the
+  number of nonzero~$p_j$ is the \emph{Schmidt rank}.
+\end{proposition}
+
+\begin{proof}
+  Write $\ket{\psi}$ in a product basis:
+  \[
+    U \tp V \bigl(\ket{\psi}\bigr)
+    = U \tp V \Bigl(\sum_{j,k} [\Psi]_{jk}\,\ket{j}\ket{k}\Bigr)
+    = \sum_{j,j'}\sum_{k,k'} [U]_{jj'}\,[\Psi]_{j'k'}\,[V]_{k'k}\,
+      \ket{j}\ket{k}\,.
+  \]
+  By the singular value decomposition (SVD), choose unitary $U,V$ such
+  that $U\Psi V^\top = D$ is diagonal with non-negative entries.  Then
+  \[
+    \ket{\psi}
+    = \sum_{j} [D]_{jj}\,\ket{g_j}\tp\ket{f_j}\,,
+  \]
+  where $\ket{g_j} = U^\adj\ket{j}$ and $\ket{f_j} = V^\adj\ket{j}$
+  form orthonormal bases of~$\hilbA$ and~$\hilbB$ respectively.
+  Setting $\sqrt{p_j} = [D]_{jj}$ gives the Schmidt form.
+\end{proof}
