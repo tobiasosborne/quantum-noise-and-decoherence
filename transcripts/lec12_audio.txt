@@ -1,0 +1,393 @@
+In the previous lectures, we've been looking at equations of
+motion for a system in the presence of an environment.
+And we've studied several examples now, three or four main
+ones, that will give us an equation of motion for the reduced
+density operator of the system alone.
+And in each case, we've done some derivations and approximations.
+And in each case, we ended up with an equation of motion for the
+density operator of the system alone.
+And with just the right number of approximations,
+this equation of motion has a very special form.
+We've seen that in almost all the cases we've covered,
+you have some kind of system Hamiltonian contribution.
+And you have some additional terms that have always looked
+something like this.
+So we have this equation of motion invariably after we've
+done our approximations and approximations.
+And that's how the density operator of the system alone will
+evolve. It's a first-order equation in time.
+And if you solve it, you'll get some effective dynamics.
+Let's call it star for the moment.
+So the solution of an equation of motion like this will give you
+some density operator, rho sys, that depends on t.
+Now because it is first-order in time and the right-hand side is
+homogenous, we can express the solution as an exponential of some operator.
+So what I'll do is I'll leave it schematic for the moment and
+then explain this notation.
+Where this calligraphic L is a thing called a super operator.
+It eats a density operator and gives you a Hermitian operator.
+It's just the right-hand side.
+This equation of motion star.
+And there's a gamma in here like that.
+So the thing to notice here is that this equation of motion here is
+really no different from a standard first-order ordinary differential
+equations. If you remember, equations of motion that look like this,
+where now x is an independent variable y as a function of x.
+So we know how to solve these kinds of equations,
+but these ordinary differential equations here.
+They're supposed to be a gamma square, or is it this one,
+because there's a gamma in front.
+Oh goodness. Oh yeah, yeah, yeah. Thank you.
+That was a mistake. Yeah.
+No gamma in front. No, you're right.
+I just mis-transcribed. What was that?
+So this is just a matrix version of this equation here.
+There were particular subtleties here.
+So we know how to solve ordinary differential equations of first-order.
+And a matrix version of such an equation.
+As exactly the same solution.
+Let's put these in the complex numbers now.
+So once you know how to solve this differential equation,
+you know how to solve this differential equation.
+As long as L is Hermitian or normal.
+The way to solve this equation of motion is you do exactly,
+you just write down the same answer.
+Except now you have to interpret this exponential as a matrix
+or that otherwise there's no differences at all.
+And when we look at this equation of motion here,
+it doesn't quite look like this one,
+because rho is a matrix.
+So we've got like, here v is a vector, here rho is a matrix.
+So it looks superficially different from these two examples here.
+But actually, this is just an encoded form of something like this.
+And the trick is very simple.
+You just take this matrix rho and you string it out like a vector,
+one way of understanding that.
+So this is what a computer would do to interpret a matrix.
+A computer can't store a matrix in the square form in its memory.
+A computer just stores each entry of the matrix.
+So you've got a square matrix.
+So you can draw a snake through the entries of the matrix
+and line it up as some big vector.
+So rho naught, rho 1 naught, rho 2 naught all the way down to rho 1 1
+all the way down to rho d minus 1, d minus 1, for example.
+So when you vectorize rho, you turn it into a vector,
+a big long vector of length d squared.
+It's got all the entries just written as a vector now instead of a matrix.
+Then the left hand side is looks exactly like this matrix equation here.
+And the right hand side, what does it become?
+Well, each of these linear operators,
+they each have a corresponding vector, a corresponding matrix form.
+So they eat one of these matrices, they produce a new matrix,
+which you can also vectorize.
+And you can see that the difference between the vector form of rho sis
+and the vector form of commutator h naught with rho sis
+is some matrix applied to rho sis.
+This is a very convenient thing to notice.
+So the standard, I guess I'll write that out, actually.
+There's no unique way to vectorize a matrix.
+You can do whatever you want, right?
+You can take the first, the seventh, the twelfth entries and so on
+in some crazy order.
+But there's kind of a standard way.
+So if rho, if you write it in some basis,
+some computational basis like this,
+then the standard way to get a vector out of a matrix like that
+is to construct a ket by just turning around the second ket there,
+the second bar there to a ket.
+Now that's a vector, right?
+I've turned this bar around and now I've got a ket for a bigger system,
+a bipartite system.
+So this is what you might call the standard way to vectorize.
+It's basis dependent, right?
+If I went to another basis then I would have gotten a different answer.
+If you do that, if you map rho to this vector,
+then this commutator here turns into a very nice matrix
+that you can almost directly remember.
+I guess I'll just write out the left multiplication.
+If you vectorize h naught times rho,
+one might wonder, well, what's the vector form of this?
+So if you do, you multiply h naught times rho and then you turn that ket around,
+that brought around, what are we going to get?
+Well, you can do a little exercise and show
+that's the same as this matrix applied to rho.
+So the vector form of h naught times rho is another matrix, of course,
+string out its entries as a vector according to this recipe
+and it's exactly equal to that.
+And similarly, rho times h naught is identity tensor h naught transpose
+in that basis rho.
+So if you apply these rules now to this equation star,
+then we can write it in this vector form.
+And this is exactly how you would write it in mathematical or MATLAB.
+If you had one of these equations of motion here that you derived
+and you want to go solve it on the computer,
+then the computer doesn't, isn't particularly happy with matrix,
+valued variables.
+It's much happier with vector-valued variables.
+That's just the result of the way these programs are implemented.
+So the first step is to vectorize this equation.
+It's to turn it into an equation of motion that looks like this one up here.
+And when you do that, if you apply those rules that I've just written there,
+you get the following equation of motion.
+So d rho dt rho stored now as a vector.
+It's got the same number of entries named d squared as a vector,
+as rho has as a matrix.
+Just strung up in a vector.
+That equals i.
+So minus i h naught tensor i minus i tensor h naught transpose.
+Minus gamma sum j.
+And then we get all this stuff, Lj dagger Lj tensor i plus i tensor Lj transpose Lj complex conjugate.
+So this equation of motion for rho is identity.
+Operator becomes this exactly equivalent equation of motion for rho stored as a vector.
+Note the transposers and the complex conjugates.
+And we're going to write all this stuff in the curly brackets as, well, minus L.
+Although to be consistent with a standard notation,
+it's actually usually written as plus L.
+You'll explain where the two comes from.
+This two here, is it not up there?
+Oh, it isn't, I'm sorry about that.
+Another mistake, two, two.
+We're going to prove the two today.
+Why is there a two and not a one?
+I'm going to prove that.
+But before we do that, I want to talk a little bit about just what kind of equation of motion is this?
+What's a linear equation of motion for a density operator and looks like this?
+And we know what the solution is now, right?
+We just walk over here.
+We check that if we have a vector and a matrix L, that the solution for this vector is nothing other than e to the L times rho naught.
+But that's in computer readable form, but not human readable form.
+So we unvectorize by turning the ket meat back into a bra.
+And this thing here, this matrix becomes a thing,
+it's still a linear operator, but we have a different notation for it.
+This thing's called a super operator, I'll define that in a second.
+So you can regard L calligraphic, calligraphic L is being defined by the unvectorization process here.
+Probably the quickest definition we can give for what L calligraphic is.
+Now this last step is only when you write a paper or something, this is how you would always solve these equations on a computer.
+Well, you can do it by sampling when you can still store things as a matrix kind of, but actually this is more or less the most direct way to solve these equations of motion.
+You always put them in this vector form, and only when you want to write a paper would you ever write it back like this.
+So let's just observe, let's give this thing a name.
+So L is a matrix, right? That doesn't need a name, L is a matrix.
+But calligraphic L, what does it do? Well, calligraphic L takes a density operator, a d by d matrix, and gives you another d by d matrix, and it's linear.
+So it maps from the d by d matrices.
+It's linear.
+And we call any map, any linear map, from matrices to matrices, we call it a super operator.
+So this is in some sense completely neat this notation, L is a linear operator, isn't it?
+Why do we say super operator? Well, because operators take vectors to vectors, super operators take operators to operators, but it's just a linear operator, but on a different space.
+Name me the space here.
+And in defining L calligraphically implicitly by this equation here, we've implicitly said what the exponential of L calligraphic is.
+We interpret this expression by its Taylor series, and powers of L calligraphic as doing L then L then L L times.
+Now, there's something very important we're going to observe in a second about this e to the T L.
+This is the solution.
+So this is the solution.
+So this is the solution.
+ET rho naught is the solution of our equation of motion that we derived.
+And I'm just going to give that solution a different name. We're going to just call this calligraphic E of T. ET is also a super operator.
+In fact, E of T has got some even more interesting properties.
+So we're going to give that solution a different name.
+So we're going to give that solution a different name.
+So this is three.
+So there's three remarkable properties of the solution of this limplard or master equation that I want to isolate.
+You can check for each of the examples we've considered in the whole course. They all have these properties.
+Name me E of naught when T is naught. It's the same as doing nothing. It's the identity channel. Well, that's kind of obvious.
+I'm going to focus on this property next. When you do E of T and then E of S, that's the same as just doing E of S plus T.
+So you can translate in time. And thirdly, and this is not obvious. We're actually going to essentially prove this today.
+In each case, E of S is a completely positive trace-preserving map.
+And that was not at all given that each of these E's would be completely positive trace-preserving maps.
+We derived this equation of motion through a bunch of approximations, one after the other.
+We started with a completely positive dynamics. We started with a Schrodinger equation.
+So we know that the whole system evolves unaterally and so that the dynamics of the system must be a completely positive map.
+But when you start making approximations, you start throwing out terms which interact with the environment by using Taylor's series and so on.
+Then there's no reason whatsoever that the equation of motion that you get at the end after all these approximations will preserve positivity.
+I mean, it has no right to. But in all the examples we've considered, it turns out that the equation of motion we get at the end is completely positive.
+So that's really a completely remarkable result. Why should it be that if you do some Taylor's expansions and start truncating series, that you still get a completely positive map?
+To give you an example of why things like that aren't obvious, suppose you have some pure quantum state that depends on a parameter t, let's just make it the quantum state of a single qubit.
+Now, if you start Taylor expand, if you Taylor expand c of t and d of t and then truncate that expression, then almost always psi twiddler of t the thing you get afterwards.
+For example, 1 plus c naught t is not normalized.
+So Taylor expanding has this very unfortunate property of destroying normalization, which is another way of saying that if you Taylor expand some state that depends on a parameter and you truncate, then you've no right to expect that what you get at the end is a state.
+This is not a state anymore. This is a sub normalized state, but it's not a state because it's normalization changes with time.
+So this is why when you derive anything with the Taylor series, you have no right to even hope that what you get at the end is something physical.
+Maybe for small times it's almost physical, but for large times you have no hope whatsoever.
+But this derivation that we've shown in the previous lectures has the really remarkable property that you do get a legal equation of motion, you do get legal dynamics for the reduced system, even at this level of approximation.
+So this is something I really want to stress that we've had no right to expect property to happen, but somehow mysteriously and magically it did happen for each of these equations of motion.
+And today I want to stop that from being a mysterious observation.
+We don't want to live in perpetual hope that our derivations will give a good answer.
+We want to know why and we want to characterize the situations when they'll give the right answer, when they'll give physical evolutions, and when not.
+When do we expect these properties to be true?
+And that's the purpose of today. We're going to discuss things called dynamical semi-groups and come up with conditions on families of maps, ES,
+to be completely positive trace-preserving, obey this property and obey this property.
+And we'll find that the only way you can satisfy all those three properties is when L has that very particular form that I wrote up at the beginning.
+We're going to begin this whole discussion with a topic called dynamical semi-groups, rather than completely positive quantum dynamical semi-groups.
+There's an incredibly beautiful theory of these objects that works in infinite dimensions and very general circumstances.
+We're only going to need the tiniest piece of this wonderful theory because we're going to work with finite dimensional systems.
+So forget quantum mechanics for the moment.
+What I'm going to write now has nothing to do with quantum mechanics is to do with this theory of dynamical semi-groups, general body of theory and mathematics.
+Suppose we have a map, ES, what does ES do? It takes some complex vector of D complex entries to a complex vector of D complex entries and it depends on some parameter.
+It depends on a parameter S, which is a positive real number, or a non-negative real number, to be precise.
+We're going to demand only two properties of it, namely if you do a bit of T evolution, then a bit of S, then you get that's exactly the same thing as the map ES plus T.
+The other thing we demand is that if you do nothing, then it better be the identity map.
+So for the moment, we're not going to talk about complete positivity. We're just going to talk about families of maps indexed by non-negative real numbers with just these two properties here.
+Then we're going to prove some incredibly general and powerful statements about these things.
+The most powerful property is this one here. This is called the semi-group property here. This allows us to convert weak statements to the strong statements, as you'll see in a second.
+We're going to be a little bit more mathematical today, and to indicate that these results hold at a mathematical level rather than just a level of physical argumentation, or actually denote them with propositions, lemmas and corollaries.
+However, all the derivations today are elementary. We're all using linear algebra and basic calculus, so there's nothing no profound, deep maths here, very straightforward stuff.
+So I was completely stunned when I saw this the first time. So I'll make a little remark on why I think this is so.
+What's going to prove to be quite an elementary proof, why I think it's nonetheless really stunning at first sight? If you have a continuous function, so e depends on s in a continuous way. I'm not going to tell you what topologies it's continuous with respect to, I'll just appeal to your physical intuition of what continuity is here, but the standard topology.
+I'm talking finite dimensions. So if you have a continuous function,
+so observation 1, a continuous function doesn't need to be differentiable. There's strictly subsets of each other.
+That's not a differentiable function. It's got kinks everywhere.
+In fact, you can build functions which are almost everywhere, not differentiable, but yet continuous. And if you've seen the devil staircase example,
+the middle 3rd thing, I can't draw it very well, but you can construct functions that are almost everywhere, not differentiable, yet continuous.
+But this proposition is saying that if e s is just continuous, then it's already differentiable. And furthermore, it's got this very special form here. There's no reason that a continuous function has to be the exponential of something nice, but it is in this case.
+And the reason, in fact, I want to give you the intuition. I want to spend more time on the intuition than on the proof, because the proof is not very illuminating, actually.
+The intuition is that e of s is continuous, e of t is continuous, and we know that e s plus t is continuous. And so what we've got here is something like a convolution operation.
+And if you've got a function that, when you evaluate f of s, yeah, I guess I just leave it at saying this is like the convolution operation.
+The intuition is not particularly direct, unfortunately. So if you know you've got a function that's somehow like the product of two other functions or the composition of two other functions, then it must have been, even if this function had a kink in it, when you take the composition of two functions with the kink in it, they smooth out.
+Because this, the thing about compositions is functions tend to smooth out under composition. So that's the rough intuition, I suppose.
+I'll give you the proof, which is really elementary.
+So we're going to build, we're going to exploit the fact that e s is continuous to build.
+Another representation for e s.
+I guess I can use a different notation for e s is continuous.
+That means it's, if I draw the space of all d by d matrices, here's the identity, and I start, and I hold the chalk on the board, right, then e s is some path in the space of matrices.
+So far, so nothing, right.
+Now the key property is in the space of matrices, the space of invertible matrices is a very, is a connected set connected to the identity.
+So for a small enough epsilon, this integral here is an invertible matrix, because it also gives you a path of matrices connected, well in this case, to the zero matrix, but apart from epsilon zero, it's immediately in the invertible part.
+So I won't draw on that point, we can spend a little bit more time on that.
+Just think of the determinant as a function of epsilon.
+We're welcome to build this operator here, and as long as epsilon isn't at a special value, this operator will be invertible.
+So this is the integral, so when epsilon is zero, this is the integral of nothing, and so that's actually zero.
+To do this properly, you need to do a limiting argument, you need to show that this integral is a sum of, there's a bunch of Riemann sums, and each of the terms, small operators close to the identity which all invertible, and then when you sum them up, you don't go too far outside of the invertible set.
+That's kind of tedious, I don't know a quick way to show that.
+If you're willing to take that, accept that statement, or supply a proof that this funny operator here is invertible, then the rest is actually straightforward.
+We're going to follow the rich tradition of writing inserting the identity.
+Since epsilon is invertible, we can multiply by the identity now.
+And then you just substitute in that formula for M epsilon here, and use this semi-group property.
+Then you can do a change of variables, if you like.
+And then we can note that formula there.
+So we actually already learned here that this is differentiable with respect to S, that's a T, because of the fundamental theorem of calculus.
+Because M s is differentiable, and M s plus epsilon is differentiable with respect to S.
+And now that's the hard work, so to speak, because the easy part is just writing it as an exponential.
+So this derivative doesn't depend on where S is, because of this semi-group property.
+We know it's differentiable, so we write this.
+I forgot the limiting process here.
+Okay, so this is, we'll leave the beautiful theory of dynamical semi-groups here, and we're going to move on to quantum dynamical semi-groups.
+These are the objects that were really concern us for the rest of this course.
+Of course, you don't even need the limit there, I guess. You could just leave it at fixed epsilon.
+Good. Yeah, there's plenty more we could say here on this topic, but it isn't really particularly relevant to what we want to show today.
+So let's move on now to quantum dynamical semi-groups. I'll tell you what these things are.
+Well, I've already written out their properties, and then we're going to prove something very special about these objects.
+The only difference between a dynamical semi-group and a quantum dynamical semi-group is that ES is now a superparator.
+Now, of course, you know that that's just a vector form. That's just a dynamical semi-group in disguise, because I could just vectorize this, and then I'd have a dynamical semi-group.
+So let's move on to quantum dynamical semi-groups.
+Let's move on to quantum dynamical semi-groups.
+When this, this is already a semi-group, but just on a different vector space,
+but when this family of channels or maps is a family of channels, these ES is a completely positive for all S, then we call ES a completely positive semi-group or a quantum dynamical semi-group, or one of a new number of names that have been given to these things.
+So that's the main question. When is that the case? And we're going to derive a criteria for this to be true, and the criteria will be on the generator L, and we'll have a very compact way of checking if ES is a completely positive semi-group or not.
+This is already, it might not have been easy to characterize these things, so for example, because the condition of complete positivity is really an infinite number of conditions.
+It might have been that we'd have to write out a very complicated characterization of these ES.
+But luckily, that's not the case.
+We're going to introduce a special kind of linear map.
+So let's take a look at that.
+Let's take a look at that.
+Let's take a look at that.
+Let's take a look at that.
+Let's take a look at that.
+Let's take a look at that.
+Let's take a look at that.
+So this proposition says two things are the same thing.
+The reason you prove propositions like this is sometimes you have this condition, but you want to show that the thing that satisfies that condition has a certain form, namely this form like this.
+This is already our answer to what a completely positive semi-group looks like.
+It looks like it's anything who's generator looks like this, but in order to prove that result, we're going to have to first prove that this condition here is equivalent to that condition here, because this is the thing that we will find in our proof later on.
+This looks unmotivated because this, like most mathematics, is tidied up afterwards.
+The reason mathematics is impenetrable is because it starts out being completely logical, train of thought of the mathematician.
+And then only afterwards they start cleaning it up and organizing it into patterns so that the original motivations disappear when you reorder all statements around.
+So at the moment this looks strange and unmotivated because it's going to turn out to be a step of a proof later on.
+We're going to give these things a name.
+So any map that satisfies either of those two conditions and hence both of them, they're called CP linear maps.
+The proof is essentially elementary, we just stick one definition in the other and hope that things come out okay.
+They do, and I'll just...
+The way it's going to work is we're going to show that one implies statement two and then two implies statement one. That means that they're logically the same thing.
+So one, that means we know L has this form.
+Suppose L has this form, does it follow that this is true? Let's check.
+Well it's a matter of just substituting in one into two and checking that that's true.
+Actually this one's super easy.
+So there's three terms here we have to look at. The first one is definitely positive because phi is a completely positive map.
+And what does it mean completely positive? It means that if you do phi on one half of a system and do nothing on the other half,
+that if you put in a positive density operator, you better get out a positive density operator, so that's positive.
+What about these two terms? Well they're just both zero because p on omega is zero, that's what p is, right?
+P is the projection onto the complement of zero, so in the end that's just bigger than zero and we're done.
+The other way is slightly harder, so we'll build it from the inside out.
+So we know two is true. Two says that L is hermiticity preserving L of whatever that's hermitian is also hermitian.
+So we're going to give this thing a name and the middle here we're going to call that tau and we know it's hermitian. That's all we can say so far.
+But we also know that p tau p is positive.
+So what we've got here is this decomposition of Hilbert's base into two subspaces.
+So we've got the matrix T looks like it's in block form, right?
+P is a big space, p is the complement of this one state omega, it's a very high dimensional space, and then the complement of p is just the projection onto this omega.
+That's tau, you can write tau in this block form if you want and we know that p tau p, this bit in here, that's positive, but we've got all this stuff here, right?
+So what are you going to worry about?
+So what are you going to worry about?
+So what are you going to worry about?
+If you stare at that long enough, this expression for tau, then you'll realize that you can write tau as q, some positive matrix, bigger one, and now we've got to deal with the fact that these might be negative.
+So you have to subtract off some stuff.
+So tau by itself might not be positive, right?
+P tau p is positive, this block here is a nice positive matrix, but tau itself, namely this whole thing here, may not be positive.
+There may be bad stuff in here, bad stuff in here and bad stuff in here, but we can always write tau as a positive matrix minus some bad stuff, and that bad stuff is restricted to this area here.
+So what are you going to worry about?
+So this is just in words saying this observation that you can write tau as this block positive matrix, possibly minus some bad stuff there.
+And that bad stuff has the form of a vector, and a ket, and a ket, and there's double counting, right? We doubly subtract here, so you have to balance things off slightly.
+And once you've got that, this is really the key observation here. Once you've got that, we're basically done.
+Okay, that's an exercise that you can always take a positive operator, that you can always write a positive operator.
+There's some completely positive map acting on half of this maximum entangled state like that, that's an exercise for you to check.
+In fact, you would have covered this in the quantum information course.
+And it's also another exercise that you can take any maximum entangled state to another state psi by some operator cage acting on half the entangled state.
+And also just basically the expression of vectorization.
+Okay.
+Okay.
+This is the derivative of m is e.
+Yeah, so it's a bit misleading this epsilon here. So m of epsilon is defined to be the zero, the integral from zero to epsilon of s, ds like this, so that, for example, dd epsilon, bad notation, is just e.
+And the left hand side, we know that e s is m epsilon minus one times ms plus epsilon minus ms, and the derivative of e s just pulls out these two e s is like that.
+Yeah, so this limit is kind of misleading because it's actually true for all epsilon. So you know, it's true also for epsilon not equal to zero.
+You got it? All right.
+All right.
+We're basically at the main result, however, there'll be another, we'll summarize this result in a theorem later on, but this is the main, the main heavy lifting is done right now in this proposition.
+So statement one is the thing that we want to understand.
+E s is a dynamical semi-group of CP maps continuous in s, and statement two is the, the structural result, the one that tells us what they look like.
+So we learn that complete positivity is equivalent to the generator L having the CP linear map form, so the only, only additional data we need.
+So to compare this with the result at the beginning of our discussion on dynamical semi-groups, if we eliminate CP maps, then we've already proven that any dynamical semi-group that's continuous in s has the form of e to the sl.
+If you extra impose this condition that these have to be completely positive, then that restricts further this generator to have this particular CP linear map form here.
+So this is not quite the form that I quoted at the beginning of the lecture, but it's close enough and in the next lecture we'll finish that part off.
+But this is the main, the main content of, well, the heavy lifting work is done in this proposition and the rest of it is done, the tidying up we'll do later.
+So again, it has the quality that we're just showing that one is equivalent to two, so we're going to show that if one, then two, and if two, then one, and then we'll know that these things are equivalent.
+So it's amazing that we can deduce the condition of complete positivity to some linear algebra condition like this, very simple one.
+I find that quite remarkable.
+And the first proposition that we had, which I called proposition one, being dynamical and continuous in s, we know there is a generator L.
+Okay, that's most of the work done except for the positivity bit.
+We know that ES is completely positive, so what does completely positive mean? Well, we know that this must be a positive operator.
+So e to the SL and do nothing on the other half of our maximum entangled state, omega, that must be a positive operator, that's what completely positive means.
+And this implies a whole bunch of conditions about L. So what you can do is tailor expand e to the SL and then compare these conditions order by order.
+So this is just tailor expanding. So this positive operator is the sum of a projection, which is positive, plus something that's not a projection that's at order s, but something that's at order s squared and so on.
+Now we apply this p operator from both sides.
+So the right hand side gets mapped to p, right hand side p.
+And so we learned that zero is less than equal to p, this stuff p. But this thing p, this p is zero, right?
+So we've only got this first order term here.
+Now we've got that, which is now an infinite number of conditions. Now we can multiply both sides by one on s that doesn't change the positivity of this statement.
+And we can take the limit as s tends to zero. And then we end up with this condition that we've seen already in our previous proposition.
+And that already implies that L has the form that we want. So actually we're done because we don't care about the other direction.
+Well, we almost don't care about the other direction actually.
+It is true that all our examples have the form of L having a specific form and then we have to deduce that the channels we get out are completely positive.
+So it's not true that we don't care about the other direction.
+So we better do it. But before we do so, just summarize what these statements tell us. This tells us that L has the form of a completely positive map.
+Let's do the other direction. Well, we know that it's already a dynamical semi-group with the special form.
+And we're going to decompose this linear operator L into a completely positive map by something else, phi k.
+Well, phi k does what you think it does. It's just the multiplying by k and k dagger bit.
+There's a thing called the lead trotter formula, which is very easy to establish.
+You just have to tailor expand these things to second order. So lead trotter says doing e to the sl is like doing a little bit of the first part phi and then doing a little bit of the second part k and then a little bit of the first part phi and then a little bit of the second part k many, many times one after the other.
+And you can prove that this equals this by tailor expanding this to even first order, both left hand side and right hand side first order keeping track of the error terms and showing that limit exists.
+So we know actually that e to the s phi and that this is completely positive.
+So this is completely positive this first bit this map here just tailor expand.
+We just have to show that this is completely positive, but I'm going to give you a formula for what that is. You can check this or it's an exercise.
+Let's see formula for the exponential.
+Okay, that's the formula for the exponential of phi k times s over n applied to some operator x and this is also completely positive it's not trace preserving, but it's completely positive because it's multiplying on the left and the right by some matrix.
+Let's call it m m x m dagger so it's definitely completely positive.
+So all this implies that e to the s l is completely positive.
+So I think we'll stop here for today in the next lecture we will tidy up this result and express it in a form that's more familiar to the certainly in comparison with the examples we covered in this course and then we'll cover a couple of extra topics just before we complete this course in the next couple of lectures.
+Okay, thank you very much.

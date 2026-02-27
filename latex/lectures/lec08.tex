@@ -1,0 +1,307 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 8 — Lindblad Equations II: Radiative Damping and
+%              Cavity Emission
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 5 (Lindblad Equations) from Lecture 7.
+
+\subsection{Recap: the radiative-damping model}%
+\label{sec:radiative-damping-recap}
+
+We continue the derivation begun in Lecture~7.  The setting is a
+two-level atom (system~$S$) coupled to a bosonic field (environment~$E$)
+via dipole interaction.  In the interaction picture, after the
+\textbf{rotating-wave approximation} (RWA), the interaction Hamiltonian
+is
+\begin{equation}\label{eq:V-int-RWA}
+  \hat{V}_{\mathrm{int}}(t)
+  = \underbrace{\sum_k g_k\,\sigma_+\, \hat{b}_k\, e^{i(\omega_a - \omega_k)t}}_{V_+(t)}
+  + \underbrace{\sum_k g_k^*\,\sigma_-\, \hat{b}_k^\adj\, e^{-i(\omega_a - \omega_k)t}}_{V_-(t)}\,,
+\end{equation}
+where $\sigma_\pm$ are the atomic raising/lowering operators,
+$\hat{b}_k$, $\hat{b}_k^\adj$ are the field mode operators with
+frequencies~$\omega_k$, and $g_k$ are the coupling constants.  The
+initial state of the environment is taken to be the vacuum:
+$\rho_E(0) = \ketbra{0}{0}$.
+
+\begin{intuition}[Physical picture of radiative damping]
+  With the field in the vacuum, no photons impinge on the atom.
+  An excited atom can only lose energy: the term~$V_-(t)$ creates
+  a photon in mode~$k$ while flipping the atom downward.  The created
+  photon flies away and (by the Markov assumption) never returns.
+  Hence an initial excited state $\ket{1}$ decays irreversibly to the
+  ground state~$\ket{0}$.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Deriving the master equation}%
+\label{sec:master-eq-derivation}
+
+\subsubsection{The Born-approximation equation}
+
+In the Born approximation the equation of motion for the system
+density operator is
+\begin{equation}\label{eq:born-eq}
+  \frac{\dd}{\dd t}\,\rho_S(t)
+  = -\int_0^t \dd t_1\;
+    \tr_E\!\bigl[\hat{V}_{\mathrm{int}}(t),\,
+    [\hat{V}_{\mathrm{int}}(t_1),\,\rho_S(t_1)\tp\ketbra{0}{0}]\bigr]\,.
+\end{equation}
+Expanding the double commutator with $V_{\mathrm{int}} = V_+ + V_-$
+produces $4 \times 4 = 16$ terms.
+
+\subsubsection{Vacuum simplification}
+
+The key identity that eliminates most terms is:
+\begin{equation}\label{eq:vacuum-identity}
+  \tr_E\!\bigl((\One_S \tp A_E)\;\rho_S \tp \ketbra{0}{0}
+    \;(\One_S \tp B_E)\bigr)
+  = \bra{0}B_E\, A_E\ket{0}\;\rho_S\,,
+\end{equation}
+together with $\hat{b}_k\ket{0} = 0$ for all modes~$k$.  Since
+$V_+(t)$ contains annihilation operators acting on the field, any term
+where $V_+$ stands adjacent to $\ket{0}$ vanishes.  A non-zero
+contribution requires equally many $V_+$ and $V_-$ factors, reducing
+the 16~terms to just~4.
+
+\begin{remark}
+  The surviving terms pair creation and annihilation operators so
+  that the field expectation value
+  $\bra{0}\hat{b}_k\,\hat{b}_l^\adj\ket{0} = \delta_{kl}$ produces
+  a Kronecker delta, collapsing double sums over modes to single sums.
+\end{remark}
+
+\subsubsection{Continuum limit and the bath correlation function}
+
+Replacing the discrete mode sum by an integral introduces the
+\textbf{density of states}~$\rho(\omega)$:
+\begin{equation}\label{eq:continuum-limit}
+  \sum_k \lvert g_k\rvert^2\, f(\omega_k)
+  \;\longrightarrow\;
+  \int_0^\infty \dd\omega\;\rho(\omega)\,\lvert g(\omega)\rvert^2\,f(\omega)\,.
+\end{equation}
+The bath correlation function that appears in~\eqref{eq:born-eq} is
+\begin{equation}\label{eq:gamma-tau}
+  \gamma(\tau)
+  = \int_0^\infty \dd\omega\;
+    \rho(\omega)\,\lvert g(\omega)\rvert^2\,
+    e^{i(\omega_a - \omega)\tau}\,.
+\end{equation}
+
+\begin{keyresult}[Markov approximation]
+  If the product $\rho(\omega)\lvert g(\omega)\rvert^2$ is
+  \emph{slowly varying} around $\omega \approx \omega_a$, then its
+  Fourier transform $\gamma(\tau)$ is sharply peaked near $\tau = 0$,
+  acting effectively as a delta function under the time integral
+  in~\eqref{eq:born-eq}.  This converts the integro-differential
+  (non-Markovian) equation into a memoryless (Markovian) equation of
+  motion.
+\end{keyresult}
+
+\subsubsection{The Lindblad equation for radiative damping}
+
+Decomposing $\int_0^\infty \gamma(\tau)\,\dd\tau$ into real and
+imaginary parts,
+\begin{equation}\label{eq:gamma-decompose}
+  \int_0^\infty \gamma(\tau)\,\dd\tau
+  = \frac{\gamma}{2} + i\,\delta\omega_a\,,
+\end{equation}
+and combining all terms, the master equation becomes
+\begin{equation}\label{eq:lindblad-rad-damping}
+  \eqbox{%
+  \frac{\dd\rho_S}{\dd t}
+  = -i\bigl[\tfrac{\omega_a + \delta\omega_a}{2}\,\sz,\;\rho_S\bigr]
+    + \gamma\,\mathcal{D}[\sigma_-]\rho_S}\,,
+\end{equation}
+where the \textbf{dissipator} (or \textbf{Lindblad superoperator}) is
+defined by
+\begin{equation}\label{eq:dissipator}
+  \eqbox{%
+  \mathcal{D}[L]\rho
+  \coloneqq L\,\rho\, L^\adj
+    - \tfrac{1}{2}\,L^\adj L\,\rho
+    - \tfrac{1}{2}\,\rho\, L^\adj L}\,.
+\end{equation}
+
+\begin{definition}[Lindblad equation]\label{def:lindblad}
+  An equation of the form
+  $\dot{\rho} = -i[H,\rho] + \sum_j \gamma_j\,\mathcal{D}[L_j]\rho$,
+  with $\gamma_j \geq 0$ and $H = H^\adj$, is called a
+  \textbf{Lindblad (or GKSL) master equation}.  The operators~$L_j$
+  are called \textbf{Lindblad operators} (or \textbf{jump operators}).
+\end{definition}
+
+\begin{remark}
+  The frequency shift $\delta\omega_a$ is the \textbf{Lamb shift}:
+  the coupling to the vacuum field renormalises the atomic transition
+  frequency.  For most purposes it simply redefines $\omega_a$ and
+  can be absorbed by moving to a suitable rotating frame.
+\end{remark}
+
+\begin{keyresult}[Complete positivity]
+  Any Lindblad equation generates a completely positive, trace-preserving
+  (CPTP) semigroup $\rho(t) = e^{\mathcal{L}t}\rho(0)$.
+  Conversely, for finite-dimensional systems, every continuous
+  Markovian CPTP evolution is generated by a Lindblad equation.  This
+  is the content of the \emph{Gorini--Kossakowski--Sudarshan--Lindblad
+  theorem}.
+\end{keyresult}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Solving the radiative-damping equation}%
+\label{sec:solve-rad-damping}
+
+Setting $\delta\omega_a = 0$ (absorbing the Lamb shift into the
+rotating frame), we solve the Lindblad
+equation~\eqref{eq:lindblad-rad-damping} with
+$L = \sigma_- = \ketbra{0}{1}$.  Parameterise the qubit density
+operator as
+\begin{equation}\label{eq:rho-param}
+  \rho_S(t)
+  = \begin{pmatrix} 1 - p(t) & x(t) \\ x^*(t) & p(t) \end{pmatrix}\,,
+\end{equation}
+where $p(t)$ is the excited-state population and $x(t)$ encodes the
+coherence.  Substituting into the Lindblad equation yields two
+decoupled equations:
+\begin{equation}\label{eq:ode-rad-damping}
+  \dot{p} = -\gamma\, p\,,
+  \qquad
+  \dot{x} = -\tfrac{\gamma}{2}\,x\,.
+\end{equation}
+
+\begin{keyresult}[Solution: radiative damping of a two-level atom]
+  The qubit density operator at time~$t$ is
+  \begin{equation}\label{eq:rho-rad-solution}
+    \eqbox{%
+    \rho_S(t)
+    = \begin{pmatrix}
+        1 - p(0)\,e^{-\gamma t} & x(0)\,e^{-\gamma t/2} \\
+        x^*(0)\,e^{-\gamma t/2} & p(0)\,e^{-\gamma t}
+      \end{pmatrix}}\,.
+  \end{equation}
+  \begin{itemize}
+    \item The excited-state population decays at rate~$\gamma$.
+    \item The coherences decay at rate~$\gamma/2$ (half the population
+      decay rate).
+    \item The \textbf{steady state} is the ground state:
+      $\rho_{\mathrm{ss}} = \lim_{t\to\infty}\rho_S(t) = \ketbra{0}{0}$.
+  \end{itemize}
+\end{keyresult}
+
+\begin{intuition}[Dynamics on the Bloch sphere]
+  On the Bloch sphere, every initial state spirals inward toward the
+  north pole~$\ket{0}$.  The excited state~$\ket{1}$ (south pole)
+  moves straight up along the $z$-axis; superposition states follow
+  curved trajectories as the coherence decays faster than the
+  population.  After a characteristic time $\sim 1/\gamma$ the atom
+  is, with high probability, in its ground state.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Cavity emission}%
+\label{sec:cavity-emission}
+
+As a second example, we consider a single cavity mode (a harmonic
+oscillator with annihilation operator~$a$ and frequency~$\omega_c$)
+that leaks through an imperfect mirror into external radiation modes.
+
+\begin{intuition}[The leaky cavity]
+  A photon inside the cavity bounces between the mirrors.  Each
+  reflection at the imperfect mirror has a small probability of
+  transmission; the photon eventually escapes and is lost to the
+  external field.  This is the bosonic analogue of radiative damping.
+\end{intuition}
+
+The total Hamiltonian is quadratic (field--field coupling):
+\begin{equation}\label{eq:cavity-hamiltonian}
+  H = \omega_c\, a^\adj a
+    + \sum_k \omega_k\, \hat{b}_k^\adj \hat{b}_k
+    + \sum_k \bigl(g_k\, a^\adj \hat{b}_k + g_k^*\, a\, \hat{b}_k^\adj\bigr)\,.
+\end{equation}
+The derivation follows the same steps as for radiative damping with
+the substitution $\sigma_+ \to a^\adj$, $\sigma_- \to a$.
+
+\subsubsection{Vacuum environment}
+
+If the external field is in the vacuum, we obtain
+\begin{equation}\label{eq:lindblad-cavity-vac}
+  \frac{\dd\rho_S}{\dd t}
+  = -i[\omega_c\, a^\adj a,\,\rho_S]
+    + \kappa\,\mathcal{D}[a]\,\rho_S\,,
+\end{equation}
+where $\kappa > 0$ is the cavity decay rate.
+
+\subsubsection{Thermal environment}
+
+If the external field is in a thermal state at frequency~$\omega_c$
+with mean photon number $\bar{n} = (e^{\beta\omega_c} - 1)^{-1}$,
+an additional term accounts for incoherent photon injection:
+\begin{equation}\label{eq:lindblad-cavity-thermal}
+  \eqbox{%
+  \frac{\dd\rho_S}{\dd t}
+  = -i[\omega_c\, a^\adj a,\,\rho_S]
+    + \kappa(\bar{n}+1)\,\mathcal{D}[a]\,\rho_S
+    + \kappa\bar{n}\,\mathcal{D}[a^\adj]\,\rho_S}\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Solving the cavity equation via the characteristic
+function}\label{sec:cavity-char-fn}
+
+For the vacuum-environment case~\eqref{eq:lindblad-cavity-vac}
+(working in the frame rotating at~$\omega_c$), we translate the master
+equation into an equation for the characteristic function
+$\chi(\psi,t) = \tr\bigl(\rho_S(t)\, D(\psi)\bigr)$.  Using the
+identities
+\begin{equation}\label{eq:D-deriv-identities}
+  a^\adj\, D(\psi)
+  = \Bigl(\frac{\partial}{\partial\psi} + \frac{\psi^*}{2}\Bigr)D(\psi)\,,
+  \qquad
+  a\, D(\psi)
+  = \Bigl(-\frac{\partial}{\partial\psi^*} + \frac{\psi}{2}\Bigr)D(\psi)\,,
+\end{equation}
+the master equation becomes a first-order PDE:
+\begin{equation}\label{eq:chi-pde}
+  \frac{\partial\chi}{\partial t}
+  = -\frac{\kappa}{2}\Bigl(
+      \psi\,\frac{\partial\chi}{\partial\psi}
+    + \psi^*\frac{\partial\chi}{\partial\psi^*}
+    + \lvert\psi\rvert^2\,\chi
+    \Bigr)\,.
+\end{equation}
+This is a Fokker--Planck-type equation whose solution preserves the
+Gaussian form.  Making the ansatz
+$\chi(\psi,t) = \exp\!\bigl(-\tfrac{1}{2}K(t)\lvert\psi\rvert^2\bigr)$
+for an initial Gaussian state with parameter~$K(0)$, one finds
+\begin{equation}\label{eq:chi-solution}
+  K(t)
+  = 1 + \bigl(K(0) - 1\bigr)\,e^{-\kappa t}\,.
+\end{equation}
+
+\begin{keyresult}[Steady state of a leaky cavity]
+  As $t \to \infty$, $K(t) \to 1$ and
+  $\chi(\psi) \to e^{-\lvert\psi\rvert^2/2}$, which is the
+  characteristic function of the vacuum state.  Every initial state of
+  the cavity decays to the vacuum at rate~$\kappa$.
+\end{keyresult}
+
+\begin{exercise}\label{ex:lindblad-derivation}
+  Complete the derivation of the remaining three terms in the radiative
+  damping master equation~\eqref{eq:born-eq}.  Use the vacuum
+  identities and verify that the result
+  matches~\eqref{eq:lindblad-rad-damping}.
+\end{exercise}
+
+\begin{exercise}\label{ex:cavity-lindblad}
+  Starting from the cavity Hamiltonian~\eqref{eq:cavity-hamiltonian}
+  with a thermal environment, carry out the Born--Markov derivation
+  to obtain~\eqref{eq:lindblad-cavity-thermal}.  Identify where the
+  additional $\mathcal{D}[a^\adj]$ term arises.
+\end{exercise}
+
+\begin{exercise}\label{ex:chi-pde-derivation}
+  Derive equation~\eqref{eq:chi-pde} from~\eqref{eq:lindblad-cavity-vac}
+  using the displacement-operator identities~\eqref{eq:D-deriv-identities}.
+  Verify that the Gaussian ansatz yields~\eqref{eq:chi-solution}.
+\end{exercise}

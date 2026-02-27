@@ -1,0 +1,331 @@
+# Theory of Quantum Noise and Decoherence, Lecture 11: Quantum Stochastic Calculus I
+# YouTube: https://www.youtube.com/watch?v=ZlCtw8-Vy5s
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] In the previous lectures, we introduced a new model of open system dynamics called the quantum mechanical model of continuous measurement, or at least we began the discussion of this model.
+[00:18.00] So the point of this model is to gain some intuition for why a system will deco here. For why a system will lose coherence to an environment when it's coupled to an environment.
+[00:31.00] So in order for a system to lose coherence, information has to flow from the system to the environment as time progresses.
+[00:45.00] If there's no transfer of information from the system to the environment, then the system just undergoes its own internal unit aerodynamics.
+[00:53.00] So one of the physical explanations, if you like, for why a system will lose coherence as time passes. So if we have some kind of initial state, which is pure,
+[01:07.00] then why, what's the mechanism for how this initially pure state loses its purity and becomes some kind of mixed state.
+[01:32.00] That's the question that we're going to concern ourselves with today. We're going to understand or build a model for why, or build a model for the mechanism for how an initially pure state can evolve to a state which at a later time is mixed.
+[01:52.00] So the physical mechanism here is that the environment gains information about the system and once the environment has information about the system, it becomes correlated with the system.
+[02:03.00] So we have here the, we have here an intuition that information gained by the environment is equivalent to loss of coherence of the system.
+[02:34.00] Another way of saying this is that the system becomes entangled with the environment.
+[02:40.00] These are the physical mechanisms whereby a system, which is initially pure, can become mixed.
+[03:09.00] And to gain a bit of a finer grained understanding of this mechanism, we're going to study in some detail a model whereby one system continuously measures another.
+[03:24.00] So this is not really expected to be a model of decoherence, but it's one which very clearly brings out the mechanism whereby a system can lose information.
+[03:39.00] So this, if you like, is an incredibly simplified toy model for how an environment interacts with the system as time progresses.
+[04:07.00] It's also intended to be a model of where we are continuously monitoring one or more, one or more observable quantities about a system.
+[04:18.00] This model is meant to serve two purposes. One is to explain these principles. The other is as an actual concrete model for continuous measurement that we might do in a laboratory setting.
+[04:31.00] The way we're going to introduce this model, we spoke about it in the last lecture, but then we digressed into the fondament prescription for the measurement of an observable.
+[04:44.00] So I'll go back to the beginning and tell you about the model again that we're going to study.
+[04:51.00] We model n measurements of position.
+[05:05.00] We're going to make n measurements of the position observable x, and then we're going to let n tend to infinity.
+[05:11.00] That's essentially what we're going to do today.
+[05:22.00] And various things will diverge or not diverge, and then with a bit of fine tuning we'll get alternate equation, which will model a continuous measurement of position.
+[05:39.00] So in order to build this model, we're going to introduce n meter systems.
+[05:52.00] This is where we read out the information about the position observable at time, at equally spaced times, from one to n times tau to n, one times tau to n times tau.
+[06:07.00] We're just going to be harmonic oscillators or continuous variables.
+[06:21.00] As in the fondament prescription for measuring a permission operator, you introduce a meter system, and you have your initial quantum system.
+[06:32.00] We have some kind of setting where we have a, this is our quantum system here, it's some particle in some wave function.
+[06:48.00] And we introduce n meter systems, which are drawers harmonic oscillators.
+[07:07.00] This is meter 1, this is meter 2, meter 3, and all the way up to meter n.
+[07:17.00] The model a sequence of instantaneous measurements of position, at some instant of time we'll measure the position observable on the system and read out the answer onto this first meter.
+[07:30.00] Then we'll store this pointer meter system somewhere in a refrigerator, and then we'll measure the second instant of time, and so on.
+[07:44.00] And that will be the model of subsequent measurements of position.
+[08:00.00] And we're going to take each of these measurements to be instantaneous.
+[08:30.00] So we're going to introduce a time dependent Hamiltonian to model this process.
+[08:54.00] It's kind of a fun exercise to work at how you can do this with the time independent model, it can be done, but you have to introduce another auxiliary system, which plays the role of a clock.
+[09:11.00] But we're not going to worry about time independent processes here, we're going to worry about time dependent ones, it's a bit simpler to do this mathematically.
+[09:22.00] So we have to be aware that energy is not being conserved here, we don't have transition in time, it's not a symmetry, so energy cannot be conserved during this process.
+[09:51.00] So I have to describe to you what's the Hilbert space for our entire setting.
+[10:16.00] I mean, I've said it in pictures, but now we'll be a little bit more concrete.
+[10:24.00] So the jth point of variable will be a continuous quantum variable, and it has canonical operators x and p, where x and p obey the standard canonical commutation relations.
+[10:42.00] So that means the total Hilbert space for our system is the tensor product of the Hilbert space for a single continuous variable, and n times, tensor product of that with the Hilbert space of the system.
+[11:11.00] So this is the Hilbert space for a continuous quantum variable, the set of square integrable functions on the real numbers.
+[11:36.00] We have n of them, and then we have the Hilbert space for the system, whatever that is, except for today we're going to make the system also a continuous quantum variable.
+[12:05.00] Much of this isn't really specific to these Hilbert spaces.
+[12:12.00] We could take for the total Hilbert space, we could instead of having these infinite dimensional systems, we could have finite dimensional systems.
+[12:23.00] And for the system here, we could have just about any Hilbert space that we desire.
+[12:28.00] And instead of a continuous measurement of position, we could just measure some Hermitian observable.
+[12:35.00] So the whole derivation I showed today isn't very specific to the position measurement case.
+[12:42.00] It can be generalized to just about any observable that you care about on your system.
+[12:48.00] And it's not required that these meters be infinite dimensional, actually something similar will hold even for two dimensional systems.
+[12:56.00] So this is in stark contrast to the derivation we showed for the master equation where we required the environment to be infinite.
+[13:04.00] I mean, actually, as n tends to infinity, we're effectively building an infinite dimensional environment, so that you could think of these as like the environment.
+[13:19.00] So it's not that the environment is finite dimensional, it's just that these individual meter type systems can be finite dimensional.
+[13:26.00] That's the total Hilbert space. And then the Hamiltonian that describes the process whereby we sequentially measure the position observable at n instance of time is a time dependent Hamiltonian.
+[13:57.00] Where we measure the position of the system, and we read out the answer onto the jth continuous quantum variable.
+[14:08.00] So this part here comes from von Neumann's prescription to measure the observable axis.
+[14:15.00] This is not strictly an operator. There's a delta function here.
+[14:38.00] There's multiple ways you can make sense of this. The correct physical way to make sense of this is to approximate later on this delta function with a little bump, because that's what actually happens in real life.
+[14:51.00] Or you could take the mathematician approach and try and make sense of the process that this generates. This is the generator of some unitary process, and then worry about that instead.
+[15:02.00] So there's two ways to make sense of this. The way I prefer is to turn these deltas just into very sharp repeat galsions.
+[15:08.00] And then you have to take account of the errors that you introduce which are tend to be small.
+[15:15.00] But we won't worry about that complication today.
+[15:25.00] That's the Hamiltonian. And we're going to assume that the meter itself is prepared in some kind of initial state.
+[15:32.00] The meters are not just, they're not in an unknown state. They're in a definitely known state.
+[16:02.00] The state that we're going to prepare each meter in is a Gaussian state.
+[16:31.00] Now, what's going on here is that if we wanted to do an ideal projective type measurement on the system via this phenomenon measurement prescription, we'd want to initialize each meter in a delta function of position.
+[17:01.00] But delta functions are extremely hard to prepare. We have to make do with a Gaussian initial state for our pointer variable.
+[17:15.00] And we're definitely going to assume that we know this state otherwise we can't really be said to have gained information during a measurement process.
+[17:30.00] So we can now write out the full initial state at time t equals 0.
+[17:59.00] At time t equals 0, of our system plus environment or of system plus meters or pointers.
+[18:12.00] And that is the tensor product of whatever the state the system's in.
+[18:18.00] Be it pure or mixed with these pure states here, g1, tensor g2.
+[18:29.00] And actually, to be consistent with the way I wrote the Hilbert space here, I'll put the sys on the other side.
+[18:58.00] So everything's prepared, the lights are off.
+[19:24.00] Everything's been cooled down to nearly absolute zero.
+[19:30.00] You can press the play button and then let's see what happens.
+[19:57.00] Let's talk to a little movie of the dynamics of our quantum system now.
+[20:01.00] So if we didn't do any measurement at all, if we prepared our meters and then turned off the measurement apparatus, the system would happily evolve according to its internal unitary dynamics, which are generated by h0 here.
+[20:18.00] The system would happily turn around in Hilbert space, remain in a pure state according to h0.
+[20:26.00] But as time passes, once we've turned on the meter, then at the stroboscopic times j-tale, there will be instantaneous interactions of the system with the meters one by one.
+[20:39.00] And a little bit of information will flow from the system to the meter and actually vice versa, or information flows by directional in quantum mechanics.
+[20:53.00] And we'll start taking a video, a flash frame, stop frame motion picture of our quantum system.
+[21:03.00] How does the right side of this quantum system depend on sigma?
+[21:09.00] This one here?
+[21:11.00] No, there is a last one.
+[21:14.00] Roses?
+[21:17.00] Roses doesn't depend on sigma.
+[21:19.00] The gj is all dependent sigma.
+[21:24.00] So sigma is a fixed number, you fix it.
+[21:29.00] The row does depend on sigma, implicitly.
+[21:32.00] Let me be clear about that.
+[21:35.00] It does depend on sigma implicitly by the fact that each of these initially prepared states have a width sigma.
+[21:49.00] So what we're doing is we've set up our camera and it's every tale seconds, it takes a photograph of this quantum system.
+[21:58.00] Except in contrast to the camera that's taking this video right now, well actually not in contrast, but very much different to how we expect things to behave.
+[22:10.00] Whenever we take a photograph of the system, we destroy a bit of the system.
+[22:14.00] There's a back action.
+[22:16.00] So just looking at your quantum system will disturb it.
+[22:19.00] Information gain equals disturbance in quantum mechanics.
+[22:23.00] Of course the camera is also doing the same thing, it's just that we're so big we don't feel the back action of the CCD in the camera.
+[22:34.00] And we're going to integrate the Schrodinger equation with this time dependent Hamiltonian forward in time and characterize the state of the system before the measurement and after the measurement, the jth measurement.
+[22:53.00] We introduce this notation here.
+[22:56.00] Roses tj to the power of minus means the system state just before the jth measurement.
+[23:24.00] Whatever it is, that's what we're going to write it as.
+[23:28.00] Just before it's Roses tj to the power of minus.
+[23:33.00] And just afterwards the system has been subjected to this measurement.
+[23:57.00] And it will have interacted with the jth meter.
+[24:27.00] And we indicate that the measurement is taken place by writing a t plus now.
+[24:54.00] And it's an exercise from your elementary quantum mechanics course that this is that when you have a delta function in a time dependent Hamiltonian, you can integrate the Schrodinger equation forward in time and you get this particular answer here.
+[25:54.00] This is just some unitary rotation, this part here is just unitary, but it coupling the system which is here with the jth meter which is here.
+[26:23.00] So I got it the wrong way around, these subscripts, mj system.
+[26:33.00] Just after the measurement has taken place, the flash has died down, the system has interacted with the jth meter.
+[26:44.00] It's become entangled with the jth meter in general because this is unitary, is an entangling unitary, it's become correlated with the meter.
+[26:55.00] And now our task is to discard the meter or gain information from the meter.
+[27:02.00] So we're going to measure the pointer variable or the meter variable and find out what was the value of the position of the system.
+[27:17.00] Remembering quantum mechanics measurements are described by effects and effects have the, they're defined to eat up the system that they're measuring.
+[27:30.00] So this is a way of measuring effects without destroying the system. You first read, you interact the system with the pointer variable or the meter variable, then you look at the meter variable which consumes the meter or the pointer system but leaves the system still around.
+[28:00.00] And when you do that, when you take this joint system here, subject the jth meter system to a measurement, you will produce a posterior or a conditional state for the system.
+[28:23.00] And that state is conditional on what you measured the meter to be, what state you measure the meter.
+[28:30.00] And we can just write that out here.
+[28:36.00] So if we measured the value xj of the meter after tj time tj, then the state of the system will be projected for one of a better word.
+[28:54.00] But I don't like projected very much into this particular state here.
+[29:09.00] So that's sub-normalized right when you apply a projection to a quantum system.
+[29:29.00] It's not always going to give you a normalized state. So we have to normalize it by the probability that that outcome occurs, which we write as pxj.
+[29:39.00] And I will give you a better expression for that in one second.
+[30:29.00] So it's an exercise, not very difficult one.
+[30:58.00] To show that you can write the system state, this one here, in a slightly different form.
+[31:10.00] We introduce these operators epsilon.
+[32:10.00] These things here, epsilon, these are operators.
+[32:36.00] This is the exponential of the position operator and some number times by the identity operator.
+[32:45.00] So you can check that by expanding things in the position basis.
+[32:55.00] Expand the left hand side and the right hand side in the position basis.
+[33:04.00] So this is the, we're modeling here the case of selective measurement where we looked at the meter at time tj.
+[33:30.00] And there's also, now measure the meter.
+[33:43.00] The conditional system state makes sense when you're making a selective measurement where you look at the pointer variable or the meter after the interaction.
+[33:51.00] But there's another case we can look at where we just don't look at the meter. We measure the system, it gets correlated with the meter variable, but then we just throw it in the bin.
+[34:01.00] We never look at it again. That still has had some back action on the system, the system interacted with that variable.
+[34:10.00] And the way to work out the non-selective measurement cases, you just sum over xj, this case here, take the, the comics combination of all these guys here.
+[34:22.00] You just don't look at the system. So that's also an exercise to show that the system state after the jth interaction where we don't look at the meter.
+[34:36.00] You just ignore it. That's the same as just averaging over all the outcomes here of the selective measurement case.
+[35:05.00] And it's almost straightforward in the sense that we're averaging over all the possible outcomes. We've got that outcome there with probability pxj.
+[35:17.00] So to average over these outcomes, we multiply that by pxj and then integrate over xj. So that's how we get that answer there.
+[35:25.00] And this is the expression we're going to study.
+[35:45.00] This is the case where the system is at the meter or point of variables controlled by an environment. So we imagine that the environment is trying to gain access to the quantum system, it's measuring the quantum system after time progresses.
+[35:58.00] But since the environment has the meter, not us, we're not allowed to look at the meter. So we have to just integrate over all the possible outcomes that the environment had.
+[36:08.00] And that's the state that our system finds itself in after the environment has measured it.
+[36:15.00] So we think of the environment as kind of an adversary, kind of an enemy who is trying to miss things up by doing the best job they can to measure your system.
+[36:25.00] They're a spy or an eavesdropper.
+[36:34.00] But unlike the classical case, where if someone can take photographs of secret documents, here if you take photographs of the secret documents, they burn up.
+[36:43.00] So the quantum mechanics, this back action ruins the system state.
+[37:05.00] And this actually is the fundamental physical explanation for how quantum cryptography works. Ultimately it boils down to the fact that if someone measures your quantum system, there is a back action on the system.
+[37:22.00] And so as long as you can detect that back action, you'll know that an eavesdropper has intercepted your message. Otherwise, if you can do some tricky analysis to infer that the eavesdropper hasn't looked at your system, and then you'll know our posteriori that the message you have transmitted has gotten through without eavesdropping to the other person in the communication.
+[37:51.00] So this is really a key feature of quantum mechanics that information gain leads to disturbance of the system.
+[38:00.00] This is the one that really distinguishes it from classical physics as one of the key features that distinguishes quantum mechanics from classical physics.
+[38:12.00] There's other places where information gain leads to disturbance. So I think I mentioned the stock market analogy as well. So if you're a trader in the stock market, you gain some inside information, and then you act on that information, then other traders will see you buying up these assets, and then they will start buying those assets as well or selling them depending on what they think is your strategy.
+[38:39.00] And there is somehow a back action there where information gain has led to a disturbance.
+[38:53.00] All right. That's what just happened before and after this instant in time, Tj of the jth measurement. Let's all put this together and ask what happened between the measurements.
+[39:04.00] And so at the exact measurement time, we know that before and after the state goes from, there's a mistake there that's a minus. The system state goes from rho Tj minus to rho Tj plus, and the difference between these two states, the back action of the meter on the system, is this expression there, which is a CP map, by the way.
+[39:34.00] So completely positive map.
+[39:41.00] Well, we assume this measurement so fast that no dynamics actually occurs during the measurement process, but between the measurements, there is some unitary dynamics.
+[40:03.00] Indeed, when we're not looking at it, the system evolves freely.
+[40:33.00] Now let's put that observation together with this map here, and we're going to produce an expression for the system state after end measurements of position according to this prescription here.
+[41:02.00] Let's first look at the selective measurement case.
+[41:29.00] Suppose we obtained outcomes x bar 1 through the x bar n, then we can wonder what is the state of the system after the jth measurement.
+[41:50.00] And that will be some gigantic conditional state. That state, just after the jth measurement, will have to depend on the results of all the previous measurements.
+[42:11.00] So we're going to write this in a slightly complicated way.
+[42:31.00] The row system after the jth measurement is going to depend on the first j-1 measurement results, which I'll put in here.
+[42:42.00] We've obtained up to this point, oops, and j, right, because we've done just after the jth measurement.
+[42:50.00] This is at time j-towel, or the more precise, tj plus, and the expression for this conditional state here is very complicated.
+[43:14.00] We've got to depend on these measurement outcomes here, and we've got to factor in the results of the unitary evolution, according to you, in between each measurement result.
+[43:25.00] But in principle, there's nothing really... there's no new mathematics in writing down the state. It's just going to be a bit complicated to write down.
+[43:54.00] We just recursively apply this formula here, up here.
+[44:21.00] And we have to normalize the state by the probability that we got that outcome.
+[44:42.00] So that's... we're not going to work it out here. We're just going to leave it symbolic like that.
+[46:12.00] So proving star is a combination of i and ii.
+[46:33.00] Actually, it's not so difficult to work out this probability here that you obtain probability distribution here,
+[47:01.00] that you obtain measurement results x1 through to xj. You just take the trace of this bit at the top.
+[47:10.00] I'll write that out, actually.
+[47:40.00] And there's an ambiguity in this product.
+[48:08.00] When you have operators, and you see a product symbol, you have to wonder, do I take the product from left to right, or from right to left, or in to out?
+[48:24.00] And today we are taking the product to go from increasing values of j on the left.
+[48:54.00] So it's the full selective evolution of the system during these n measurements of position.
+[49:09.00] The state after j of those position measurements is this one over here where we conditioned on getting the measurement outcomes x bar 1 through to x bar j.
+[49:24.00] And therefore the system must have undergone this non-unitary process here in order to end up at this state there.
+[49:34.00] This is complete a description of this process as we can actually obtain. From now on we are going to apply approximations to understand this a bit better.
+[49:46.00] And for many systems you can work all this out. So this sequence of measurement results here we call the trajectory, a measurement trajectory, because you could think of it as a, you could plot these numbers, right, and it looks like some random walk.
+[50:14.00] So every one of these measurement records here will lead to a trajectory here, a conditional state that depends on these random numbers you got in measurements.
+[50:30.00] And that's a history if you like of the measurement process.
+[50:35.00] Now that's the selective measurement case, that's where we somehow can look at the pointer or the meter, but we're trying to understand a model where the environment has control of the meter.
+[50:44.00] So what's the non-selective case? Well that's where you just average over all these measurement outcomes where you don't get to look at the pointer or the meter.
+[50:51.00] So you just average out over all the possible outcomes.
+[51:10.00] So the evolution of the system state alone when you've ignored the measurement outcomes is much easier to describe. You don't need to know the measurement outcomes to describe the system state after J measurements.
+[51:30.00] So you average out over all the possible results.
+[51:59.00] And that's the corresponding system state after the J measurement. That still looks pretty complicated, right?
+[52:11.00] Is there a D something? That's how I look. So I've got Dx's here.
+[52:25.00] It still looks pretty complicated, right? I mean in fact if anything is kind of worse because you need to know what P, this expression is here first and then you have to integrate over all of them.
+[52:34.00] Well we're going to find a way to approximate this in a controlled way in a certain region.
+[53:04.00] So we're going to find a way to approximate this in a controlled way.
+[53:19.00] This is in no way a continuous measurement of anything. We're doing N measurements, full stop.
+[53:42.00] What does continuous mean? Well continuous means you do lots here. N goes to infinity. To be more rigorous we need to introduce the topology, et cetera, et cetera.
+[53:53.00] We're not going to do that. We're going to rely on some physical intuition to describe the topology with respect to what we mean continuous by.
+[54:11.00] So we're going to study a limit and I'll put quote marks here because we haven't been entirely clear by what we mean by convergence.
+[54:40.00] We're going to study a limit of this non-selective evolution where N tends to infinity.
+[54:55.00] It shouldn't be continuous if the time between your measurements remain the same.
+[55:03.00] So if you do a measurement every one second and you just do an infinite number of measurements every second, that's not continuous in the, it feels like it's continuous sense of continuous.
+[55:16.00] We want somehow not only to let the number of measurements go to infinity but the time between the measurements to go to zero at some rate.
+[55:27.00] So the time, tau, between measurements is also going to go to zero so that we end up with some kind of continuous thing.
+[55:34.00] Otherwise this plot here will always look discrete. We want it to look like a continuous function so the gaps between must go to zero.
+[55:51.00] In order to fix things we're going to imagine that we're going to observe our system over a finer interval of time t.
+[55:58.00] So we want N to go to infinity and the gaps to go to zero at just the right rate that we do an infinite number of measurements in a constant time.
+[56:10.00] So that's what we mean by continuous here. This is not even the slightest bit rigorous but you can fix this up. This is not metaphoric.
+[56:22.00] This is, you can certainly make sense of these statements much more carefully but we won't have time in this course to do that.
+[56:34.00] And we're going to describe a differential equation for the systems dynamics. So at the moment we've got a discrete time equation for the systems dynamics.
+[56:42.00] We know what the system state is at discrete intervals of time j, j plus one times tau, j plus two times tau. It's like a discrete difference equation.
+[56:53.00] If we take this following limit up here then we should end up with a differential equation for how the system evolves.
+[57:23.00] And the way we're going to get the differential equations we're going to define a derivative of the system density operator via a limit where this is of course the mathematically treacherous bit.
+[57:46.00] So physically I don't think there's any difficulty in doing what we've just done here. Mathematically you have to worry about continuity and differentiability.
+[58:07.00] So we're going to define the derivative of the system state at time t as being the limit as n tends to infinity or tau tends to zero. We're doing these limits together.
+[58:27.00] In fact I never wrote that right. So these limits are taken together, n goes to infinity, tau goes to zero. So this derivative here is just the difference between the measurement at the nth minus oneth instant and time and the nth instant and time.
+[58:44.00] But these instant times are getting closer together. So somehow this should be a derivative because the bottom here is also going to zero.
+[58:54.00] So we're going to put like quote marks here to indicate that that's not really strictly speaking a derivative.
+[59:02.00] But I promise you can make sense of this if you want to work harder.
+[59:13.00] Sorry.
+[59:22.00] It's all depending on the sigma. We're going to get back to the sigma. So the sigma is buried in there. I keep forgetting to indicate it explicitly.
+[59:31.00] The sigma is related to the information gain of the measurement. If you had the sigma too high, then what you'll find is that there will be no dynamics.
+[59:40.00] And if the sigma is too low, then it will just be unitary dynamics of the system alone. The sigma is going to be chosen just right for things to work out.
+[59:48.00] We're coming to that.
+[59:58.00] What we're doing in a very complicated way is defining a Brownian motion process.
+[60:06.00] So the Brownian motion in this case is taking place in the entries of the density operator.
+[60:16.00] There's very much beautiful maths we could do with Brownian motion processes and stochastic calculus.
+[60:27.00] We don't have time. It turns out in this course to do justice to that.
+[60:37.00] But this will be if you like our definition of what a quantum Brownian motion is.
+[60:55.00] All right. So if we use star and star star, these two equations, we wrote down. Where are they? Maybe I didn't star them yet.
+[61:08.00] Okay. This one is star. That's the system state after non selective measurement.
+[61:16.00] And the selective measurement one is also star.
+[61:24.00] Oh, yes, I started. So using these two formulae here, we're going to get an expression for this derivative.
+[61:54.00] Okay.
+[62:25.00] There it is. The state of the system just after the nth measurement is given by the state of the system just after the n minus one's measurement.
+[62:43.00] First unitarily evolved by a time tail and secondly then subjected to this conditional non selective measurement.
+[63:02.00] And now we come to the most marvelous of the formulae in this whole derivation.
+[63:11.00] This one where sigma finding appears explicitly.
+[63:37.00] So we've got the fact that this operator Upsilon hat is kind of a Gaussian thing.
+[63:44.00] It's the exponential of minus the position operator squared. And this g, the state of the jth meter, is also a Gaussian.
+[63:52.00] It's a Gaussian of width root sigma, the way I've done things today.
+[64:02.00] And you can show. And it's a very nice exercise. It took me four or five lines.
+[64:32.00] Right. This is the main formula that allows us to get an evolution equation right here.
+[65:31.00] So very interesting derivation.
+[66:00.00] You use the fact that these Upsilon's are bounded operators. You expand them around the identity but you also need a Gaussian integral formula to get the right hand side here.
+[66:19.00] And the first thing you might think to do is just to expand this in the smallness of sigma but then you'll end up with some horrible infinity.
+[66:28.00] So you have to be a little bit more careful about how you do things.
+[66:33.00] So already here you can start to see how sigma needs to be chosen so that things will be non trivial.
+[66:41.00] So the larger sigma is, the less effect this second term is going to have.
+[66:48.00] So this first term is do absolutely nothing. So if sigma was infinity, then this integral over x bar would be just nothing.
+[67:01.00] It would just leave the argument untouched which means that the system undergoes unitary evolution.
+[67:09.00] Conversely if sigma was close to zero then the second term in fact dominates. It overwhelms the identity contribution.
+[67:26.00] What else do I want to say? I think that's it more or less.
+[67:37.00] There's three regimes. There's one where the sigma is small. Ah yeah you know I remember.
+[67:42.00] So sigma measures the width of this pointer state of the meter. So the larger sigma is the wider this state is of the meter.
+[67:50.00] Now if sigma's infinity the meter is essentially in a zero momentum eigenstate.
+[67:57.00] It's the equal superposition of position over all space.
+[68:01.00] And then when you do this for moment measurement prescription you don't gain any information about the system because it's an eigenstate of momentum.
+[68:09.00] In the other case where sigma is close to zero then the position the wave function of the meter is almost a delta function of position.
+[68:18.00] And then almost everything is distinguishable with respect to this for moment measurement prescription.
+[68:23.00] The kind of Goldilocks position in the middle where sigma is not zero and not infinity and there some interesting stuff can happen.
+[68:33.00] And we're going to work out exactly that regime right now. So that's really a good exercise. I'll probably set that for the next assignment to work this formula out there.
+[68:47.00] I'm interested in the limit of tail going to zero and going to infinity.
+[68:57.00] And we're going to start using Taylor's theorem to expand stuff here on the right hand side of this derivative expression.
+[69:04.00] So we're going to use the fact that when Tau is small u of Tau which is a perfectly respectable unitary group can be expanded in terms of its generator.
+[69:16.00] Like that.
+[69:23.00] So excuse me, order Tau squared terms. And hence we're going to end up with the following expression.
+[69:37.00] So if you do a bit of Taylor's expansion use the expansion in the box use the expansion up here and keep things to order Tau.
+[69:58.00] Let's see what happens.
+[70:15.00] Not a, but rho.
+[70:42.00] And we're just about there for an evolution equation. This Tau balances out nicely with that Tau there.
+[70:51.00] This one of a Tau versus balances that one of the two Tau versus there. The only thing where we have to wonder about things is this term here.
+[71:02.00] And that's where we finally see that sigma is tied to Tau.
+[71:26.00] And that's where we finally see that sigma is tied to Tau.
+[71:57.00] Here's the crucial thing. So the time between, as long as the width of these initial states of these measurement or meter states scales as one over Tau they get wider the more measurements you do, then you'll have a non trivial limit.
+[72:54.00] So that's where we finally see that.
+[73:24.00] So
+[73:49.00] as long as you choose each of the infinity meters to be in the very, very broad Gaussian initial state then you can end up with a non trivial limit.
+[74:18.00] You can end up with a non trivial dynamics like this.
+[74:41.00] So let's just think a little bit now about various scaleings of these meters.
+[74:51.00] So there's three cases that I've talked about.
+[75:22.00] All right, let's think about the scaling here.
+[75:34.00] So in the very special case where the width of the initial states of each of the meters is chosen to scale with the time between the measurements we get this non trivial dynamics here.
+[75:48.00] Let's think about the case where you just fix each meter in a nice Gaussian state of a fixed width and you don't care about the time between the measurements.
+[76:08.00] Well, sigma is a constant then and so as Tau goes to zero this expression goes to infinity and this term here overwhelms this term here.
+[76:24.00] And what this term does is it defases everything off the diagonal. So it's a very strong measurement if this corresponds to an extremely strong defacing process where everything off the diagonal in the position basis is sent to zero.
+[76:38.00] It's sent to zero extremely rapidly. In fact, you're instantly projected when Tau goes to zero onto a position eigenstate.
+[76:45.00] So this is the quantum zina regime.
+[76:55.00] So in fact, forget constant for as long as sigma is bigger than one over Tau you're going to enter this quantum zina regime.
+[77:09.00] So called because you're looking you're making such a strong measurement of position at each instant of time that the system doesn't have anywhere it cannot actually undergo any evolution.
+[77:20.00] So by analogy with the zino paradox of looking at an arrow in flight or closing a door.
+[77:30.00] So case one, the quantum zina regime, the system is slammed into a position eigenstate and stays there forevermore. It cannot evolve.
+[77:42.00] Case three is the exact opposite. Here, this is what you might call the unitary regime.
+[78:02.00] So sigma, the width of these galsions is taken to be too wide. Yeah, so sigma small, so the galsine is wide and vice versa. Hang on, something wrong here isn't there.
+[78:19.00] Yeah, case three is where the galsines are extremely wide. Then this term here vanishes and the evolution of the system, the non-selective evolution of the system is just the unitary evolution of the system.
+[78:33.00] It's as if the environment or the meters gain no information at all. It's only in this extremely special regime where sigma equals one over Tau.
+[78:43.00] Or I guess one over Tau log, Tau log, Tau blah blah blah, that you can end up with a non-trivial evolution.
+[79:02.00] I've never seen anyone do that, but I think it's open that it could do this, that you could get a non-trivial evolution there.
+[79:09.00] As long as sigma is one over Tau, then you'll end up with a non-trivial dynamics which is a balance between unitary dynamics in the quantum zeno regime and the system undergoes dissipation and unitary dynamics at the same time.
+[79:22.00] And that's the regime modeled by this differential equation which I have up at the top of the board there.
+[79:40.00] Alright, so now in the last minutes we'll just see what to expect from equations of motion like this.
+[79:46.00] We can't in general solve these. Depending on H0 we can, or we can't solve this equation.
+[79:54.00] When H0 is quadratic, like a harmonic oscillator, we can solve it. In fact, we're going to partially solve it today.
+[80:09.00] But in general, we can't solve this equation of motion, it's too complicated.
+[80:40.00] So you can think, before we solve it, let's think about what do we expect.
+[80:46.00] If you're continuously monitoring the position of the particle, but you do so very, very weekly, that's what this equation is modeling, then the system undergoes its normal unitary evolution, but there's some back action on the system by the fact that you're measuring the position continuously all the time.
+[81:09.00] You're doing it so weekly that you don't slam the position, the system into a position eigenstate, but there's a back action and that back action takes the form of a dissipation on the system.
+[81:21.00] So it loses coherence.
+[81:24.00] And now we'll just take a look at what happens to expectation values as time progresses.
+[81:34.00] And we'll just consider the simplest possible system that we can study on the line, and that's the free particle.
+[81:48.00] Alright, it's the Hamiltonian for a free particle like this, and we're going to look not at the density operator of the system, we're just going to look at the expectation values of a couple of observables.
+[82:19.00] So if you look at the expectation value position as time passes, you apply this equation here, you solve the equations.
+[82:37.00] Heisenberg picture, you end up actually with something that's not entirely non trivial.
+[82:45.00] In fact, what you see is that the average values of position and momentum obey the equations you would expect for unitary dynamics.
+[82:59.00] So it looks as though there's no dissipation at all here. So the average position is given by the average initial momentum.
+[83:07.00] The change in your average initial momentum or your average momentum is just zero.
+[83:11.00] So the momentum is conserved, and the particle just translates along at the velocity given by determined by the momentum here.
+[83:29.00] The interesting stuff happens when you look at the variance.
+[83:35.00] So you hardly need to erase the board for this final equation. If you look at the variance, I'll say the momentum distribution, you'll see that the momentum wave function starts to broaden as time progresses.
+[83:59.00] So in the first moment, there's nothing that's different from the standard unitary evolution, the particle just moves along at the velocity given by p over m.
+[84:28.00] However, if you look at the variance, if the particle's initial momentum distribution was very focused, it was almost a delta function say, then as time progresses, the momentum distribution starts to broaden linearly with time.
+[84:46.00] So this measurement of positions starts to have a back action on the momentum distribution. That's exactly what you would hope, right?
+[84:52.00] It's your measure position that makes position less certain, or momentum less certain, according to the uncertainty principles.
+[85:03.00] And that's exactly the amount by which the uncertainty increases.
+[85:11.00] Okay, I think we'll stop here today. Thank you very much.

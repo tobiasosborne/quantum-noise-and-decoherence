@@ -1,0 +1,260 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 12 — Dynamical Semigroups and the GKSL Theorem
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 5 (Lindblad equations).
+
+\subsection{From master equations to superoperators}%
+\label{sec:superoperators}
+
+Every master equation derived so far has the Lindblad form
+\begin{equation}\label{eq:master-eq-generic}
+  \frac{\dd\rho_S}{\dd t}
+  = -i[H_0,\,\rho_S]
+    + \sum_j \gamma_j\Bigl(
+      L_j\,\rho_S\, L_j^\adj
+      - \tfrac{1}{2}\{L_j^\adj L_j,\,\rho_S\}\Bigr)\,.
+\end{equation}
+This is first-order in time and linear in~$\rho_S$, so its
+solution is the action of a one-parameter family of maps.
+
+\begin{definition}[Superoperator]\label{def:superoperator}
+  A \textbf{superoperator} is a linear map
+  $\mathcal{L}\colon \Mn{d} \to \Mn{d}$.  Operators act on
+  vectors; superoperators act on operators---hence the name.
+\end{definition}
+
+Writing the right-hand side of~\eqref{eq:master-eq-generic} as
+$\mathcal{L}(\rho_S)$, the master equation becomes
+$\dot{\rho}_S = \mathcal{L}(\rho_S)$ with formal solution
+\begin{equation}\label{eq:formal-solution}
+  \rho_S(t) = e^{t\mathcal{L}}\,\rho_S(0)\,,
+\end{equation}
+where the exponential is defined by its Taylor series.
+
+\subsubsection{Vectorisation}
+
+To solve~\eqref{eq:master-eq-generic} numerically one
+\emph{vectorises} the density operator, reshaping the $d\times d$
+matrix~$\rho_S$ into a vector of length~$d^2$.
+
+\begin{definition}[Standard vectorisation]\label{def:vectorisation}
+  Given $\rho = \sum_{j,k}\rho_{jk}\ketbra{j}{k}$, its
+  vectorisation is
+  \begin{equation}\label{eq:vectorise}
+    \eqbox{\ket{\rho}\!\rangle
+    = \sum_{j,k} \rho_{jk}\;\ket{j}\tp\ket{k}
+    \;\in\; \C^d \tp \C^d}\,.
+  \end{equation}
+\end{definition}
+
+Under this map, left and right multiplication become tensor products:
+\begin{equation}\label{eq:vec-rules}
+  A\,\rho \;\longmapsto\;
+    (A \tp \One)\,\ket{\rho}\!\rangle\,,
+  \qquad
+  \rho\, B \;\longmapsto\;
+    (\One \tp B^\top)\,\ket{\rho}\!\rangle\,.
+\end{equation}
+Applying these rules, the master equation becomes
+$\frac{\dd}{\dd t}\ket{\rho_S}\!\rangle = L\,\ket{\rho_S}\!\rangle$
+with the $d^2\times d^2$ matrix
+\begin{equation}\label{eq:L-matrix}
+  L = -i\bigl(H_0\tp\One - \One\tp H_0^\top\bigr)
+    + \sum_j \gamma_j\Bigl(
+      L_j \tp \bar{L}_j
+      - \tfrac{1}{2}\,L_j^\adj L_j\tp\One
+      - \tfrac{1}{2}\,\One\tp L_j^\top \bar{L}_j
+    \Bigr)\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Dynamical semigroups}\label{sec:dynamical-semigroups}
+
+\begin{definition}[Dynamical semigroup]\label{def:dyn-semigroup}
+  A \textbf{dynamical semigroup} is a family of linear maps
+  $\{\chan_s\colon \C^d \to \C^d\}_{s \geq 0}$ satisfying
+  \begin{enumerate}[(i)]
+    \item \textbf{Semigroup property:}\;
+      $\chan_t \circ \chan_s = \chan_{s+t}$
+      for all $s, t \geq 0$,
+    \item \textbf{Identity at zero:}\; $\chan_0 = \id$.
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  Unlike a group, a semigroup does not require invertibility.
+  Irreversible dynamics naturally form semigroups.
+\end{remark}
+
+\begin{proposition}[Generator of a continuous semigroup]%
+\label{prop:generator}
+  If $s \mapsto \chan_s$ is continuous, then $\chan_s$ is
+  differentiable in~$s$ and there exists a matrix~$L$ such that
+  \begin{equation}\label{eq:exp-generator}
+    \eqbox{\chan_s = e^{sL}}\,.
+  \end{equation}
+  The matrix $L$ is called the \textbf{generator} of the semigroup.
+\end{proposition}
+
+\begin{intuition}[Continuity implies differentiability]
+  Generically, continuity does not imply differentiability.  But
+  the semigroup property smooths out irregularities, much as
+  convolution produces smoother results: the constraint
+  $\chan_{s+t} = \chan_t \circ \chan_s$ forces the exponential form.
+\end{intuition}
+
+\begin{proof}[Proof sketch]
+  The averaged map $M(\epsilon) = \int_0^\epsilon \chan_s\,\dd s$ is
+  invertible for small~$\epsilon$.  Inserting
+  $M(\epsilon)M(\epsilon)^{-1}$ and shifting the integration
+  variable via the semigroup property produces a representation
+  differentiable by the fundamental theorem of calculus; since
+  $\chan'(0)$ is $s$-independent, $\chan_s = e^{sL}$ with
+  $L = \chan'(0)$.
+\end{proof}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Quantum dynamical semigroups}\label{sec:qds}
+
+\begin{definition}[Quantum dynamical semigroup]%
+\label{def:qds}
+  A family of superoperators
+  $\{\chan_s\colon \Mn{d} \to \Mn{d}\}_{s \geq 0}$ is a
+  \textbf{completely positive quantum dynamical semigroup}
+  (CP~semigroup) if
+  \begin{enumerate}[(i)]
+    \item $\chan_0 = \id$,
+    \item $\chan_t \circ \chan_s = \chan_{s+t}$ for all
+      $s,t \geq 0$,
+    \item $\chan_s$ is completely positive and trace-preserving
+      for every~$s \geq 0$.
+  \end{enumerate}
+\end{definition}
+
+By vectorisation, any QDS is a dynamical semigroup on~$\C^{d^2}$
+and admits a generator~$\mathcal{L}$ with
+$\chan_s = e^{s\mathcal{L}}$.  The central question is:
+\emph{which generators~$\mathcal{L}$ produce CP semigroups?}
+
+\begin{intuition}[Why complete positivity is surprising]
+  Taylor expanding and truncating generically destroys positivity:
+  a truncated state $(1 + c_0 t)\ket{\psi}$ is not normalised.
+  That the evolution is CP for all~$t \geq 0$ is a non-trivial
+  property of the Lindblad form.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Characterising CP generators}\label{sec:cp-generators}
+
+\begin{definition}[Conditionally completely positive map]%
+\label{def:ccp}
+  A hermiticity-preserving superoperator $\mathcal{L}$ is
+  \textbf{conditionally completely positive} (CCP) if there exists
+  a CP map $\Phi\colon \Mn{d} \to \Mn{d}$ and $K \in \Mn{d}$
+  such that
+  \begin{equation}\label{eq:ccp-form}
+    \mathcal{L}(\rho) = \Phi(\rho) - K\rho - \rho K^\adj\,.
+  \end{equation}
+\end{definition}
+
+\begin{proposition}[Equivalent characterisation of CCP maps]%
+\label{prop:ccp-equiv}
+  Let $\ket{\Omega} = \frac{1}{\sqrt{d}}\sum_j \ket{j}\tp\ket{j}$
+  and $P = \One - \ketbra{\Omega}{\Omega}$.  A
+  hermiticity-preserving $\mathcal{L}$ is CCP if and only if
+  \begin{equation}\label{eq:ccp-condition}
+    P\;\bigl[(\mathcal{L}\tp\id)\,
+      \ketbra{\Omega}{\Omega}\bigr]\;P
+    \;\geq\; 0\,.
+  \end{equation}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+  ($\Rightarrow$) The $\Phi$ term is positive by complete
+  positivity; the $K$ terms vanish because $P\ket{\Omega} = 0$.
+  ($\Leftarrow$) The block $P\tau P \geq 0$ of the Choi operator
+  $\tau = (\mathcal{L}\tp\id)\ketbra{\Omega}{\Omega}$ corresponds
+  to a CP map~$\Phi$ by the Choi--Jamio\l{}kowski isomorphism; the
+  remaining terms take the form $-K\rho - \rho K^\adj$.
+\end{proof}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The GKSL theorem}\label{sec:gksl-theorem}
+
+\begin{proposition}[CP semigroup $\Leftrightarrow$ CCP generator]%
+\label{prop:cp-semigroup-ccp}
+  A continuous semigroup $\{\chan_s\}_{s\geq 0}$ with
+  generator~$\mathcal{L}$ is completely positive for all $s\geq 0$
+  if and only if $\mathcal{L}$ is CCP.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+  ($\Rightarrow$) CP of~$\chan_s$ gives
+  $(\chan_s \tp \id)\ketbra{\Omega}{\Omega} \geq 0$.  Expanding
+  $\chan_s = \id + s\mathcal{L} + O(s^2)$ and projecting with~$P$
+  kills the leading term ($P\ketbra{\Omega}{\Omega}P = 0$);
+  dividing by~$s$ and sending $s\to 0$ yields~\eqref{eq:ccp-condition}.
+
+  ($\Leftarrow$) Write $\mathcal{L} = \Phi - \mathcal{K}$ with
+  $\mathcal{K}(\rho) = K\rho + \rho K^\adj$.  The Lie--Trotter
+  formula gives
+  $e^{s\mathcal{L}} = \lim_{n\to\infty}
+  (e^{s\Phi/n}\,e^{-s\mathcal{K}/n})^n$.
+  Each factor is CP ($e^{s\Phi/n}$ as the exponential of a CP map;
+  $e^{-s\mathcal{K}/n}(\rho) = M\rho M^\adj$ with $M=e^{-sK/n}$),
+  so the limit is CP.
+\end{proof}
+
+\begin{keyresult}[Complete positivity from the generator]
+  Complete positivity of~$\chan_s$ for every $s > 0$ is an infinite
+  family of constraints, yet it reduces to a \emph{single
+  linear-algebraic condition} on the generator: the CCP
+  property~\eqref{eq:ccp-condition}.
+\end{keyresult}
+
+Combining this with Proposition~\ref{prop:ccp-equiv} and imposing
+trace preservation yields the GKSL theorem.
+
+\begin{theorem}[GKSL theorem --- finite-dimensional case]%
+\label{thm:gksl}
+  A superoperator $\mathcal{L}\colon \Mn{d}\to\Mn{d}$ generates a
+  continuous completely positive trace-preserving semigroup if and
+  only if it has the \textbf{Lindblad form}
+  \begin{equation}\label{eq:gksl}
+    \eqbox{\mathcal{L}(\rho)
+    = -i[H,\,\rho]
+      + \sum_{j=1}^{d^2-1} \gamma_j\Bigl(
+        L_j\,\rho\, L_j^\adj
+        - \tfrac{1}{2}\{L_j^\adj L_j,\,\rho\}\Bigr)}\,,
+  \end{equation}
+  where $H = H^\adj$, the rates satisfy $\gamma_j \geq 0$, and
+  $\{L_j\}$ are operators on~$\C^d$ (at most $d^2 - 1$ of them).
+\end{theorem}
+
+\begin{historical}[GKS and Lindblad (1976)]
+  The finite-dimensional case was proved independently by Gorini,
+  Kossakowski, and Sudarshan~\cite{GKS76} and by
+  Lindblad~\cite{Lindblad76}, who treated arbitrary dimensions.
+\end{historical}
+
+\begin{exercise}\label{ex:vectorise-lindblad}
+  For a single jump operator~$L$ with rate~$\gamma$ and
+  Hamiltonian~$H$, derive the $d^2\times d^2$ matrix~$L$
+  in~\eqref{eq:L-matrix} using the vectorisation
+  rules~\eqref{eq:vec-rules}.
+\end{exercise}
+
+\begin{exercise}\label{ex:cp-exponential}
+  Show that the exponential of a completely positive map
+  $\Phi\colon \Mn{d}\to\Mn{d}$ is CP for all $s \geq 0$.
+  \emph{Hint:} each power $\Phi^n$ is CP, and a convergent sum of
+  positive operators is positive.
+\end{exercise}
+
+\begin{exercise}\label{ex:trotter}
+  Verify the Lie--Trotter formula
+  $e^{t(A+B)} = \lim_{n\to\infty}(e^{tA/n}\,e^{tB/n})^n$ by
+  expanding to first order in~$t/n$ and bounding the error.
+\end{exercise}

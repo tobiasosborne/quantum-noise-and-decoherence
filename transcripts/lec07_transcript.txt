@@ -1,0 +1,372 @@
+# Theory of Quantum Noise and Decoherence, Lecture 7: Lindblad Equations I
+# YouTube: https://www.youtube.com/watch?v=LTj5UL89-ro
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] During the last weeks, we've been assembling the information we need to describe the dynamics
+[00:11.44] of a system interacting with an environment E. Now, in some sense, we've done that more
+[00:20.44] or less in lecture 2 or 3. We already know how to describe the dynamics of a system embedded
+[00:28.12] or interacting with an environment. We just describe the dynamics of that system with a
+[00:35.64] completely positive map. So the state of the system S after some interaction with the
+[00:44.44] environment is very easy to describe. It's the trace out of the environment. Some dynamics
+[00:51.44] that couples the system in environment. Some initial state of the environment. That's
+[01:03.24] how to describe, in complete generality, the dynamics of a system interacting with an
+[01:10.52] environment. We've made some assumptions already in writing out this equation. And one
+[01:28.64] of these assumptions is that at time 0, time t0, let's say, the state of the system in environment
+[01:44.08] is decoupled. This is a fundamental assumption that we make almost always throughout this course.
+[02:00.48] There's a couple of justifications for this assumption. It's worth thinking about this
+[02:06.32] assumption a bit to see if it really does correlate with what we think is going on in our physical
+[02:11.68] systems. So at time t equals 0, you could imagine that you've worked very hard to decouple the
+[02:17.76] system in environment. You could imagine that you've tried to refrigerate your system insulated
+[02:23.60] from all the couplings that could be present. And during this process, you've managed to completely
+[02:32.24] decouple the state of the system in environment just by engineering. Another way in which this
+[02:38.68] assumption could be justified is that if the system in the environment are very, very weakly coupled,
+[02:47.40] which is more or less saying the same thing. So for example, either
+[03:08.68] the system has been insulated from e by design or the system in environment are weakly coupled.
+[03:39.56] There's more than one way to justify this assumption that at time t equals not the system in the
+[03:46.04] environment are decoupled. For example, the system in the environment may just simply be decoupled and
+[03:55.00] it might be what you want to do to actually turn on a coupling. That's another way of doing this.
+[04:02.28] So for whatever reason throughout this course, we're going to make this fundamental assumption that
+[04:06.76] always the initial instant, the system and the environment are decoupled, but that at later times
+[04:13.48] the system does interact with the environment. That's the assumption we make throughout this course.
+[04:19.64] And if you relax this assumption, then life gets a lot more complicated.
+[04:25.48] If your initial state of the system and the environment is coupled or entangled, then much of what we're
+[04:31.72] going to say from now on doesn't apply in its standard form. And in fact, even this map here is not
+[04:38.44] ceases to become obviously a completely positive map. And it's a very tricky subject. So we're going
+[04:44.52] to avoid that subject by just assuming that it won't happen. Now, as I said, that's the answer in
+[04:56.76] some sense. But that's not really the answer because we want a bit more than just this
+[05:05.08] equation here. There's some defects of this equation as it's written. So one of the defects is that
+[05:10.68] this unitary operator here between the system and environment is presumably a gigantic matrix
+[05:18.12] that couples this degrees of freedom of the system and the perhaps infinite number of degrees of
+[05:23.08] freedom of the environment. And well, that's pretty bad. I mean, if we want to describe the dynamics
+[05:30.04] of the system and we need to actually describe the full dynamics of the system and the environment,
+[05:35.72] then that is practically a difficult thing to do. And also physically, it's not very desirable either.
+[05:43.88] It should be that if you only have access to the system and you can only observe a couple of things
+[05:48.36] about the system, you shouldn't really need to describe the position of every mode in the
+[05:52.68] environment and the exact state of the environment because you're never going to ask questions about
+[05:56.52] those degrees of freedom. So hopefully, you can neglect the environment in a more systematic way
+[06:03.88] than just this equation here. And that's exactly what we're going to do today. We're going to develop
+[06:09.80] an equation of motion. It's going to be essentially of this form where we're going to make some additional
+[06:15.00] assumptions that allow us to even throw away the environment so that we'll have an equation of motion
+[06:21.48] involving just the system alone. And the equation of motion we're going to derive is called the master equation.
+[06:39.40] Let's start with the Hilbert space for L, our system plus environment.
+[06:46.12] Well, it's just the Hilbert space for the system,
+[06:53.56] composed with the Hilbert space for the environment. So we pretty much leave it here
+[06:59.64] just for notation, say, H is probably and most likely often finite dimensional.
+[07:07.24] Often, the Hilbert space for the system is going to be taken to be finite dimensional. And often,
+[07:19.56] the Hilbert space for the environment will be taken to be an infinite number of harmonic oscillators.
+[07:34.20] So why harmonic oscillators? Well, that's what the electromagnetic field can be thought of as B as a system of harmonic oscillators.
+[07:52.44] We're also going to look at metals and fermions in this course. And there, the path is not an infinite number of
+[07:59.08] Bosa harmonic oscillators. It becomes an infinite number of fermions or harmonic oscillators if you look at it in the right kind of way.
+[08:11.48] So that's the kinematics.
+[08:22.68] Let's come to the dynamics. How does the system evolve? The system plus environment evolve?
+[08:26.92] Well, it evolves according to Schrodinger's equation. And we're going to assume that the Hamiltonian that describes
+[08:35.64] the evolution of the system plus the environment, we're going to assume that that Hamiltonian is written as a
+[08:41.88] sum of three terms. The Hamiltonian for the system, the Hamiltonian for the environment, and some
+[08:49.32] interaction between the system and the environment. This is a pretty general assumption.
+[09:09.64] In fact, every Hamiltonian can be written this way. So that does not entail any restriction yet.
+[09:19.32] That's the kinematics, that's the dynamics. We now need to think about the initial state. What's the system and the environment? What kind of state are the unit time T?
+[09:41.32] Well, again, various, you apply one or more of these reasons that apply in your situation. And the assumption we're going to make is that the reservoir or the environment is in thermal equilibrium temperature T.
+[10:11.32] Oops, environment.
+[10:39.32] It's really one of the key assumptions in this whole derivation.
+[11:03.32] Okay.
+[11:31.32] Now, according to that assumption and also this fundamental assumption we make here, we can now write out the state of the system and environment at time T.
+[12:01.32] It's exactly of this form written up here already. We know what the answer is. You integrate Schroeninger's equation forward from the initial state to the current state and we obtain that the total state of the system and environment at time T is this.
+[12:29.32] Okay. That was pretty easy. And then what equation of motion does this general state satisfy? Well, as I said, Schroeninger's equation.
+[12:55.32] We're going to need to write out Schroeninger's equation in this derivation. It's going to be useful for us to do that.
+[13:10.32] There it is there. Oops, missing an eye.
+[13:29.32] That's the state of the system plus environment. What's the state of the system alone? Well, we take the partial trace over the environment.
+[13:48.32] Alright. And now we're going to go to work on this equation here. See what we can do to simplify it, to make it an equation involving just rho s alone.
+[14:17.32] The next assumption we make is that we can solve the dynamics of H naught.
+[14:44.32] That assumption we, well, we are in trouble. So we assume that the system plus environment dynamics is soluble, solvable, somehow. And for us, that means that we're going to assume the environment is a free, quasi free Hamiltonian.
+[15:05.32] Because HS is finite dimensional, it's pretty easy to solve. Because the system is a finite dimensional system, it's usually easy to assume that this is a solvable dynamics there, it's just a matrix.
+[15:22.32] And then we're going to move to the rotating frame, move to an interaction picture.
+[15:35.32] You never need to do this, but it's always sort of psychologically helpful to do this.
+[15:43.32] So we go to the interaction picture.
+[15:57.32] And we define the interaction term of the Hamiltonian in the interaction picture to be
+[16:07.32] the original interaction term evolved backwards in time according to the free dynamics like that. So it's just a definition.
+[16:19.32] And similarly the state of the system in the interaction picture is also defined to be evolving the total state backwards according to the free evolution.
+[16:36.32] That's a definition.
+[16:54.32] And when you do this, the whole point of the interaction picture is that the dynamics left over is somehow a little bit easier to describe.
+[17:01.32] You can save yourself writing out lots of terms.
+[17:30.32] It's an exercise, but it's really not a difficult one. If you differentiate this object here with respect to time, you'll get a commutator with H0, but with a minus sign.
+[17:49.32] And you get a commutator with H0 plus V. And then that cancels out to give you.
+[17:59.32] That's a good question.
+[18:16.32] Why are the signs for V different from the signs for rho?
+[18:25.32] Maybe we'll have to just do this derivation to see this.
+[18:39.32] It might be right that there should be a different sign.
+[18:55.32] Yeah, yeah, it won't work, right? Unless the sign is like this.
+[19:12.32] It should cancel. So maybe we just do the derivation here. It doesn't hurt actually sometimes to write these things out.
+[19:37.32] I wonder if this is correct as written. Let's just do the calculation and hopefully this will clarify what's going on.
+[19:54.32] Let's differentiate this object here. This is a definition. What do we get? We get a minus IH0 with rho total.
+[20:19.32] And we've also got to use the Schroding equation to get the other term.
+[20:47.32] Actually, I think we'll see that the sign error is the other way around. Well, we'll fix it up.
+[21:07.32] There we go. So this should cancel. It should look simpler, but it doesn't write because I made a mistake.
+[21:13.32] So it was worth doing this calculation. This is the derivative of int rho int t with respect to t.
+[21:25.32] So you get a term coming from these exponentials here, which is minus I, the commutator with respect to H0.
+[21:32.32] And then you use Schroding equation on the bit in the middle. It's also on minus IH0 plus V on there.
+[21:41.32] So there's no cancellation. So there's a sign error. And the sign error is precisely that it should have been this way.
+[21:50.32] And consequently, also, this was actually correct up there.
+[21:59.32] And thus, let's just check that the cancellation works out. So indeed, now we've got plus IH0 minus IH0. So these bits go.
+[22:08.32] And we need to define a V int with a minus I, no, no, that's correct, actually.
+[22:16.32] Yeah, right. So if you define the int like exactly that, then you get the desired equation there.
+[22:28.32] Okay, so there was a mistake. Yeah.
+[22:35.32] It's a good question. Is there any physical motivation for this rotating frame? It's just a change of basis.
+[22:43.32] Just because we can. It's a change of our perspective. But it's the same systems undergoing the same dynamics.
+[22:52.32] Yeah, it's like going from spherical to Cartesian coordinates. There's no real rotating going on here.
+[23:04.32] Rotating means that your reference, the picture you should have in mind, is that we're now instead of working from a fixed reference frame where we're fixed in time and we allow the system to undergo dynamics.
+[23:16.32] We're now pretend we now do all our calculations with respect to a frame which is rotating according to the free dynamics H0 here.
+[23:27.32] So instead of thinking that we're static in time and the system is evolving, we are now do all our reasoning with respect to a frame which itself rotates according to the free Hamiltonian.
+[23:40.32] And the system is itself in this new frame undergoing a different dynamics. Well, rotating refers to the fact that unitary dynamics is kind of like a rotation kind of, right.
+[23:54.32] It's not the rotation group, but it's it's a compactly group. So people say it's rotating. That's what the rotating refers to here.
+[24:05.32] So now we've sorted that out. We've at least, I hope, agreed that Rostar is a correct equation is written mathematically at least.
+[24:27.32] We didn't have to do this, right. We could this whole derivation would work if we worked in our original frame, but there's more terms to write out. So it becomes and then it becomes harder to see what we can neglect. So that's the motivation here in the same sense that if you solve for the electrostatic potential coming from a sphere, you could do it in Cartesian coordinates.
+[24:54.32] You know, why not use very cool coordinates because everything looks better there.
+[25:24.32] All right, from now on, we're going to drop the into subscript.
+[25:44.32] So this is a notational trip. You have to avoid. Now, we can actually solve star. Star can be solved.
+[26:08.32] It's a first order differential equation, and we can just integrate left hand side and right hand side to get the solution.
+[26:18.32] Very, very simple.
+[26:42.32] From the middle theorem of calculus, probably the most powerful thing that calculus has given us.
+[26:59.32] And the beauty of an expression like this is that you relate the object you want, the state at time t, to the integral, which is not so good, of something that you can do, namely the derivative.
+[27:17.32] And this is a, again, it's a technical step, but it's one of the most useful tricks we have in these kind of derivations where you, this thing is hard to get.
+[27:30.32] But this thing is made up of lots of little bits that are easy to get. So that's what this expression here is telling us.
+[27:40.32] And substituting in the equation star over there for the derivative, we'll get the answers.
+[28:09.32] No plus.
+[28:29.32] Now we're going to take a next step which will look totally unmotivated, but it will turn out to be very useful.
+[28:39.32] We're going to take this equation and put it into here.
+[28:52.32] So this is a true statement up here, right, for all t, this is true. This is also a true statement for all t, this is true. Why not use that statement in here? Why not? Let's put it in there and see what happens.
+[29:05.32] You can do that as many times as you want.
+[29:09.32] If you do that, you'll get a power series that will express the state at row at time t in terms of the state of the system at time zero.
+[29:26.32] So this is the Dyson series, you can get by iterating this expression here. It's called fixed point iteration is another way of doing it.
+[29:35.32] We're going to do one iteration according to this trick of putting in the solution into this integral equation here. Just do one step.
+[29:46.32] And this will look completely unmotivated. Why one? Why not two? Why not three? Why not infinity?
+[29:52.32] Well, I'll try and give the best explanation I can in a moment.
+[30:15.32] That's what you get when you put in basically this equation into itself.
+[30:35.32] I think I'm missing a term. I'm not missing a term because I forgot to differentiate.
+[31:04.32] Actually, that was a bit indirect, wasn't it? So really what we're doing is substituting this into star. So I'll write that out explicitly.
+[31:24.32] Let me get that equation there. Why second order? It's a funny thing to stop at.
+[31:54.32] Why stop here? The answer is that it's useful to do so if you do the rest of the derivation. That's a weak answer, but it's one answer.
+[32:05.32] The second is that the first nontrivial effects come at second order in this V. If you think of V as a small perturbation and it will be, then first order changes will turn out to be trivial.
+[32:16.32] So you actually need second order to see anything nontrivial. That is not going to be an obvious statement. You have to have thought about the dynamics of a quantum state at various orders in time to find that intuitive.
+[32:33.32] So I'm not really going to be able to give you a good solid answer for why stop here, apart from, let's do the rest of the calculation and then you'll see that you didn't need to go any further.
+[32:44.32] Which is weak, but so it is.
+[32:59.32] We're going to focus all our energies on approximating this object here now.
+[33:29.32] Great.
+[33:58.32] Now we can do something with the first step that gets us closer to the master equation. At the moment we've done nothing. There's no approximations made here.
+[34:15.32] We're going to need about the initial state, but I didn't approximate anything. We're about to start subjecting our system to approximations. But first let's get rid of the environment now. Now is the right moment to do it.
+[34:33.32] We're going to take the trace of this equation with respect to e to get an equation as objects involving only the system.
+[34:47.32] Hopefully, almost. We're getting there.
+[35:16.32] We're going to take the trace of this equation with respect to e to get an equation with respect to e to get an equation with respect to e to get an equation.
+[35:35.32] Now we're going to use some assumptions.
+[36:02.32] We're going to use our assumption 1, the initial state root, or that's a north there, isn't it?
+[36:09.32] The initial state, and that's a t, right? We're going to use some assumptions about the initial state. We know what the initial state of the system is by assumption.
+[36:25.32] We have a restate that assumption, assumption 1.
+[36:41.32] We're going to do a nice little exercise. Well, you're going to do this exercise, not me. We're going to split v of t into two pieces.
+[37:02.32] A so-called system piece and a system environment piece.
+[37:15.32] The system piece just acts on the system. That's why it's called the system piece. And the system environment piece on the system environment piece.
+[37:23.32] And there's one further constraint that we're going to impose, namely when we trace out the environment of the system environment piece of the interaction, you always get zero.
+[37:52.32] Show you can always do this by redefining the free part of the Hamiltonian. That's an exercise.
+[38:12.32] The whole point here is that if you have a Hamiltonian, which is a sum of two terms, then you're allowed to add a minus a to the Hamiltonian and gather the a term in the h0 term and the hs term and so on.
+[38:41.32] So you're always free to add zero. By adding zero, you can always ensure that this term here has that form like that.
+[39:10.32] And in doing this, you can see we've very much simplified this first expression here.
+[39:38.32] So
+[40:06.32] now we come to the second assumption in this derivation. I think we make five in total, five assumptions. We're going to assume that v is weak. It's a small perturbation.
+[40:36.32] Determined by the fine structure constants, a small number. And this assumption here is valid in that case.
+[40:49.32] Now we're going to make the next assumption, assumption three. This is a big one. This is called the Born approximation.
+[41:18.32] And it's the one which completely demolishes the entanglement between the system and the environment.
+[41:41.32] This is a terrible assumption.
+[42:09.32] I want to say some words about why we would ever think this was a good thing to do. First, let's talk about why it's a terrible thing to do in the first place.
+[42:26.32] We have this system. You have this environment. They're interacting. They were initially in a product state.
+[42:38.32] But the system interacts with the environment. The electrons are emitting photons that are getting entangled in which are now assumed to be environment degrees of freedom.
+[42:50.32] There's entanglement building up between S and E over time. They get stronger and stronger entangled.
+[42:58.32] That's the very reason that S looks like it's getting more and more mixed. It's getting mixed because the system is getting more entangled with the environment.
+[43:08.32] And then that entanglement is reflected in the impossibility of assigning a definite state to S. So S becomes more mixed.
+[43:16.32] This is fundamental. This is why the system alone goes from being a pure state to a mixed state. But in doing this, we've just assumed that there's no entanglement between the system and environment.
+[43:28.32] This looks like the most stupid thing you could ever imagine doing given what you know about the physics of the situation.
+[43:35.32] And indeed, if you're going to ask questions about the environment as well as the system, if you're going to measure a correlation between the system and the environment, you will be instantly determined that this is a bad thing to do.
+[43:52.32] This is a terrible thing to have done.
+[43:56.32] But there's an additional piece of information we have or lack of information. We're never going to interrogate the environment.
+[44:03.32] We've already promised that the environment degrees of freedom we can't access and that the only degrees of freedom we can access are the system alone.
+[44:14.32] So if you're going to only ask questions about the system and never about the environment, then all kinds of states become equivalent.
+[44:23.32] So the completely maximally entangled state between the system environment looks the same as they completely make state to you because you can never interrogate the environment.
+[44:32.32] You can never see this entanglement. You can never do a bell inequality experiment to see the entanglement between S and E.
+[44:40.32] So the reason this assumption could work at all is that if you never ask questions about the environment, it doesn't really matter what state you were assigned to the environment.
+[44:58.32] But the minute you have access to the environment, this assumption breaks down and you'll have to think more carefully about how to work forward.
+[45:06.32] And of course, on the other hand, we knew something like this was necessary because we have to somehow get rid of the environment and if the environment can talk back to us, then we're also in trouble.
+[45:16.32] We have to make some assumption where the environment does not talk back to us and this is also encoded in this assumption here.
+[45:23.32] So if you think of the situation where you have a small system emitting or interacting with photons that scatter off it,
+[45:32.32] if those photons never come back, then we can neglect them apart from the instant time where that interaction took place.
+[45:42.32] That's another way to get yourself more comfortable with this assumption here.
+[45:46.32] If however the environment repeated the talks to your system so that the photon bounces off a mirror hits your system and infinite number of times, then this would be a bad assumption.
+[45:59.32] This assumption not only does it capture the sense that you are not allowed to ask questions about the environment, this assumption is also capturing the physics of an environment which can never talk to the system more than once.
+[46:15.32] Each degree of freedom of the environment gets a chance to talk to the system and then scatter away but that degree of freedom never comes back again.
+[46:26.32] So that's the situation we often find ourselves in especially with the electromagnetic field.
+[46:31.32] We have some charged particle, we move it, it emits photons or interacts more properly with scatters of photons, these photons fly away at the speed of light and you can never capture them back again.
+[46:48.32] That kind of situation has also been captured by this assumption here.
+[46:55.32] So it's a major assumption in this whole derivation. It's probably the most important one.
+[47:04.32] But it's also the one that allows us to move forward without it where we've got a chicken and egg problem.
+[47:13.32] So applying this assumption, we can write out our equation, what does it look like now?
+[47:26.32] Well, it looks like the piece that's not zero, which is fully in terms of the system alone, minus
+[47:46.32] the interaction part, dT1.
+[48:01.32] There's a huge step forward, I claim. I've missing a trace of e.
+[48:30.32] Yes, should there.
+[48:59.32] Yes.
+[49:28.32] Yes.
+[49:53.32] Yes.
+[50:22.32] This is non-local in time, this equation is not very easy to solve.
+[50:43.32] Although it's gotten a lot easier because we know how to solve rho e of t1 by assumption that was easy to solve.
+[50:54.32] And these objects here, all we can all assume that they are computable in some sense.
+[51:02.32] And there's a sense in which this is already a useful equation for us, but it's just technically not as helpful an object.
+[51:12.32] Now, often we will use this equation as the basis for other approximations.
+[51:18.32] So in specific examples, we'll start off from this equation and then move forward.
+[51:23.32] However, there's a couple of common features of systems that you want to study that we will codify in some more assumptions.
+[51:38.32] We're going to move now to the fourth assumption, which will allow us to approximate this environment state a little more.
+[52:37.32] So the fourth assumption is that the physics of the bath,
+[53:05.32] the bath itself, has many closely spaced energy levels.
+[53:17.32] That's what this assumption is really saying.
+[53:26.32] So if you draw the spectrum of the bath, there's many, many closely spaced energy eigenvalues in any interval delta e.
+[53:43.32] So this is a core assumption. It's a good one. Actually, models most of the baths that we encounter, certainly the electromagnetic field.
+[53:53.32] There's an infinite number of harmonic oscillators describing the electromagnetic field.
+[53:57.32] When you have an infinite number of oscillators, each with a slightly different energy, then all the total eigenvalues of the bath all add up in commensurately.
+[54:07.32] There's lots and lots of eigenvalues in any given interval of energy. And by knots, I actually mean continuously infinite.
+[54:14.32] So the spectrum of the bath on a technical level contains an absolutely continuous part.
+[54:21.32] So we don't even have energy levels actually for baths.
+[54:26.32] And that is crucial for the effect where information has only one moment in instant in time to exchange with a degree of freedom.
+[54:38.32] So if your bath comprised of, say, a finite number of energy levels, then it's impossible for the environment to have that property that each degree of freedom only interacts with one instant of time and flies away.
+[54:54.32] So this is a consequence of something known as the rage theorem in the functional analysis literature.
+[55:02.32] The solutions where information propagates away and never comes back, those kind of solutions can only occur when you have continuous spectra.
+[55:10.32] Just think of a free Schrodinger particle and you have the wave packet at time zero. And then if you have a Gaussian packet that you probably worked out the solution, the Gaussian just spreads as time progresses gets more and more spread as time goes on and never comes back.
+[55:26.32] There's no recurrence for a Schrodinger particle. So information propagates away from any location in time as time passes and never comes back.
+[55:36.32] And that property can only, that's a property only of systems with a continuous spectra.
+[55:45.32] And it's a very useful property for deriving master equations because you don't want that the environment continuously bounces backwards and forwards information with the system.
+[55:54.32] You only want that information can sort of leak out of the system, dissipate away at the speed of light and never come back.
+[56:02.32] So this assumption for here is telling us that the bath has to be like that. If you want to derive an equation like this for a finite dimensional bath then you're in for trouble.
+[56:12.32] This derivation can't work for a bath that's finite dimensional, or at least not with a small dimension.
+[56:24.32] And when we make that assumption, then we can approximate the state of the environment at time t1 with the state of the environment at time t.
+[56:41.32] This is an observed fact. You can derive it, subject to this assumption, but let's just leave it as an observed statement.
+[56:51.32] And then if you substitute that into our equation of motion for the system, we're now, I think, yes, we're at an equation which you can work with.
+[57:21.32] Okay, actually this is a naught in here.
+[57:51.32] Okay, this equation has a name. It's called the Redfield equation. And it's already a good basis for studying the dynamics of open quantum systems.
+[58:15.32] This is a bit squished up here, but is rho e of naught instead of rho e of time t1.
+[58:38.32] Oh, goodness me, that's a bad error. So you forget what I said. And everything I said about the bath being continuous is correct. It's just the way the approximation is imposed is different.
+[58:56.32] We're going to do it this way. So it's rho s of time t. So this says that the state of the system doesn't depend on the past states of the system too strongly.
+[59:20.32] If you change the structure of rho to s, it shouldn't be zero.
+[59:48.32] So you're right. It looks on to the way I've written it here.
+[60:05.32] This assumption, what this equation here is meant to say is that rho s at t should only depend on rho s for t's near, for values of t near the current time.
+[60:21.32] That's what this assumption here is meant to capture.
+[60:35.32] That's a good question. And that's actually also part of the third assumption here, which I didn't say.
+[60:58.32] You can capture it in this third assumption here that the environment by approximating the system environment state not only as a product, but also as a product with the initial state like that.
+[61:16.32] You won't be able to tell the difference. So I failed to clarify that actually in assumption three.
+[61:27.32] And you can, at that point, put in a note there.
+[61:37.32] Yeah, I did it.
+[62:07.32] The last assumption we're going to make, the last one that holds for many examples, many examples, and that's the mark of approximation.
+[62:36.32] So in some sense, you could say we've made the mark of approximation here by assuming that the state of the system at time t really only depends on the state of the system a small time earlier and not its entire history.
+[62:51.32] You could call that a mark of type assumption, but traditionally we use the word mark of or memorylessness assumption for an equation which has constant coefficients in time, which this one doesn't.
+[63:05.32] So in practical examples and in practice, the red field equation is usually your starting point, but sometimes you can exploit this mark of approximation to make life even better.
+[64:35.32] And that's the final object for today's derivation called the born mark of master equation.
+[65:55.32] So there's a sort of difference between assumption five and four.
+[66:12.32] In four, all we really need is that the energy levels are very closely spaced in the energy gap in any energy range delta E.
+[66:22.32] And for this assumption here, for that to actually work, we need that the energy levels are actually continuous.
+[66:29.32] So continuous certainly implies close, but not the other way around.
+[66:34.32] So there's an additional assumption of imposing the continuous spectrum of the energy levels of the bar.
+[66:44.32] And that allows us to do a little bit more in our approximations by getting rid of that zero and putting in minus infinity in there.
+[66:54.32] This will turn out to be useful later when we actually look at real examples.
+[67:00.32] But as I said, this is often the starting point here, this equation here, or even indeed further back.
+[67:06.32] For whatever system you have, you check what assumptions it fulfills and you begin with that equation of motion and work from there.
+[67:14.32] So what we're going to do in the last, I guess, 15 minutes? Yeah. 20 minutes.
+[67:23.32] We're going to look at the most classical example of an open system, open quantum system.
+[67:30.32] I'm not going to be able to finish the derivation today. We'll get pretty close.
+[67:38.32] We're going to look at a two-level atom that interacts with the electromagnetic field, which is in its vacuum.
+[68:07.32] And this situation is what we need to do.
+[68:12.32] This situation is what occurs when you have an excited atom.
+[68:16.32] So at a state of an atom, you put it in an electromagnetic field in the vacuum and you wait and you observe that the atom has decayed after some time T.
+[68:26.32] Now, when you first encounter Schrodinger's equation and you realize that all solutions to Schrodinger's equations are unitary operators, this situation is very puzzling.
+[68:42.32] You have a system that's closed, it's in a pure state, an initial pure state, excited state, tensor vacuum, the system undergoes unitary evolution, and then the atom always decays.
+[68:56.32] It doesn't become re-excited, it just always decays, and there's a time scale over which the decay occurs.
+[69:04.32] And this is a bit puzzling because on one hand, you've got unitary dynamics for the whole system, and on the other hand, you see an irreversible dynamics that the atom decays spontaneously, and then there's nothing left. It goes down to its ground state.
+[69:19.32] But the reverse process almost never occurs. Now, you know, it's not that surprising, right? When you count degrees of freedom, so you've got two levels for the atom and an infinite number of levels for the environment.
+[69:31.32] If you think about this on a sort of statistical mechanical sense, you've got many more ways for the excitation to flow to the environment than you have ways to flow from the environment back to the atom.
+[69:44.32] But that still needs a little bit of an argument, and that's precisely what we're going to do now.
+[69:53.32] And if you like, this is the argument, this is the counting argument that tells us that the process is not irreversible, I mean there's nothing irreversible in quantum mechanics.
+[70:03.32] If the dynamics is a unitary operator, probability is conserved, you can undo the unitary operator by applying its adjoint. Nothing is decayed. There's no irreversibility in quantum mechanics as written.
+[70:15.32] But yet in practice, we see irreversibility around us all the time.
+[70:34.32] Okay, well this is following Bohr and Einstein.
+[70:47.32] Following initial discussions of these problems, the Viscop came up with this particular explanation.
+[71:03.32] The Viscop came up with this particular explanation.
+[71:34.32] It's incredible how quickly this all took place, just as the axioms, the axioms, postulates of quantum mechanics were being sorted out in Copenhagen.
+[71:55.32] But then the blink of an eye, they were applied to quantize the electromagnetic field and then to explain things like radiative decay.
+[72:03.32] Incredible how fast things moved and they didn't even have the internet back then. I mean one wonders how they did this.
+[72:09.32] They used to send letters on paper and stuff like that.
+[72:24.32] Alright, we have a field, an electromagnetic field. We're not doing quantum field theory here or quantum optics, so I'm not going to explain the derivation of the free field.
+[72:55.32] Or the quantization of the free field.
+[73:00.32] You're just going to have to accept that the free field can be written as a collection of harmonic oscillators.
+[73:09.32] And any good quantum optics textbook can explain that to you.
+[73:17.32] So we take that as red. This omega k here is the energy of the kth mode.
+[73:24.32] I don't think I'm going to be able to get this correct. I'll give it a go.
+[73:31.32] The k is 1 on root k squared minus k naught squared plus iE.
+[73:48.32] Maybe I think I've made a mistake, I'm not sure.
+[73:55.32] Check.
+[74:00.32] I've also forgotten polarization so there's the k mu k mu.
+[74:29.32] Okay, I didn't write this down and I'm not going to re-derive the summation of Maxwell's equations here.
+[74:36.32] But the omega k roughly looks like this.
+[74:46.32] And these b k's are boson creation and annihilation operators.
+[74:53.32] And they're actually quantized, so we're going to stick the system in a box.
+[75:04.32] There's a volume factor there that I haven't also included.
+[75:09.32] Well, for the derivation of this equation, we don't need to really worry about the specifics of omega k.
+[75:16.32] Thankfully.
+[75:46.32] So
+[76:15.32] just be aware that this is really only metaphoric.
+[76:26.32] I don't trust my memory on this, so it's important not to take it to seriously what I've written there.
+[76:42.32] Regardless, the derivation we're going to show you will work in very much more general setting than just the free electromagnetic field,
+[76:49.32] so it's worth keeping in mind that omega k doesn't have to be that for this derivation to work.
+[76:56.32] That's the environment, a free field, so just a bunch of harmonic oscillators.
+[77:01.32] And the system is the simplest quantum mechanical system we have, namely a two-level atom or a qubit.
+[77:14.32] And the system Hamiltonian, we take to be this where you've got a q here.
+[77:29.32] So this is like a primordial magnetic field type Hamiltonian.
+[77:47.32] Basically it tells us that the ground state has energy zero and the excited state has an energy above zero.
+[77:52.32] That's what this Hamiltonian here is saying.
+[77:56.32] And we're going to have for the interaction we're going to make a cartoon of dipole coupling.
+[78:26.32] Alright, there you go.
+[78:53.32] So this is the cartoon of the dipole coupling.
+[79:01.32] And these gk, these coupling constants gk are proportional to the matrix elements for these transitions.
+[79:30.32] And they depend on the structure of these electromagnetic modes labeled by k.
+[79:58.32] And it turns out that in practice this scale has one over the volume, one over the square root of the volume of the kth mode.
+[80:23.32] We're going it back to the physical system we have in mind here, but the derivation will work for fairly general sets of gk's.
+[81:22.32] Alright, then we are not going to be able to do this all today because we'll get to the tedious moment in deriving all these equations.
+[81:45.32] But I'll try and get to the tedious point.
+[81:58.32] So we have to work out V in the interaction picture.
+[82:02.32] We have a free field and a very simple system Hamiltonian.
+[82:07.32] So it's an exercise and not a very difficult one, thankfully, to prove that V in the interaction picture is just some phases on top of the original V.
+[82:25.32] I'm calling it omega q.
+[82:54.32] I'm going to call it omega A for atom.
+[83:18.32] Now in terms of actual numbers, omega A is something like 10 to the 15 inverse seconds.
+[83:33.32] And we're going to approximate there's going to be four terms here when you expand this out.
+[83:41.32] We're going to approximate this by only keeping two of them.
+[83:45.32] We don't have to do this. We could actually include all four terms and continue the derivation.
+[84:05.32] But just to illustrate how this model works, we're going to throw out two of the terms because they're going to self-average.
+[84:34.32] What we throw out are the terms where we've got things that look like omega k plus omega A.
+[85:00.32] There's then the frequencies which those terms would rotate would be fantastically fast relative to the frequencies, the slow frequencies of the problem here.
+[85:10.32] So fast frequencies tend to self-average out.
+[85:13.32] And so you can neglect them. I never found that myself to be a particularly satisfying answer, but it's the kind of thing that makes more sense, the more experience you have.
+[85:30.32] So the first time you see this kind of approximation, yeah, you're entitled to say maybe it doesn't average out, maybe they have a systematic contribution.
+[85:38.32] So then you're invited to actually not make this assumption carry through the derivation and then see that your answer does have this feature that the high frequency terms average out.
+[85:50.32] So lots of these approximations understood simply by experience. And this is one of them.
+[86:04.32] This is called the rotating wave approximation.
+[86:27.32] Now we're going to choose the state of the environment to be the vacuum, not just any state but the vacuum. The field is in its vacuum state, no photons at all.
+[86:38.32] And in the born approximation, we're going to get an equation of motion for the state of the atom.
+[86:45.32] And we're not going to have time to cover that today. I will go through this next lecture. I will just write out the answer.
+[87:00.32] And we'll re-cover this, we'll revisit this, the derivation, the missing derivation which will take about 20 minutes.
+[87:09.32] We'll revisit that derivation next week. But I'll just write out the answer so you can get a feeling what it looks like.
+[87:21.32] Very characteristic form.
+[87:42.32] So this you're not meant to understand how this equation appeared. We're going to cover the derivation next week.
+[88:08.32] But I want to highlight what the result will look like. After you do the derivation, you're going to get an equation of motion just for the two level atom by itself.
+[88:22.32] And it will have this very characteristic form where the density operator in here will have operators on either side of it.
+[88:31.32] There's four terms on the right hand side there. This is not obvious why it should look like this yet.
+[88:38.32] Now in some sense it's just a simple exercise. It's a very straightforward application of the fact that BK applied to the vacuum of zero.
+[88:49.32] So if you substitute that state into the equation that we derived after assumption four, then lots of terms will cancel because BK applied to the vacuum of zero.
+[89:01.32] And that's the long derivation I'm referring to here is simply that fact exploited multiple times. And these are the four remaining terms on the right hand side.
+[89:10.32] Sorry, just some questions. This is not a commutator.
+[89:24.32] So this is not a commutator. And this is HC means Hermitian conjugate.
+[89:39.32] Capital T. Capital T. Ah, this is a gamma.
+[89:54.32] So gamma, I haven't told you what gamma is, but it's a decaying function of time.
+[90:01.32] We're going to cover this more completely in the next lecture when we'll also cover maybe we'll do this in the next lecture, but certainly in the coming lectures we're going to look at the fermion version, which I think is also extremely interesting.
+[90:17.32] That's it for today. Thank you very much.

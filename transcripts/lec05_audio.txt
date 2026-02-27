@@ -1,0 +1,320 @@
+All right, welcome to lecture five of the theory of quantum noise and decoherence.
+Today, I want to tell you about a special class of states called Gaussian states.
+These states have many advantages and nice properties.
+And I want to tell you a little bit about them today.
+They are states of continuous variables, continuous quantum variables.
+And they're defined by a very special property, mathematically defined by a very special property.
+Another property they have is that they turn up in experiments all the time.
+So they are a good model for the kinds of quantum states you encounter in a linear optical apparatus, for example.
+So last week, we spoke about continuous quantum variables.
+What's the Hilbert space we need to attach to a continuous quantum variable?
+And we also discussed some ways to specify states and operators for continuous quantum variables.
+So let's suppose that we have n continuous quantum variables.
+The Hilbert space we use to describe n continuous quantum variables is Fox space.
+Remember, we're going to focus on bosons for the next few lectures.
+So if you recall, the Hilbert space for one continuous quantum variable is f plus of c.
+And if we have n continuous variables, then the Hilbert space for those should be the tenths of product of these single Hilbert spaces here,
+which is equivalent to the Fox space built on c to the n, which is not really relevant or important for us, but that we can just leave that there as an observation.
+Now, we're going to exploit this displacement operator that we introduced last week to define some very special states.
+But we're going to make a notation shift. So unfortunately, in quantum optics, there's quite a few different conventions now about how we specify displacement operators.
+And some people do it using complex numbers. Some people do it using real and imaginary parts.
+We're just going to have to get used to both ways of doing things.
+And so I'll spend the next couple of minutes describing a different notation for exactly the same thing as what we spoke about last week.
+So let's suppose we had some vector of complex numbers alpha 1 through alpha n.
+Then we write as we did last week for the displacement operator.
+This operator here, so far this is just a reminder of the notation.
+Now, we don't, it's often convenient to not use complex numbers alpha, but to instead use their real and imaginary parts.
+And this becomes, this is the reason because it's often convenient to express things not in terms of annihilation and creation operators, but in terms of position of momentum operators or quadrature operators.
+So it's often convenient to define some canonical operators analogous to position of momentum operator just as you would for a normal harmonic oscillator.
+So if you remember the annihilation operator is like q plus IP and the creation operator is like q minus IP all the other way around.
+So remember that.
+Mathematically you might want to do this because the A's are not Hermitian and it's nice to express things in terms of Hermitian operators.
+If you like, this is like the real and imaginary part of the operator A. So if you have a non-Hermitian operator, you can always express it as a linear combination of two Hermitian operators with complex coefficients.
+You can think of that as like the real and imaginary part. And these two operators satisfy the canonical commutation relations.
+So that's a pretty quick exercise you can do just using the commutation relations of the annihilation and creation operators.
+And if we want to forget that we ever had annihilation and creation operators, we could equivalently express this displacement operator in terms of these two operators.
+Everywhere we saw an annihilation operator, you replace it with a linear combination of these q's and p's and vice versa.
+And so you could just insist on writing everything in terms of q and p and that's what we're going to do for the next couple of minutes. Why would we do that?
+Well, it's completely equivalent. It's just a different notation for the same thing. But there are many notations in the literature and you need to be familiar with them.
+The definition of Gaussian states that you'll typically see in textbooks and in the literature will be expressed simply in terms of q's and p's.
+We could go and express everything in terms of alphas, but I want you to get used to both notations.
+And I also don't want to make a course where the notation is completely different to everyone else in the world.
+I'm pleasant when you always have to make a notation change to communicate with everyone else.
+So we're going to define a vector of numbers.
+And we're going to define the displacement operator for this vector of numbers as follows.
+And in order to
+get pretty confusing with hats and not hats.
+And in order to deal with this confusion, but there's things I'm going to get confusing between operators and numbers in order to deal with this confusion or put hats on operators for a while until we don't need to do that anymore.
+And we've got this matrix sigma, which I can't fit in there. I guess I can.
+Right, so this is an exactly equivalent way to write the displacement operator.
+It takes a little bit of thought just to see it the first time.
+And how do we connect this version of the displacement operator with this version where we have to define x and p to be some combination of the alphas.
+So we're going to define x and p to be some combination of the two.
+So far, I've just changed notation.
+The characteristic function from last week, we can write that in terms of these psi variables here, which are now real numbers, but you've got to have two n real numbers to specify n complex numbers.
+And we can write that characteristic function in terms of psi simply by setting.
+So we're going to define x and p to be some combination of the two.
+So we're going to define x and p to be some combination of the two.
+So before this last week, the characteristic function was a function of n complex numbers.
+And today, it's a function of two n real variables, as long as you set alpha to be x plus i p like that.
+Just, we're just taking the real imaginary parts, if you like.
+And this is a notation that's very, very common. So I definitely wanted to express Gaussian states in terms of this.
+You very rarely see Gaussian states defined in terms of alphas, wherever the alphas are up there down here.
+But you very commonly see Gaussian states defined in terms of these psi variables.
+And that's how we're going to do it, just to be consistent with the literature.
+So a Gaussian state, now I'll get to the actual definition, a Gaussian state rho, what is it?
+Well, it's a function, it's a state whose characteristic function is a Gaussian.
+So we're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+We're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+So we're going to define x and p to be a Gaussian state.
+There's some symbols in here that haven't been defined yet, namely gamma.
+You might wonder, and m, sorry, m has not been defined yet, you might wonder about the quarter, the quarter is just there for convenience.
+We're going to define gamma with the quarter there, you could absorb the quarter into the gamma.
+The minus i is also there for convenience.
+There's no constant term, you may notice.
+We're allowed to eliminate one free constant without changing the physics.
+Or if you like that expression, the trace is one.
+Thank you.
+So this n thing is called the displacement vector.
+And there's an equation for it.
+You can get it by taking the first moment of the position,
+or the momentum operator, or the first quadrant for all the second quadrant.
+And this other thing, this gamma matrix is called the covariance matrix.
+That encodes all the second moments of the quadrages or the position of momentum operators.
+So this is called the covariance matrix.
+This is called the covariance matrix.
+This is called the covariance matrix.
+This is called the covariance matrix.
+This is called the covariance matrix.
+This is called the covariance matrix.
+These are simple little exercises they follow from the definition here.
+And if you do the second exercise sheet, then you'll more or less have the tools to prove that these two quantities are given like that.
+This is called the covariance matrix.
+So we have some work to do here.
+I've made this definition that a Gaussian state is one whose characteristic function is a Gaussian.
+Is it the case that any characteristic function like this corresponds to a state?
+If you put some conditions on gamma and m, you always get a state.
+At the moment I've just made this definition.
+If the operator row has this characteristic function, we call it a Gaussian state.
+But the danger is that maybe there's no states that have this characteristic function and maybe there's not a one-to-one correspondence.
+There's several things we have to make clear in our minds before we can agree that this is a good definition.
+But let's suppose just for the moment that it is a good definition.
+And then I want to make some comments about why this is a really amazing thing in terms of working with infinite dimensional filbert spaces.
+So if this is a good definition, if states are defined by this characteristic function here, then we've achieved something quite remarkable.
+We've specified the state of an infinite dimensional filbert space in terms of some, let's say, four n squared plus two n numbers.
+You just need to know these gammas, the entries of this gamma, the gamma will turn out to be symmetric.
+So you have less than the numbers I advertised.
+And these displacement numbers here.
+Once you know those, you've completely specified the state, assuming this is a state.
+Furthermore, when you have a state with this kind of characteristic function, you can calculate all kinds of properties about it very easily.
+So it's not always the case that when you have a state, you can work out the expectation values of Hermitian operators.
+So this may be a general or hard task.
+You can specify a state that actually working out its properties can be hard.
+Here, it's easy. It turns out you can work out any moment, any cumulant, any higher order moment you like in terms of these numbers m and gamma here.
+So that's truly a remarkable feature about this representation, assuming that it's a good one.
+And that's what allows us, really, to say so much about experimental quantum optical situations theoretically.
+Because we have a playground of states which appear in the lab and which we can calculate stuff about them easily on paper.
+We don't even need computers sometimes to work with these things.
+All right, let's get to the task of showing that this definition makes some sense.
+All right, firstly, I want to say this one.
+I want to point out that m is the vector of first moments.
+And gamma is the matrix of second moments.
+And if you know anything about Gaussian's in probability theory, then you would recognize that this is all you need to do to specify a Gaussian.
+Once you know it's first and second moments, you know that the Gaussian, you've determined all the higher moments.
+All right, now I'm going to show you that this definition is not empty. I'm going to present to you an example of a Gaussian state.
+And the example I'm going to present is the vacuum state. Nothing. No photons.
+No photons.
+No.
+You can work this out multiple ways.
+Simply by brute force, you just stick in the definition of the characteristic function and you put in the vacuum state.
+Or you could just look over here and work out that n is zero. Just calculate the first moments of the vacuum, which is zero.
+And the second moments of the vacuum, which give you a diagonal matrix gamma.
+So we've encountered our first example of a Gaussian state. So this definition is non-empty.
+There are multiple, there are, there is at least one Gaussian state. Now we want to expand the class of Gaussian states and include other ones.
+But before we do that, I'll just make some comments on uncertainty.
+The first moments is zero. There's no displacement vector. And the covariance matrix is diagonal.
+And it's a minimum uncertainty state, which you knew.
+Minimum preparation uncertainty state.
+Well, that's great. So we got one. Let's see if we have some more.
+If you remember to last week, we discussed things called coherent states, of which the vacuum is one example and turns out that all coherent states are Gaussian states.
+So not only is the definition non-empty, it's very, very rich because all the coherent states form an over complete basis for Hilbert space.
+But, and here's a warning, the linear combination of two Gaussian states is not necessarily a Gaussian state. In fact, it often isn't.
+So if you take a vacuum state and you take a superposition with a coherent state with some value of alpha, not equal to zero, you get a Schrodinger cat-like state, and that is not Gaussian.
+So only special states are Gaussian.
+Coherence states again as a direct calculation, the characteristic function of a coherent state alpha is indeed Gaussian.
+So let's see.
+Let's see.
+Let's see.
+So if we look at this calculation here, we see that that is a gain, an example of one of these Gaussian states. The gamma matrix, the covariance matrix is a gain diagonal, it's again the identity.
+But there's now a shift. We've got a shift, the first displacement, the vector of the first moments is not zero.
+Okay, that's enough for the moment of the examples of Gaussian states. Now let's convince ourselves that we can, the definition here, let's convince ourselves that the definition that we gave here of a Gaussian state gives a meaningful correspondence between states and characteristic functions.
+It'll turn out that not every covariance matrix gives rise to a quantum state. So if you look at gamma, well, I just raised it, but if you think about the gamma, the covariance matrix in the definition of a Gaussian state, it's a matrix.
+Can any matrix be in there? Maybe we can put in complex non-symmetric matrices. The answer is no. They would not correspond in general to legitimate quantum states.
+We're going to need that this covariance matrix gamma satisfies some conditions in order that it represents a state. And that's what we're going to work out now. What is the condition that gamma has to fulfill in order to represent a legitimate quantum state.
+And it turns out to be relatively straightforward to prove by just looking at the properties of the momentum and position operators.
+So if you look at this expression here, the answer's basically written here for how to, for the conditions that the gamma matrix have to fulfill.
+The covariance matrix here must fulfill a condition and the condition is very simple to write down. You get the gamma matrix, you subtract from it i times the sigma matrix, and that had better be a positive operator.
+And also gamma had better be a real valued symmetric matrix. And if it fulfills this condition, it corresponds to a state.
+Alright, let's prove this.
+And if you look at the thing in the box, if you compare this expression with this expression over here, you can already get a feeling for why this might be the case.
+But let's turn that feeling into something concrete.
+So what do we know about positive operators?
+One thing we know about positive density operators is that if you take the expectation value of a positive operator, a density operator, you better always get a number bigger than equal to zero.
+That's what it means to be positive.
+And if we compare this object with this, we're going to see that the expression of one of the same property.
+Let's just use the equation from the other board and call it star for the moment.
+Okay, just expand it out what the left hand side is here.
+So this is exactly is trace of root A dagger A. And therefore is greater than zero.
+Okay, let's go one way.
+This says that if you have a state row whose characteristic function is a Gaussian, then this covariance matrix must fulfill that condition.
+You've got to go the other way as well. Suppose we have a gamma matrix fulfilling this condition, is there a state corresponding to that? Is there a Gaussian state corresponding to that? The answer is also yes.
+Before we do that, I just want to, well, I won't actually argue that today.
+I just want to make a comment about this condition. This condition here actually implies that as a matrix gamma is strictly bigger than zero.
+It's not you can't have zero eigenvalues for gamma. And that's because the norm is greater than zero. Otherwise gamma would be zero.
+Okay, let's do that.
+Now we come to the question of how to prove, we proved one direction. We've shown that the characteristic function of a legal or valid quantum state must satisfy this condition in the box.
+Can we go the other way? If we have a matrix satisfying that condition in the box, does it correspond to a legal quantum state? I won't do the foolproof today because some of these states will be mixed states and we haven't yet worked properly with mixed states of continuous quantum variables.
+But I'll give you a flavor of the argument. The idea is to fix the first and second moments and then to maximize over the set of all states with those first and second moments the entropy.
+Let's fix m and gamma that satisfy this equation in the box.
+We write s subscript gamma m as the set of all states.
+So we're going to prove it a little bit more than the other way. We write s gamma m for the set of all states with these given first and second moments here. You have to convince yourself that that set is not empty.
+You take the entropy, the relative entropy. I need to check that. You take the supremum of the entropy over the set of all states and that should lead you to a state such a rating or finding the largest entropy which is of gamma.
+I will just check that. I believe it's the entropy but not 100% sure if I've written the right equation here.
+I'll just use this as an intuition for where Gaussian states come from. At the moment I'll confirm next week the derivation there.
+This still doesn't quite prove the reverse implication given m and gamma we have a gamma satisfying this equation in the box that we have a state corresponding to every such gamma.
+Another way to prove it is to show is to give an actual representation of Gaussian states in terms of these ours.
+And physically it's much easier to describe than it is mathematically. If you have a gamma, if you have a covariance matrix satisfying this condition, you can always write down a system of harmonic oscillators whose thermal state has that gamma.
+There is an exact formula for that which I don't have at hand. I won't write it out.
+I don't want to work it out now because I'll spend 30 minutes chasing factor of two errors.
+But I will write out the result.
+I'll write it out.
+I'll write it out.
+That's the full statement of the converse result.
+I'll write it out.
+I'll write it out.
+I'll write it out.
+I'll write it out.
+I'll write it out.
+It's enough to know that this is a true statement.
+The exact formula for this h, given the gamma and the m, the exact formula for the h is not so intuitive.
+You can always find for a given m gamma satisfying this condition a legal quantum state, which has exactly those first and second moments.
+That's for state furthermore comes from a system of quadratically coupled harmonic oscillators, the thermal state thereof, and that's a consequence of this.
+The fact that thermal states of quadratic Hamiltonians are always, excuse me, calcium.
+So far we've talked about calcium states in general.
+For the rest of the lecture today, I want to commit to a number of modes that we care about, or a structure on the space of modes for our system.
+We want to focus on systems of harmonic oscillators or modes, which are bipartite, which you can put into two groups.
+So we're going to imagine that we have two parties, Alice and Bob, each of which have some modes, some continuous quantum variables.
+So they share, well, together they have a quantum system of two n modes.
+So we're going to label Alice's modes as one, two, three, four, five, all the way up to n, and Bob's modes is one prime, two prime, three prime, four prime, all the way up to n prime, like that.
+So Alice and Bob are there, they each have a system of n harmonic oscillators or n continuous quantum variables.
+The joint system has two n modes, right? Just add up the number of modes.
+And what we're going to do is look at Gaussian states of the combination of Alice and Bob together. What kind of joint states can they share?
+Well, let's make a trivial observation to begin with. Alice and Bob can certainly share a Gaussian state on Alice's modes and a Gaussian state on Bob's modes.
+So it's the case that if you have a Gaussian state, then the reduced state of a Gaussian state is Gaussian. So let's argue that first.
+The remarkable thing will turn out that not just separable or product states will be allowed, but we can also express some interesting entangled states in terms of Gaussian states like this.
+There exists entangled Gaussian states. The EPR state is an example, an extreme example of an entangled Gaussian state.
+So this class of Gaussian states is rich in that there are many such states and there are entangled Gaussian states as well.
+Here's the question. What kind of joint states will be a Gaussian?
+The first thing we do is we say suppose Roe v is Gaussian. Let's derive some consequences.
+Turns out that if you have a global Gaussian state and you focus on a subsystem, then the subsystem will also be a Gaussian state.
+So let's prove that it's luckily it's very, very straightforward proof.
+Well, how would we prove that a reduced state is Gaussian? Well, you have to work out its characteristic function. That's one way of doing it. So let's work it out.
+The characteristic function of Roe a, that's the reduced state on just the other subsystem, is according to the definition of the characteristic function, just given by that expression there.
+Put the displacement operator in and then you have Roe a there.
+Now we use a cool property of the trace. This is just the trace of A and a cool property of this displacement operator.
+So this is equal to the trace of A, B, the trace of the full original system.
+This is equal, this characteristic function here is equal to this expression here where we put zeros in for the values of xi, sorry, that should correspond to the B modes of Bob's modes.
+And this is true because any displacement operator like that has that form.
+If the size in a displacement operator is zero, then the displacement operator becomes the identity operator.
+So you use this fact, substitute that in here.
+The identity operator there, so you can do the trace of a B first, the partial trace of a B, but there's an identity, but that's just the same as doing the partial trace of Roe a B, with respect to B, but that's just the same as this expression here.
+But just restricting to a subsystem, the characteristic function of the state of this reduced state is just a restriction of the characteristic function of the overall state.
+So if the overall state is Gaussian, then this is a quadratic function here of the size.
+But if you just restrict any Gaussian to like a slice subspace, it's also a Gaussian, right?
+So you immediately learn that reduced states are Gaussian's.
+And in particular, the characteristic function is pretty easy to work out.
+What I said, substitute in zeros where the Bob's modes.
+And then you'll deduce quickly that it's a Gaussian, and you can even work out its characteristic function.
+And then you can even work out its characteristic function.
+So the characteristic function of just subsystem A, we have AB, you can get its characteristic function by restricting the characteristic function for the bigger system.
+And then you can even work out its characteristic function by restricting the characteristic function for the bigger system.
+And then you can even work out its characteristic function by restricting the characteristic function for the bigger system.
+So the first moments of the first moments, for A, you just calculate the first moments of these modes in Alice's subsystem.
+But by ignoring the first moments of Bob's subsystem.
+So remember Bob's modes were called one prime and two prime.
+And the covariance matrix just for Alice's state, Alice's with you state, you can get that from the covariance matrix of the joint state just by restricting to a sub matrix.
+Sorry?
+What we've just shown here is that if you have a Gaussian state of a bigger system, then the reduced state row A is also a Gaussian.
+The other way around we haven't shown yet. So to be a Gaussian state of row AB of AB, the joint system, to be a Gaussian state like that, you want that the characteristic function for all those two end modes has this particular form here but where there's zero is something else.
+So let's suppose we have a state of A and B that's Gaussian. So we know that its characteristic function is some Gaussian function like this, like this, I mean there's no zeros here.
+Then let's trace out Bob through ignore Bob and then look at the characteristic function for row A, the reduced state on Alice's modes, then simply because the overall characteristic function was Gaussian, we learn that the characteristic function for A is also Gaussian.
+But the other way we haven't learned yet, we have to argue that given a Gaussian state of one system, it's possible to extend it to a Gaussian state of the joint system that we haven't shown.
+But there is a way to do it, you just tense the two Gaussian states. So I'll write that down a second.
+So I'll write that down a second.
+I will do an example, an explicit example in a second of calculating a reduced state of a larger Gaussian state.
+So the probably the most famous example of a joint Gaussian state of a bipartite system is a two-mode squeeze state. So we'll do this, go through this example.
+So you need very expensive non-linear crystals to build these things. I don't know if anyone here has access to these nonlinear crystals.
+So you can buy a high-end video camera or a nonlinear crystal, it's up to you.
+So you can produce these things with these nonlinear crystals and then beams, butters. I won't do that in this course.
+In fact, as a theorist, it's pretty easy. I get the feeling it's not so easy in practice. I don't know why. It should be easy.
+So suppose we have two modes, and we just use the notation for this R matrix of q1, q2, p1, p2 to describe those two modes. So the modes are one and two, one, two, one, two.
+So here's the laser, here's the crystal. This is a big caricature. I know of the real experiment, but...
+So we have two modes, one and two, the outputs from this beam splitter.
+The state that comes out of this ideal scenario has the following covariance matrix.
+I'll call them A and B, just to be consistent with what we've done so far. Let's just call them A and B.
+The variance matrix for a two-mode squeeze state has a very particular form.
+So there's cinches and cauches in there. Actually, it's getting beyond the pixel limit.
+So I will rewrite that covariance matrix on a new board.
+So hopefully this example will clarify what's going on with this reduced state situation. So we have some state here at A and B. It's two modes in this story.
+And that gives us four operators whose first moments we need to worry about and whose covariance matrix we need to worry about.
+So I'll write it in big. Well bigger.
+So this is quadrature 1 for mode A, quadrature 1 for mode B. And this is the matrix of covariances. And there's also the second quadrages there.
+So it's just a fact that the state that models the system has that particular form and that it is Gaussian. There's a lot of physics that goes into this example, which we won't cover in this course.
+Modeling down conversion and all kinds of nitty-gritty stuff.
+And you can check that this state that the this covariance matrix here corresponds to the following pure state, which is unfortunately rather ugly, but there's nothing we can do about that.
+That's how it is. So there's some normalization here involving the tension of R over two. There's an infinite sum.
+These are the Fox states there of A and B. So this is the canonical two-mode squeeze state. I think R is called the squeezing parameter or 10, R over two is the squeezing parameter on the terminology of the lunch or depends on who you ask I suppose.
+And of course, you want this number to be quite big. And that's very hard. So the bigger you want R, the more expensive everything gets.
+Now, if you look at this expression here, you can get a feeling for what kind of state comes out of such a system. If you imagine for the moment that 10, R over two was just the number 1.
+Then that would be 1 to the power of n, which is 1. So this looks pretty much like a maximum entangled state. Of course, you never get the tension of R over two is 1. And so it decays exponentially after some point.
+So it looks like a maximum entangled state between A and B up to some cutoff. And indeed, that's one way we have of producing pure entanglement in experiments.
+So the reduced density operator, if you just apply, there's two ways to work out the reduced density operator, just for mode A. So if you just throw mode B in the bin, just let it shine onto a stack of razor blades or something, then which I'm told is how you stop lasers, by the way.
+And once I asked an experiment says, how is it that you stop a laser, right? You've got this high powered laser bouncing around the room. How do you stop it? And they told me that you make a stack of razor blades and shine the laser into that.
+Maybe this is a joke, maybe I'm a, how else would you stop a very high powered laser? It burns a hole through the wall, right? These are mysteries to me, reduced density operator. So well, stack of razor blades or not. There's one way to get the output on mode A. And that's to trace it out.
+And you can do that two ways. You can just directly put this expression into the standard way we have of calculating reduced density operators. Or you could go through and calculate the covariance matrix according to the recipe we described.
+Either way will lead you to the following covariance matrix.
+That's a really good exercise to do. In fact, to do it both ways.
+Way number one, you use this recipe we just derived for covariance matrices. That's really quick, right? You just look at the sub matrix. That's confirmed that this works.
+So the sub matrix formed by modes A is this one, this entry here, which is zero, this entry here, which is zero, and this entry here.
+That's check is that this two by two sub matrix is really the same as that. That's good. But there's a whole other way to work out the covariance matrix.
+Take this state here is written trace out B. Now you have an infinite diagonal matrix in fox base, with coefficients tanj are over two to the power two n.
+You use some horrible hyperbolic trigonometric identities. And you work out its characteristic function. And then you should hopefully end up with the same answer there.
+It's a good exercise to do, maybe in mathematical, but it's a good exercise to do just to convince yourself that these two operations are the same.
+Just like to end with a comment on extending Gaussian state. So what I've shown is that you have a Gaussian state of some bigger system.
+And the way you work out the reduced state is just by restricting the covariance matrix like that. But what if you have a Gaussian state? Is it always coming from a bigger Gaussian state?
+The answer is yes in the bipartite situation, but in the tripartite situation, not always.
+So there's no problems. Let's suppose you have access to one mode. But you know that your system is part of many modes. It's just like light here.
+If you look at the light coming from this fluorescent light bulb there, we see many, many modes of that. Imagine we just look at one of those modes.
+Then assuming that that's Gaussian, I mean it's sort of thermal or something, right? Let's assume that the light coming from the light bulb is Gaussian, then it should have some huge covariance matrix like that.
+What's the covariance matrix for a single mode, a single frequency coming in on one S wave from this light bulb? Well, you just restrict the big one.
+But what if you don't know what the big one is? The big covariance matrix. Well, that's the usual situation in physics.
+You at least want it for the class of Gaussian states to be useful. You need to be able to extend and reduce them. You need to be able to throw some away and get Gaussian states, and you need to be able to extend them.
+Alright, there's the question. Suppose you have some access to some smaller part of a system. Can you infer that it comes from a Gaussian state on the biggest state?
+This is a huge importance to us because we're going to be modeling systems and environments. And we need to work out, is it possible that our state came from tracing out an environment?
+And the answer is trivial. There's always at least one extension, and you do it by just tensoring.
+You just tenser it against any Gaussian state you like. That's kind of boring. But this question becomes incredibly more rich when you put constraints on how you want your extension to look.
+Let's suppose you want the state of the whole system to be pure. Does there exist a pure state of the global system that's Gaussian? The answer turns out also to be yes. In fact, there's an infinite number of extensions.
+Probably cover that in the coming weeks. These are called purifications.
+The question becomes a whole lot more richer and interesting when you have three modes. Suppose you have three modes ABC.
+And you know that the state of A and B is Gaussian.
+You might be tempted. Looking at this, I have a Gaussian state of A and B, a Gaussian state of B and C. But look above. There should be a state of A and C, which is Gaussian, which has them as a reduced density operator.
+Well, the answer is no, not always. And in fact, sometimes you can have that there is no global state. So suppose you specify two mode states like that.
+And sometimes there does not exist a row AB at all, row BC at all.
+Not even Gaussian. This is a really intriguing property that comes from the fundamental property of quantum mechanics that we can have entangled states.
+So I'm just going to leave that here as a piece of general knowledge or general culture. You don't need this for this course, but it is nice to keep in mind that the task of extending states is non-trivial, but this task of reducing states is easy.
+All right, I think we'll stop there for today. Thank you very much.

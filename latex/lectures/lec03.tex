@@ -1,0 +1,288 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 3 — Stinespring Dilation and Fock Space
+% ──────────────────────────────────────────────────────────────
+
+\section{Complete positivity and dilation theory}%
+\label{sec:cp-dilation}
+
+In the previous lecture we defined quantum channels axiomatically:
+a channel $\chan\colon \algB \to \alg$ must be unital and completely
+positive.  We now ask: \emph{can every channel be built from simple,
+physically transparent operations?}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Constructive approach to quantum operations}%
+\label{sec:constructive-ops}
+
+We enumerate three elementary operations that should certainly be
+allowed in quantum mechanics.
+
+\subsubsection{Adjoining an ancilla}
+
+Given a system~$A$ in state~$\omega$, we may bring in an additional
+system~$B$ in a fixed state~$\sigma$:
+\begin{equation}\label{eq:adjoin}
+  \omega \;\longmapsto\; \omega \tp \sigma\,.
+\end{equation}
+In the Schr\"odinger picture, this takes a state of~$A$ to a state
+of~$AB$.
+
+\subsubsection{Unitary evolution}
+
+A closed system undergoes unitary dynamics:
+\begin{equation}\label{eq:unitary-op}
+  \rho \;\longmapsto\; U\,\rho\, U^\adj\,,\qquad U^\adj U = \One\,.
+\end{equation}
+
+\subsubsection{Reduction to a subsystem}
+
+If we have a composite system~$AB$ and decide to ignore~$B$
+(never measure anything on~$B$), the effective state of~$A$ is
+obtained by partial trace:
+\begin{equation}\label{eq:reduce-op}
+  \rho_{AB} \;\longmapsto\; \tr_B(\rho_{AB})\,.
+\end{equation}
+
+\begin{intuition}[Building arbitrary operations]
+  By composing these three elementary operations, we can build
+  remarkably complex processes.  For example: start with a
+  qubit~$A$; adjoin an ancilla~$B$ in state~$\sigma$; apply a
+  joint unitary~$U$ on~$AB$; adjoin a third system~$C$ in
+  state~$\sigma_C$; apply a different unitary~$V$ on~$BC$;
+  finally discard~$A$, leaving an effective state of~$BC$.  Each
+  step is one of the three allowed operations.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The Stinespring dilation theorem}%
+\label{sec:stinespring}
+
+The remarkable fact is that, for finite-dimensional systems, the
+axiomatic and constructive approaches are \emph{equivalent}.
+
+\begin{theorem}[Stinespring dilation]\label{thm:stinespring}
+  Let $\chan\colon \Mn{N} \to \Mn{M}$ be a completely positive, unital
+  map (i.e.\ a quantum channel in the Heisenberg picture).  Then there
+  exists a positive integer~$L$ and an isometry
+  $V\colon \C^M \to \C^N \tp \C^L$ (satisfying $V^\adj V = \One_M$)
+  such that
+  \begin{equation}\label{eq:stinespring}
+    \eqbox{\chan(X) = V^\adj\,(X \tp \One_L)\,V}
+    \qquad \text{for all } X \in \Mn{N}\,.
+  \end{equation}
+  The integer~$L$ can be chosen so that $L \leq M^2 N^2$.
+\end{theorem}
+
+In the Schr\"odinger picture, the dual map $\chan_*$ acts on states as:
+\begin{equation}\label{eq:stinespring-schrodinger}
+  \chan_*(\rho) = \tr_L\!\bigl(V\,\rho\, V^\adj\bigr)\,.
+\end{equation}
+This is precisely a composition of the three allowed operations:
+
+\begin{center}
+\begin{tikzpicture}[
+  block/.style={rectangle, rounded corners=3pt, draw=cgblue,
+    fill=cgblue!8, minimum height=2em, minimum width=2.2cm,
+    font=\sf\footnotesize, text=spacecadet, inner sep=5pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  \node[block] (s1) {$\rho$};
+  \node[block, right=0.8cm of s1] (s2) {$\rho \tp \ketbra{0}{0}$};
+  \node[block, right=0.8cm of s2] (s3) {$U(\rho \tp \ketbra{0}{0})U^\adj$};
+  \node[block, right=0.8cm of s3] (s4) {$\tr_L(\cdots)$};
+  \draw[arr] (s1) -- (s2)
+    node[midway, above, font=\tiny]{adjoin};
+  \draw[arr] (s2) -- (s3)
+    node[midway, above, font=\tiny]{unitary};
+  \draw[arr] (s3) -- (s4)
+    node[midway, above, font=\tiny]{reduce};
+\end{tikzpicture}
+\end{center}
+
+\begin{remark}
+  The Stinespring theorem is only valid for \emph{finite-dimensional}
+  systems.  For infinite-dimensional systems, there exist completely
+  positive, unital maps that cannot be written in the
+  form~\eqref{eq:stinespring}.  This means there may be legal quantum
+  evolutions that do not arise from ``system~$+$~environment~$+$~unitary''---a
+  fact with implications for, e.g., black hole information loss.
+\end{remark}
+
+% ══════════════════════════════════════════════════════════════
+\section{Quantum many-particle systems}\label{sec:many-particle}
+
+We now turn to modeling the \emph{environment} in our
+system--environment picture.  Real environments---the electromagnetic
+field, phonons in a solid, a thermal bath---consist of many (possibly
+indefinitely many) particles.  We need mathematical machinery to handle
+this.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Fock space}\label{sec:fock-space}
+
+\subsubsection{Motivation}
+
+We already know how to compose~$n$ quantum systems with Hilbert
+spaces $\hilb_{A_1},\ldots,\hilb_{A_n}$: the joint Hilbert space is
+\begin{equation}\label{eq:n-fold-tensor}
+  \hilb_{A_1} \tp \hilb_{A_2} \tp \cdots \tp \hilb_{A_n}\,.
+\end{equation}
+But many physical systems---a mode of the electromagnetic field, Cooper
+pairs in a superconductor---have an \emph{indefinite} number of
+particles: particles can be created and destroyed.  For such systems,
+we need a Hilbert space that accommodates \emph{any} number of
+particles simultaneously.
+
+\subsubsection{Definition}
+
+Let $\hilb$ be the single-particle Hilbert space.  The \textbf{Fock
+space} (for distinguishable particles) is
+\begin{equation}\label{eq:fock-space}
+  \eqbox{\mathcal{F}(\hilb)
+    = \bigoplus_{n=0}^{\infty} \hilb^{\tp n}}\,,
+\end{equation}
+where $\hilb^{\tp 0} = \C$ (the ``vacuum sector'') and
+$\hilb^{\tp n} = \underbrace{\hilb \tp \cdots \tp \hilb}_{n}$.
+
+A vector $\Psi \in \mathcal{F}(\hilb)$ is a sequence
+\begin{equation}\label{eq:fock-vector}
+  \Psi = (\alpha_0,\; \ket{\alpha_1},\; \ket{\alpha_2},\; \ldots)\,,
+  \qquad
+  \alpha_0 \in \C,\;\;
+  \ket{\alpha_n} \in \hilb^{\tp n}\,,
+\end{equation}
+with the requirement that $\sum_n \norm{\alpha_n}^2 < \infty$.
+
+\begin{remark}
+  One might ask: why a direct sum rather than an infinite tensor
+  product?  The infinite tensor product $\hilb^{\tp\infty}$ is strictly
+  larger and contains states with no physical interpretation (e.g.\
+  superpositions involving infinitely many particles in incompatible
+  ways).  Fock space is the \emph{smallest} Hilbert space that assigns
+  a vector to every state we expect to exist.
+\end{remark}
+
+The distinguished vector
+$\ket{\Omega} = (1, 0, 0, \ldots) \in \mathcal{F}(\hilb)$
+is the \textbf{vacuum state}: zero particles.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Identical particles and symmetrisation}%
+\label{sec:identical-particles}
+
+For \emph{identical} particles (photons, electrons, \ldots), swapping
+two particles must leave the state unchanged (up to a sign).  We
+enforce this by projecting onto the appropriate symmetry sector.
+
+\subsubsection{The symmetric group and permutation operators}
+
+The \textbf{symmetric group}~$S_n$ is the group of all permutations of
+$\{1,2,\ldots,n\}$.  Each permutation $\pi \in S_n$ acts on product
+vectors by reordering the factors:
+\begin{equation}\label{eq:perm-action}
+  U_\pi\,(\ket{v_1} \tp \cdots \tp \ket{v_n})
+  = \ket{v_{\pi^{-1}(1)}} \tp \cdots \tp \ket{v_{\pi^{-1}(n)}}\,.
+\end{equation}
+
+Define the \textbf{symmetrisation} and \textbf{antisymmetrisation}
+projectors:
+\begin{equation}\label{eq:sym-projectors}
+  P_n^{\pm}
+  = \frac{1}{n!}\sum_{\pi \in S_n}
+    \varepsilon_\pm(\pi)\, U_\pi\,,
+\end{equation}
+where $\varepsilon_+(\pi) = 1$ for all~$\pi$ (bosons) and
+$\varepsilon_-(\pi) = \mathrm{sgn}(\pi)$ is the sign of the
+permutation (fermions).
+
+\subsubsection{Bose and Fermi Fock space}
+
+\begin{definition}[Bose/Fermi Fock space]\label{def:bose-fermi-fock}
+  The \textbf{Bose Fock space} and \textbf{Fermi Fock space} are
+  \begin{equation}\label{eq:bose-fermi-fock}
+    \eqbox{\mathcal{F}_\pm(\hilb)
+      = \bigoplus_{n=0}^{\infty} P_n^{\pm}\,\hilb^{\tp n}}\,.
+  \end{equation}
+\end{definition}
+
+In this course, we focus almost exclusively on \emph{bosons}
+($\mathcal{F}_+$), since our environments will typically be
+electromagnetic fields (photons).  Everything we develop, however,
+carries over to fermions with only sign changes.
+
+\begin{example}[Single-mode Fock space]\label{ex:single-mode}
+  If $\hilb = \C$ (a single mode of the electromagnetic field, e.g.\
+  the lowest mode of an optical cavity), then
+  $\hilb^{\tp n} \cong \C$ for every~$n$, and Fock space becomes
+  \begin{equation}\label{eq:single-mode-fock}
+    \mathcal{F}_+(\C) = \bigoplus_{n=0}^{\infty} \C
+    \cong \ell^2(\N)\,.
+  \end{equation}
+  This is the Hilbert space of a single quantum harmonic oscillator,
+  spanned by number states $\ket{0}, \ket{1}, \ket{2}, \ldots$ The
+  space is infinite-dimensional even though the single-particle space
+  is one-dimensional---there can be any number of photons in the mode.
+\end{example}
+
+\begin{example}[Multi-mode cavity]\label{ex:multi-mode}
+  If a cavity supports $k$ modes (e.g.\ two polarisations of the
+  lowest frequency), then $\hilb = \C^k$ and Fock space
+  $\mathcal{F}_+(\C^k)$ describes an indefinite number of photons,
+  each of which can occupy any of the $k$~modes.
+\end{example}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Creation and annihilation operators}%
+\label{sec:creation-annihilation}
+
+Given a single-particle state $\ket{f} \in \hilb$, we define operators
+on the (distinguishable-particle) Fock space $\mathcal{F}(\hilb)$
+that add or remove a particle in state~$\ket{f}$.
+
+\begin{definition}[Annihilation and creation operators]%
+\label{def:annihilation-creation}
+  The \textbf{annihilation operator} $a(f)$ and \textbf{creation
+  operator} $a^\adj(f)$ act on the $n$-particle sector as:
+  \begin{align}
+    a(f)\,\ket{\alpha_n}
+    &= \sqrt{n}\;(\bra{f} \tp \One^{\tp(n-1)})\,\ket{\alpha_n}
+    \in \hilb^{\tp(n-1)}\,,
+    \label{eq:annihilate}
+    \\[4pt]
+    a^\adj(f)\,\ket{\alpha_n}
+    &= \sqrt{n+1}\; P_{n+1}^\pm\,(\ket{f} \tp \ket{\alpha_n})
+    \in \hilb^{\tp(n+1)}\,,
+    \label{eq:create}
+  \end{align}
+  and $a(f)\,\ket{\Omega} = 0$ (one cannot annihilate from the vacuum).
+\end{definition}
+
+When restricted to the Bose or Fermi Fock space via the
+symmetrisation projectors~$P_n^\pm$, these operators satisfy the
+fundamental \textbf{canonical commutation/anticommutation relations}:
+\begin{equation}\label{eq:ccr-car}
+  \eqbox{[a(f),\, a^\adj(g)]_\mp = \braket{f}{g}\,\One}\,,
+  \qquad
+  [a(f),\, a(g)]_\mp = 0\,,
+\end{equation}
+where $[\cdot,\cdot]_-$ is the commutator (bosons) and
+$[\cdot,\cdot]_+$ is the anticommutator (fermions).
+
+\begin{keyresult}[The number operator]
+  For a single mode ($\hilb = \C$, $\ket{f} = 1$), writing
+  $a \coloneqq a(1)$, the \textbf{number operator}
+  $\hat{n} = a^\adj a$ satisfies
+  $\hat{n}\ket{n} = n\ket{n}$, where
+  $\ket{n} = \frac{(a^\adj)^n}{\sqrt{n!}}\ket{0}$
+  are the familiar number states of the quantum harmonic oscillator.
+\end{keyresult}
+
+\begin{remark}
+  The notation $a(f)$ emphasises that the annihilation operator depends
+  \emph{linearly} on the single-particle state~$f$, while $a^\adj(f)$
+  depends \emph{antilinearly} on~$f$.  In much of the physics
+  literature, one fixes a mode basis $\{e_k\}$ and writes
+  $a_k \coloneqq a(e_k)$, recovering the familiar mode-indexed ladder
+  operators.
+\end{remark}

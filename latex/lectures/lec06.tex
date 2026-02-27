@@ -1,0 +1,262 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 6 — Gaussian Models and Symplectic Diagonalisation
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 4 (Continuous Variables).
+
+\subsection{Quadratic Hamiltonians and Gaussian models}%
+\label{sec:gaussian-models}
+
+To model the environment~$E$ in our system--environment picture, we
+need exactly solvable models for bosonic fields.  \emph{Quadratic}
+(Gaussian) Hamiltonians fill this role: they are general enough to
+capture physics from phonon propagation in solids to relativistic
+quantum field theory, yet they can be diagonalised using only linear
+algebra.
+
+\begin{definition}[Gaussian (quasi-free) Hamiltonian]%
+\label{def:gaussian-hamiltonian}
+  Given $n$~modes with canonical operators
+  $\hat{x}_1,\ldots,\hat{x}_n$, $\hat{p}_1,\ldots,\hat{p}_n$
+  satisfying the CCR
+  $[\hat{x}_j,\,\hat{p}_k] = i\delta_{jk}\One$, the
+  \textbf{Gaussian Hamiltonian} is
+  \begin{equation}\label{eq:gaussian-H}
+    \eqbox{\hat{H}
+    = \tfrac{1}{2}\sum_{j,k=1}^{n}
+      \bigl[V_x\bigr]_{jk}\,\hat{x}_j\,\hat{x}_k
+    + \tfrac{1}{2}\sum_{j,k=1}^{n}
+      \bigl[V_p\bigr]_{jk}\,\hat{p}_j\,\hat{p}_k}\,,
+  \end{equation}
+  where $V_x, V_p \in \R^{n\times n}$ are symmetric, positive-definite
+  matrices encoding the potential and kinetic energy, respectively.
+\end{definition}
+
+\begin{intuition}[Scope of the Gaussian model]
+  Despite having only quadratic terms, this Hamiltonian covers:
+  $V_x$, $V_p$ diagonal $\Rightarrow$ independent oscillators;
+  $V_x$ off-diagonal, $V_p = \One$ $\Rightarrow$ phonons in solids;
+  both off-diagonal $\Rightarrow$ the Klein--Gordon field on a lattice.
+  The mode number~$n$ can be arbitrarily large; all results below
+  remain valid.
+\end{intuition}
+
+\subsubsection{Compact notation}
+
+Introduce the column vector of $2n$~canonical operators
+\begin{equation}\label{eq:r-vector}
+  \hat{\vb{r}}
+  = (\hat{x}_1,\ldots,\hat{x}_n,\,
+     \hat{p}_1,\ldots,\hat{p}_n)^\top
+\end{equation}
+and the $2n \times 2n$ Hamiltonian matrix
+\begin{equation}\label{eq:H-matrix}
+  h = \begin{pmatrix} V_x & 0 \\ 0 & V_p \end{pmatrix}\,.
+\end{equation}
+Then the Hamiltonian takes the compact form
+\begin{equation}\label{eq:H-compact}
+  \hat{H} = \tfrac{1}{2}\,\hat{\vb{r}}^\top h\,\hat{\vb{r}}\,.
+\end{equation}
+
+In terms of ladder operators
+$\hat{b}_j = (\hat{x}_j + i\hat{p}_j)/\sqrt{2}$, the Hamiltonian
+contains number-conserving terms ($\hat{b}_j^\adj \hat{b}_k$) and
+\emph{squeezing} terms ($\hat{b}_j\hat{b}_k$,
+$\hat{b}_j^\adj\hat{b}_k^\adj$) that do not conserve particle number.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Symplectic transformations}%
+\label{sec:symplectic}
+
+The strategy for diagonalising~\eqref{eq:H-compact} is to make a
+linear change of variables on the operators that preserves the CCR.
+
+\begin{definition}[Symplectic form and symplectic group]%
+\label{def:symplectic}
+  The $2n \times 2n$ \textbf{symplectic form} is
+  \begin{equation}\label{eq:sigma}
+    \sigma = \begin{pmatrix} 0 & \One_n \\ -\One_n & 0 \end{pmatrix}\,.
+  \end{equation}
+  The canonical commutation relations in matrix form read
+  \begin{equation}\label{eq:ccr-matrix}
+    [\hat{r}_j,\, \hat{r}_k] = i\,\sigma_{jk}\,\One\,.
+  \end{equation}
+  A real $2n \times 2n$ matrix $S$ is \textbf{symplectic} if it
+  preserves the symplectic form:
+  \begin{equation}\label{eq:symplectic-cond}
+    \eqbox{S\,\sigma\, S^\top = \sigma}\,.
+  \end{equation}
+  The set of all such matrices forms the \textbf{real symplectic group}
+  $\mathrm{Sp}(2n,\R)$.
+\end{definition}
+
+Defining $\hat{\vb{r}}' = S\,\hat{\vb{r}}$ with
+$S \in \mathrm{Sp}(2n,\R)$ preserves the CCR.  Our task reduces to
+finding an~$S$ that brings~$h$ to diagonal form.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Williamson's theorem}%
+\label{sec:williamson}
+
+\begin{theorem}[Williamson's normal form]\label{thm:williamson}
+  Let $M$ be a $2n \times 2n$ real, symmetric, positive-definite
+  matrix.  Then there exists a symplectic matrix
+  $S \in \mathrm{Sp}(2n,\R)$ such that
+  \begin{equation}\label{eq:williamson}
+    \eqbox{S\, M\, S^\top
+    = \diag(\mu_1,\ldots,\mu_n,\,\mu_1,\ldots,\mu_n)}\,,
+  \end{equation}
+  where the \textbf{symplectic eigenvalues}
+  $\mu_1 \geq \mu_2 \geq \cdots \geq \mu_n > 0$ are uniquely
+  determined by~$M$.
+\end{theorem}
+
+\begin{remark}
+  The symplectic eigenvalues can be found without constructing~$S$:
+  they are the positive eigenvalues of the matrix $i\sigma M$, or
+  equivalently the positive square roots of the eigenvalues of
+  $-(\sigma M)^2$.
+\end{remark}
+
+\subsubsection{Constructing $S$ for the Gaussian Hamiltonian}
+
+For $h = \diag(V_x, V_p)$, an explicit symplectic diagonaliser can be
+constructed.  Define the $n \times n$ matrix
+\begin{equation}\label{eq:G-matrix}
+  G = V_p^{1/2}\, V_x\, V_p^{1/2}\,,
+\end{equation}
+which is symmetric and positive definite.  Let $Q$ be an orthogonal
+matrix diagonalising~$G$:
+\begin{equation}\label{eq:Q-diag}
+  Q^\top G\, Q = D^2
+  = \diag(\mu_1^2,\ldots,\mu_n^2)\,,
+\end{equation}
+where $\mu_j > 0$ are the symplectic eigenvalues of~$h$.
+
+\begin{keyresult}[Explicit symplectic diagonaliser]
+  The matrix
+  \begin{equation}\label{eq:S-explicit}
+    S = \begin{pmatrix}
+      D^{1/2}\, Q^\top V_x^{-1/2} & 0 \\[4pt]
+      0 & D^{-1/2}\, Q^\top V_p^{-1/2}
+    \end{pmatrix}
+  \end{equation}
+  is symplectic and satisfies $S\, h\, S^\top = \diag(\mu_1,\ldots,\mu_n,\,\mu_1,\ldots,\mu_n)$.
+\end{keyresult}
+
+\begin{exercise}\label{ex:verify-S}
+  Verify that~\eqref{eq:S-explicit} satisfies $S\sigma S^\top = \sigma$
+  and $ShS^\top = \diag(\mu_1,\ldots,\mu_n,\mu_1,\ldots,\mu_n)$.
+\end{exercise}
+
+\begin{intuition}[When is this easy?]
+  In non-relativistic physics $V_p = \One$, so $G = V_x$.  For
+  translation-invariant systems $V_x$ is circulant and diagonalisable
+  by the discrete Fourier transform, making the construction analytic.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Diagonalised form and normal modes}%
+\label{sec:normal-modes}
+
+Defining new canonical variables
+$\hat{\vb{r}}' = S\,\hat{\vb{r}}$ (which still obey the CCR), the
+Hamiltonian becomes
+\begin{equation}\label{eq:H-diagonal}
+  \hat{H}
+  = \sum_{j=1}^{n} \frac{\mu_j}{2}
+    \bigl(\hat{x}_j'^{\,2} + \hat{p}_j'^{\,2}\bigr)
+  = \sum_{j=1}^{n} \mu_j
+    \Bigl(\hat{a}_j^\adj \hat{a}_j + \tfrac{1}{2}\Bigr)\,,
+\end{equation}
+where $\hat{a}_j = (\hat{x}'_j + i\hat{p}'_j)/\sqrt{2}$ are the
+\textbf{normal-mode} annihilation operators.  This is a collection of
+$n$~independent harmonic oscillators with frequencies
+$\mu_1,\ldots,\mu_n$.
+
+\begin{keyresult}[Reduction to independent oscillators]
+  Every Gaussian Hamiltonian~\eqref{eq:gaussian-H} is unitarily
+  equivalent to a sum of independent harmonic oscillators---justifying
+  the name \emph{quasi-free}.
+\end{keyresult}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Transformation of the characteristic function}%
+\label{sec:char-fn-transform}
+
+The symplectic change of variables acts simply on the characteristic
+function: if $\chi_\rho(\vb{\xi}) = \tr(\rho\, D(\vb{\xi}))$, then
+\begin{equation}\label{eq:chi-transform}
+  \chi_\rho(\vb{\xi})
+  = \chi_{\rho'}\!\bigl((S^{-1})^\top \vb{\xi}\bigr)\,,
+\end{equation}
+where $\rho'$ is the state in the normal-mode basis.
+This implies simple transformation rules for the moments:
+\begin{equation}\label{eq:moments-transform}
+  \eqbox{\vb{m} = S^{-1}\,\vb{m}'\,,
+  \qquad
+  \gamma = S^{-1}\,\gamma'\,(S^{-1})^\top}\,,
+\end{equation}
+where $\vb{m} = \expect{\hat{\vb{r}}}$ and
+$\gamma_{jk} = \tfrac{1}{2}\expect{\{\Delta\hat{r}_j,\,\Delta\hat{r}_k\}}$
+with $\Delta\hat{r}_j = \hat{r}_j - m_j$.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The thermal state of a Gaussian model}%
+\label{sec:thermal-state}
+
+Since $\hat{H}$ is a sum of independent oscillators in the
+normal-mode basis, the thermal state
+$\rho_\beta = e^{-\beta \hat{H}}/Z$ factorises:
+\begin{equation}\label{eq:thermal-factorised}
+  \rho_\beta
+  = \bigotimes_{j=1}^{n} \frac{e^{-\beta\mu_j(\hat{a}_j^\adj \hat{a}_j + 1/2)}}{Z_j}\,,
+  \qquad
+  Z_j = \frac{1}{2\sinh(\beta\mu_j/2)}\,.
+\end{equation}
+Each factor is Gaussian, so the full thermal state is Gaussian with
+first moments $\vb{m} = 0$ (by symmetry) and covariance matrix:
+
+\begin{keyresult}[Covariance matrix of the thermal state]
+  In the normal-mode variables, the covariance matrix is diagonal:
+  \begin{equation}\label{eq:gamma-prime}
+    \gamma'
+    = \diag\!\bigl(\bar{n}_1 + \tfrac{1}{2},\ldots,\bar{n}_n + \tfrac{1}{2},\,
+      \bar{n}_1 + \tfrac{1}{2},\ldots,\bar{n}_n + \tfrac{1}{2}\bigr)\,,
+  \end{equation}
+  where $\bar{n}_j = (e^{\beta\mu_j} - 1)^{-1}$ is the Bose--Einstein
+  mean occupation number.  In the original variables, the covariance
+  matrix is
+  \begin{equation}\label{eq:gamma-beta}
+    \eqbox{\gamma_\beta = S^{-1}\,\gamma'\,(S^{-1})^\top}\,.
+  \end{equation}
+\end{keyresult}
+
+\begin{remark}
+  Proving that a single-mode thermal state has a Gaussian
+  characteristic function requires summing Laguerre polynomials
+  over Fock states and applying a generating-function identity.
+  The result:
+  $\chi(\xi) \propto \exp\!\bigl(-(\bar{n}+\tfrac{1}{2})\lvert\xi\rvert^2\bigr)$.
+\end{remark}
+
+\begin{exercise}\label{ex:thermal-covariance}
+  For $n$~independent oscillators with $V_x = \diag(\omega_1^2,\ldots,\omega_n^2)$
+  and $V_p = \One$, show that:
+  \begin{enumerate}[(a)]
+    \item The symplectic eigenvalues are $\mu_j = \omega_j$.
+    \item The covariance matrix in the original variables is
+      $\gamma_\beta = \diag\bigl((\bar{n}_1+\frac{1}{2})/\omega_1,\ldots,
+      (\bar{n}_n+\frac{1}{2})/\omega_n,\,
+      (\bar{n}_1+\frac{1}{2})\omega_1,\ldots,
+      (\bar{n}_n+\frac{1}{2})\omega_n\bigr)$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{intuition}[Why this result matters]
+  The covariance matrix~\eqref{eq:gamma-beta} is the starting point
+  for modelling the environment.  Combined with Wick's theorem it
+  determines all correlation functions of the thermal field, and its
+  entries will later set the decay rates in the Lindblad equation.
+\end{intuition}

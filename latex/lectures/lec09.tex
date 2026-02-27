@@ -1,0 +1,293 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 9 — Quasi-Free Fermion Systems and Quantum Dots
+% ──────────────────────────────────────────────────────────────
+
+% Opens Section 5 (Fermion systems).
+
+\section{Quasi-free fermion systems}\label{sec:fermion-systems}
+
+In the preceding lectures we developed the theory of Gaussian bosonic
+models: quadratic Hamiltonians, symplectic diagonalisation, and
+covariance matrices.  We now turn to the \emph{fermionic} counterpart.
+Fermion systems arise whenever we model conducting materials: a
+quantum dot---an artificial atom acting as a cavity for
+electrons---embedded in a resistor is the prototypical example.  Just
+as for bosons, every quadratic fermion Hamiltonian can be diagonalised
+exactly, and its ground state is determined by a covariance matrix.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{General quadratic fermion Hamiltonian}%
+\label{sec:quadratic-fermion}
+
+Consider $n$~spinless fermion modes with annihilation operators
+$\hat{f}_1, \ldots, \hat{f}_n$ obeying the canonical
+anticommutation relations (CAR)
+\begin{equation}\label{eq:car}
+  \{\hat{f}_j,\, \hat{f}_k^\adj\} = \delta_{jk}\,\One\,,\qquad
+  \{\hat{f}_j,\, \hat{f}_k\} = 0\,.
+\end{equation}
+
+\begin{definition}[Quasi-free fermion Hamiltonian]%
+\label{def:quasi-free-fermion}
+  The most general quadratic Hamiltonian for $n$~fermion modes is
+  \begin{equation}\label{eq:fermion-H}
+    \eqbox{\hat{H}
+    = \sum_{j,k=1}^{n} A_{jk}\,\hat{f}_j^\adj \hat{f}_k
+    + \tfrac{1}{2}\sum_{j,k=1}^{n}
+      \bigl(B_{jk}\,\hat{f}_j^\adj \hat{f}_k^\adj
+      + B_{jk}^*\,\hat{f}_k \hat{f}_j\bigr)}\,,
+  \end{equation}
+  where $A, B \in \R^{n \times n}$.  Hermiticity requires
+  $A = A^\top$ (symmetric) and $B = -B^\top$ (antisymmetric).
+\end{definition}
+
+\begin{remark}
+  The pairing terms involving $B$ appear to violate fermion-number
+  parity superselection rules but arise as \emph{effective} terms in
+  superconducting systems without creating superpositions of even and
+  odd fermion number in the full theory.
+\end{remark}
+
+Introducing the $2n$-dimensional Nambu vector
+$\hat{\vb{F}} = (\hat{f}_1, \ldots, \hat{f}_n,\,
+\hat{f}_1^\adj, \ldots, \hat{f}_n^\adj)^\top$,
+the Hamiltonian takes the compact form
+\begin{equation}\label{eq:fermion-H-compact}
+  \hat{H}
+  = \tfrac{1}{2}\,\hat{\vb{F}}^\adj\, \mathcal{H}\,\hat{\vb{F}}
+  + \text{const}\,,\qquad
+  \mathcal{H}
+  = \begin{pmatrix} A & B \\ -B & -A \end{pmatrix}\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Majorana operators}\label{sec:majorana}
+
+Just as bosonic quadrature operators are hermitian combinations of $a$
+and $a^\adj$, we build hermitian fermion operators.
+
+\begin{definition}[Majorana operators]\label{def:majorana}
+  For each mode $j = 1, \ldots, n$, define
+  \begin{equation}\label{eq:majorana-def}
+    \hat{c}_{2j-1}
+    = \frac{\hat{f}_j + \hat{f}_j^\adj}{\sqrt{2}}\,,\qquad
+    \hat{c}_{2j}
+    = \frac{\hat{f}_j - \hat{f}_j^\adj}{i\sqrt{2}}\,.
+  \end{equation}
+  These $2n$ operators are hermitian,
+  $\hat{c}_k^\adj = \hat{c}_k$, and satisfy
+  \begin{equation}\label{eq:majorana-car}
+    \eqbox{\{\hat{c}_j,\, \hat{c}_k\} = \delta_{jk}\,\One}\,.
+  \end{equation}
+\end{definition}
+
+\begin{intuition}[Majorana fermions]
+  Majorana operators are the fermion analogue of the quadrature
+  operators $\hat{q}$, $\hat{p}$.  Majorana zero modes at the ends of
+  superconducting nanowires have attracted intense experimental
+  interest as a potential platform for topological quantum computation.
+\end{intuition}
+
+Collecting these into
+$\hat{\vb{c}} = (\hat{c}_1, \ldots, \hat{c}_{2n})^\top$, the
+Hamiltonian becomes
+\begin{equation}\label{eq:H-majorana}
+  \hat{H}
+  = \frac{i}{2}\,\hat{\vb{c}}^\top V\, \hat{\vb{c}}
+  + \text{const}\,,
+\end{equation}
+where $V$ is the $n \times n$ real matrix $V_{jk} = A_{jk} + B_{jk}$
+(up to conventions for the block decomposition).
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Diagonalisation via singular value decomposition}%
+\label{sec:fermion-svd}
+
+Unlike the bosonic case (symplectic transformations), the matrix $V$
+is in general neither symmetric nor antisymmetric.  The appropriate
+tool is the \textbf{singular value decomposition} (SVD).
+
+\begin{keyresult}[SVD diagonalisation of the fermion Hamiltonian]
+  Every real $n \times n$ matrix $V$ admits a decomposition
+  \begin{equation}\label{eq:svd}
+    V = O_1\, \Sigma\, O_2^\top\,,
+  \end{equation}
+  with $O_1, O_2 \in O(n)$ orthogonal and
+  $\Sigma = \diag(\sigma_1, \ldots, \sigma_n)$, $\sigma_j \geq 0$.
+  The orthogonal matrices are found by diagonalising $VV^\top$
+  (giving $O_1$) and $V^\top V$ (giving $O_2$).  Define new Majorana
+  operators
+  \begin{equation}\label{eq:majorana-rotation}
+    \hat{\vb{c}}'
+    = \begin{pmatrix} O_1 & 0 \\ 0 & O_2 \end{pmatrix}
+      \hat{\vb{c}}\,,
+  \end{equation}
+  which preserve the anticommutation
+  relations~\eqref{eq:majorana-car}, and revert to
+  creation/annihilation operators
+  $\hat{b}_j = (\hat{c}'_{2j-1} + i\,\hat{c}'_{2j})/\sqrt{2}$.
+  The Hamiltonian then takes the diagonal form
+  \begin{equation}\label{eq:H-diagonal-fermion}
+    \eqbox{\hat{H}
+    = \sum_{j=1}^{n} \sigma_j
+      \Bigl(\hat{b}_j^\adj \hat{b}_j
+      - \tfrac{1}{2}\Bigr)}\,.
+  \end{equation}
+\end{keyresult}
+
+\begin{exercise}\label{ex:canonical-fermion}
+  Verify that the transformation~\eqref{eq:majorana-rotation}
+  preserves the Majorana anticommutation
+  relations~\eqref{eq:majorana-car}.
+\end{exercise}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Spectrum and ground state}\label{sec:fermion-spectrum}
+
+Each mode $\hat{b}_j$ is an independent \textbf{fermion oscillator}
+with a two-dimensional Hilbert space
+$\{\ket{0}_j, \ket{1}_j\}$.  The full Hilbert space has dimension
+$2^n$---finite, in contrast to the bosonic case.
+
+\begin{keyresult}[Complete spectrum]
+  The eigenvalues are labelled by occupation vectors
+  $\vb{n} = (n_1, \ldots, n_n) \in \{0,1\}^n$:
+  \begin{equation}\label{eq:fermion-eigenvalues}
+    E_{\vb{n}}
+    = \sum_{j=1}^{n} \sigma_j\bigl(n_j - \tfrac{1}{2}\bigr)\,.
+  \end{equation}
+  The \textbf{ground state} $\ket{\Omega} = \ket{0}_1 \cdots \ket{0}_n$
+  (the $\hat{b}$-vacuum) has energy
+  $E_0 = -\frac{1}{2}\sum_{j=1}^{n} \sigma_j$.
+  It is unique when $\rank V = n$; otherwise the ground-state
+  degeneracy is $2^{n - \rank V}$.
+\end{keyresult}
+
+The \textbf{spectral gap} is the smallest singular value:
+$\Delta = \sigma_{\min}(V)$.
+
+\begin{intuition}[The ground state is not empty]
+  The $\hat{b}$-vacuum contains no quasiparticles, but generically
+  contains many $\hat{f}$-fermions---this is the Fermi sea.  The
+  average fermion number in the original variables is
+  \begin{equation}\label{eq:fermion-number}
+    \expect{\hat{N}}_\Omega
+    = \frac{n}{2} - \frac{1}{2}\tr(\bar{V})\,,
+  \end{equation}
+  where $\bar{V} = O_1\, O_2^\top$ is the \emph{spectral flattening}
+  of $V$ (SVD with all singular values set to~$1$).  Depending on
+  $O_1$ and $O_2$, this ranges from $0$ (empty) to $n$ (completely
+  filled), reproducing the familiar picture of a conductor at some
+  chemical potential.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Fermion covariance matrix}\label{sec:fermion-covariance}
+
+Gaussian fermion states are characterised by their covariance matrix
+in the Majorana basis, just as Gaussian boson states are characterised
+by their covariance matrix in the $(\hat{q}, \hat{p})$ variables.
+
+\begin{definition}[Fermion covariance matrix]\label{def:fermion-cov}
+  The \textbf{covariance matrix} of a state $\rho$ of $n$~fermion
+  modes is the $2n \times 2n$ real antisymmetric matrix
+  \begin{equation}\label{eq:fermion-cov-def}
+    \Gamma_{jk}
+    = -i\,\expect{[\hat{c}_j,\, \hat{c}_k]}
+    = -2i\,\expect{\hat{c}_j \hat{c}_k} + i\,\delta_{jk}\,.
+  \end{equation}
+\end{definition}
+
+From $\Gamma$ one extracts all second moments of the original
+operators.  For the ground state:
+\begin{equation}\label{eq:fermion-second-moments}
+  \eqbox{\expect{\hat{f}_j^\adj \hat{f}_k}_\Omega
+  = \frac{1}{2}\bigl(\delta_{jk}
+    - [\bar{V}]_{jk}\bigr)}\,,
+\end{equation}
+where $\bar{V} = O_1\, O_2^\top$ is the spectral flattening.
+
+\begin{intuition}[Bosons versus fermions]
+  For bosons the Hilbert space is infinite-dimensional and the
+  covariance matrix is real symmetric.  For fermions the Hilbert space
+  is $2^n$-dimensional and the covariance matrix is real
+  antisymmetric.  In both cases, the Gaussian state is completely
+  determined by its second moments.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Application: tunnelling through a quantum dot}%
+\label{sec:quantum-dot}
+
+We apply the quasi-free fermion formalism to a \textbf{quantum
+dot}---an artificial atom (single orbital, charging energy $E_c$)
+cooled to ${\sim}\,1\;\text{K}$ and coupled by tunnel junctions to
+two fermion reservoirs (source and drain) held at chemical potentials
+$\mu_S$ and $\mu_D$.  The bias voltage
+$V_{\mathrm{bias}} = (\mu_S - \mu_D)/e$ drives a current through the
+dot.  This is the fermion analogue of an optical cavity coupled to
+input and output modes.
+
+\subsubsection{The Hamiltonian}
+
+The total Hamiltonian $\hat{H} = \hat{H}_0 + \hat{V}$ consists of a
+free part
+\begin{equation}\label{eq:dot-H0}
+  \hat{H}_0
+  = E_c\, \hat{d}^\adj \hat{d}
+  + \sum_{\alpha \in \{S,D\}} \sum_k
+    \varepsilon_k^{(\alpha)}\,
+    \hat{f}_{k,\alpha}^\adj \hat{f}_{k,\alpha}\,,
+\end{equation}
+where $\hat{d}$ is the dot fermion operator,
+$\hat{f}_{k,\alpha}$ are reservoir operators with kinetic energies
+$\varepsilon_k^{(\alpha)} = \hbar^2 k^2 / 2m$, and a tunnelling
+interaction
+\begin{equation}\label{eq:dot-V}
+  \hat{V}
+  = \sum_{\alpha \in \{S,D\}} \sum_k
+    \bigl(t_{k,\alpha}\,\hat{d}^\adj \hat{f}_{k,\alpha}
+    + t_{k,\alpha}^*\,\hat{f}_{k,\alpha}^\adj \hat{d}\bigr)\,,
+\end{equation}
+with small tunnelling matrix elements $t_{k,\alpha}$ (classically
+forbidden transitions).
+
+\begin{remark}
+  The full Hamiltonian is quadratic and could be diagonalised exactly.
+  However, just as for the optical cavity, we will instead derive a
+  Born--Markov master equation for the dot alone in the next lecture,
+  providing more physical insight into the transport process.
+\end{remark}
+
+\subsubsection{Initial state and regime of validity}
+
+At $t = 0$ the tunnel barriers are high and the state factorises:
+\begin{equation}\label{eq:dot-initial}
+  \rho(0)
+  = \rho_S \tp \rho_{\mathrm{dot}} \tp \rho_D\,,
+\end{equation}
+where $\rho_S$ and $\rho_D$ are Fermi-sea ground states at their
+respective chemical potentials (not empty states).  The barriers are
+then lowered and the system evolves under $\hat{H}$.
+
+\begin{intuition}[When does the master equation work?]
+  The Born--Markov approximation requires the tunnelling rates
+  $\gamma_L, \gamma_R \propto |t_{k,\alpha}|^2$ to be small, so that
+  fermions hop one-by-one through the dot.  This high-resistance
+  regime is realised only at very low temperatures
+  (${\sim}\,1\;\text{K}$); at room temperature the
+  sequential-tunnelling picture breaks down.
+\end{intuition}
+
+\begin{exercise}\label{ex:fermion-diag}
+  Consider $n = 2$ fermion modes with $A = \bigl(\begin{smallmatrix}
+  1 & \epsilon \\ \epsilon & 2 \end{smallmatrix}\bigr)$ and $B =
+  \bigl(\begin{smallmatrix} 0 & \delta \\ -\delta & 0
+  \end{smallmatrix}\bigr)$ for small $\epsilon, \delta > 0$.
+  \begin{enumerate}[(a)]
+    \item Construct $V$ and compute its singular values.
+    \item Write down the ground-state energy and the spectral gap.
+    \item Compute $\expect{\hat{N}}_\Omega$ in the ground state.
+  \end{enumerate}
+\end{exercise}

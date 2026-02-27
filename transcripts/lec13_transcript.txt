@@ -1,0 +1,329 @@
+# Theory of Quantum Noise and Decoherence, Lecture 13: Feedback and Control
+# YouTube: https://www.youtube.com/watch?v=MwkXEDx35wQ
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] So we're coming now to the end of our course.
+[00:09.00] We've gone on a journey from unitary dynamics
+[00:16.80] through to the derivation of an effective equation
+[00:21.88] of motion for a system embedded in an environment.
+[00:30.00] So we studied examples, quite a few examples, of systems embedded in various environments.
+[00:43.84] And we studied situations where the generator of time evolutions can be effectively modeled
+[00:51.08] when you just care about the system by another equation of motion.
+[01:21.08] So we've had this situation where we know that the entirety of the system and the environment
+[01:31.44] they evolve unitarily.
+[01:32.44] And the generator of time evolutions is some Hamiltonian here, and the time evolution
+[01:37.48] itself is some unitary process.
+[01:40.44] And then when we found that when we restrict our attention to just the system, in other
+[01:51.16] words we trace out the environment, then although the dynamics of this system cannot exactly
+[02:01.08] be described as a linear equation of motion, to a very high degree of approximation we found
+[02:07.92] equations of motion for the system alone, completely neglecting the environment.
+[02:14.20] So we've been finding equations of motion that look like this.
+[02:20.20] We're now, we just have the Hamiltonian for the system, some effective Hamiltonian for the
+[02:23.56] system.
+[02:26.64] And we have to be completely correct, a plus sign there.
+[02:51.88] There's a half, we'll put a two here, I think that's easy to read.
+[03:06.20] We managed to find an effective equation of motion for the system alone, the state of the
+[03:10.28] system alone, and this is no longer unitary.
+[03:14.48] So this effective Hamiltonian part here does generate a unitary time evolution, but these
+[03:19.80] bits here, these generate non-unitary dynamics.
+[03:23.16] So that an initially pure state, if we call this object here L of rho, which we started
+[03:32.88] doing last week, so that an initially pure state can go to something not pure.
+[03:43.72] And this of course is necessary if there's to be an exchange of information between the
+[03:47.84] system and the environment via a unitary process.
+[03:56.04] Now in all the examples we considered, we saw that the equation of motion, the effective
+[03:59.80] equation of motion, we derived look like this.
+[04:04.20] And when you see something one time, you may think it's just a special case.
+[04:09.04] When you see it two times, you start to wonder and when you see it three times, you think
+[04:12.80] there might be a pattern there.
+[04:14.56] And last week we started the derivation with the formal proof that this kind of equation
+[04:21.08] of motion occurs if and only if you want the dynamics generated here to be completely positive.
+[04:29.40] So that we want to finish off that discussion and then move on to our final topic for
+[04:34.44] this course, which is quantum trajectories, which is, in some sense, what the experimental
+[04:41.24] disease when you solve this equation of motion.
+[04:45.40] All right, what we did last week is we said this thing here, this super operator, it takes
+[04:51.60] a density operator and provides you with another density operator.
+[04:54.76] We wrote that as ES.
+[04:57.56] And we looked for the most general structure that one of these ES's can should have.
+[05:10.52] So we noted that E of naught does nothing.
+[05:25.12] And we also noted that if we do a bit of ES and we do a bit of ET, then in all the examples
+[05:34.56] we considered that's the same as doing ES plus T.
+[05:39.16] So these are two properties that we noted about equations of motion like this.
+[05:43.28] And it's natural to wonder, I think, once you see a couple of properties, could it be that
+[05:49.40] just these properties are alone are enough to guarantee that the equation of motion that
+[05:55.24] this channel here satisfies is of this form.
+[05:57.92] And the answer is yes.
+[05:59.24] And we started last week the derivation of that result and today we'll finish that off before
+[06:04.84] moving on to the quantum trajectories or quantum jumps approach.
+[06:10.56] So I'll just continue on from last week and summarize all the results in the form of a theorem.
+[06:23.68] Theorem due to limp blood that tells us exactly the structure of a collection of maps
+[06:34.80] ES that satisfy these two properties.
+[06:59.88] And if you remember last week we saw interesting things like continuity implies different
+[07:04.20] possibilities.
+[07:05.20] This thing is a continuous function of S. It's also differentiable.
+[07:09.12] And we also saw that it has to be the exponential, any such map here has to be the exponential
+[07:13.68] of a L of a specific form.
+[07:16.20] And now we're going to finally summarize all this information together.
+[08:26.20] All right.
+[08:37.24] This is the statement of the theorem we're going to prove in the next couple of minutes.
+[08:44.40] It turns out we already have, we've more or less proved this theorem completely.
+[08:48.88] We're just going to summarize some of the data that we already have at hand.
+[09:18.88] Last week we discussed things called dynamical semi-groups.
+[09:23.36] We already derived some structure results about those.
+[09:27.84] If we delete trace preserving and completely positive, if you have a dynamical semi-group
+[09:32.76] it's always this form.
+[09:35.68] If you add in the words completely positive, then we discovered last week that this L has
+[09:42.40] additional structure and I'll write that down here.
+[09:57.40] So, it's a minus or plus.
+[10:25.40] It's what we learned last week that if you impose that this semi-group is linear and completely
+[10:48.32] positive, then already you know that E s is some e to the power of S L with this L having
+[10:54.96] this particular structure here, this is nautotool generic.
+[11:04.96] We didn't quite prove that actually.
+[11:30.80] The only data that we have to impose now for this final result is this word here, trace preserving.
+[11:46.24] The only extra stuff we have to sort out.
+[11:59.72] And the reason we want trace preserving there is we want probability to be conserved.
+[12:03.48] So trace preserving just means that as time or as S passes the density operator you get
+[12:13.20] by applying E s to some initial state is still a density operator.
+[12:16.44] It still has trace 1, that probability hasn't vanished into thin air.
+[12:19.72] So we have to just work out how to impose that condition and then we'll hopefully arrive
+[12:27.84] at this structure for this L super operator.
+[12:32.96] So let's go straight to the proof which is basically linear algebra.
+[12:52.96] In order for E to the power S L to be trace preserving, you need that the probability is conserved
+[13:00.96] and that's the same as demanding that the trace of L times rho is zero for all possible rows.
+[13:15.96] And you can get that by just differentiating the trace of E to the S rho.
+[13:27.96] So trace of E to the S times rho equals 1 implies that trace of L times rho is zero.
+[13:34.96] Just do a derivative.
+[13:41.96] But we already know that L has a certain structure.
+[13:47.96] It's not just any super operator, any matrix.
+[13:51.96] L has this particular form here.
+[13:54.96] I'm going to now find out what does that condition there imply for this operator here?
+[14:05.96] So let's give this equation a number for a star.
+[14:16.96] We input the equation star and we end up with this equation here.
+[14:46.96] And we're going to introduce a new matrix here which you won't have seen before, five star of the identity.
+[15:08.96] So what is this matrix? Well it's a matrix that satisfies the following equation.
+[15:33.96] It's a matrix that has the property that it's trace against rho for all rho is exactly the same as just doing the trace of phi on rho.
+[16:00.96] So we can rewrite this equation here so it's a parenthetic remark.
+[16:22.96] We've got this equation here. We can move these two terms to the right hand side.
+[16:27.96] Apply the cyclic rule of trace to get the k-dayer on the other side and then we can write that these two parts as this.
+[16:36.96] And this term here according to this equation here we write like that.
+[16:42.96] But this has to be true for all rho which means that this matrix phi star 1 equals this matrix k plus k dagger there.
+[17:07.96] Now I'm going to quote a result from your quantum information course
+[17:36.96] that you are presumably taking right now or have taken or if you haven't then you can look this up.
+[17:45.96] Any completely positive map phi, we didn't actually cover this in this course. I don't think we did.
+[17:55.96] It's a structure result about completely positive maps called the cross representation.
+[18:07.96] It says that any CP map can be written in this form for some LJs.
+[18:27.96] So it's not particularly difficult to prove this using the information we have looked at in this course.
+[18:37.96] I leave it as an exercise sheet just to look it up or to just derive it yourself.
+[18:45.96] So this means that if you apply, if you use this formula here in the definition of phi star 1 here we'll see that this phi star 1 has a very special form.
+[19:05.96] In fact you learn that phi star 1 is just some of these LJs, L subscript j, super dagger, L subscript j matrices.
+[19:18.96] That's just a consequence of this equation here and this equation here.
+[19:29.96] But now we're basically done because if you look at the object we started working on it's this one here.
+[19:40.96] We know that phi of x has this form. Well that's that bit there.
+[19:48.96] And we know that k is related to these LJ daggers by this result here.
+[19:57.96] So it's just a matter of somehow pulling out from k a Hamiltonian H and this anti-commitator here.
+[20:07.96] So I hope you can see that all the symbols are written on the board. It's just a matter of just working out how to get from k an H and an anti-commitator like that.
+[20:18.96] And it's not so difficult this one thankfully is just a matter of solving a linear equation.
+[20:35.96] So I'll summarize what we now know. We now know that LJ has this form so L has this form minus k rho minus rho k dagger.
+[20:46.96] So far this is what we know. And actually I'll just tell you the answer.
+[20:53.96] So you could sit and work it out yourself but it turns out this does the job.
+[21:16.96] You can always do this. This is k is some arbitrary matrix.
+[21:33.96] So you can always write an arbitrary matrix as a sum of a Hermitian part plus i times a Hermitian part.
+[21:41.96] It's just like complex numbers. You can always write a complex number as a real part plus i times an imaginary part.
+[21:49.96] And if we just give that the imaginary part the name H and we give the real part the Hermitian part the name that we just got to check that this is consistent with what we know about these matrices here.
+[22:09.96] That is a little exercise. It's really just solving a simple linear equation. And we're actually there.
+[22:23.96] Already it's a little bit anticlimactic.
+[22:42.96] There it is. That's actually already the advertised form.
+[23:12.96] So
+[23:37.96] this result this theorem of limplod confirms
+[24:06.96] confirms something that we hope to is true. Namely that when we did this derivation of the master equation that the resulting effective equation of motion is a physical process by itself.
+[24:20.96] It could have been after applying Taylor's series and truncating that the effective equation of motion for the system density operator that we derived was not a completely positive map because we applied approximations.
+[24:35.96] There's no reason for it to have been a completely positive map.
+[24:39.96] And therefore you would have to say oh well okay it's an effective equation of motion it works for some time beyond which it takes a density operator to something that's not a density operator then we have to include more terms in the Taylor's series and truncate further along.
+[24:54.96] And that would have been a bit of an unsatisfying situation.
+[25:00.96] But here we've got a result that tells us we can live in a universe of implementable processes in quantum mechanics.
+[25:09.96] So any time you have an equation of motion an effective equation of motion which has this particular form the generator, then you know that it's an implementable operation in quantum mechanics.
+[25:20.96] So there exists a way to implement it.
+[25:25.96] And that's I think a tremendous result there's no it's this didn't have to happen but it it does happen and it happens often enough that it's extremely useful thing to know.
+[25:41.96] The only question now I suppose is that if we can go the other way so we've gone from so far the direction we've been going in this course is always been we have some big system plus environment we look at the system we neglect the environment we find an effective equation of motion for the system.
+[25:59.96] And now whenever it has this form we know that that by itself also generates a legal operation in quantum mechanics.
+[26:06.96] But we can go the other way suppose we have a limp blood equation we just wrote one down of this particular form with some Lj's that we like and some H that we like.
+[26:19.96] Could it be that there's a unitary process whose dynamics whose effective dynamics generates exactly this equation of motion could it be that's the question that will focus on in the last part of this course.
+[26:32.96] There's a hint actually the answer might be yes and that comes from continuous measurement.
+[26:38.96] So if you recall two lectures back we looked at a model for continuous measurement of position and we saw that there's this non it's an energy not conserving process but it's still a unitary process that you can implement in quantum mechanics.
+[26:53.96] We saw that there is a way to go from a limp blood equation of a very special form to a unitary operator a dilation which implements this effective dynamics.
+[27:06.96] And we're going to take that one step further in the final part of this course and derive a general result.
+[27:13.96] So anytime you have an equation of motion generated by a limp blood equation you can implement it with a sequence of unitary operations on a bigger space of a very special form.
+[27:27.96] This falls under the heading of what's called quantum jumps.
+[27:35.96] Quantum jumps this what I'm about to show you may seem like a theorists play thing but it's more than this.
+[27:43.96] So theoretically it's a very interesting way to realize non-unitary dynamics.
+[27:50.96] And secondly quantum jumps are actually what you see in the lab when you look at detectors.
+[27:58.96] So there's a double double purpose to studying this final topic.
+[28:03.96] So so far to summarize so far we've gone from what we do know is that if you take a continuous measurement process which is a big unitary you can get a limp blood effective equation of motion.
+[28:28.96] Okay that we know. But can we go the other way? The answer turns out to be yes and we're going to study that right now.
+[28:58.96] And put hats on these things.
+[29:21.96] This is about as general. No no no I'm going to drop the j's for this purpose.
+[29:35.96] So I'm not going to do the full general result but once you see the argument you should be able to see how to generalize the single limp blood term a case to having multiple LJ's.
+[29:49.96] So I'm not going to do the most general result.
+[30:18.96] This is what we're going to do now. We're going to derive this equation of motion as the result of a generalized continuous measurement process.
+[30:47.96] This measurement process is dichotomic. There's two outcomes for this measurement process.
+[31:04.96] You either get zero or one when you apply this measurement apparatus on your system.
+[31:13.96] Zero we interpret as no click or no result and one we interpret as click like some photon counter clicks.
+[31:42.96] Okay.
+[32:11.96] Let's be a little bit more specific about the interpretation of these two operators. So we have this measurement operator here is actually an instrument not a POVM.
+[32:24.96] This operator here is meant to represent the situation where our detector does not click in a time window DT.
+[32:35.96] And this measurement operator here is meant to represent the outcome where the detector clicks in a time DT. So it's indexed by time time is built into this into these measurement operators here.
+[32:46.96] And think of DT as being small is arbitrarily small yet finite.
+[33:01.96] So it's not quite the DT infinitesimal of calculus at this point.
+[33:16.96] If you think back to our continuous measurement process it had a form very similar to this. We modeled a process where we measured the system every short unit of time, every DT of time.
+[33:28.96] And the measurement operators that modeled that measurement had a form where they themselves depended on time.
+[33:36.96] That's the only subtle difference between what we're modeling here in some other process where we just repeatedly measure some measurement operators which don't depend on time.
+[34:06.96] Oops.
+[34:36.96] So you can check that these two measurement operators give a POVM they add up to the identity.
+[34:59.96] So it's a legal generalized measurement in quantum mechanics. There exists a process which will carry out this operation.
+[35:13.96] And the way to think about this is you have time, you have your system and you break up time into these time bins each of with DT.
+[35:24.96] DT is set by the resolution of your apparatus, I don't know 10 to the minus 16 seconds, I'm not sure what DT depends on frequencies and resolutions and so on.
+[35:39.96] And every DT you apply this dichotomic measurement to the system.
+[35:48.96] You do a measurement to it on it, check, do you get a click, do you get a no click, proceed and then repeat this, click, no click.
+[35:58.96] And continue to do this throughout time.
+[36:04.96] So the measurement apparatus is always on and always interrogating the system.
+[36:12.96] Now why would you choose a dichotomic measurement looks like this? Well because it will give the answer in our case.
+[36:27.96] You can argue that it should have a form like this with a DT here and a square root DT here.
+[36:33.96] I won't do that, I'll just take the result and it's an existence result for today.
+[36:41.96] There exists a measurement process whose effective dynamics is given by this.
+[36:46.96] But if you want to actually get into the microscopic model of why this makes sense then you have to get into more details about detectors which we sadly don't have time for in this course.
+[37:06.96] Now if you remember from our discussion of just continuous measurement of position you have two cases you've got the non selective evolution and the selective evolution.
+[37:13.96] The non selective evolution is where the apparatus does the measurement but you don't look at the answer.
+[37:21.96] And the selective evolution is where you look at the if they detect a click or not.
+[37:42.96] And it's just a matter of using this instrument here.
+[37:46.96] The definition of it. So the definition of this instrument is that the posterior state after the measurement has taken place will be M0 rho M0 dagger plus M1 rho times M1 dagger.
+[38:09.96] And of course you have to divide by the probability that you got no click which is a trace.
+[38:39.96] So the non selective evolution we don't look at the result of the measurement.
+[39:09.96] So the non selective evolution is where you look at the if they detect a click or not.
+[39:19.96] So the non selective evolution is where you look at the if they detect a click or not.
+[39:29.96] The non selective evolution is where you look at the if they detect a click or not.
+[39:39.96] Now I get a bit tedious. We have to substitute in what M0 is.
+[39:53.96] M0 is this somewhat unintuitive formula there.
+[39:59.96] Oh there's one thing I forgot to say. What's this R? R is C dagger C.
+[40:12.96] Now there's no harm in interpreting for the purpose of this derivation C as the annihilation operator of a photon or a fermion.
+[40:20.96] In which case this R hat is the number operator proportional to the density of bosons or fermions in say an output beam.
+[40:34.96] All right, let's substitute in then this formula here and we'll see we'll get like eight terms on the top and eight on the bottom and then we'll have to start Taylor expanding.
+[41:02.96] So I'm going to cheat and not do the bottom.
+[41:31.96] This is the probability of one click in time DT.
+[41:52.96] Yeah, I know it is something.
+[42:21.96] Yeah, there's something odd here isn't there.
+[42:36.96] This equation here is wrong. So the non selective evolution I'll just box the equation then it's correct.
+[42:51.96] That's the non selective equation evolution. These two you can regard as the definition of P0 and P1.
+[43:04.96] But they cancel out.
+[43:17.96] Yeah, I just for the sake of the physical picture I've thrown in the P0 and the P1s but they cancel so I needn't have done that.
+[43:30.96] I hope that's not too confusing. Another way of making it maybe less confusing is just to do this.
+[43:40.96] Okay, now it should be I hope intuitive.
+[43:52.96] We just have this expression here which we can expand to order DT not DT not any higher DTs.
+[43:59.96] We could expand the DT squared but we hope that those terms will vanish.
+[44:24.96] Well, small like DT squared.
+[44:39.96] Now I think you can see the limp lot equation practically impairing in front of you.
+[45:03.96] Okay, that's it. That's the non selective evolution but that's not what we're interested in today.
+[45:14.96] This just confirms that this model of continuous measurement here will give this limp lot equation as its effective dynamics.
+[45:21.96] The next step is what we're interested in. We want to understand what's the selective evolution.
+[45:28.96] We look at the measurement record.
+[45:58.96] Okay.
+[46:28.96] So a couple of words on why you might even want to look at the selective evolution.
+[46:54.96] Well, one is you actually own a measurement device that can be modeled by these two operators.
+[47:01.96] So you might have a photon counter which records zero or many clicks or no clicks.
+[47:08.96] And then as the experiment proceeds as you continuously measure with your photon counter you get a measurement record.
+[47:15.96] You get a line and every so often there's a click.
+[47:22.96] And then you want to understand what process was the system undergo to lead to that measurement record.
+[47:29.96] And then you might hope that if you average over all your measurement records that you can understand the process that the system went through it had better have been that.
+[47:39.96] That's one motivation for why you care about the selective evolution is because that's what you actually have.
+[47:44.96] That's the data that you collect at the end of the experiment is a sequence of clicks.
+[47:53.96] And to look at the selective evolution we're going to have to understand the probabilities of there being a click and there being no click.
+[47:59.96] So the probability of there being a click is the trace of C dagger C times rho times DT.
+[48:09.96] This is crucial, right? So in a little time window DT the chance that your detector clicks is proportional to DT to the tune of the number of say photons in the right mode.
+[48:23.96] So if you halve your measurement window the probability of you getting a click gets halved and so on.
+[48:30.96] And I'm going to call that probability infinitesimal in the sense that it's arbitrarily small yet finite.
+[48:44.96] There's another probability that we care about as well that's P naught that's one minus P1 DT and that's almost one.
+[49:04.96] And if you look at your the measurement record you divide time up in lots of little time bins the probability that there being a click anywhere in time is proportional to the width.
+[49:23.96] So the probability you get a click right here and a click right here is proportional to the width.
+[49:30.96] So the process in probability theory that has exactly these properties is called a Poisson process.
+[49:37.96] And although it looks like you know there's a casino paradox right the chance of there being a click a click is going down with the time window so the small you make your time window.
+[49:47.96] The less chances of click so it looks like you never get a click if you send DT to zero but you get more time when time bins in a finite period of time.
+[49:56.96] Even though you're reducing the probability of there being a click there's more places for the click to occur so actually there's a constant number of clicks that will on average occur.
+[50:14.96] Just like raindrops falling on the ground or other processes that are Poisson.
+[50:27.96] Let's just analyze how does the system change so if the system went underwent a zero click event what's the posterior state and if the system went underwent a click event what's the posterior state we have to work it out.
+[50:39.96] Let's set it written down here before I turn this into a non selective evolution.
+[50:54.96] So P just P row of T plus DT in a no click event what does this go to and on a click event what does that go to.
+[51:07.96] So it turns out that if the system is in a pure state before the measurement then after the measurement it's also in a pure state so we're going to restrict to pure states.
+[51:29.96] So we imagine the systems in a pure state is time t and then it undergoes this measurement, this dichotomic measurement and then we're going to look at what's the posterior state and turns out it's always pure.
+[52:29.96] That's how the system state is updated.
+[52:48.96] Your detector does not click. It was in a pure state. It continues to be in a pure state and that pure state posterior pure state is m0 times psi dt.
+[52:59.96] And if you insert the equation we have for m0 then there's a relatively horrible expression for this.
+[53:18.96] That's if you tailor expand order dt.
+[53:42.96] So I hope this formula is relatively intuitive. The posterior state you just tailor expand this over this m0 is given by this thing here.
+[54:03.96] You have to do some things with the square root which is kind of annoying but there's nothing more than a tailor series here.
+[54:21.96] That's the no click event so to order one the no click to order one in a no click event the state after the measurement is the state before.
+[54:38.96] That's what that means. But there is some you have gained information.
+[54:43.96] So because the detector did not click that means that you now know that to order dt there was no photon there roughly speaking.
+[54:54.96] That information manifests itself in an update of the state here to order dt. Just because you see nothing doesn't mean you haven't gained information.
+[55:09.96] Now you come to say one t plus dt this is what happens if the detector clicks. Now you know something right if the detector clicks you know for sure that there must have been one or more photons.
+[55:26.96] So the state of the system gets updated to a different pure state.
+[55:56.96] Now we call one of these click events a quantum jump.
+[56:26.96] Now what we're going to focus on now is describing what a typical trajectory looks like.
+[56:52.96] What does a typical sequence of quantum jumps look like? What does the conditional evolution look like after time t has elapsed on average our typical sequence.
+[57:07.96] So what we're going to do is we're going to do a typical sequence of quantum jumps.
+[57:30.96] So as I said these quantum jumps are theoreticians toy but they are also the best model we have for how conditionally evolved quantum systems behave.
+[58:00.96] So we're going to write now a random variable n of t this counts the total number of clicks or jumps that have occurred in a time window zero to t.
+[58:21.96] You look at your measurement record you count the number of clicks add them up it's an integer that integers n of t.
+[58:29.96] If you look at the change of n of t over time then n of t either is d n of t like the change in the number of clicks is either zero or one and with an incredibly vanishing the small probability two.
+[58:45.96] The probability that you see n incrementing by two is in this case impossible because you've got a dichotomic measurement which can only report zero or one clicks.
+[58:55.96] If you have a better detector that can do two clicks or three clicks report two photons or three photons you have to redo the analysis but here our detector can only say yes or no.
+[59:08.96] So the number of yeses the number of clicks or jumps in an infinitesimal time how much can it change by the answer zero or one.
+[59:17.96] So we have this very interesting equation here so there's only two numbers that satisfy x squared equals x zero and one.
+[59:33.96] Now this is a random variable right depending on the history this this d n of t will be a different thing depending on the measurement record.
+[59:48.96] So we can talk about what is it but how does it behave on average as time passes.
+[59:54.96] If we average over all our measurement records repeat the experiment very many times how does d n behave how does this expected value of the number of jumps in a small time window behave well it's going to be a number between zero and one because it's either zero or one there's no other possibilities and if you average over them then you're going to get something that's between zero and one.
+[60:23.96] Of course we've given that something a name that's p one dt it's just the number of clicks in time dt and that's proportional to the number of photons burnions or whatever you have in the state at that time and since we're now looking at the selective conditional evolution we can also write that like this because it's a pure state at time t.
+[60:52.96] Let's put it all together now and ask what's the change in this pure state so I know it.
+[61:20.96] So I know it as it gets updated after every every event how does it change this will be itself a random variable right d psi of t the change of this pure state as time passes will is not a deterministic thing it it will be to psi naught with some probability and psi one with some other probability.
+[61:45.96] Random variable what I'm doing is very sneakily doing stochastic calculus without defining stochastic calculus to you.
+[61:59.96] So we're looking at random outcomes and how they change over time and to give you a feel for what kind of thing this random variable is think of brownie in motion you think of a particle that's
+[62:13.96] wobbling under some unknown unseen forces in a fluid it's executing this random motion.
+[62:20.96] So you think of this pollen grain in the water moves around randomly as time passes and if you'd set up the same initial conditions it would move around randomly
+[62:30.96] but have follow a different trajectory each time you run the experiment you get a different trajectory of pure states in the case of the brownie in motion of the particle the pure state is its position
+[62:42.96] in the case of this process here the pure state is the pure state of the system.
+[62:59.96] That's what d psi means you take psi after the in the next time been and you subtract psi from in the current time been.
+[63:09.96] There is a formula we have for this process that comprises of a deterministic part and a random part, a non-deterministic part.
+[63:39.96] And this is it.
+[63:51.96] There's only one bit of randomness on the right hand side and this is dn.
+[64:36.96] If dn was not a random variable if dn squared equals dn was always zero then the selective conditional evolution would be deterministic.
+[64:55.96] The system would always evolve according to this process here there would be no randomness in how it evolved.
+[65:07.96] Of course for that to be the case it would necessarily be that this expectation by here was zero because the probability that you get a click is proportional to this and similarly that term there would have to vanish.
+[65:23.96] So you would actually get unitary evolution.
+[65:43.96] Now there's a way to write this down in a different notation that's used quite a lot in practice.
+[66:12.96] And to do this we're going to first exploit the fact that dn times dt is of an order smaller than dt.
+[66:25.96] So if dt is a small but finite number then this is a smaller yet finite number.
+[66:32.96] That's right.
+[67:01.96] So in going from this equation to this equation we've just thrown out this one term here dn dt.
+[67:28.96] And now we come to check that we did everything right and we didn't throw anything out in this approximation that would ruin the effective dynamics.
+[67:57.96] So the state of the system up to time t this is a random variable right it depends on the measurement record.
+[68:21.96] So this projection here is a random variable depending on a random variable nt and we're entitled to take the expectation over all these measurement records so what's that doing physically that's not looking at the measurement record we're ignoring the measurement record here.
+[68:47.96] It better be the case that the density operator follows the input equation in motion otherwise we've done something wrong.
+[69:17.96] Here we see a new wrinkle in all of this if you study how a projection updates as time passes well you work at what psi t plus dt is and then subtract from its psi t but as a projection now.
+[69:45.96] Well you have to include all terms of all orders in t here and there's this additional term which can occur.
+[69:55.96] This is the difference to what you might be used to a unitary evolution.
+[70:55.96] And if you insert this expansion we're going to be able to do that.
+[71:24.96] Let's insert this expansion we have up there for d psi and collect terms to order dt then we'll get the following equation.
+[71:54.96] And to write that equation down we're going to introduce these two super operators this is just notation here g of c is some super operator h of this thing is some super operator.
+[72:24.96] And it's a little exercise just to check that when you insert these expansions and you use these definitions here.
+[72:52.96] That you indeed recover the limp light equation that we started with.
+[73:21.96] Okay.
+[73:50.96] To do that derivation you need to just use these two observations here namely that dn times dt is something smaller than dt and secondly that the expectation value of dn this random variable dn times by any function of a projection happens to have this form here you can check that very quickly.
+[74:14.96] All right so that's how the conditional evolution of the system looks if you have some measurement record n of t you find where the clicks are and where the clicks occur the system updates to psi one and when there's no clicks the system just continues to evolve according to psi naught so let's just have a look at a typical solution.
+[74:44.96] So if you look at n of t as a function of time and what does it look like well it looks like a staircase that grows right this is just cancel a number of clicks that occurred up to time t.
+[75:05.96] Something like that and these are the click events here t one t two t three a time three there was a click event time four and so on.
+[75:29.96] You can ask the question what does what can we infer about the system evolution well if it started off at a pure state psi naught at time t between the clicks it's just evolving according to this funny operator down here so I have space yeah I guess I do I can just about do this.
+[75:57.96] So psi at time t is psi at time naught evolved and how does it evolve well between clicks it evolves according to the time ordered exponential of zero to t one minus i h minus this expectation value c dash c minus c dash c on two ds
+[76:26.96] so this is between the clicks the system evolves if there was no clicks it would just be evolving unitarily according to Schrodinger's equation but because there's no click and you're gaining information it's evolving non-unitarily according to this funny thing here at the instant of the click the system undergoes a quantum jump according to this operator c dagger and then that that's at this instant here the detector clicks
+[76:55.96] then the state gets updated from psi naught to psi one from psi to psi one that's what this thing here is so this that's psi of t one and then it continues to evolve until the next click event according to this propagator here and then at the next click event it undergoes the quantum jump
+[77:25.96] at this instant here and then it continues to evolve according to this time evolved exponential dot dot dot dot dot evermore as you until you turn the system off
+[77:40.96] if there was no clicks then these terms here wouldn't be present and the system would just evolve uniterally
+[77:53.96] and a topic and your what can you say when the system when you don't look at the detector well your system is some probabilistic mixture of trajectories like this typical quantum jump trajectories these are called quantum jump trajectories right here
+[78:13.96] yes good
+[78:15.96] okay that's about all I want to say on that topic for today so thank you very much

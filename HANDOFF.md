@@ -2,84 +2,53 @@
 
 ## Project overview
 
-LaTeX lecture notes for Tobias Osborne's "Theory of Quantum Noise and Decoherence" course, following the same architecture as the completed `generalrelativity` (23 lectures) and `quantumcomputing` (3 lectures) projects.
+LaTeX lecture notes for Tobias Osborne's "Theory of Quantum Noise and Decoherence" course (13 lectures), following the same architecture as the completed `generalrelativity` (23 lectures) and `quantumcomputing` (3 lectures) projects.
 
 ## Current status
 
-- **Lecture 1**: Complete (`latex/lectures/lec01.tex`, 496 lines — recapitulation of QM)
-- **Lecture 2**: Audio downloaded (`transcripts/lec02_audio.mp3`, 47 MB), transcription not yet run
-- **Style**: Updated to match `quantumcomputing` conventions (two-tier box design, hyperref, etc.)
+**All 13 lectures complete.** Full build: **45-page PDF**, zero errors.
 
-## What was done this session
+- 4,004 lines of LaTeX across 13 lecture files
+- 5,137 lines of timestamped transcripts
+- 564 MB of audio (gitignored)
 
-### 1. Style conformance update (completed)
+## Document structure
 
-Updated `qnd-style.sty` to match `qc-style.sty` from `../quantumcomputing`:
-
-- Added `hyperref` package with colored links (cgblue/munsell)
-- Added `matrix` TikZ library
-- Added `patchplots,fillbetween` pgfplots libraries
-- Replaced old box designs (attached-title style) with QC's two-tier system:
-  - `greybox` — grey background, no border (base for grey-type boxes)
-  - `highlightbox` — yellow background, blue border (base for highlight-type boxes)
-  - `keyresult` → highlight style
-  - `intuition` → grey style
-  - `historical` → grey style
-  - `algorithmbox` → grey style (new)
-  - `\figbox` — figure placeholder (new)
-- Build verified: `./build.sh --draft` succeeds, PDF renders correctly
-
-### 2. Build script update (completed)
-
-Rewrote `build.sh` to match `quantumcomputing/build.sh` structure:
-- Case-based argument parsing (replaces function-based)
-- Added `--watch` mode (continuous rebuild via `inotifywait`)
-- Added `-h`/`--help` with usage header
-- Cleaner variable naming
-
-### 3. Lecture 2 video — partial
-
-- **Found**: YouTube URL is `https://www.youtube.com/watch?v=ToZuBpbHlcU`
-- **Playlist**: `https://www.youtube.com/watch?v=mKpURUtQgZ4&list=PLDfPUNusx1EotNvZr1mbu3-0QThQYilFD`
-- **Channel**: `https://www.youtube.com/@tobiasjosborne`
-- **Audio downloaded**: `transcripts/lec02_audio.mp3` (47 MB)
-- **Transcription**: NOT YET DONE — `openai-whisper` installation via `uv tool install` was interrupted
-
-## Next steps
-
-1. **Install whisper and transcribe lecture 2**:
-   ```bash
-   uv tool install openai-whisper
-   cd transcripts
-   whisper lec02_audio.mp3 --model base --language en
-   ```
-   Then clean the transcript (same workflow as lec01).
-
-2. **Read relevant pages from PDF notes** (`notes/Theory of quantum noise and decoherence.pdf`) for lecture 2 content. The PDF is too large to read in one go — read page ranges corresponding to lecture 2.
-
-3. **Create `latex/lectures/lec02.tex`** using transcript + PDF notes, following lec01.tex conventions.
-
-4. **Add `\input{lectures/lec02}` to `QuantumNoiseAndDecoherence.tex`**.
+| Section | Lectures | Topics |
+|---------|----------|--------|
+| 1. Recapitulation of QM | 1--2 | Kinematics, observables, effects, states, density operators, composite systems, partial trace, Schmidt decomposition, entanglement vs correlations, dynamics, Heisenberg/Schrödinger pictures, unitary evolution, open systems, quantum channels, complete positivity |
+| 2. CP maps and dilation theory | 3 | Constructive operations, Stinespring dilation theorem |
+| 3. Quantum many-particle systems | 3--4 | Fock space, identical particles, symmetrisation, creation/annihilation operators, single-mode Fock space |
+| 4. Continuous variables | 4--6 | Displacement operators, coherent states, characteristic functions, Gaussian states, covariance matrices, Wigner function, quadrature operators, symplectic transformations, Williamson's theorem, thermal states |
+| 5. Lindblad equations | 7--10 | Born-Markov derivation, radiative damping, cavity emission, quantum-dot master equation, fermion systems |
+| 6--7. Stochastic calculus | 10--12 | Repeated measurements, von Neumann model, quantum trajectories, stochastic Schrödinger equation, input-output formalism |
+| 8. Feedback and control | 13 | Classical/quantum feedback, controllability, linear quantum control |
 
 ## Architecture reference
 
 ### File structure
 ```
 latex/
-  QuantumNoiseAndDecoherence.tex   # Master document
+  QuantumNoiseAndDecoherence.tex   # Master document (inputs lec01--lec13)
   qnd-style.sty                    # Formatting (matches qc-style.sty)
   qnd-macros.sty                   # Quantum noise macros
   references.bib                   # Bibliography
-  lectures/lec01.tex               # Lecture 1
+  lectures/lec01.tex -- lec13.tex  # All 13 lectures
   figures/                         # (empty, for future TikZ)
 transcripts/
-  lec01_audio.mp3                  # Lec 1 audio (gitignored)
-  lec01_audio.txt                  # Lec 1 raw whisper output
-  lec01_transcript.txt             # Lec 1 cleaned transcript
-  lec02_audio.mp3                  # Lec 2 audio (gitignored)
+  lec0N_audio.mp3                  # Audio files (gitignored)
+  lec0N_audio.{txt,json,srt,vtt}  # Raw whisper outputs
+  lec0N_transcript.txt             # Cleaned transcripts with timestamps
+  make_transcript.py               # Helper script: VTT → cleaned transcript
 notes/
   Theory of quantum noise and decoherence.pdf  # Source PDF (gitignored)
 ```
+
+### Tools used
+- `yt-dlp` — YouTube audio download (via `uv tool install`)
+- `whisper-ctranslate2` — speech-to-text, base model, CPU (via `uv tool install`)
+- `ffmpeg` — audio conversion (static binary via `imageio-ffmpeg`, symlinked to `~/.local/bin/ffmpeg`)
+- `xelatex` + `bibtex` — LaTeX compilation (3-pass)
 
 ### Shared conventions (across GR, QC, QND)
 - Document class: `amsart` (12pt, oneside)
@@ -87,12 +56,29 @@ notes/
 - Color palette: spacecadet, cgblue, munsell, banana, isabelline
 - Font stack: Times LT Std + Whitney + mtpro2 (fallback: `--cmfonts`)
 - Box design: two-tier (greybox/highlightbox) with semantic wrappers
-- Tools installed: `yt-dlp` (via `uv tool install`)
 
 ### YouTube lecture playlist
 Full playlist: `https://www.youtube.com/watch?v=mKpURUtQgZ4&list=PLDfPUNusx1EotNvZr1mbu3-0QThQYilFD`
 
-| Lecture | YouTube URL |
-|---------|-------------|
-| 1 | `https://www.youtube.com/watch?v=mKpURUtQgZ4` |
-| 2 | `https://www.youtube.com/watch?v=ToZuBpbHlcU` |
+| Lec | YouTube ID | Status |
+|-----|-----------|--------|
+| 1 | mKpURUtQgZ4 | Complete |
+| 2 | ToZuBpbHlcU | Complete |
+| 3 | Vc7rx39ifvY | Complete |
+| 4 | ZvOBigJWx8I | Complete |
+| 5 | hZGbWfZ8B48 | Complete |
+| 6 | fuJt35tnyNc | Complete |
+| 7 | LTj5UL89-ro | Complete |
+| 8 | YpnVwa8rqHA | Complete |
+| 9 | u7UrxIC_XW0 | Complete |
+| 10 | dkKgXSEQYXs | Complete |
+| 11 | ZlCtw8-Vy5s | Complete |
+| 12 | nkS35o9WiCI | Complete |
+| 13 | MwkXEDx35wQ | Complete |
+
+## Potential future work
+
+1. **Cross-check with PDF notes** (`notes/Theory of quantum noise and decoherence.pdf`) — not available on this machine. Could enrich mathematical detail.
+2. **TikZ figures** — several lectures would benefit from diagrams (Bloch sphere decoherence, cavity input-output, feedback loops).
+3. **Bibliography** — add missing references cited in the text (CavesMilburn87, etc.).
+4. **Consistency pass** — ensure section numbering flows correctly across all 13 files; unify notation for Lindblad operators, jump operators, etc.

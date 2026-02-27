@@ -1,0 +1,354 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 2 — Entanglement, Dynamics, and Quantum Channels
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 1 (Recapitulation of QM) from Lecture 1.
+
+\subsection{Entanglement versus classical correlations}%
+\label{sec:entanglement-vs-correlations}
+
+We saw in Lecture~1 that the Schmidt decomposition tells us when a
+\emph{pure} state of a composite system is entangled: it is entangled if
+and only if its Schmidt rank is greater than one.  But for
+\emph{mixed} states, the situation is more subtle.
+
+Consider the two-qubit density operator
+\begin{equation}\label{eq:classical-corr}
+  \rho = p\,\ketbra{00}{00} + (1-p)\,\ketbra{11}{11}\,,
+  \qquad p \in (0,1)\,.
+\end{equation}
+This is \emph{not} a product state: $\rho \neq \rho_A \tp \rho_B$
+for any pair of single-qubit states $\rho_A$, $\rho_B$.  Yet it is
+manifestly \emph{not entangled}---it can be prepared by a purely
+classical procedure:
+
+\begin{intuition}[Correlated coins]
+  Flip a (biased) coin.  If heads (probability~$p$), prepare both
+  qubits in $\ket{0}$; if tails (probability~$1-p$), prepare both
+  in~$\ket{1}$.  Hand one qubit to Alice and the other to Bob.  The
+  joint state is~\eqref{eq:classical-corr}---correlated, but only
+  classically so.
+\end{intuition}
+
+A state is called \textbf{separable} (or \emph{classically correlated})
+if it can be written as a convex combination of product states:
+\begin{equation}\label{eq:separable}
+  \rho = \sum_k \lambda_k\, \rho_A^{(k)} \tp \rho_B^{(k)}\,,\qquad
+  \lambda_k \geq 0,\quad \sum_k \lambda_k = 1\,.
+\end{equation}
+A state that is \emph{not} separable is \textbf{entangled}.
+
+\begin{remark}
+  For pure states, ``separable'' reduces to ``product,'' and
+  entanglement can be efficiently decided via the Schmidt
+  decomposition.  For mixed states, deciding whether a given~$\rho$ is
+  separable or entangled is, in general, a computationally hard problem
+  and an active area of research in quantum information theory.
+\end{remark}
+
+\subsubsection{Entanglement and quantum noise}
+
+There is a deep connection between entanglement and quantum noise that
+motivates this entire course.  In classical probability, a pure state
+of a composite system always assigns definite (pure) states to each
+subsystem.  In quantum mechanics, this is spectacularly \emph{false}:
+
+\begin{keyresult}[Entanglement $\Leftrightarrow$ noise on subsystems]
+  A composite quantum system can be in a pure state (zero temperature,
+  unitary evolution, no noise whatsoever), yet its subsystems are in
+  \emph{mixed} states---they look noisy and are decohering rapidly.
+  This happens precisely when the global state is entangled.
+\end{keyresult}
+
+Recall from the Schmidt decomposition (Proposition~\ref{prop:schmidt})
+that for any pure state $\ket{\psi} \in \hilbA \tp \hilbB$ with
+Schmidt form $\ket{\psi} = \sum_j \sqrt{p_j}\,\ket{g_j}\tp\ket{f_j}$,
+the reduced state of subsystem~$A$ is
+\begin{equation}\label{eq:reduced-from-schmidt}
+  \rho_A = \tr_B(\ketbra{\psi}{\psi})
+         = \sum_j p_j\,\ketbra{g_j}{g_j}\,.
+\end{equation}
+This is pure if and only if exactly one~$p_j$ is nonzero---i.e.\ when
+$\ket{\psi}$ is a product state.  Otherwise, $\rho_A$ is mixed:
+the subsystem has acquired ``noise'' entirely from entanglement with
+the rest of the system.
+
+This is, in some sense, the central theme of this course: noise comes
+from entanglement with an environment, and quantum computation exploits
+entanglement within a system.  Making a quantum computer work requires
+fighting entanglement with entanglement.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Dynamics of quantum systems}\label{sec:dynamics}
+
+A good physical theory has both \emph{kinematics} (how to represent
+states and observables) and \emph{dynamics} (how to represent the
+passage of time).  The fundamental dynamical question is:
+
+\begin{quote}
+  \emph{If I know how to represent a measurement at time $t=0$, how
+  do I represent the same measurement at time~$t$?}
+\end{quote}
+
+We divide a generic experiment into three stages:
+
+\begin{center}
+\begin{tikzpicture}[
+  block/.style={ellipse, draw=cgblue, fill=cgblue!10,
+    minimum height=2em, minimum width=3cm,
+    font=\sf\small, text=spacecadet, inner sep=5pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  \node[block] (prep) {Preparation};
+  \node[block, right=1.5cm of prep] (evol) {Evolution};
+  \node[block, right=1.5cm of evol] (meas) {Measurement};
+  \draw[arr] (prep) -- (evol);
+  \draw[arr] (evol) -- (meas);
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Heisenberg and Schr\"odinger pictures}%
+\label{sec:pictures}
+
+There are two complementary ways to absorb the evolution back into the
+kinematics:
+
+\begin{itemize}
+  \item \textbf{Schr\"odinger picture:} the evolution produces a new
+    effective state $\omega'$ from the old state~$\omega$; observables
+    are unchanged.
+  \item \textbf{Heisenberg picture:} the evolution produces a new
+    effective observable~$A'$ from the original~$A$; the state is
+    unchanged.
+\end{itemize}
+Both pictures describe the same physics.  Their compatibility is
+expressed by requiring that for every state~$\rho$ and
+observable~$A$,
+\begin{equation}\label{eq:pictures-compat}
+  \tr\bigl(\rho\;\mathcal{U}(A)\bigr)
+    = \tr\bigl(\mathcal{U}_*({\rho})\;A\bigr)\,,
+\end{equation}
+where $\mathcal{U}$ is the Heisenberg-picture evolution and
+$\mathcal{U}_*$ is its Schr\"odinger-picture dual.
+
+\begin{remark}
+  There are also \emph{interaction pictures} in which part of the
+  evolution is applied to the state and part to the observable.  These
+  are useful for perturbation theory but will not play a role in the
+  first part of this course.
+\end{remark}
+
+\subsubsection{Requirements for evolution maps}%
+\label{sec:evolution-requirements}
+
+What are the minimal requirements for a map to qualify as a physical
+evolution?  Working in the Heisenberg picture, an evolution
+$\mathcal{U}\colon \alg \to \alg$ must satisfy:
+
+\begin{enumerate}[(i)]
+  \item \textbf{Linearity:} $\mathcal{U}$ is a linear map.  This
+    follows from the requirement that randomising over preparations
+    before or after the evolution gives the same result.
+  \item \textbf{Probability preservation (unitality):}
+    $\mathcal{U}(\One) = \One$.  If the effect ``do nothing'' is
+    evolved, it must remain ``do nothing''---otherwise probability is
+    created or destroyed.
+  \item \textbf{Positivity:} if $E \geq 0$ then
+    $\mathcal{U}(E) \geq 0$.  Legal effects must be mapped to legal
+    effects.
+\end{enumerate}
+
+\subsubsection{Closed systems: unitary evolution}%
+\label{sec:unitary-evol}
+
+A \emph{closed} (or \emph{reversible}) evolution is one that, in
+addition to the above, is invertible.  For finite-dimensional systems,
+closed evolutions are exactly those representable in terms of a
+unitary operator $U$:
+\begin{equation}\label{eq:unitary-heisenberg}
+  \eqbox{\mathcal{U}(A) = U^\adj A\, U}\,,\qquad U^\adj U = U U^\adj = \One\,.
+\end{equation}
+In the Schr\"odinger picture, the corresponding map is
+\begin{equation}\label{eq:unitary-schrodinger}
+  \mathcal{U}_*(\rho) = U\,\rho\, U^\adj\,.
+\end{equation}
+
+\begin{remark}
+  In infinite dimensions, there exist reversible dynamics that cannot be
+  represented as conjugation by a unitary on a Hilbert space.  The
+  first place this arises is for infinite tensor products of qubits
+  (spin chains).  We will not encounter this subtlety in this course.
+\end{remark}
+
+\subsubsection{The Schr\"odinger equation}%
+\label{sec:schrodinger-eq}
+
+If the unitary $U(t)$ depends on a time parameter~$t$ in a
+\emph{time-homogeneous} fashion, meaning
+\begin{equation}\label{eq:time-homogeneous}
+  U(t+s) = U(t)\,U(s)\,,\qquad U(0) = \One\,,
+\end{equation}
+then $U(t)$ forms a one-parameter group and satisfies the
+\textbf{Schr\"odinger equation}:
+\begin{equation}\label{eq:schrodinger}
+  \eqbox{i\,\frac{\dd}{\dd t}\,U(t) = H\, U(t)}\,,
+\end{equation}
+where $H = H^\adj$ is the \emph{Hamiltonian}, a self-adjoint operator
+generating the evolution.  The solution is
+$U(t) = e^{-iHt}$.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Open quantum systems}\label{sec:open-systems}
+
+Is the Schr\"odinger equation the whole story?  \emph{Yes and no.}
+The aim of this course is to study the dynamics of \emph{composite}
+quantum systems, and this leads us far beyond simple unitary evolution.
+
+\begin{center}
+\begin{tikzpicture}[
+  sysbox/.style={rectangle, rounded corners=3pt, draw=cgblue,
+    fill=cgblue!8, minimum height=2.5em, minimum width=2cm,
+    font=\sf\small, text=spacecadet, inner sep=6pt},
+  envbox/.style={rectangle, rounded corners=3pt, draw=cgblue!50,
+    fill=isabelline, minimum height=2.5em, minimum width=2cm,
+    font=\sf\small, text=spacecadet!70, inner sep=6pt},
+  bigbox/.style={rectangle, rounded corners=5pt, draw=cgblue,
+    dashed, inner sep=10pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  \node[sysbox] (A) {System $A$};
+  \node[envbox, right=1.5cm of A] (E) {Environment $E$};
+  \node[bigbox, fit=(A)(E), label={[font=\sf\small,
+    text=spacecadet]above:Universe $AE$}] (AE) {};
+  % Interaction arrow
+  \draw[arr, <->] (A) -- (E)
+    node[midway, above, font=\footnotesize]{$U(t)$};
+\end{tikzpicture}
+\end{center}
+
+The picture is as follows.  Our system~$A$ (an atom in a trap, a mode of
+light, a qubit) is embedded in a larger system~$AE$ that includes the
+environment~$E$.  The \emph{universe}~$AE$ undergoes reversible
+(unitary) evolution~$U(t)$.  Our task: understand what this evolution
+looks like when \emph{restricted to~$A$}.
+
+\begin{keyresult}[Irreversibility from ignoring subsystems]
+  Even though the global evolution $U(t)$ is unitary and reversible,
+  the effective evolution on subsystem~$A$ alone is, in general,
+  \emph{irreversible}.  Irreversibility arises from tracing out
+  (ignoring) the environment.
+\end{keyresult}
+
+This is precisely how thermodynamics works: a system interacts with a
+reservoir; the joint evolution is unitary; but when we focus on the
+system alone, we see irreversible behaviour---dissipation, decoherence,
+thermalisation.
+
+\begin{intuition}[The Lindblad equation]
+  Is there a ``Schr\"odinger equation just for~$A$''?  Sometimes
+  yes---under a Markov approximation, the effective evolution of~$A$
+  obeys a \textbf{Lindblad equation} (or master equation).  Deriving
+  and understanding this equation will be one of the main results of
+  this course.
+\end{intuition}
+
+It used to be that open quantum systems were treated as an annoying
+detail to be left to a PhD student.  This is no longer the case:
+dissipative dynamics, arising from interactions with a noisy
+environment, can actually be \emph{useful}---they can prepare desired
+states and perform computations.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Quantum channels}\label{sec:channels}
+
+We now axiomatically characterise the most general evolution in quantum
+mechanics: the \emph{quantum channel}.  Two features distinguish
+channels from the reversible evolutions of Section~\ref{sec:unitary-evol}:
+\begin{enumerate}[(a)]
+  \item The input and output systems may \emph{differ}: a channel can
+    map observables on a system~$B$ to observables on a system~$A$,
+    where $A$ and~$B$ need not be the same.
+  \item In addition to positivity, we require \emph{complete
+    positivity}.
+\end{enumerate}
+
+\begin{definition}[Quantum channel]\label{def:channel}
+  A \emph{quantum channel} (in the Heisenberg picture) is a linear map
+  \[
+    \chan\colon \algB \to \alg
+  \]
+  satisfying:
+  \begin{enumerate}[(1)]
+    \item \textbf{Unitality (probability preservation):}
+      $\chan(\One_B) = \One_A$.
+    \item \textbf{Complete positivity:} for every $n \in \N$, the
+      extended map
+      $\chan \tp \id_n\colon \algB \tp \Mn{n} \to \alg \tp \Mn{n}$
+      is positive:
+      \begin{equation}\label{eq:cp}
+        X \geq 0 \;\Longrightarrow\;
+        (\chan \tp \id_n)(X) \geq 0\,.
+      \end{equation}
+  \end{enumerate}
+\end{definition}
+
+\subsubsection{Why does $\chan$ map $\algB \to \alg$?}
+
+In the Heisenberg picture, the channel acts on observables in the
+\emph{reverse} direction to the flow of time:
+
+\begin{center}
+\begin{tikzpicture}[
+  block/.style={rectangle, rounded corners=3pt, draw=cgblue,
+    fill=cgblue!8, minimum height=2em, minimum width=2cm,
+    font=\sf\small, text=spacecadet, inner sep=5pt},
+  arr/.style={-{Stealth[length=5pt]}, thick, cgblue}
+]
+  \node[block] (prep) {$\omega$ on $A$};
+  \node[block, right=2.5cm of prep] (meas) {Effect $F$ on $B$};
+  \draw[arr] (prep) -- (meas)
+    node[midway, above, font=\footnotesize]{time};
+  \draw[arr, munsell, bend left=30] (meas) to
+    node[midway, below, font=\footnotesize, text=munsell]
+      {$\chan(F) \in \alg$} (prep);
+\end{tikzpicture}
+\end{center}
+
+If we prepare state~$\omega$ on~$A$ and, after the evolution, measure
+effect~$F$ on~$B$, then $\chan(F)$ is the effective observable on~$A$
+that gives the same statistics: $\omega(\chan(F)) = p(F)$.
+
+\subsubsection{Why complete positivity?}\label{sec:why-cp}
+
+Ordinary positivity ($E \geq 0 \Rightarrow \chan(E) \geq 0$) is not
+enough.  Suppose we perform our evolution on system~$A$ while an
+ancillary system~$N$ sits idle in a neighbouring laboratory.  The joint
+evolution is $\chan \tp \id_N$.  If we then perform a \emph{correlated}
+measurement on the joint system~$AN$, we need the result to be a legal
+(positive) effect.  This requires $\chan \tp \id_N$ to be positive for
+\emph{every} ancillary system---which is precisely complete positivity.
+
+\begin{example}[The transpose map]\label{ex:transpose}
+  The map $T\colon A \mapsto A^\top$ (transpose in a fixed basis) is:
+  \begin{itemize}
+    \item linear,
+    \item unital: $T(\One) = \One^\top = \One$,
+    \item positive: $A \geq 0 \Rightarrow A^\top \geq 0$ (since
+      eigenvalues are preserved by transposition).
+  \end{itemize}
+  However, $T$ is \emph{not} completely positive.  The extended map
+  $T \tp \id_n$ fails to be positive: it maps certain positive
+  elements of $\Mn{n} \tp \Mn{n}$ to operators with negative
+  eigenvalues.  Therefore, the transpose is \textbf{not} a valid
+  quantum channel.
+\end{example}
+
+\begin{exercise}\label{ex:transpose-not-cp}
+  Let $\ket{\Phi^+} = \tfrac{1}{\sqrt{2}}(\ket{00} + \ket{11})$ be a
+  maximally entangled state of two qubits.  Show that
+  $(T \tp \id)(\ketbra{\Phi^+}{\Phi^+})$ has a negative eigenvalue,
+  thereby proving that the transpose map is not completely positive.
+
+  \emph{Hint:} Compute the matrix explicitly and find its eigenvalues.
+\end{exercise}

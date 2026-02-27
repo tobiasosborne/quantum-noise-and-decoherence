@@ -1,0 +1,264 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 7 — Lindblad Equations I: From Microscopic Dynamics
+%               to the Born–Markov Master Equation
+% ──────────────────────────────────────────────────────────────
+
+\section{Lindblad equations}\label{sec:lindblad}
+
+Over the past lectures we assembled all the ingredients needed to
+describe a system~$S$ interacting with an environment~$E$: completely
+positive maps, Fock space, Gaussian models.  Our goal now is to derive
+an \emph{equation of motion} for the system alone---one that does not
+require tracking every degree of freedom of the environment.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Setup: system plus environment}%
+\label{sec:sys-env-setup}
+
+The total Hilbert space is
+$\hilb = \hilb_S \tp \hilb_E$,
+where $\hilb_S$ is typically finite-dimensional and $\hilb_E$ models
+the environment---often an infinite collection of harmonic oscillators.
+The joint Hamiltonian is
+\begin{equation}\label{eq:H-total}
+  \eqbox{H = H_S \tp \One_E + \One_S \tp H_E + V}\,,
+\end{equation}
+with free part $H_0 = H_S \tp \One_E + \One_S \tp H_E$ and
+interaction~$V$.  Any Hamiltonian on $\hilb_S \tp \hilb_E$ admits
+such a decomposition.
+
+\begin{intuition}[Why the full description fails]
+  The exact reduced state
+  $\rho_S(t) = \tr_E\!\bigl(U(t)\,(\rho_S(0)\tp\rho_E)\,U(t)^\adj\bigr)$
+  requires the joint unitary $U(t)=e^{-iHt}$, which couples the few
+  degrees of freedom of~$S$ to the (infinitely many) degrees of
+  freedom of~$E$.  We need a description involving only~$S$.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Five assumptions toward a master equation}%
+\label{sec:assumptions}
+
+\subsubsection{Assumption 1: initially decoupled state}
+
+At $t=0$ the system and environment are in a product state:
+\begin{equation}\label{eq:product-init}
+  \eqbox{\rho(0) = \rho_S(0) \tp \rho_E}\,,
+\end{equation}
+justified when $S$ has been insulated from~$E$ by design or the
+coupling is weak.  If relaxed, the reduced dynamics need not even be
+completely positive.
+
+\subsubsection{Assumption 2: weak coupling}
+
+$V$ is a \emph{small} perturbation of~$H_0$, controlled by a
+dimensionless coupling constant (e.g.\ the fine-structure constant
+$\alpha\approx 1/137$).
+
+\begin{remark}
+  One may always decompose the interaction-picture coupling as
+  $\tilde{V}(t) = \tilde{V}_S(t)\tp\One_E + \tilde{V}_{SE}(t)$
+  with $\tr_E(\tilde{V}_{SE}(t)\,\rho_E)=0$, by absorbing any
+  system-only part into a redefined~$H_S$.  This ensures the
+  first-order contribution vanishes after tracing over~$E$.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The interaction picture}%
+\label{sec:interaction-picture}
+
+Define $U_0(t)=e^{-iH_0 t}$ and set
+\begin{equation}\label{eq:int-picture}
+  \tilde{V}(t) = U_0(t)^\adj V\, U_0(t)\,,\qquad
+  \tilde{\rho}(t) = U_0(t)^\adj\rho(t)\, U_0(t)\,.
+\end{equation}
+The equation of motion in the rotating frame involves only the
+interaction:
+\begin{equation}\label{eq:von-neumann-int}
+  \eqbox{\frac{\dd}{\dd t}\tilde{\rho}(t)
+  = -i\bigl[\tilde{V}(t),\,\tilde{\rho}(t)\bigr]}\,.
+  \tag{$\star$}
+\end{equation}
+
+Integrate from~$0$ to~$t$ and substitute back into~$(\star)$ to
+obtain an equation correct to second order in~$V$:
+\begin{equation}\label{eq:second-order}
+  \frac{\dd}{\dd t}\tilde{\rho}(t)
+  = -i\bigl[\tilde{V}(t),\,\tilde{\rho}(0)\bigr]
+  - \int_0^{t}\!\dd t_1\;
+    \bigl[\tilde{V}(t),\,
+          \bigl[\tilde{V}(t_1),\,\tilde{\rho}(t_1)\bigr]\bigr]\,.
+\end{equation}
+Iterating further produces the \textbf{Dyson series}; we stop at
+second order because the first-order term will vanish after tracing
+over~$E$ and all leading physical effects (dissipation, decoherence)
+appear at this order.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Tracing out the environment}%
+\label{sec:trace-out-env}
+
+Taking $\tr_E$ of~\eqref{eq:second-order} and using
+$\tr_E(\tilde{V}_{SE}(t)\,\rho_E)=0$ to kill the first-order term:
+\begin{equation}\label{eq:pre-born}
+  \frac{\dd}{\dd t}\tilde{\rho}_S(t)
+  = -\int_0^{t}\!\dd t_1\;
+    \tr_E\!\Bigl[\tilde{V}(t),\,
+      \bigl[\tilde{V}(t_1),\,\tilde{\rho}(t_1)\bigr]\Bigr]\,.
+\end{equation}
+This is exact to second order but still involves the full
+system--environment state inside the integral.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The Born approximation (Assumption 3)}%
+\label{sec:born-approx}
+
+Replace the full state inside the integral by a product:
+\begin{equation}\label{eq:born}
+  \eqbox{\tilde{\rho}(t_1)
+  \;\approx\;
+  \tilde{\rho}_S(t_1) \tp \rho_E}\,.
+\end{equation}
+
+\begin{intuition}[Why neglecting entanglement is justified]
+  The Born approximation looks drastic: it discards all
+  system--environment entanglement.  But we \emph{never interrogate
+  the environment}.  A photon emitted by the system flies away at the
+  speed of light and never returns; since we cannot perform a Bell
+  test between $S$ and~$E$, the correlations are invisible to any
+  system-only measurement.  The approximation breaks down if the
+  environment can ``talk back'' (e.g.\ photons bouncing between
+  mirrors).
+\end{intuition}
+
+Substituting into~\eqref{eq:pre-born}:
+\begin{equation}\label{eq:born-eq}
+  \frac{\dd}{\dd t}\tilde{\rho}_S(t)
+  = -\int_0^{t}\!\dd t_1\;
+    \tr_E\!\Bigl[\tilde{V}(t),\,
+      \bigl[\tilde{V}(t_1),\,
+            \tilde{\rho}_S(t_1)\tp\rho_E\bigr]\Bigr]\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The Markov approximation (Assumptions 4 and 5)}%
+\label{sec:markov-approx}
+
+\textbf{Assumption 4} (dense bath spectrum).  The environment has
+many closely spaced energy levels in every interval $\Delta E$.
+
+\begin{intuition}[Continuous spectra and irreversibility]
+  Only baths with absolutely continuous spectrum exhibit irreversible
+  information loss---a consequence of the \emph{RAGE theorem}.
+  Discrete spectra lead to Poincar\'e recurrences.
+\end{intuition}
+
+Environmental correlations therefore decay on a time scale $\tau_E$
+much shorter than the system relaxation time, permitting the
+replacement $\tilde{\rho}_S(t_1)\approx\tilde{\rho}_S(t)$ inside
+the integral.
+
+\textbf{Assumption 5} (Markov).  The bath spectrum is truly
+continuous, so we may extend the integration:
+\begin{equation}\label{eq:markov-limit}
+  \int_0^{t}\!\dd t_1\;(\cdots)
+  \;\longrightarrow\;
+  \int_0^{\infty}\!\dd\tau\;(\cdots)\,,
+  \qquad \tau = t - t_1\,.
+\end{equation}
+
+\begin{keyresult}[Born--Markov master equation]
+  Combining Assumptions~1--5, the reduced system state satisfies
+  \begin{equation}\label{eq:born-markov}
+    \eqbox{
+    \frac{\dd}{\dd t}\tilde{\rho}_S(t)
+    = -\int_0^{\infty}\!\dd\tau\;
+      \tr_E\!\Bigl[\tilde{V}(t),\,
+        \bigl[\tilde{V}(t-\tau),\,
+              \tilde{\rho}_S(t)\tp\rho_E\bigr]\Bigr]}\,.
+  \end{equation}
+\end{keyresult}
+
+\begin{remark}
+  The intermediate equation before Assumption~5 (with
+  $\tilde{\rho}_S(t)$ but the original limits) is the
+  \textbf{Redfield equation}---time-local but with time-dependent
+  coefficients.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Example: two-level atom in the vacuum field}%
+\label{sec:two-level-atom}
+
+\begin{historical}[Spontaneous emission]
+  Spontaneous decay of an excited atom was explained by
+  Dirac--Wigner--Weisskopf shortly after the formulation of quantum
+  mechanics---one of the earliest triumphs of quantum field theory.
+\end{historical}
+
+\subsubsection{The model}
+
+The environment is a free bosonic field,
+$H_E = \sum_k \omega_k\, b_k^\adj b_k$.
+The system is a two-level atom with ground state $\ket{g}$, excited
+state $\ket{e}$, and transition frequency $\omega_A$:
+\begin{equation}\label{eq:H-atom}
+  H_S = \omega_A\,\ketbra{e}{e}\,.
+\end{equation}
+The dipole coupling is
+\begin{equation}\label{eq:V-dipole}
+  V = \sum_k \bigl(g_k\,\sigma_+\tp b_k
+      + g_k^*\,\sigma_-\tp b_k^\adj\bigr)\,,
+\end{equation}
+where $\sigma_+=\ketbra{e}{g}$, $\sigma_-=\sigma_+^\adj$, and the
+coupling constants $g_k$ encode dipole matrix elements and mode
+structure.
+
+\subsubsection{Rotating-wave approximation}
+
+In the interaction picture the coupling acquires phases
+$e^{\pm i(\omega_A-\omega_k)t}$ (slowly rotating) and
+$e^{\pm i(\omega_A+\omega_k)t}$ (fast counter-rotating).  Since
+$\omega_A\sim 10^{15}\,\mathrm{s}^{-1}$, the fast terms
+self-average and can be dropped (\textbf{rotating-wave
+approximation}, RWA):
+\begin{equation}\label{eq:V-int-atom}
+  \tilde{V}(t)
+  \approx \sum_k \bigl(
+    g_k\,\sigma_+ b_k\, e^{i(\omega_A-\omega_k)t}
+  + g_k^*\,\sigma_- b_k^\adj\, e^{-i(\omega_A-\omega_k)t}\bigr)\,.
+\end{equation}
+
+\subsubsection{Preview of the master equation}
+
+Setting $\rho_E=\ketbra{0}{0}$ (vacuum) and carrying out the
+Born--Markov procedure (detailed next lecture), one obtains:
+\begin{equation}\label{eq:lindblad-atom-preview}
+  \eqbox{
+  \frac{\dd}{\dd t}\rho_S
+  = -i[H_S,\,\rho_S]
+  + \gamma\Bigl(
+      \sigma_-\rho_S\,\sigma_+
+    - \tfrac{1}{2}\sigma_+\sigma_-\rho_S
+    - \tfrac{1}{2}\rho_S\,\sigma_+\sigma_-\Bigr)}\,,
+\end{equation}
+where $\gamma>0$ is the spontaneous-emission rate.
+
+\begin{intuition}[Irreversibility from unitarity]
+  The joint dynamics is unitary, yet the atom alone decays
+  irreversibly.  The resolution: one excitation can flow into a
+  continuum of field modes, but the reverse---all modes conspiring to
+  re-excite the atom---has vanishing probability.
+\end{intuition}
+
+\begin{exercise}\label{ex:lindblad-form}
+  Verify that~\eqref{eq:lindblad-atom-preview} preserves the trace
+  and positivity of~$\rho_S$:
+  \begin{enumerate}[(a)]
+    \item Show $\frac{\dd}{\dd t}\tr(\rho_S)=0$.
+    \item Writing $\rho_S$ in the $\{\ket{e},\ket{g}\}$ basis, derive
+      the equations of motion for the matrix elements and check that
+      $\rho_{ee}(t)=\rho_{ee}(0)\,e^{-\gamma t}$.
+  \end{enumerate}
+\end{exercise}

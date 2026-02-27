@@ -1,0 +1,391 @@
+# Theory of Quantum Noise and Decoherence, Lecture 6: Continuous Variables and Quantum Optics
+# YouTube: https://www.youtube.com/watch?v=fuJt35tnyNc
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] So, today we're going to look at Gaussian states.
+[00:29.00] We're going to look at some examples of Gaussian states.
+[00:34.00] And in fact, we're going to look at a huge class of examples all in one go today.
+[00:41.00] So, if you recall the objective of this course is to understand the dynamics of a system A that's embedded in some environment E.
+[00:58.00] Now, of course, we can understand the dynamics of A by integrating the Schrodinger equation for the whole AE system.
+[01:09.00] Of course, we can do that, but that's an inconceivably difficult problem because the environment here is enormous.
+[01:19.00] And it very quickly happens that as time passes A will become correlated with E, A will become entangled with E,
+[01:27.00] and the task of describing the joint AE system gets harder and harder and harder as time progresses.
+[01:35.00] And the whole goal of this course is to understand the dynamics of A while ignoring or neglecting E.
+[01:52.00] And as we've already seen, there is the possibility of doing this within the framework of quantum mechanics,
+[02:01.00] but we will have to employ the technology of completely positive maps to talk about the dynamics of A.
+[02:07.00] Because if you just look at A alone, if you ignore E, then for sure A will become noisy.
+[02:13.00] The noise will come in from every degree of freedom from the environment that interacts with A will look like a source of noise.
+[02:19.00] So, we're going to have to somehow describe a process within the framework of quantum mechanics that includes noise,
+[02:26.00] and that process, the technology we use, is that it completely positive maps.
+[02:32.00] That's the objective of this course, where we currently are, is in talking about continuous variables.
+[02:53.00] We're talking about continuous quantum variables in this course, so far, at the moment.
+[02:58.00] And the reason we're doing that is, well, maybe A is comprised of some continuous quantum variables,
+[03:04.00] but actually one system that we pretty much know for sure is comprised of continuous quantum variables is the environment.
+[03:11.00] It is the environment is usually, I mean, not always, but usually like the electromagnetic field or another field that our degrees of freedom couple to,
+[03:22.00] a phone on field, for example.
+[03:25.00] So, we're forced to, if we want to talk about AE, and then ignore E, we better know something about E before we throw it away.
+[03:33.00] And that's what we're doing right now. We're trying to understand E, so mostly,
+[03:46.00] this is mostly to understand the system E.
+[03:56.00] Once we understand E, at time t equals zero, we're going to approximate its interactions with A, and then through E away.
+[04:09.00] And that will, this process of approximating the interaction between A and E, and then throwing E away, leads to an equation,
+[04:17.00] a very special equation called the limplight equation or master equation, and that's the goal of this course to understand this equation,
+[04:23.00] that's derived and how it comes about.
+[04:26.00] So, we're still stuck, however, at modeling E, and E for us in this course will almost always be the electromagnetic field,
+[04:32.00] that couples most strongly to charge matter.
+[04:35.00] Anything that has a charge is interacting very strongly with the electromagnetic field, time passes, photons,
+[04:42.00] coming in and bouncing off the particles.
+[04:47.00] And to do that, we need to understand continuous quantum variables.
+[04:51.00] We're almost done, actually. So today, we're going to write down an incredibly general result of how to understand dynamics of continuous quantum variables.
+[05:02.00] It comes under the heading of an example of a Gaussian state, but this result is so amazingly general.
+[05:07.00] It applies from situations as diverse as quantum field theory, even relativistic quantum field theory.
+[05:14.00] The result I'm going to show you today is directly useful there, through to modeling phonons, propagating metals,
+[05:21.00] through to any situation like springs, quantum harmonic oscillators in arbitrary lattices.
+[05:27.00] The result I'm going to show you today applies to all these situations.
+[05:32.00] And it's pretty, I find it one of the most amazing results, I think, in the whole of the Gaussian theory,
+[05:42.00] quantum theory of Gaussian states.
+[05:46.00] And what we're going to do is we're going to solve,
+[05:52.00] we're not going to solve just one model, like the how I'm going to go today.
+[05:55.00] We're going to solve all models in one field sweep.
+[06:05.00] And I'll tell you what a Gaussian model is and how we solve it today.
+[06:11.00] And once you know this result, you will immediately be able to skip chapters two and three of Peskin and Schroeder's book on quantum field theory.
+[06:21.00] You'll immediately be able to understand any quantum optical system with linear optics.
+[06:27.00] It's completely general. It's an astonishingly general result.
+[06:33.00] And it's pretty exciting because it only uses linear algebra.
+[06:38.00] There's a sense in which it's not that complicated.
+[06:43.00] However, it is going to look complicated because the notation that we need to build up to describe this general result
+[06:51.00] is necessarily, it has to take care of all possible examples.
+[06:55.00] So it's going to be a bit tedious to notation, but we will arrive at a result.
+[06:59.00] The result will look complicated, but when we actually put in a specific model,
+[07:03.00] it simplifies it dramatically, and we can work with the simplifications that we get at that point.
+[07:12.00] So what is a Gaussian model?
+[07:15.00] Gaussian models are also called quasi-free, and they have other names as well, although I can't think of them at the moment.
+[07:24.00] So typically, Gaussian or quasi-free or free models are what you would describe the models that we're going to talk about today.
+[07:35.00] I'm only going to do it for bosons.
+[07:38.00] A little later in this course, I think we'll have plenty of time,
+[07:43.00] we're going to look at the fermionic case.
+[07:45.00] And the fermion story is basically identical to the boson story,
+[07:49.00] except you replace commutators with anti-comutators.
+[07:51.00] In fact, all the same tricks that we used today will work in the fermion case.
+[07:57.00] So suppose we have a collection, it always begins like this.
+[08:12.00] So suppose we have a collection of end modes and continuous quantum variables.
+[08:42.00] Suppose we have a collection of end modes obeying the canonical commutation relations.
+[09:11.00] Now, at this point, it's worth commenting that n doesn't have to be 5 or 10,
+[09:25.00] n can be 10 to the 23, or n can be 10 to the 34.
+[09:30.00] We can have a plank number of inverse plank number of degrees of freedom.
+[09:36.00] It's just as long as that n is finite.
+[09:39.00] Everything I'll say today will be correct.
+[09:41.00] Although everything I say will be correct even for the case of a continuous infinity of modes.
+[09:46.00] But then you have to replace sums with integrals.
+[09:50.00] But morally, everything actually will work even in that case.
+[09:54.00] And what we're going to do is we're going to suppose we have a system with a Hamiltonian.
+[10:11.00] And this Hamiltonian is not the most general Hamiltonian we can write down.
+[10:17.00] So I kind of lied. We're not going to solve every Gaussian and quasi-free model.
+[10:22.00] But we're going to solve almost.
+[10:27.00] We're going to solve an infinite number.
+[10:30.00] But a vanishing fraction.
+[11:00.00] We're going to solve the problem.
+[11:07.00] We're going to solve the problem.
+[11:14.00] So the Hamiltonian I've written there involves the Hamiltonian.
+[11:37.00] So the Hamiltonian I've written there involves x's and p's.
+[11:44.00] It's not the most general quadratic Hamiltonian you could write down.
+[11:49.00] There's more general Hamiltonians where there would be terms with x times p for example.
+[11:54.00] We don't include those in this model.
+[11:58.00] But we do include the most general possible couplings between the x's.
+[12:04.00] So we have a matrix here. It's an n by n matrix.
+[12:07.00] And every entry of that matrix can be non-zero. There's no reason for them to all be zero.
+[12:13.00] So these every position operator can be coupled to every other position operator in principle.
+[12:19.00] And the same over here with the momentum operators.
+[12:22.00] This matrix vp in principle, any entry of this n by n matrix can be non-zero.
+[12:33.00] The first term is usually called the potential energy term.
+[12:40.00] For a system of harmonic oscillators in the line, the matrix vx is diagonal.
+[12:50.00] The second term is typically called the kinetic energy term.
+[12:59.00] And again, a system of harmonic oscillators on a line.
+[13:04.00] This would be a diagonal matrix independent harmonic oscillators.
+[13:09.00] So here is the potential energy.
+[13:12.00] And here is the kinetic energy.
+[13:16.00] So in non-relativistic physics, this kinetic energy is almost always diagonal.
+[13:23.00] But in relativistic physics, there are coupling terms between different momentum.
+[13:30.00] That's the difference between relativistic and non-relativistic physics.
+[13:36.00] So this model here is capable of capturing the physics of relativistic and non-relativistic collections of harmonic oscillators,
+[13:45.00] interacting in an arbitrary way, having an arbitrary potential energy.
+[13:51.00] It's only quadratic. There's no cubic terms or quadratic terms.
+[13:56.00] So obviously, it's not the most general model you can write down at all.
+[14:01.00] But it's a pretty general model in the sense that it captures the client-gordon,
+[14:06.00] everything from the client-gordon equation through to a phonon propagation in solids.
+[14:17.00] Now, we typically write some shorthand notation.
+[14:22.00] It's going to get very tedious in the next hour and a bit,
+[14:26.00] because we're going to have to deal with collections of x's and p's.
+[14:34.00] So we typically write h using a much simplified notation.
+[14:48.00] This makes it a little bit easier for us.
+[15:09.00] So we introduced this vector r of the position of momentum operators.
+[15:13.00] It's a length 2n, and we have a matrix h.
+[15:43.00] So it's very nice to use this matrix notation because, obviously,
+[15:53.00] this expression over here gets a bit tedious to write out every single time.
+[16:01.00] Let's call this system star.
+[16:31.00] So we've written our system in terms of the canonical position of momentum operators.
+[16:38.00] We could also write it in terms of creation and annihilation operators,
+[16:45.00] which is actually helpful later on as we solve this model.
+[17:01.00] I guess we can write prime there.
+[17:07.00] We've now introduced this vector of annihilation and creation operators.
+[17:22.00] Now, let's call this system star.
+[17:29.00] Let's call this system star.
+[17:37.00] This is more or less an exercise to check that that's actually correct.
+[18:00.00] This is more or less an exercise to check that that's actually correct.
+[18:30.00] Let's call this system star.
+[19:00.00] If you look at the model when expressed in terms of annihilation and creation operators,
+[19:10.00] you see that it has not only terms that couple of b-dagger and b's, like number operators.
+[19:22.00] It also has terms that look like b-b and b-dagger.
+[19:32.00] The first two types of terms where you've got a b-dagger and a b or a b-dagger,
+[19:37.00] they conserve total particle number.
+[19:41.00] But the other types of terms that you can get when you express it in terms of annihilation and creation operators,
+[19:47.00] terms like b-b and b-dagger, b-dagger, they don't conserve the total particle number.
+[19:54.00] They generate what's known as squeezing between the modes.
+[20:04.00] Now, in one field sweep, we're just going to diagonalize every single one of these models.
+[20:11.00] It's pretty amazing that you could do this.
+[20:18.00] The model star, we can diagonalize the model star by making a change of variables,
+[20:34.00] on the operator side.
+[21:04.00] And the trick here is not to try and diagonalize h as a matrix, h hat as a matrix.
+[21:16.00] You've got this operator h hat, which is an infinite dimensional operator.
+[21:21.00] If you want to try and diagonalize that operator by somehow finding the unitary which diagonalizes it,
+[21:27.00] then that's going to be pretty slow and painful process, unless you have some divine insight.
+[21:33.00] The trick is not to make the transformation on the state, but to make the transformation on the operators.
+[21:39.00] And you do a transformation that preserves the canonical commutation relations.
+[21:43.00] So we're going to define some new operators.
+[21:47.00] Let's call them r prime j and r prime k hat, which still obey the canonical commutation relations.
+[22:02.00] So we're going to introduce a matrix called sigma.
+[22:31.00] Sigma looks like this.
+[22:38.00] And when you express the canonical commutation relations in this kind of matrix form here, they look like this.
+[22:58.00] Let's look for a transformation from our original variables r hat to a new set of variables r prime,
+[23:10.00] which still obey the canonical commutation relations.
+[23:13.00] We're going to hope that that transformation is unitary.
+[23:34.00] And here is the transformation.
+[23:36.00] Suppose we define r prime j to be some linear combination of the previous r's.
+[23:44.00] It's very simple hypothesis.
+[24:05.00] And that means that s has to be a 2n by 2n matrix.
+[24:13.00] And we actually make it a real matrix in order to preserve the hermiticity of the operators.
+[24:25.00] And suppose we make that transformation.
+[24:30.00] Well, if we're going to make that transformation, we better make sure that the canonical commutation relations are still obeyed.
+[24:37.00] So there's going to be some constraints on s. You can't just put in any 2n by 2n matrix.
+[24:42.00] Somehow, having to satisfy star star will impose some conditions on s. We'll find out what those are.
+[24:48.00] And then we'll see, does there exist a matrix that obeys these extra conditions that can make this original Hamiltonian h down here diagonal,
+[24:59.00] just rotate it into a diagonal form.
+[25:10.00] So that's what we're going to do now.
+[25:13.00] Let's start by understanding what s matrices are allowed.
+[25:34.00] And secondly, discovering the s matrix that will do the job.
+[25:58.00] If we to obey star star, we need to obey star star.
+[26:09.00] So let's just substitute in this expression here into there.
+[26:27.00] And see what comes out.
+[26:30.00] So star prime equals some of s are not prime.
+[26:59.00] Just substitute it in this guy into there.
+[27:16.00] So that's the left hand side. And the right hand side where we know what that is.
+[27:22.00] We also know something else. We know the commutation relations for these two guys here.
+[27:45.00] That's what the commutation relations look like times by the identity operator.
+[27:52.00] I didn't put that there. I guess I'm going to be very sloppy in this course and keep forgetting to put the identity operator in there.
+[28:00.00] And you just have to know that it's there from context.
+[28:22.00] So that's the left hand side. It gets expressed like this.
+[28:28.00] And of course, the right hand side is already written up there.
+[28:45.00] And then we ask ourselves when for what matrices s is dissatisfied.
+[29:14.00] So as long as s obeys this matrix equation here, this quadratic matrix equation,
+[29:41.00] then it will preserve the canonical commutation relations.
+[29:46.00] Such matrices are called symplectic transformations.
+[30:15.00] And they form a group called the symplectic group, a lead group.
+[30:25.00] And it's hugely important throughout physics, from classical physics to the quantum physics.
+[30:42.00] So it's pretty easy to see that this group is non-empty. The identity satisfies this constraint.
+[30:49.00] And there are very, very many other matrices which satisfy that.
+[31:01.00] So there's going to be a lot of matrices s that obey this condition here. Let's give that a name.
+[31:13.00] So the set of s of real two by two matrices such that s sigma s transfers is sigma.
+[31:29.00] And we're going to donate it by sp. Now this bit depends on what convention you're using.
+[31:37.00] But let's call it sp2n, not spn over the real numbers.
+[32:03.00] I want to tell you about an amazing theorem of Williamson.
+[32:18.00] Theorem of Williamson tells us that we can use symplectic matrices to bring other matrices into normal form.
+[32:25.00] This is not immediately obvious why this is so important for our problem, but very soon I hope you'll see as I explain the result why this would be so useful.
+[32:37.00] Imagine we have some two n by two n real matrix m.
+[32:46.00] That's symmetric and positive.
+[32:56.00] So it's got positive eigenvalues.
+[33:03.00] And then there exists a symplectic matrix s that brings this matrix m into a normal form.
+[33:17.00] It's not diagonal, but it's as good as diagonal.
+[33:46.00] Here it is right now. The matrix m can be brought into this very special normal form there by s.
+[35:15.00] This is a pretty tremendous result because you have some symmetric two n by two n matrix and it says there exists a symplectic matrix which brings it into this very special form here.
+[35:34.00] It's not diagonal, actually it is diagonal.
+[35:44.00] Furthermore, I mean, okay, great. Suppose there exists an s if that's not very helpful, right?
+[35:50.00] Unless you can construct the s. There is actually a constructive procedure to at least find these eigenvalues mu.
+[36:02.00] In general, it's quite hard to find the s that does this job, but for the m's that we encounter in our problem, we're actually going to write out an analytic formula for the s.
+[36:31.00] Now we're essentially going to prove Williamson's theorem by in our special case by presenting the s that will do the job.
+[36:48.00] This is not entirely satisfying as a proof because as you'll see the s that does the job looks a bit funny.
+[36:56.00] It's certainly I wouldn't have thought of this particular symplectic matrix straight away, sort of not intuitive as this form that I'm going to write out, but I claim that it is reasonably easy to have guessed that form by solving simpler examples and you notice a pattern and then you exploit that pattern.
+[37:22.00] So that's how you can convince yourself that this is a reasonable argument.
+[37:37.00] So lambda j, I'm sorry, I didn't define what lambda j is, lambda j of some matrix x equals the jth eigenvalue, so that's my own notation, I'm sorry about that.
+[37:56.00] Whenever I write lambda j of some operator, that means take the jth eigenvalue of that in descending order.
+[38:15.00] So in our special case it turns out we can just straight up find the s, we can write it down.
+[38:30.00] So this must be one of the most discussed formulas in physics textbooks and the thing is every single author has their own notation and own way of arriving at this result.
+[38:41.00] Some of them have more specialized results, some of them have even slightly more general results, and the notations never match up.
+[38:48.00] So you will probably have been exposed to this formula two or three times in your life and you probably won't recognize how it's connected with this because you would have seen it with a completely different notation and a completely different argument.
+[39:01.00] The transformations s have names in the fermion world like Borgolibov transformations in the bisonic world as squeezing operations and phase shifters.
+[39:16.00] These, and there are various arguments, independent arguments for how to arrive at this formula, but they all boil down to the same result, namely that you can find simplistic matrices that diagonalize these other matrices.
+[39:46.00] So we can find an s which diagonalizes m, pretty much directly write it out in the following way.
+[40:15.00] Let me define s to be this two n by two n matrix here, then this will diagonalize m, but o has to be some special matrix, this is the bit we don't know yet.
+[40:36.00] Are these all o's or are there some zeros?
+[40:40.00] Oh gosh, yeah, I see the notation does not work, does it?
+[40:48.00] Okay, zeros, so this o here without the lines inside a matrix like this means zeros, it means the n by n, zero matrix.
+[41:04.00] And this is the letter o in the alphabet with two lines underneath it, that means a two n by two n matrix.
+[41:12.00] It's a good question because these notational inaccuracies like this or ambiguities can lead very rapidly to confusion.
+[41:31.00] So we can find, we can just straight out diagonalize m by using s matrix of that form where this o has to satisfy something, you can't just put any o in there.
+[41:50.00] And the thing that it has to satisfy is this very peculiar equation here, but this equation is easy to discover
+[42:10.00] because I'm just using the defining equation of a simplectic matrix.
+[42:41.00] I mean, that's all I've done, right?
+[42:51.00] I've done this crazy transformation written s like that for no apparent reason.
+[43:02.00] It's not meant to be obvious at this point why you would want to do that.
+[43:19.00] It'll turn out to be useful. This is the kind of result where it's been perfected over years and smoothed out and made more optimal.
+[43:29.00] So the end result looks completely incomprehensible. You can't imagine how anyone would think to define that particular as in that way.
+[43:37.00] But the reason they did it is because they started with examples, I mean, as with most results in maths that look incomprehensible, they start with examples and noticing a pattern in the examples.
+[43:48.00] So you solve one model and then you solve another one and you notice that you use the same trick and then you generalize the trick a bit and then you solve another one and you generalize the trick a bit to take account of the three examples and so on.
+[44:00.00] And this process gets iterated and along the way you notice patterns can be expressed in more and more compact notation until you end up with something completely incomprehensible like this.
+[44:13.00] Sort of like differential geometry. I had all these in the 19th century there was all the study of surfaces and curves and so on and then people slowly compress their notation.
+[44:30.00] And then they pk zipped the notation until they ended up with this coordinate free language where you'd write d sigma equals zero and then that expresses 20 pages of 19th century mathematics in one line.
+[44:55.00] So that's why personally I'm not a fan of coordinate free notation. You often catch me writing out indices all the way through because I'm the kind of person who when I see a formula, I eventually want to put it on a computer to calculate a number.
+[45:12.00] And coordinate free notation is wonderful for spotting general results. But when you want to put a coordinate free equation into a computer, you pretty much have to commit to a basis and write everything out in components and then it's all horrible and ugly.
+[45:29.00] And I like to you know get the worst worst bit over and done with first.
+[45:37.00] So this course reflects my personal taste in that regard. You're going to have to put up with my indices. My colleagues complain about this.
+[45:54.00] So another way of writing this condition here is I can just multiply by the inverse of this matrix on the left and the inverse of this matrix on the right.
+[46:03.00] And the equivalent condition that O has to satisfy is this.
+[46:32.00] So if you could find an O that obeys this condition here, then I claim we'd be almost at the end of our task of finding the S.
+[46:57.00] Are these D's? These are N by N matrices? They're the same D's as what are up here?
+[47:08.00] Yes, they were D's. Oh gosh, these are D's, yeah.
+[47:18.00] All right, let me just, sorry about this. Yes, okay. These D's, these are D's. That's a D. I don't know how to do this notation better.
+[47:39.00] I'm going to circle every instance of D.
+[48:09.00] There you go, everywhere. What you thought you saw an O is actually one of my D's. My goodness, in terms of O's that would have been a horrendous equation.
+[48:23.00] Oh gosh, sorry. Thank you. Mu1, Mu2, MuN. It's really that D there, yes. Good.
+[48:47.00] One can practice writing well on the board, but I need more practice.
+[49:17.00] Right, suppose you can find an O and two N by two N matrix O, which obeys this equation here. Then the claim is that O will lead directly to an S according to this not obvious formula there.
+[49:43.00] If you use that not obvious formula there and you get the right O, then you'll pull off this trick here.
+[49:50.00] This is hard in general. For a general M, I think there's a recent paper where it was discovered how to do this in an elegant way. I don't want to refer to that because we don't need the most general case.
+[50:05.00] We have less than general case, so let's just focus on that and get that done. The idea is to go as general as possible, but no more general. That's what we're doing here.
+[50:17.00] So for us, the matrix M is in fact the matrix H at the beginning. There it is there. And to this case, for this particular 2N by 2N matrix here, it turns out we can write out an O directly.
+[50:34.00] So we'll do what we want.
+[50:49.00] We can find an O that satisfies I. It's pretty cool.
+[51:07.00] How do we do it? Well, we're going to build another matrix Q.
+[51:16.00] This is a string of substitutions.
+[51:36.00] This is a Q. That's an O and there's a D here.
+[52:03.00] This is a different story. If we can find a Q that does this, it turns out we can build an O that does this.
+[52:32.00] Let's see.
+[53:01.00] Let's see.
+[53:30.00] Let's see.
+[53:58.00] Now let's convince ourselves that this is something we can just do. Well, not maybe on paper, but with a computer in a very small amount of time.
+[54:21.00] So the matrix Vp and the matrix Vx, they are symmetric matrices, they're symmetric real matrices. So this thing here, I mean taking the square root of a symmetric matrix on a computer is quite easy these days, square root M in MATLAB and then you have the square root of a matrix.
+[54:40.00] And it's also symmetric, the square root of a symmetric matrix is symmetric. So you've got symmetric times symmetric times symmetric and it's in the right way to be symmetric.
+[54:55.00] So it always exists an orthogonal matrix which rotates or brings a symmetric matrix into normal form. Normal form here is diagonal. So this is orthogonal matrix.
+[55:18.00] And in MATLAB that's the same as just typing out eigenvalues or auth of the argument being the symmetric matrix here. So that's something you can find on a computer. It'll take you roughly N cubed operations to get this Q once you have the Vx where N is the number of modes that you have.
+[55:41.00] If you have 10 to the 23 modes, then that's probably not going to terminate in your lifetime. But if you have 10,000 modes that I promise you even on slower computers today will happen.
+[55:58.00] Typically, we're in luck, right? We don't, Vx isn't just an arbitrary and by end matrix. Vx tends to have lots of structure. It tends to be diagonal or nearly diagonal. And Vp is almost always diagonal for us. Vp is almost always just the identity.
+[56:16.00] And then this becomes a much simpler affair. You're just diagonalizing the matrix Vx when Vp is diagonal. Now that's something you can often do analytically because you know about the Fourier transform.
+[56:30.00] We'll get to that later on in this course. So once you've gotten Q, Q is now something you can obtain in finite time when you have a finite number of modes in a finite reasonable time.
+[56:41.00] And then build this matrix here. Now let's convince ourselves that we can build it. Well, that's a matrix we know. D is now a matrix we know. How do we know D? Well, we diagonalize this matrix here. That gave us D squared. You just take the square root.
+[56:58.00] Q is a matrix we know. And one over root Vx is a matrix we know. And so is one over root Vp.
+[57:07.00] All that's missing now is to show that this resulting simplistic matrix S here does in fact diagonalize H in the way we want. And that's an exercise for you but it's actually not that difficult.
+[59:07.00] So we've actually found a linear transformation from our original position of momentum operators to some new position of momentum operators that obey the canonical commutation relations such that our original Hamiltonian is diagonal
+[59:36.00] in the new basis of operators or write that out in a second. And all of this stuff can be done in a reasonable time and often analytically. When your problem has translation invariants in some way, such as when we look at the electromagnetic field, we know that if we go up, down, left, right, the equations of motion of this job of finding the matrix S becomes a matter of
+[60:04.00] some simple linear equations. So all of this derivation here, you don't really need to remember this.
+[60:21.00] What's important is that you remember this formula here and how to get the O. Because all, I mean, a majority of these textbooks that focus on quasi-free models and majority of the task is simply plugging into this formula, the various Vx's and Vp's that you encounter.
+[60:50.00] So if we define now our new canonical variables, j, in terms of the old ones, using exactly this S, then we'll see that we've actually diagonalized that model.
+[61:20.00] This is also an exercise.
+[62:20.00] So
+[62:45.00] that I is an operator, I'm thinking.
+[63:14.00] So these A's are annihilation and creation operators. They're the ones you expect them to be. Namely.
+[63:37.00] So it's this last formula here that we should really look at. What we've done is we've taken this original complicated quadratic model. It wasn't entirely obvious that we'd be able to do the job of diagonalizing it.
+[63:51.00] And we've managed to find a transformation to a collection of independent harmonic oscillators.
+[64:02.00] And this is what justifies the name quasi-free. Because the model itself isn't a sum of n independent harmonic oscillators. But it's a rotation, a unitary transformation away from a model which is just n harmonic oscillators, n independent harmonic oscillators.
+[64:29.00] That's very good because we can solve that model. There we go back to our undergraduate quantum mechanics. And we do that in times to solve that model.
+[64:43.00] Now we're going to do the job of expressing the solution back in terms of the original variables. It's great that you've solved the model in terms of these A's. But actually we want to know things in terms of our original X's and P's.
+[64:56.00] There's not much use to have a solution in another basis, unless you can undo that change of basis. Same with integrals. You can make all these substitutions to do your integral. But if you can't undo the substitutions to get your final answer, there wasn't much use.
+[65:13.00] There's a tremendous differential equation, I know, where this phenomenon works. I think it's this one.
+[65:26.00] I think it's that equation there. This is an ordinary differential equation. It's non-linear. It turns out you can analytically solve it by making a sequence of changes of variables involving vessel functions and all kinds of crazy special functions.
+[65:40.00] You can get to an answer. You can actually analytically solve this at y squared. You can get to an analytic answer after all these substitutions. But the problem is the task of inverting all these substitutions to get at the solution in terms of Y's and X's is completely impossible.
+[66:02.00] So beware of analytic solutions. Sometimes it's better just to numerically solve the system.
+[66:11.00] How do we get back to our original X and P's? Here's the crucial observation. Let's work out the characteristic function of a general row.
+[66:30.00] Remember, if you know the characteristic function, you know the state. How does the characteristic function behave under this transformation here?
+[66:54.00] Well, very neatly. Here's our original characteristic function.
+[67:04.00] This is just written like that. That's how we've been writing our characteristic function. Now let's make out change your variables in here.
+[67:34.00] So I'm going to use an S inverse.
+[68:04.00] I'm going to use an S inverse.
+[68:35.00] Is there an E missing?
+[68:52.00] Yes, there is an E missing. Thank you.
+[69:22.00] So if you study this formula here, you can see that the first moments, this is also an exercise, are related to the first moments of the state in the original variables according to this formula here.
+[69:52.00] And the covariance matrix, the second moments, are related. Also to the original ones in a similar simple way.
+[70:22.00] The first moments of the state in the original variables are related to the first moments of the state in the original variables.
+[70:52.00] The first moments of the state in the original variables are related to the first moments of the state in the original variables.
+[71:23.00] So this result here shows us that this linear change of variables here, this transformation here is useful because we can undo it.
+[71:37.00] We can express our, the first moments in terms of the simple problem, just by multiplying them by this matrix here, and the second moments in terms of the second moments of the simple problem by this transformation there.
+[71:51.00] So it's not only a solution, it's a useful solution.
+[71:58.00] And now we're going to put all this together to solve a hugely general class of problem.
+[72:07.00] Here it is. We're going to work out the thermal state for the model H.
+[72:37.00] And we're going to prove that it's Gaussian. Well, not quite. It's going to be an exercise, but it's not far from a proof.
+[72:51.00] Now we have solved the original model, right? We know this statement here is actually more powerful than the statement here because this tells us not only what the ground state is but what all the excited states are.
+[73:06.00] This statement here uses that data, but it's not equivalent to that data. But nonetheless, this is the one that we need in practice, right?
+[73:14.00] Because for us, these environments that we encounter all the time, they are fields in thermal states, fields at some temperature.
+[73:25.00] So the state of a system and an environment at time t equals zero is in a tensor product of the, you know, you assume you've cooled your system down and you've isolated it from the environment.
+[73:35.00] And it's nice, closed, quantum system. But that as time progresses, it slowly interacts with an environment and that environment you can assume, you can argue, that it ought to be in some thermal equilibrium state like this.
+[73:49.00] So we better hope that that state is a Gaussian if we want to deploy all this technology here. Otherwise, you know, one of the most important states in nature turns out to be one we can't calculate anything of.
+[74:04.00] But luckily, we can use this technology we developed here and it does turn out that the state here is Gaussian. That means once you know M and once you know gamma, you know everything, right?
+[74:16.00] You just use this week's theorem to result that I mentioned in the previous lectures.
+[74:24.00] And the way to prove it is, well, pretty straightforward, we just express H in terms of A's.
+[74:34.00] And we know what the thermal state of a single harmonic oscillator is.
+[74:39.00] Therefore, we know the thermal state of N independent harmonic oscillators. And then we convince ourselves that the thermal state of a single or N independent harmonic oscillator is Gaussian.
+[74:50.00] And then, once we know it's Gaussian, we can make this transformation here S minus and get back to our original variables.
+[75:01.00] And let's just implement what I said.
+[75:12.00] What do we know? Well, we know that H is a sum of N independent harmonic oscillators A in terms of the A operators.
+[75:19.00] So that means that they're in some tensor product of them.
+[75:46.00] So that Z is the partition function for the J-tum on a oscillator.
+[75:53.00] And you can check that you can also express that in this way in terms of the FOC basis.
+[76:09.00] Alright, I've just written out that in terms of the FOC basis here.
+[76:32.00] Then you can work out the characteristic function for Rho in this basis.
+[76:59.00] So, the characteristic function for Rho in terms of the FOC basis here is a function for Rho in terms of the FOC basis here.
+[77:28.00] So the characteristic function for a tensor product is a product of the characteristic functions.
+[77:33.00] That's good. That means we can reduce our task to just understanding a single mode.
+[78:03.00] And applying exactly that transformation there, we can work out the characteristic function for Rho.
+[78:20.00] And we get that it's proportional to where this gamma bar is.
+[78:46.00] Oops, sorry about that, that's in the R prime variables.
+[79:00.00] And I'm afraid this is the ugliest formula we're going to encounter today.
+[79:29.00] This is a super-duper exercise in tracking down conventions in Laguerre polynomials on the internet.
+[79:52.00] I don't know a nice way to arrive at this formula.
+[80:00.00] If you look at a single mode, a harmonic oscillator in a thermal state, it is indeed Gaussian, but the only way I know of showing that is to directly calculate the characteristic function.
+[80:11.00] And to calculate that, you need to do an infinite sum of Laguerre polynomials.
+[80:16.00] This feels kind of wrong that you'd have to do this because you then use this identity in terms of Laguerre polynomials to reduce this infinite sum of the Gaussian function.
+[80:25.00] So it's quite an in-depth calculation and the problem is Laguerre polynomials have got various definitions and they differ by minus signs and factors of halves and pi.
+[80:36.00] And so it ends up that you always have a minus sign different from the formula you want.
+[80:44.00] So this is an exercise in tracking down the same notation and definition for across the internet.
+[80:50.00] So don't use the wiki one, use the math world definition and so on. The Wikipedia Laguerre polynomial, I think, has got a factor different than what we need.
+[81:00.00] So it's a tricky and intricate calculation and I don't know a smoother, elegant one.
+[81:08.00] It shouldn't be that you'd need to know all the Laguerre polynomials and then you throw them out with an identity because that's what you do.
+[81:15.00] So in the end to do this calculation, to calculate this characteristic function here, what you end up doing is expressing this in its fox basis, calculating the trace of, I can just...
+[81:36.00] If you have a projector onto a fox state, it turns out that this function is known and it's a Laguerre polynomial.
+[81:46.00] And it's some horrible thing like this. I don't remember it, but blah, blah, blah.
+[81:55.00] It's an irritatingly complicated expression.
+[82:00.00] And then you have an infinite sum of these fox states coming from this sum up here and you sum up all these Laguerre polynomials and then you use an identity about the generating function for the Laguerre polynomials, which gives you the result in terms of a Gaussian function.
+[82:19.00] So this is how, this is the only proof I know of this particular formula here. But that seems wrong, right?
+[82:26.00] We're using all this extra structure of the Laguerre polynomial and then we throw it away with one identity.
+[82:31.00] There should be a completely direct way to go from a thermal state straight to a Gaussian function like this, but I don't personally know it.
+[82:41.00] Maybe you can discover a nicer proof.
+[82:46.00] All right, we're basically done. We've expressed the characteristic function of the thermal state of n, noninteracting harmonic oscillators in terms of these crazy numbers here.
+[83:00.00] Let's express everything back in terms of our original variables and we have solved the model.
+[83:06.00] So by applying this formula here, we will get back to the characteristic function of our original model, which we write as chi beta.
+[83:21.00] What am I doing? Gamma beta, so this is a covariance matrix.
+[83:51.00] And this is the only thing you have to remember.
+[83:58.00] You're quite welcome to just only remember this formula because this is the only one we really need, I suppose, for the rest of the course.
+[84:06.00] So that's gamma x beta, and gamma x of beta is fairly ugly formula, but it simplifies in practice.
+[85:06.00] All right.
+[85:36.00] All right.
+[86:06.00] So it looks super horrible, but let's just walk through it and I'll try and argue to you that this is really a good result.
+[86:35.00] We should be happy with this. So firstly, this is the covariance matrix of the thermal state inverse temperature beta of our original model in the original variables.
+[86:47.00] And it looks like this horrible mess here, but in practice, many of these matrices V are much simpler.
+[86:56.00] So first of all, Vp is almost always the identity matrix. So in your mind, just make that substitution. So wherever you see a Vp, you just wipe it out. There's no more Vp's.
+[87:08.00] And now what's the square root of Vx times Vx, root Vx times root Vx was just the square root of Vx. And what's that? Well, the square root of Vx times the square root of Vx is the identity.
+[87:20.00] So all that disgusting mess there just vanishes for the case of non-relativistic systems. Same with this, right?
+[87:31.00] And in fact, all you're left with is this matrix times by this matrix here. Now Vx typically tends to be cyclic when your system has translation invariants, meaning it's got the same entries on each row, just shifted.
+[87:46.00] So you can diagonalize these matrices very easily with a Fourier transform matrix with a finite Fourier transform transform.
+[87:53.00] And G, we're now left with a task of computing what is this G? Well, G is not going to vanish in such a nice way, but it will be easy to diagonalize, because again Vp is the identity.
+[88:09.00] Vx times root Vx times root Vx to the minus one half is, it's a matrix. It's not particularly lovely. It's, in fact, this one here.
+[88:19.00] But you can diagonalize it in situations where your system is translating invariant. And in the end, you can actually work out every single entry of this matrix here with a very minimum of effort.
+[88:34.00] And we'll do this. And the beauty of this formula is it applies not only just for the normal situation of non-relativistic fields, but also to relativistic fields, because for relativistic fields, the Vp matrix becomes non-trivial.
+[88:51.00] We have to use the relativistic kinetic energy term, not the non-white relativistic one. But nonetheless, we can still use these formula to work out the thermal state.
+[89:02.00] Maybe we don't need to do that so much in this course, but it's good one to keep in mind. This is a formula that I would commit to whatever book it is that you write down the formulas you need to remember for your career.
+[89:14.00] This is one of them, in my opinion. Okay, on that note, I think I will stop for today. Thank you very much.

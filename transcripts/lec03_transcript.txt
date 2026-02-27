@@ -1,0 +1,409 @@
+# Theory of Quantum Noise and Decoherence, Lecture 3: Stinespring Dilation and Fock Space
+# YouTube: https://www.youtube.com/watch?v=Vc7rx39ifvY
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] So, today we're going to continue our discussion about open system dynamics of quantum mechanics.
+[00:19.00] Just to recall, in the first lecture we covered the kinematics of quantum mechanics.
+[00:25.00] How do we describe states of quantum mechanics?
+[00:29.00] And in the second lecture we covered the dynamics of quantum mechanics.
+[00:34.00] When we ended with the beginning of a discussion about how do we describe the most general possible dynamics,
+[00:45.00] dynamical processes in quantum mechanics.
+[00:48.00] So, this is the picture, as I said last week, the week before actually.
+[00:53.00] This is the picture that I will draw throughout this course.
+[00:58.00] You have some system that you can control under your control.
+[01:04.00] And you have the rest of the universe which is some kind of environment.
+[01:13.00] And our task is to describe just this.
+[01:20.00] How does this small part of this bigger quantum system behave as time passes?
+[01:35.00] And we can model every experiment in this way.
+[01:39.00] We have here, cis could stand for everyone in this room,
+[01:45.00] cis could stand for a single atom that you've isolated,
+[01:49.00] cis could be the planet earth or a black hole.
+[01:52.00] But outside of cis there's something else,
+[01:55.00] unless cis happens to be the whole universe, which we won't do in this course.
+[01:59.00] And that is what we're going to call the environment.
+[02:04.00] And our task is to just describe what does the system do.
+[02:11.00] Now according to the postulates of quantum mechanics,
+[02:15.00] a closed quantum system undergoes unitary evolution according to Schrodinger's equation.
+[02:27.00] And the way we generate time evolution
+[02:56.00] is to simply solve Schrodinger's equation for the propagator
+[03:00.00] or the unitary that implements the dynamics.
+[03:03.00] And the equation of motion you have to solve is this one.
+[03:07.00] Okay, so this is standard quantum mechanics.
+[03:11.00] This is how closed quantum systems evolve.
+[03:14.00] But as you know doubt aware, normal systems that we interact with every day
+[03:21.00] are not closed.
+[03:24.00] There is this environment which could be some electromagnetic field.
+[03:28.00] You cannot isolate from the system or some vibrations in the room
+[03:33.00] or any number of possible other sources of noise.
+[03:39.00] And even though the whole system as a collective entity undergoes unitary evolution
+[03:47.00] because this line here indicates that the system plus environment
+[03:51.00] is a closed quantum system.
+[03:54.00] If we want to describe just the system itself in isolation without having to talk about the environment,
+[04:01.00] then unless this U is pretty simple, something's going to happen, right?
+[04:05.00] And I can exploit just physical intuition right now to give you a sense of how we need to have some more general notion of dynamics for systems that are embedded in composite systems.
+[04:19.00] Just think about this system being a cup of water on the table which is interacting with the electromagnetic field,
+[04:30.00] which is interacting even particles are coming into the cup of water.
+[04:34.00] Particles are coming out of the cup of water as they evaporate and impurities are being absorbed onto the surface and so on.
+[04:43.00] So the cup of water by itself is something we might want to describe by itself
+[04:48.00] without having to deal with the rest of the environment.
+[04:53.00] I think that's a reasonable thing to want to do.
+[04:55.00] When we talk about the cup of water, we don't want to have to describe the positions of all the particles in the universe.
+[05:01.00] So that's why we want to find a way to talk about the cup of water as though it was an independent quantum system.
+[05:10.00] So we do that requires that we go outside of the sets of evolutions that are allowed by shooting as equation.
+[05:19.00] And that's what motivated us in the previous lecture to discuss more general types of evolutions in quantum mechanics.
+[05:28.00] What's the most general kind of evolution allowed in quantum mechanics?
+[05:56.00] And the answer that we discussed in the previous lecture was to proceed first axiomatically just to say,
+[06:03.00] well, what's the minimum we require of an evolution?
+[06:12.00] And we settled down on two axioms.
+[06:14.00] Number one, so this is in the Heisenberg picture.
+[06:24.00] You can adapt all of this to the shooting a picture, but it's a little bit easier to do it in the Heisenberg picture.
+[06:29.00] So the first thing that any putative evolution of a quantum mechanical system has to satisfy is this.
+[06:39.00] And this just simply says that probability is conserved.
+[06:51.00] And the second axiom that any possible evolution map would have to satisfy is that it is completely positive.
+[07:03.00] So that's the second thing we discussed.
+[07:10.00] And what this means in physical terms is that if you describe an evolution for a system A,
+[07:19.00] and that's a legal quantum mechanical evolution, then it better be the case that if I bring in some other system,
+[07:24.00] don't interact with it, and then take that other system away,
+[07:27.00] that the global map describing that ought to be a valid quantum mechanical evolution as well.
+[07:33.00] Now, this second thing seems so obvious you might not even think to turn it into an axiom,
+[07:38.00] but there's a classical counter example, which shows us that this is a non-trivial constraint.
+[07:45.00] So where's the data here?
+[07:55.00] So he is a map from the observables describing the output system B
+[08:03.00] to the observables describing the input system A.
+[08:10.00] My n is the identity channel for a n or an n level system.
+[08:33.00] So this object here is a channel, is a dynamics describing your original dynamics,
+[08:40.00] plus an additional n level quantum system that you just brought in.
+[08:49.00] And that's it, actually.
+[08:53.00] This has to be true for all n.
+[08:56.00] That's the only quantifier missing here.
+[09:04.00] So I'll stick it for all n there.
+[09:08.00] And that's the bare minimum you might require
+[09:15.00] from any map claiming to be a valid evolution of a quantum system open or closed or otherwise.
+[09:21.00] So if you look at unitary evolutions, the ones generated by Schrodinger's equation,
+[09:25.00] let's check, do they satisfy these two conditions?
+[09:28.00] We should be able to do this without actually doing very many calculations at all.
+[09:33.00] So if E is corresponding to a unitary evolution, then E is just U, I, U,
+[09:39.00] dagger, or U, dagger, I, U, whichever way round you want to do it.
+[09:44.00] Does that preserve the identity?
+[09:46.00] Well, U times U dagger is the identity.
+[09:49.00] So you have that one straight forward.
+[09:51.00] Is this positive?
+[09:53.00] Well, if you put in a positive operator and do U, well, maybe I do have to write something for this.
+[10:05.00] That's the, this is something that had better be a legal quantum mechanical evolution,
+[10:26.00] otherwise we messed up our axioms, right?
+[10:30.00] Let's check one is U, I, dagger, equal to I, well, the answer is yes,
+[10:37.00] because that's what it means to be unitary.
+[10:41.00] And the second one is we want that E tends to the identity channel.
+[10:47.00] The do nothing channel is positive.
+[10:51.00] So I use this symbol here to denote that it's positive.
+[10:55.00] What does that mean?
+[10:57.00] Well, that's the case if and only if for all effect E, it goes from B to A.
+[11:13.00] So all possible valid outcomes of a quantum mechanical measurement.
+[11:24.00] We must have that, that this object here, this matrix,
+[11:44.00] if this is a finite dimensional system, is a positive matrix.
+[11:49.00] That's what the second axiom requires for all N, right?
+[11:53.00] Not just for all, not just for one N, but for every integer N,
+[11:56.00] for every possible ancillary system you could add in.
+[12:00.00] And let's check, is this the case here?
+[12:02.00] Well, this channel, what does it look like?
+[12:05.00] It looks like if you apply this channel to this effect,
+[12:21.00] then that's the same as conjugating by this unitary here.
+[12:28.00] The identity is a unitary, this is a N by N matrix.
+[12:32.00] And some unitary, tensors, some unitary's unitary.
+[12:35.00] So this overall thing is unitary.
+[12:38.00] Since unitaries don't change the spectrum of an observable or operator like this,
+[12:45.00] then if it was positive before, then it's actually positive afterwards.
+[12:49.00] And if you don't like to use the spectrum, then just simply write E as X dagger X.
+[12:57.00] And then you can see that the result of having applied the channel
+[13:09.00] to an operator of the form X dagger X gives us another operator of the form X prime dagger X prime,
+[13:16.00] where X prime is, well, X conjugated by this unitary.
+[13:22.00] So indeed, if it takes a positive effect for this composite system here
+[13:29.00] is mapped to a positive effect.
+[13:31.00] So unitaries reassuringly are, in fact, valid dynamics according to these two axes.
+[13:40.00] But it turns out that there's actually more than just these two.
+[13:43.00] And that's why, and that's what allows us to model parts
+[13:51.00] of quantum systems without having to model the whole environment.
+[13:57.00] And what we're going to show today is that this axiomatic approach here
+[14:04.00] is equivalent in a restricted setting to a constructive approach,
+[14:09.00] where you just simply build up all the operations you think are allowed in quantum mechanics by hand.
+[14:15.00] And we'll see that this way of characterizing operations is exactly equivalent to this other way,
+[14:20.00] where you just simply enumerate the possible dynamics that you will allow in quantum mechanical system.
+[14:26.00] It's not completely one-to-one, unfortunately, but it's close enough.
+[14:32.00] And here's an alternate approach to defining the most general dynamics allowed in quantum mechanics.
+[14:55.00] And we're going to discuss this alternate approach for a bit, and then we're going to show that these two are equivalent in a certain restricted setting.
+[15:19.00] And the idea is here in this alternate approach is simply to, as I said, enumerate what you think should be allowed.
+[15:37.00] So we're just going to enumerate the allowed operations in quantum mechanics.
+[15:45.00] And then we're going to see what we can build with these allowed operations.
+[15:50.00] So the first one, the first allowed operation in quantum mechanics is if we have a system in a specific state,
+[16:17.00] then an allowed operation is to bring in another quantum system in a specific state.
+[16:23.00] I mean, that really better be allowed, right?
+[16:27.00] And the way we describe that in the Schwerdinger picture is if your system A is in the state omega,
+[16:51.00] you are allowed to build a bigger system by adjoining a quantum system in the state sigma.
+[17:06.00] That's an allowed operation in quantum mechanics for all sigma.
+[17:23.00] And the operational picture that we have for this is that if you have the state omega, which I represent with this diagram here,
+[17:31.00] you're allowed to take that state and build a bigger state, and we get tensed sigma of the system A, B.
+[17:46.00] So that's an allowed operation in quantum mechanics.
+[18:16.00] So it's written there, this operation is not resulting from unitary dynamics because you have a state of a smaller system being transformed to a state of a bigger system.
+[18:43.00] So this is not unitary, it doesn't come from solving Schwerdinger equation.
+[18:48.00] Of course, you can argue, well, you know, that system B was always there, all I did is do nothing, right?
+[18:55.00] So that's one perspective you can take.
+[19:00.00] And if you always want to enlarge your description to include everything in that fashion, then everything will turn out to be a unitary process.
+[19:10.00] But for the purposes of describing or discarding parts of the system, so you can get rid of the environment when you want to describe your quantum system, it's convenient to allow this as a separate operation.
+[19:25.00] So the second thing we're going to allow is well unitary transforms, right?
+[19:38.00] That's one of the original postural support mechanics that's allowed.
+[19:42.00] So in a unitary transformation, in the Schwerdinger picture you take some state and you map it to some other state.
+[20:08.00] This calligraphic u of x means conjugate with some unitary, except we're working in the Schwerdinger picture, so let's do that.
+[20:27.00] That's simply allowed because we postulate that that's an allowed operation.
+[20:36.00] And the third and final allowed operation in quantum mechanics is to reduce to a subsystem.
+[20:42.00] And what that means operation is we simply do not measure things on the other system.
+[21:12.00] If we have some state on a composite quantum system comprised of two subsystems, then we are allowed to ignore system B.
+[21:24.00] If we just simply say we're never ever going to measure anything on system B, then we must be allowed to talk about the state of system A.
+[21:32.00] What's the transformation that takes this bigger state to an effective state on just A? That's better be allowed.
+[21:45.00] So we could call this the effective state or reduced state had encountered this before.
+[22:14.00] And the way we build this effective state is by only writing down those numbers that correspond to non-trivial measurements just on A and ignoring B.
+[22:32.00] So those are three. I hope fairly reasonable operations that should be allowed to us in quantum mechanics.
+[22:45.00] And the remarkable thing is with just these three operations we can build up the most general possible operation allowed according to these axioms of quantum mechanics.
+[22:57.00] And we'll prove that in the finite, well, we're not going to prove it. So I'm just going to quote the result in a finite dimensional case.
+[23:07.00] So just I'll draw a couple of pictures now of how we can mix and match these three types of operations to build fantastically complicated things.
+[23:20.00] Okay, I guess I'll leave these two boards here and do that underneath.
+[23:49.00] So the point is we got three atomic or fundamental operations were allowed and we're going to mix and match and compose them and put them together. That's also allowed.
+[24:17.00] So I'm just going to draw a graphical example. We could start with some state of, for example, a qubit and then a join another qubit in a state sigma.
+[24:37.00] Giving us a bigger effective state of a composite quantum system, AB, say two qubits, this is A, now this is AB.
+[24:45.00] And then this could be like step one in step two, we do some unitary evolution on the joint system now.
+[24:55.00] Let's also allow.
+[25:10.00] And that builds us a effective state of again, just AB, but it's a different state now.
+[25:23.00] And in step three, we could join another system.
+[25:41.00] In a state sigma C, and then which builds us an effective state of a tripod type system, and then in step four, we could do some evolution on just B and C and do nothing to A.
+[26:10.00] It's called as V. It could be a different unitary. And then we could throw out system A by simply ignoring it. That's this third possible allowed operation where we simply ignore a system.
+[26:28.00] Or I didn't draw down the picture for that. I tend to represent that as just a cross. And so then we finally end up with some effective state of the system BC.
+[26:44.00] So these were all allowed operations in quantum mechanics according to this constructive alternate approach.
+[26:53.00] And we're going to show in a second, or not show, but I'm going to quote the result to you, that the both kinds of operations you can achieve by composing these operations correspond exactly to these this axiomatic approach here where you just say we allow any operation in quantum mechanics with your base this.
+[27:14.00] This is unfortunately then true for finite dimensional systems, but this is still a pretty cool result. So this is how you build up arbitrary operations in quantum mechanics according to this constructive approach. Let me now quote this result to you.
+[27:27.00] And then we will move in the second part of this lecture to the description of many particle systems.
+[27:44.00] So let's move on to the next one.
+[28:14.00] So the most amazing result in this whole business, I think, is a theorem due to Stein spring, which proves that these two ways of dealing with quantum dynamics of quantum systems are equivalent.
+[28:40.00] I'll quote to you now the theorem, I'm not going to prove it today, although actually the proof isn't ridiculously hard.
+[28:52.00] Fairly concrete takes less than a page.
+[29:16.00] So let E be a valid CP map.
+[29:27.00] This is to say it's a linear map which preserves the identity and which is positive when you tense on identity channels.
+[29:39.00] And we're going to allow the possibility that this map takes you from a smaller system to a bigger system or from a bigger system to a smaller system.
+[29:49.00] We're going to make an N here, we're going to make that an M little M subscript little M.
+[30:00.00] Then there's some L and some operator.
+[30:30.00] Yep, I'll read it such that.
+[30:52.00] Yep, of CP, sorry I didn't define it, completely positive.
+[31:13.00] Cp means completely positive, which means any map satisfying 1 and 2.
+[32:04.00] Yep.
+[32:33.00] So this is Stein spring theorem.
+[33:02.00] So let's say it says that if you have some completely positive map which is a map satisfying axioms 1 and 2, then you can always find an operator V going from CM to CM to CL such that this map E is equivalent to taking this is now in the Heisenberg picture by the way.
+[33:25.00] So I can taking an effect of the form extensor I do the operation V and then you get an effect on your input system so you should specify somewhere this is in the Heisenberg picture.
+[33:53.00] Now it doesn't look exactly like it but it turns out that this representation here is equivalent to a composition of three of these allowed operations here.
+[34:05.00] For a picture that explains it in my moment.
+[34:35.00] So this operation V is not a unit, it's an isometry.
+[34:49.00] And then I'll draw a picture of what this theorem says so you can take the precise statement of the theorem here or you can remember the picture.
+[35:12.00] So firstly I have to clarify that the dagger V is the identity and then I will draw a picture representing this theorem.
+[35:35.00] So if you have a nice first thing to observe is that an isometry is really just a unitary acting on a bigger space where you ignore some part of that bigger space.
+[35:52.00] So if you have some isometry V, V takes some M dimensional vector to some N tensor L times L dimensional vector here then that's always you can always write that as a unitary where you have some input state zero.
+[36:21.00] Actually awkwardly it's not quite always the case if N times L doesn't equal M times the dimension of this space here it doesn't work I'm going to just sort of brush over this detail.
+[36:42.00] So every isometry as long as these numbers are correct you can think of it is just a unitary on a bigger space where you have some additional degrees of freedom in a specified vector like that.
+[36:56.00] There's a way to fix this with direct sums but let's just pretend that M times the dimension of this additional system here is exactly equal to N times this L here.
+[37:09.00] Now since that's the case then what this theorem here is actually saying is that every CP map on a finite dimensional system like that so every possible allowed transformation according to this first approach this axiomatic approach here.
+[37:28.00] You can represent any such transformation as as a unitary as in this is now in the tediously in the Schrodinger picture so I'm afraid in this course you'll have to get very good at just flipping between these two pictures.
+[37:57.00] So e star means exactly the map e but in the Schrodinger picture it's just used e dagger to be consistent with the previous lectures every transformation allowed by quantum mechanics described in the Schrodinger picture can be written as
+[38:21.00] Tensoring in this an additional system in some state zero or in this case five some unitary operation followed by reduction to a subsystem.
+[38:33.00] So there's three steps tense in a new ancillary subsystem in a state five perform a unitary operation finally reduced to a subsystem.
+[39:03.00] And those are exactly the three allowed operations that we described so this is tensor anciller this is unitary and this third step is reduction.
+[39:24.00] So this theorem is truly remarkable theorem it says that if you are if the bare minimum demand from a quantum dynamics is that it satisfies these two axioms then any such map that satisfies these two things here actually can be written as a composition of three of these allowed operations of quantum mechanics.
+[39:51.00] And this is what allows us to describe all allowed operations in quantum mechanics by simply forgetting these conditions most for the most part we often just talk about the allowed operations of quantum mechanics as being combinations of unitary evolutions and reductions to subsystems meaning what I said at the beginning of the lecture is that your system is prepared in some state that's uncoupled with the environment interacts with the environment and then you throw away.
+[40:21.00] So this is one part of the system sadly this theorem is only true for finite dimensional systems which is a bit of a pain because we're going to talk about infinite dimensional quantum systems even today.
+[40:37.00] Now that is sort of throws up some interesting philosophical questions such as are there processes that we should allow in quantum mechanics that can't be written as a composition of.
+[40:51.00] We're answering in something some Schrodinger dynamics and some tracing out the answer is yes there are processes that can't be written that way for infinite dimensional systems and that's an interesting observation I think because although we won't really encounter this in our course because we're always going to have some closed system in the back of our minds will have say an atom and the electromagnetic field and we'll just always think about that as a closed system.
+[41:21.00] There are cases where you might wonder if there are dynamics allowed in quantum mechanics that don't allow you to have a bigger closed system and one one example that's currently very controversial and creating a lot of discussion is that of a black hole.
+[41:39.00] So if you have a quantum system with describing a black hole should you think of that as just the unitary dynamics of some bigger thing right you know the stuff that goes in the black hole is not destroyed but hangs around somewhere or could it be that there are dynamics of the universe is fundamentally irreversible that it it preserves the identity so probability is conserved.
+[42:06.00] It preserves positivity so legal measurements are still legal measurements after this dynamics occurs but that something really is lost.
+[42:15.00] Now there's lots of arguments about that in the literature right now and the jury is definitely out on this topic but it's allowed I want to stress that it's it is possible for infinite dimensional systems to have dynamics that are irreversible but yet do not admit a description like this.
+[42:37.00] In contradiction to what you might have heard which is that it's you might have heard people declare that the only possible way to conserve probability and quantum mechanics is by unitarity so that that's what they're referring to is essentially the stone spring result here because yeah I mean the only thing that's really nontrivial in this whole story is this you here.
+[43:01.00] I mean the tensoring in bit is not really any dynamics and the ignoring something is not really a new dynamics and so the reason probability is conserved is sort of this this you part here.
+[43:13.00] But if you don't get to use this representation then it becomes nontrivial.
+[43:20.00] It is possible to have dynamics of quantum systems that are not unitary that yet still preserves probability.
+[43:26.00] So I want to stress that point strongly because you will hear people declared the opposite.
+[43:39.00] And then the next stage is that they will say oh yes well that's true but that's not consistent with Lawrence invariants.
+[43:47.00] So they might you might hear you might see it written or you might hear people say that the only way to preserve Lawrence invariants and conserve probability is by unitary dynamics like this.
+[44:01.00] This also turns out to be false although I can't give you the paper because it's still unpublished from a colleague of mine.
+[44:09.00] There is you'll just have to believe me which is a there is there is an example of a system which has Lawrence invariants which conserves probability and which you cannot write like this.
+[44:25.00] I claim this is a true statement but you just have to believe.
+[44:29.00] I have one question from other stands please.
+[44:39.00] Oh what is L in this?
+[44:41.00] Yes so N so the question is roughly if I compare a phrase the question is well what we know M and N right because they correspond to the observables of a q knit and a q knit.
+[44:54.00] What's L in this theorem? How big is L? So there is a bound on L. L doesn't have to be infinite for this to be true.
+[45:06.00] I don't know of the top of my head I think you can bound it above by M squared times N squared.
+[45:11.00] So there's always this L doesn't have to be infinite you can be some finite number and that finite number can be smaller than at least M squared times N squared I think I have to check that.
+[45:23.00] The V is an isometry so that means it goes it's a it's an operator where V times yeah V dagger times V is the identity but V times V dagger is not necessarily the identity could be the identity but so that's what that.
+[45:51.00] You have some system of M levels you apply an operation to it and now you have a system with N times L levels if M does not equal N times L then it's an isometry in general.
+[46:07.00] That's it for dynamics in this course. That's the end of a quick summary of all of quantum mechanics the axioms of quantum mechanics or the postulates.
+[46:21.00] Today we're going to move on now to the more serious business of modeling the environment part of our system environment picture.
+[46:37.00] So all of this discussion up so far has been to reassure us that the way to describe systems interacting with environments is by preparing your system and environment in some state allowing it to evolve according to Schrödinger's equation and then throwing out the environment so far that's all we've done in this course that say that that's how we're going to do things but now we got to get to the business of modeling this the environment.
+[47:03.00] And that brings us to the topic of many particles we're going to have to deal with quantum mechanical systems which have more than one particle in it or perhaps an indefinite number of particles.
+[47:19.00] So the environments we interact with on our everyday typically comprised of many many many particles 10 to the 23 particles or more.
+[47:34.00] The electromagnetic field in this room is comprised of zillions and zillions of photons and we're interacting with it.
+[47:42.00] So in some sense we're going to have to deal with the fact that we've got these photons there even if we're going to trace them out and ignore them at the end of the day.
+[47:52.00] So how are we going to talk about many particle systems in quantum mechanics? Well the first thing is we know how to compose two systems right that was something we already covered.
+[48:06.00] So let me write out the question.
+[48:36.00] That's the question we're going to concern ourselves with today. How are we going to describe systems in quantum mechanics that are made of possibly indefinite number of particles?
+[49:05.00] So indefinite means that particles can be created and or destroyed. And that's the case for very many systems the electromagnetic field is a good example in solid state physics systems where there's group of pairs, group of pairs can be created and destroyed.
+[49:33.00] There's an indefinite number. There can be an indefinite number of particles.
+[49:50.00] As we go on in this course we're going to become very specific. We're going to model the environment as a bunch of photons.
+[49:56.00] The environment will invariably be in this course the electromagnetic field and it will be in some thermal state. That's where we're going to go in this course and that thermal state will be one that you can model using quantum electrodynamics and we'll write down an actual state.
+[50:16.00] That's how we'll model the environment for the most part of this course. But it costs us not so much extra work to talk about the completely general situation.
+[50:27.00] So I can't resist doing that to give you the most general way of describing environments with an indefinite number of particles and then basically immediately we're going to go to annihilation and creation operators and talk about the electromagnetic field.
+[50:41.00] That's where we're going.
+[51:02.00] So the first step is to describe the composition of n quantum systems. You have to remember the way we do that is by the tensor product.
+[51:17.00] So if we have n quantum systems a1, a2, a3, an with observable algebra's meaning bunch of matrices.
+[51:38.00] The way we do that is by the tensor product symbol tensor.
+[51:58.00] So so this bunch of matrices there
+[52:27.00] determines all the possible observations you could make on the composition of a1, a2 or the way up to an. That's just a reminder.
+[52:38.00] But that's not sufficient for the task of describing a quantum system which has an indefinite number of particles.
+[52:46.00] Indefinite means that it may have 1 or 2 or 3 or 4 or 4 or 5 or so on all the way up to infinity particles.
+[52:54.00] We need a different we need to describe that using something more than just this.
+[53:01.00] And the canonical example to keep in mind is the harmonic oscillator or a mode of the electromagnetic field.
+[53:07.00] If you have a wave guide in a zero, zero mode, you put stacking photons in there one up to the other.
+[53:14.00] You don't necessarily have a definite number of photons in the wave guide.
+[53:19.00] So you need to find some way. I mean we need to talk about it some way, right?
+[53:23.00] We need to at least write down something in mathematics that will model that.
+[53:36.00] These particles don't necessarily have to be identical particles. So what I'm going to do is going to describe how to just to model an indefinite number of not necessarily identical particles.
+[54:01.00] And then say, well, what if they are identical? How do we do that then? That's the next step.
+[54:16.00] And to reduce the suspense, the answer will be fox base.
+[54:24.00] So before we get to our fox base, we're going to talk about the Hilbert space for this composite system here.
+[54:48.00] Because we're going to do things in terms of Hilbert space here. So the corresponding Hilbert space for this composite tensor program A1, A2, A3, so on. That's just easy.
+[54:58.00] We're going to give it a symbol. Now this is my fructour H. So it's an H.
+[55:28.00] Actually, you'll do it this way first. A1, A2.
+[55:56.00] So far, I've said basically nothing of just reminding you of how to compose quantum mechanical systems. So if you have a composite quantum systems of n different subsystems each with their own Hilbert space, H. A1, H. A2, all the way up to H. A n, then the Hilbert space for this composite system is just a tensor product of these Hilbert space.
+[56:20.00] We already met that. To discuss an indefinite number of particles, we're going to build a new Hilbert space.
+[56:37.00] And to make things a bit simpler, we're going to assume that each of these particles lives in the same Hilbert space, same single particle Hilbert space.
+[57:02.00] So each with a single particle Hilbert space, H, we introduce Fox space.
+[57:30.00] So this is the Hilbert space now. We just here by defining this.
+[57:58.00] Fox space is the way we're going to model a system with an indefinite number of particles.
+[58:27.00] I haven't told you what H n is but I will in a second. H superscript n is just a tensor product of H n times.
+[58:51.00] Where I have to give some definitions. H naught is defined to be the complex number C.
+[59:18.00] H n is the n-fold tensor product of H.
+[59:48.00] So this is a Hilbert space. So I have to worry about closing it. No, let's not close it.
+[60:05.00] Each of these Hs is a Hilbert space. If you take the direct sum of two Hilbert spaces, you get another Hilbert space. This is an infinite direct sum because n is not bounded from above.
+[60:19.00] So we've now even though our little H, the thing modeling our single particle space might be a two level atom. If we have an indefinite number of two level atoms, then the smallest space that would be able to describe an arbitrary state of that is infinite dimension.
+[60:36.00] You have to admit that there may be another atom. So if you ever had a bound on the dimension of a Hilbert space, every time you bring in a new atom, you have to have a bigger space.
+[60:47.00] Fox space has to be infinite dimensional. It's only mildly infinite. Probably won't make that statement precise in this course. There's worse kinds of infinity out there.
+[61:00.00] This is only a little bit infinite. And so we have to, that's the space we declared to describe a system with an indefinite number of particles.
+[61:15.00] Now I think you're entitled at this point to ask why? Why the direct sum, why the tensor product like that? Couldn't you have just written a tensor product there?
+[61:27.00] And the answer is yes, I could have. That space would be bigger than this Fox space. It would certainly allow us to describe an indefinite number of particles. But it has a kind of unfortunate side effect. If you replace, if you replace this with a tensor product, an infinite tensor product, it has an unfortunate side effect that it allows too many states, the states for which we can't interpret in that space.
+[61:51.00] They allow things like super positions between crazy stuff. I can't even, I don't know, if you want it to stay awake at night, think about this earth, that could mean.
+[62:04.00] So the answer is, why would we do this? Because it's the smallest space that gives us a vector for each state we think ought to be there. If that's the justification, that's the justification.
+[62:34.00] So what does a state in Fox space look like? At the moment, this doesn't look like the Fox space you've already met. We're going to get there, but at the moment it doesn't look quite like it. So what does states in this Fox space look like? Well, they're lists, they're basically a list of vectors.
+[62:59.00] So we've got the, we have to have some kind of state for H naught. You have to see what that is. We have to have some kind of state for H1.
+[63:14.00] And I'm going to put cats around these.
+[63:24.00] So alpha naught is a state in H naught, which is just the complex numbers. So alpha naught is really just some complex number alpha naught.
+[63:44.00] Alpha 1 is some element of H. So it's like some vector. Alpha 2 is an element of H, tensor H. So it's a more complicated vector, possibly, and so on. It's an infinite list of vectors, which eventually becomes zero.
+[64:13.00] I won't quantify that statement. We're not going to do the full rigorous functional analysis definition in this course. So I'm going to appeal to your physical intuition. A valid state in Fox space is a list of states of these bigger and bigger systems, which eventually becomes zero.
+[64:42.00] So that means as N gets bigger here in this list, those vectors are going to get closer and closer to zero. So note that these vectors aren't normalized. That's crucial.
+[64:54.00] We don't have necessarily that these guys are equally one.
+[65:18.00] Hopefully in the next 20 minutes or so, I'll be able to bring this down to Earth and talk about the photons that you know about already.
+[65:45.00] So this space is still too big because this is for many practical purposes. So if you were to describe a system of an indefinite number of distinguishable particles, ones that you can give a name to Alice, Bob, Rosemary, each of these particles has a name. There may be an indefinite number in the room, but you can give them all a name and you know who they are.
+[66:06.00] Then that's the space for you and this sometimes is the right space, but today it's not the right space. If you want to talk about photons or electrons or other fundamental particles, we know that they are identical.
+[66:19.00] How do we know that? Well, because of the Gibbs paradox. So actually you can...
+[66:32.00] There would be thermodynamic consequences of particles not being identical. I won't go into that today.
+[66:43.00] But we do know that particles are identical. If you have a photon from a Phillips light bulb, it's exactly the same photon. If you put the set of light bulb up as a photon from some generic light bulb, there's no way to distinguish them if they have the same quantum numbers.
+[67:01.00] So we want to talk about identical particles.
+[67:19.00] To talk about identical particles, we're going to observe something about identical particles, meaning that if you have two identical particles and you swap them, well, you have the same state, the same system afterwards.
+[67:44.00] And the way we build the space, the focus space for identical particles is we start with the focus space for not identical particles and we simply identify all those states that should be the same. That's it. Nothing more to it.
+[67:58.00] And when you have a vector space and you want to identify two vectors, there's essentially a unique way to do that by projection. So we're going to project out everything that's not the same. You can do a quotient, but that's the same.
+[68:19.00] So the way we're going to build this projection is we simply take some, we start by looking at n particles and we project out anything where these guys are not the same.
+[68:36.00] Same means if you swap them, you get the same thing and that's what we're going to do.
+[68:58.00] So we build this linear map here, pn plus minus, where there's a whole bunch of stuff here that I haven't explained yet, so I have to explain it, where n is n, so I don't need to explain that.
+[69:15.00] This is the symmetric group, so called symmetric group of all permutations of the numbers 1 through to n.
+[69:46.00] S n is a set of all permutations of the list of numbers 1, 2, 3, all the way up to n.
+[69:57.00] So if you give a permutation a number, it will give you back another number between 1 and n.
+[70:04.00] If you put in a different number, you'll get a different number, so they're 1 to 1 and on 2.
+[70:16.00] That's the first thing I need to tell you what it is. Then what's this epsilon pi plus minus thing?
+[70:23.00] So this is a character of the symmetric group, another fancy word for saying a number.
+[70:34.00] So how about, I'll just define it.
+[70:44.00] Let's start with E plus, that's just the number 1, nothing complicated there.
+[71:03.00] If however you put a minus there, then you get plus 1 or minus 1 depending on.
+[71:31.00] Let's consider the case n is 3, we have some permutation which takes 1 to 2, 2 to 3 and 3 to 1.
+[71:59.00] How many transpositions do we need? And then you can draw a diagram for this, 1, 2, 3, 1, 2, 3.
+[72:13.00] That's how we describe this permutation. How many transpositions did we need to make this pi? What's a transposition? It's when you just exchange two numbers.
+[72:23.00] Well we can build it with transposing 1 and 2 and then following that with a transpose between 2 and 3, I think, let's try that out.
+[72:46.00] There we go, to give it like that, there's a product of two transpositions. That sort of doesn't work, so that's wrong, but isn't it?
+[72:58.00] How is that right? 2 goes to 1, other way, right?
+[73:18.00] There we go, so you can write pi as a composition of two transpositions. First you transpose 1 and 2 and then you transpose 2 and 3. And according to that, e of pi is 1.
+[73:39.00] If pi was just a single transposition, e of pi would have been minus 1 and so on. So it's either minus 1 or plus 1.
+[74:09.00] There we go.
+[74:32.00] So I've only defined pi on these product vectors, but you can go away and check that if you extend it by linearity you get a projection. So pi becomes a projection operator.
+[74:52.00] And then in terms of pi, we're going to build our Fox space for identical particles.
+[75:04.00] Then let's do it. So both of Fox space, this is now this Hilbert space we're going to attach by definition to a system, an indefinite number of identical particles, each with a single particle Hilbert space h.
+[75:31.00] And we call it f plus of h and its definition is the infinite direct sum as before. So it's almost exactly the same as this Fox space for distinguishable particles, except we're going to apply this projection p.
+[76:00.00] Oops, there's a minus there. Well, you know what? Let's do both of them at once because we can.
+[76:18.00] That's the whole beauty of this notation. You can do the bosons of the fermions all at the same time. And Fermi Fox base.
+[76:37.00] So basically in this course, we're going to ignore fermions. We're never going to really talk about them because life is complicated enough with bosons. There are certainly situations where you'll have an environment modeled by a path of fermions. That's what happens in metal.
+[76:53.00] Metal is a big sea of fermions. And if you have some quantum dot embedded in your metal, then your environment, the natural environment as well, the electromagnetic field, which couples with your dot, but also the sea of fermions that are flooded through the conductor.
+[77:13.00] So there are situations where we'll certainly want to talk about Fermi Fox base, but probably in this course, just to keep things simple, we'll just talk about the electromagnetic field. And so from the outset, I'll be kind of deemphasizing the fermions.
+[77:30.00] But everything we say in this course will be true for fermions as well.
+[77:41.00] Good.
+[78:12.00] Let's see what we're going to do now. We're going to talk about, I guess, we'll talk about creation and annihilation operators.
+[78:30.00] Yeah, why not? We'll do that now. And then next week, we'll talk about second quantization super briefly before we move on to Gaussian states.
+[78:43.00] And those are the states which probably concern most of you here. Good.
+[79:00.00] So we have this gigantic infinite dimensional Hilbert space that describes an indefinite number of bosons with this internal Hilbert space age.
+[79:12.00] Before I move on to annihilation creation operators, I should give you an example, right? So an example of a single particle Hilbert space is, say, the mode functions for a standing wave of light.
+[79:38.00] So let's think of a cavity now.
+[79:53.00] All right. So the standing, if you just look at these mode shapes for a cavity of light, there's an infinite number, right? You can label them by integers.
+[80:07.00] And the Hilbert space for a single photon inside a cavity is just some vector for a harmonic oscillator, right?
+[80:37.00] Well, here's the fancy way of writing it. So if you like that kind of thing, that's your kind of thing.
+[80:50.00] If you don't, then it's any vector, psi, h is the space of any vector of this form, psi is an infinite sum of these single particle mode shapes.
+[81:13.00] And this is already infinite dimensional, right? A single photon in a cavity has an infinite dimensional configuration space.
+[81:22.00] And when you talk about multiple photons in a cavity, an indefinite number of photons in the cavity, then you have a whole lot more of possible states available to you.
+[81:42.00] So it's big, right? It's an infinite collection of harmonic oscillators, if you like.
+[81:49.00] But what typically happens is if you cool things down a lot, and you stabilize things, I'm not the expert here, I think some of you work with cavities here, I'm not sure.
+[82:00.00] At least one person does, right? If you're really, really good, right, you can get it so that all the photons in the lowest mode,
+[82:11.00] you can arrange things so that all the higher modes are not occupied.
+[82:24.00] So if only the lowest mode is occupied, then all your states will live in a smaller subspace of fox space.
+[82:34.00] And I'm not going to fit it.
+[82:56.00] Alright, I'll erase this part of the board. So if your photons are restricted to the lowest mode, you still have an indefinite possible number of photons in that single mode, there's only one mode here.
+[83:27.00] So I will continue this down on this board. I'll get rid of span by it, I don't like that.
+[83:44.00] All of the states you will encounter, if only the lowest mode is occupied, is fox space built on the Hilbert space C.
+[83:54.00] Right, only one possible mode is ever touched in your single particle Hilbert space, namely the zeroth mode.
+[84:03.00] You have an indefinite number of particles all indefinitely in that zeroth mode, but you just don't know how many there are.
+[84:11.00] And is this space finite dimensional or otherwise, no, it's infinite dimensional? Right, this is, we look at the definition.
+[84:30.00] But here's something dramatic happens, right, because h is now just c, it's not an infinite dimensional space.
+[84:37.00] Now h is just one dimensional vector space. This is what the few places where a lovely cancellation occurs, right, the tensor product of two one dimensional vector spaces is a one dimensional vector space.
+[84:48.00] And actually to these, some spaces here that correspond to zero photons, one photon, two photon, three photon.
+[85:19.00] Alright, in the last five minutes, I will talk about, just write down your question.
+[85:42.00] For multiple modes, the small h is the direct sum.
+[85:48.00] So if you know for sure that your cavity has photons in mode zero and mode one, but no higher, then it's the direct sum of c with itself, which is c2.
+[85:58.00] But now h is big, right, f of h becomes a lot bigger, super big.
+[86:05.00] Because now you've got an effective spin, each photon has an effective spin, if you like, effective, effective spin half degree of freedom.
+[86:14.00] And now you have to say what each photon has, is it sort of a superposition of zero and one, or, alright, we are running out of time for today.
+[86:25.00] So I'll just write out the definition of the annihilation and creation operator. I'll write out the definition for the annihilation and creation operators.
+[86:32.00] And next week we will get into the business of modeling photon fields and things like that.
+[86:41.00] So here's the formal mathematical way of doing it. Suppose you have some single particle state, like a mode shape.
+[86:51.00] I'm going to define two objects. They're going to be operators which eat a vector from our fox base and give us another vector from our fox base.
+[87:15.00] Oops, just f of h. We're back to indefinite fox base. So whenever I don't have a plus minus here, you've got to remember that this indefinite fox base.
+[87:45.00] Alright, this operator A, if you apply it to a vector of the form just f naught, like this first element of the direct sum, then it's defined to be zero.
+[88:14.00] Now remember, f naught is an element of the Hilbert space C. So it's just a number.
+[88:24.00] And if you apply A dagger to just the number you're given a vector now in h.
+[88:41.00] So this is how A acts on the subspace h naught. This is how A acts on the subspace h one. Now we'll say how A acts on the subspace h n.
+[88:54.00] So this will look unfamiliar to you. I'm sure I don't pretty sure you haven't encountered fox base looking like this before, but we will connect this with the cavity type picture soon.
+[89:11.00] So if you have a vector in the subspace h n, how does A act? Well, this way, square root of n. Now it should start to look kind of familiar.
+[89:27.00] And it gives us an element of h n minus one.
+[89:40.00] Similarly, what happens if you do a dagger on an element of h n? Well, you get this element of h n plus one.
+[90:05.00] So these funny A operators which sort of look like creation and annihilation operators, but sort of not. These are the building blocks for what will be the creation of annihilation operators.
+[90:34.00] So so far these guys work on states of it.
+[91:03.00] States of a distinguishable particles. This is not photons here or fermions. It's just nothing else. It's or something else. The way we're going to get out the annihilation and creation operators that you I hope are much more familiar with is by projecting out everything that's not identical.
+[91:33.00] And we have, so these things, I hope start to look familiar. This looks this thing here. This f is the internal state of the particle you're annihilating or creating.
+[92:02.00] So if your particle has an internal spin or an internal angular quantum number, then you can create an instance of it with this operator here or annihilate an instance of it with this operator here.
+[92:17.00] So this notation is slightly odd. I mean people would notate this slightly differently. And I'll show you that next lecture. But that's what the interpretation of these operators is. And they obey some relations. And these I hope will be familiar to you. I'll write them all in a combined form.
+[92:47.00] So we can do bosons and fermions all at the same time for most of this discussion.
+[93:17.00] So I'll write them all in a combined form.
+[93:47.00] So this is all super general. It's so general that we can talk about fermions and bosons at the same time. We can talk about internal levels.
+[94:10.00] We can talk about a whole bunch of, we can talk about distinguishable particles. And you don't need to remember all of this. What most of this course will be focused on is very specific examples of these operators that you should be familiar with and which model the electromagnetic fields.
+[94:30.00] That will be our main focus. We'll get to that specific example in the coming weeks. And simply regard this as some formalism that allows you to talk about all of these systems that one go without having to do it on a case by case basis.
+[94:48.00] All right, that's it. Oh, wait a question.
+[94:58.00] Oh, you're right. Yeah, thank you. It should be minus plus shouldn't it because we have bosons which have a commutator and fermions which have an anti commutator. Thank you.
+[95:06.00] Yeah, that's absolutely correct. Or okay, I guess the notation is correct, but it's not what you want. So let's change it around, shall we?
+[95:26.00] We should have done minus plus all the way through here. That would now conform to, I guess, the standard notation that people would have for commutators and anti commutators.
+[95:51.00] All right, that's it for today. Thank you very much.

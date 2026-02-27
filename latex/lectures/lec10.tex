@@ -1,0 +1,259 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 10 — Fermionic Master Equation and Repeated Measurements
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 5 (Lindblad equations); opens Section 7
+% (Classical noise and stochastic calculus).
+
+\subsection{Quantum-dot master equation}\label{sec:dot-master-eq}
+
+We return to the fermionic system introduced in the previous lecture:
+a single quantum dot coupled to two external leads (source~$L$ and
+drain~$R$) by the Hamiltonian
+\begin{equation}\label{eq:dot-hamiltonian}
+  H = \underbrace{%
+    \sum_{k}\epsilon_k\, a_k^\adj a_k
+    + E_c\, c^\adj c
+    + \sum_{p}\epsilon_p\, d_p^\adj d_p}_{H_0}
+  + \underbrace{%
+    \sum_{k} T_k\, a_k^\adj c
+    + \sum_{p} T_p^{\prime}\, c^\adj d_p
+    + \text{h.c.}}_{V}\,,
+\end{equation}
+where $a_k$ annihilates a fermion in mode~$k$ of the source, $c$ is
+the annihilation operator for the single bound state of the dot
+(energy~$E_c$), and $d_p$ annihilates a fermion in mode~$p$ of the
+drain.  An external voltage biases the leads so that electrons flow
+from source to drain through the dot.
+
+\begin{intuition}[Fermionic analogue of cavity decay]
+  This model is the fermionic counterpart of the optical cavity
+  coupled to input and output modes: electrons transit through the
+  dot just as photons transit through a cavity.
+\end{intuition}
+
+\subsubsection{Interaction picture and reservoir correlators}
+
+Going to the interaction picture with respect to~$H_0$ and expanding
+the von~Neumann equation to second order---exactly as in the
+Born--Markov derivation for cavity decay---the dynamics depend on two
+types of non-vanishing reservoir correlators:
+\begin{equation}\label{eq:correlators}
+  C_n^{(L)}(\tau)
+  = \sum_k \lvert T_k\rvert^2\,
+    \bar{n}_k^{(L)}\, e^{-i(\epsilon_k - E_c)\tau}\,,
+  \qquad
+  C_a^{(L)}(\tau)
+  = \sum_k \lvert T_k\rvert^2\,
+    (1-\bar{n}_k^{(L)})\, e^{i(\epsilon_k - E_c)\tau}\,,
+\end{equation}
+with $\bar{n}_k^{(L)} = \expect{a_k^\adj a_k}_\beta$ the thermal
+occupation of mode~$k$ in the source (analogous expressions hold for
+the drain).  The anti-normally ordered correlator~$C_a$ is non-zero
+because of fermionic anti-commutation relations---absent in the
+bosonic case.
+
+\subsubsection{Continuum limit and Markov approximation}
+
+Replacing the discrete mode sum by an integral with density of
+states~$\rho(\omega)$, only frequencies near~$E_c$ contribute
+appreciably (stationary-phase argument).
+
+\begin{keyresult}[Fermi--Dirac occupation]
+  The mean occupation of a fermionic mode at energy~$\omega$ is
+  \begin{equation}\label{eq:fermi-dirac}
+    \eqbox{\bar{n}(\omega)
+    = \frac{1}{e^{\beta(\omega - \omega_F)} + 1}}\,,
+  \end{equation}
+  where $\omega_F$ is the Fermi energy.  At low temperature,
+  $\bar{n}(\omega) \to \Theta(\omega_F - \omega)$: all modes below
+  the Fermi surface are filled.
+\end{keyresult}
+
+The bias sets $E_c < \omega_F^{(L)}$ and $E_c > \omega_F^{(R)}$;
+at low temperature $\bar{n}^{(L)}(E_c) \approx 1$ and
+$\bar{n}^{(R)}(E_c) \approx 0$.  The Markov approximation then
+yields effective coupling rates
+\begin{equation}\label{eq:gamma-rates}
+  \frac{\gamma_L}{2}
+  = \pi\,\rho(E_c)\,\lvert T(E_c)\rvert^2\,
+    \bar{n}^{(L)}(E_c)\,,
+  \qquad
+  \frac{\gamma_R}{2}
+  = \pi\,\rho(E_c)\,\lvert T'(E_c)\rvert^2\,
+    \bigl(1 - \bar{n}^{(R)}(E_c)\bigr)\,.
+\end{equation}
+
+\subsubsection{Master equation for the dot}
+
+Following the same steps as for cavity decay, the master equation for
+the reduced state~$\rho$ of the dot ($\hilb \cong \C^2$) is
+\begin{equation}\label{eq:dot-lindblad}
+  \eqbox{\frac{\dd\rho}{\dd t}
+  = \gamma_L\Bigl(c^\adj\rho\, c
+      - \tfrac{1}{2}\{c\, c^\adj,\,\rho\}\Bigr)
+  + \gamma_R\Bigl(c\,\rho\, c^\adj
+      - \tfrac{1}{2}\{c^\adj c,\,\rho\}\Bigr)}\,.
+\end{equation}
+The first term describes electrons tunnelling \emph{onto} the dot
+from the source (rate~$\gamma_L$); the second describes electrons
+tunnelling \emph{off} the dot into the drain (rate~$\gamma_R$).
+
+\begin{remark}
+  Since the dot has one bound state and the electron is spin-polarised,
+  the fermionic super-selection rule forbids superpositions of
+  $\ket{0}$ and $\ket{1}$; the dynamics reduce to a single number.
+\end{remark}
+
+\subsubsection{Solution: occupation dynamics}
+
+Defining $\expect{\hat{n}} = \tr(c^\adj c\,\rho)$ and using
+fermionic identities ($c^2 = 0$, $(c^\adj c)^2 = c^\adj c$), one
+obtains
+\begin{equation}\label{eq:occupation-ode}
+  \eqbox{\frac{\dd}{\dd t}\expect{\hat{n}}
+  = \gamma_L\bigl(1 - \expect{\hat{n}}\bigr)
+    - \gamma_R\,\expect{\hat{n}}}\,.
+\end{equation}
+The steady-state occupation is
+$\expect{\hat{n}}_\infty = \gamma_L / (\gamma_L + \gamma_R)$,
+and the full solution with initial condition
+$\expect{\hat{n}}(0) = n_0$ reads
+\begin{equation}\label{eq:n-solution}
+  \expect{\hat{n}}(t)
+  = \expect{\hat{n}}_\infty
+    + \bigl(n_0 - \expect{\hat{n}}_\infty\bigr)\,
+      e^{-(\gamma_L + \gamma_R)\,t}\,.
+\end{equation}
+Regardless of its initial state, the dot relaxes exponentially to
+$\expect{\hat{n}}_\infty$ at rate $\gamma_L + \gamma_R$.
+
+\begin{exercise}\label{ex:derive-dot-lindblad}
+  Derive~\eqref{eq:dot-lindblad} by carrying out the Born--Markov
+  procedure for~\eqref{eq:dot-hamiltonian}, replacing the bosonic bath
+  correlators with~$\gamma_L/2$ and~$\gamma_R/2$.
+\end{exercise}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Lindblad structure: a general pattern}%
+\label{sec:lindblad-pattern}
+
+The master equations derived so far---two-level atom, cavity decay,
+quantum dot---all share the \emph{Lindblad form}:
+\begin{equation}\label{eq:generic-lindblad}
+  \frac{\dd\rho}{\dd t}
+  = -i[H_{\mathrm{sys}},\,\rho]
+    + \sum_j \gamma_j\,\mathcal{D}[L_j]\,\rho\,,
+  \qquad
+  \mathcal{D}[L]\,\rho
+  = L\rho L^\adj
+    - \tfrac{1}{2}\{L^\adj L,\,\rho\}\,.
+\end{equation}
+
+\begin{intuition}[Why always Lindblad form?]
+  Complete positivity of the evolved state for all~$t \geq 0$, under
+  the Markov assumption, severely constrains the generator.  The
+  Lindblad theorem (forthcoming) shows
+  that~\eqref{eq:generic-lindblad} is the \emph{most general} such
+  generator.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\section{Classical noise and stochastic calculus}%
+\label{sec:classical-noise}
+
+\subsection{Repeated quantum measurements}%
+\label{sec:repeated-measurements}
+
+We now present a derivation that provides perhaps the clearest
+physical intuition for the Lindblad structure.  It arises from a model
+of \emph{repeated quantum measurements} due to Caves and
+Milburn~\cite{CavesMilburn87}.
+
+\begin{historical}[Caves--Milburn (1987)]
+  In the Caves--Milburn model the Lindblad master equation arises
+  \emph{exactly}---not as an approximation---from repeatedly coupling
+  a system to independent meters.
+\end{historical}
+
+\subsubsection{The setup}
+
+Consider a system~$S$ with Hamiltonian~$H_{\mathrm{sys}}$ and
+$n$~independent meters $M_1, \ldots, M_n$ (free particles).  The
+total Hilbert space is
+\begin{equation}\label{eq:total-hilb}
+  \hilb_{\mathrm{tot}}
+  = \hilb_S \tp \hilb_{M_1} \tp \cdots \tp \hilb_{M_n}\,.
+\end{equation}
+The system evolves freely except at discrete times $t_j = j\tau$,
+when it interacts instantaneously with meter~$M_j$ via the
+\textbf{von~Neumann measurement Hamiltonian}
+\begin{equation}\label{eq:vn-hamiltonian}
+  \eqbox{H_{\mathrm{int}}^{(j)}
+  = \kappa\, \hat{A} \tp \hat{p}_j}\,,
+\end{equation}
+where $\hat{A}$ is the system observable to be measured, $\hat{p}_j$
+is the momentum of meter~$j$, and $\kappa$ controls the interaction
+strength.
+
+\subsubsection{Von Neumann measurement prescription}
+
+\begin{definition}[Von Neumann measurement model]%
+\label{def:vn-measurement}
+  The meter is prepared in the position eigenstate
+  $\ket{x = 0}_{M}$.  The system--meter composite evolves under
+  $H_{\mathrm{int}}$ for a time~$\tau$, producing the unitary
+  $U = \exp(-i\kappa\tau\, \hat{A} \tp \hat{p})$.
+\end{definition}
+
+Expanding $\ket{\psi} = \sum_j c_j\ket{\alpha_j}$ in the eigenbasis
+of~$\hat{A}$, the initial product state
+$\ket{\Psi(0)} = \ket{\psi} \tp \ket{x=0}_M$ evolves to
+\begin{equation}\label{eq:posterior-entangled}
+  \eqbox{\ket{\Psi(\tau)}
+  = \sum_j c_j\,\ket{\alpha_j}
+    \tp \ket{x = \kappa\tau\alpha_j}_M}\,,
+\end{equation}
+since $e^{-i\kappa\tau\alpha_j\hat{p}}$ is the translation operator
+shifting position by~$\kappa\tau\alpha_j$.  Each eigenvalue is now
+correlated with a distinct pointer reading.
+
+\begin{keyresult}[Effective projective measurement]
+  A subsequent projective measurement of the pointer position yields
+  outcome $x = \kappa\tau\alpha_j$ with probability~$|c_j|^2$, and
+  the system collapses to~$\ket{\alpha_j}$.  This reproduces the
+  textbook measurement postulate for~$\hat{A}$.
+\end{keyresult}
+
+\subsubsection{Repeated measurements and scaling regimes}
+
+The full time-dependent Hamiltonian is
+\begin{equation}\label{eq:repeated-H}
+  H(t) = H_{\mathrm{sys}}
+  + \kappa \sum_{j=1}^{n}
+    \delta(t - j\tau)\;\hat{A} \tp \hat{p}_j\,.
+\end{equation}
+The physics depends on the scaling of~$n$ and~$\kappa$:
+\begin{itemize}
+  \item \textbf{Strong coupling} ($\kappa$ large): each interaction
+    is nearly projective.  Increasing the measurement rate freezes the
+    system in an eigenstate of~$\hat{A}$---the \textbf{quantum Zeno
+    effect}.
+  \item \textbf{Weak coupling} ($\kappa \to 0$, $n$ fixed): the
+    meters decouple; the system evolves unitarily under
+    $H_{\mathrm{sys}}$.
+  \item \textbf{Intermediate scaling} ($n \to \infty$,
+    $\kappa \to 0$, $n\kappa^2$ fixed): the meters exert a finite
+    back-action.  This yields a Lindblad master equation and provides
+    a transparent model for environmental decoherence.
+\end{itemize}
+
+\begin{intuition}[The Goldilocks regime]
+  Each individual measurement barely disturbs the system, but
+  infinitely many weak measurements produce continuous, irreversible
+  evolution---precisely how a thermal environment induces decoherence.
+\end{intuition}
+
+The derivation of the Lindblad equation from this
+repeated-measurement model will be carried out in the next lecture.

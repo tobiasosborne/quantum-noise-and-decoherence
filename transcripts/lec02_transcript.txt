@@ -1,0 +1,456 @@
+# Theory of Quantum Noise and Decoherence, Lecture 2: Composite Systems and Dynamics
+# YouTube: https://www.youtube.com/watch?v=ToZuBpbHlcU
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] Last week, we looked at the kinematics of quantum mechanics,
+[00:05.00] and what we discussed was how to represent mathematically
+[00:11.00] quantum states and quantum measurements.
+[00:14.00] So just to remind you, the picture we have of every experiment
+[00:20.00] is this highly idealized picture here where there's some kind of preparation.
+[00:25.00] And the experiment proceeds with this preparation being subjected
+[00:36.00] to a measurement device, and this produces a number,
+[00:47.00] an outcome, a click.
+[00:57.00] And the probability of outcome represented by e,
+[01:05.00] the empiric probability that you measure in the experiment after many
+[01:09.00] repetitions, many clicks, is probability of e is this number here.
+[01:20.00] So remember, an effect e is a positive element of an algebra,
+[01:32.00] which is just another way of saying a matrix in finite dimensions.
+[01:38.00] And this is how we represent outcomes of measurements.
+[01:49.00] And states, omega, these are positive linear functionals.
+[02:04.00] All right, that's the picture we had from last week.
+[02:08.00] This is how we described essentially the kinematics of quantum mechanics.
+[02:16.00] And today we're going to go beyond this in two ways.
+[02:19.00] So this is a very, this scenario here is almost too general to be useful.
+[02:23.00] We have to actually say how parts of quantum systems are represented.
+[02:28.00] We have to deal with that question today, or in other words,
+[02:32.00] how we deal with multiple quantum systems that we bring into contact.
+[02:37.00] What's the kinematics for two separated quantum systems that don't ever interact?
+[02:42.00] We have to answer this question here.
+[02:44.00] We have to deal with locality at this lecture.
+[02:46.00] And we also have to deal with dynamics.
+[02:59.00] This is the task for today.
+[03:04.00] If you look at this picture here, as I mentioned last week,
+[03:07.00] actually all dynamics are in this picture as well.
+[03:10.00] You can absorb any dynamic or process into this picture by simply saying
+[03:14.00] we measure a different measurement at the end,
+[03:17.00] the one that's the time of old version of the measurement you want to measure.
+[03:21.00] So everything can be captured in this picture.
+[03:23.00] It's just that when we want to cut it up into smaller pieces
+[03:26.00] and assign meaning to say local subsystems,
+[03:30.00] and assign meaning to this measurement occurs after some time T.
+[03:34.00] We have to be more clear on how we're going to cut up this picture here.
+[03:39.00] So that's the task for today.
+[03:41.00] Understand composite systems and dynamics.
+[03:45.00] And then we'll have pretty much the structure of quantum mechanics settled
+[03:49.00] and then we can get to the business of actually looking at real composite systems
+[03:53.00] and eventually modeling quantum noise, a realistic quantum noise process.
+[04:06.00] Composite systems.
+[04:14.00] The main task when we want to describe a composite system is we have to say
+[04:18.00] what mathematical objects represent joint measurements
+[04:23.00] or measurements on more than one system.
+[04:31.00] What we want to do is we want to just come up with a mathematical way
+[04:35.00] to represent quantum systems made of many other quantum systems.
+[04:40.00] And so this is how we do it.
+[05:00.00] So if we have some quantum system, a, b, made of two quantum systems, a and b,
+[05:05.00] then the observables for that system are just the tensor product of the observables for each system.
+[05:35.00] I'm going to start bringing in some diagrams for our quantum systems.
+[05:53.00] I've already started it here, these preparation measurement diagrams here.
+[06:00.00] If you have some observables for a quantum system, a, some observables for a quantum system, b,
+[06:06.00] then the full set of observables for your composite system, the one made of a and b,
+[06:11.00] is the tensor product of these two observable sets.
+[06:14.00] We'll do an example in a minute to keep it real.
+[06:17.00] The picture I'd like to draw right now is,
+[06:30.00] so here's an example of a measurement we would like to have inside any theory.
+[06:35.00] We would like to have the measurement outcome that represents a click on detector one and a click on detector two.
+[06:46.00] So if we separately model this outcome by e on quantum system a or mode a or whatever,
+[06:54.00] qubit a, and we separately model the other click with event or effect f on mode b or qubit b,
+[07:02.00] then we'd certainly want that outcome is a possible outcome in our theory for the composite system a, b.
+[07:11.00] I can talk to you about detector one clicks and detector two clicks.
+[07:17.00] Where would such an observable live? Well, the answer is this outcome is modeled by this effect e turns to f,
+[07:28.00] which lives inside a turns to b. So we certainly want that that effect is one in our theory,
+[07:35.00] and that translates to e and f occur.
+[07:44.00] So remember, effects which are positive elements between zero and the identity,
+[07:50.00] they model dichotomy or they met the model predicates or statements that you're checking.
+[07:58.00] So e models the answer to a yes, no question.
+[08:05.00] And another predicate, if you have two predicates, one e, one f, you know,
+[08:09.00] I detect a photon in mode a, I detect a photon in mode b, then the effect that models I detect a photon in mode
+[08:17.00] and I detect a photon in mode b is e turns to f.
+[08:31.00] Now I haven't said anything about preparations yet.
+[08:39.00] So these diagrams are meant to represent the passage of information over time, if you like.
+[08:44.00] So we make some preparation of a quantum system a b.
+[08:49.00] So this is like, this is quantum system a, this is quantum system b,
+[08:53.00] which you could always keep in your mind as mode of light a, mode of light b,
+[08:57.00] or polarization a, polarization b, qubit a, qubit b.
+[09:02.00] And then this you can imagine time flowing from left to right.
+[09:05.00] The preparation occurs. There's some kind of quantum state.
+[09:09.00] Now the system is in some kind of, some, the result of some preparation.
+[09:16.00] And then this gets subjected to this, this measurement here, with that particular outcome.
+[09:24.00] That's how we model effects. Let's do an e, for composite systems, let's do a simple example.
+[09:31.00] The qubit, two qubits.
+[09:36.00] Let's suppose we have two atoms. We've isolated two levels in each of the two atoms.
+[09:43.00] International standards, organization, approved diagram of an atom.
+[09:56.00] So we have a qubit somehow in that atom, a qubit in that atom b.
+[10:03.00] The observables for a qubit are just the two by two matrices.
+[10:10.00] The observables for the other qubit, well, also just the two by two matrices.
+[10:19.00] And that means that the possible observables for the composite system of these two qubits, a and b,
+[10:26.00] is a tensor b.
+[10:33.00] And that's, that's set of observables.
+[10:48.00] Now if you go into matlab or mathematical and apply the cron or whatever the mathematical function is,
+[10:55.00] if you take a two by two matrix and you tensor it with another one,
+[11:07.00] then what you get is a four by four matrix.
+[11:24.00] So m2 tensor, m2 c, the two by two matrices, tens of the two by two matrices,
+[11:29.00] is none other than the set of the four by four matrices.
+[11:53.00] The observables corresponding to questions we can ask about two qubits is the set of all four by four matrices,
+[12:00.00] where we additionally ascribed meaning to this, to matrices of tensor product form.
+[12:10.00] This is also the set of observables for a four level system, a single isolated four level system.
+[12:18.00] So we want to point out that at the moment we talk about subsystems,
+[12:23.00] we're attaching a kind of locality structure to the questions we can ask.
+[12:28.00] And this question is associated with this thing, this region, or this space.
+[12:34.00] But the moment you zoom out and you don't care about which qubit was interrogated,
+[12:40.00] then the observables for the system, you may as well just describe them as a four level system.
+[12:46.00] There's no difference between two qubits and a four level system unless you're going to attach meaning to the questions you ask in terms of a locality,
+[12:53.00] like where I am when I ask that question.
+[12:57.00] That's the observables for a composite system.
+[13:02.00] Now you might think it's tempting to think that all the observables in here,
+[13:08.00] all the yes-no questions are of this form, e tensor f,
+[13:12.00] that would certainly make our lives really easy if that was true.
+[13:16.00] But that's not true, in fact there's questions you can ask about two qubits which cannot be decomposed into a product like this.
+[13:25.00] So how would I say it?
+[13:27.00] There exists m inside a tensor b such that m is not of this nice tensor product form
+[13:37.00] and the simple exercise is for you to find one.
+[13:45.00] I think you can probably do that as I move over to the next board.
+[13:52.00] And this phenomenon that all the yes-no questions you can ask are not of this tensor product form
+[13:57.00] as a kind of dual structure on the states.
+[14:00.00] I remember just ways of producing probabilities from these effects.
+[14:05.00] And that nature is reflected in something we call quantum entanglement which I'll talk about now in just one moment.
+[14:15.00] But before I do so I want to talk about states first.
+[14:23.00] We've only told half the story.
+[14:29.00] And we model the measurements we do in an experiment, well as elements of a tensor b.
+[14:35.00] But what are the states of composite systems? Well you just look to the notes of last week,
+[14:41.00] or to the video which is now on YouTube. I haven't sent you the link yet.
+[14:45.00] I will do so but you can also find it just by googling my name.
+[14:49.00] I think it more or less comes up in the first page of results.
+[14:54.00] And what is the defining feature of a state? Well it's some function on observables, on effects.
+[15:03.00] It's a function that produces a number between 0 and 1 when you hand it an effect.
+[15:11.00] And that number is the probability that this outcome occurs.
+[15:15.00] So let's such that.
+[15:23.00] So we have to have it that the effect corresponding to I do absolutely nothing.
+[15:28.00] The effect corresponding to the question, I'm not even going to ask a question, is the identity.
+[15:34.00] And the way we represent this in a composite system is the identity.
+[15:38.00] This has to be one. And if we have probability is not destroyed or created, that's what this says here.
+[15:56.00] And secondly, if we have an effect, so if we have an element x dagger x, this has to be bigger than equal to 0.
+[16:03.00] So that's what it means to be a state of a composite system. It's the same as what it means to be a state of a quantum system.
+[16:11.00] However, there are more states than what you might think. And that's where we get to the topic of entanglement.
+[16:20.00] Because we're going to almost always work in a situation where there is an underlying Hilbert space.
+[16:29.00] And all this discussion of states is just a way of being a little bit more abstract about Hilbert space is almost always, almost all the time.
+[16:37.00] There are situations where we might want to not commit to a Hilbert space.
+[16:42.00] I don't know if that will really actually happen in this course, probably not.
+[16:47.00] So the underlying Hilbert space of a composite system, we need not see observables, of a composite system AB is just the tensor product of the Hilbert space.
+[17:04.00] You must have seen this at some point.
+[17:12.00] And once we have a Hilbert space, we can talk about a very nice class of states, namely the vector states or the rays in Hilbert space, the ones we're used to.
+[17:21.00] And then we can talk about a very simple class of states.
+[17:35.00] And those are any states of the form phi A tensor phi B, or coming from.
+[17:50.00] So to be utterly pedantic, a state would come from a vector of this form here.
+[17:55.00] We're going to pretty much from now on, just call this a state, and know that what that means is the expectation value like this.
+[18:23.00] That's a simple set of states, product states.
+[18:27.00] Would that be so easy that they were all the states that we had to worry about?
+[18:44.00] So sadly or happily depending on your disposition, there are more states than product states.
+[18:59.00] And it's pretty easy to immediately deduce this, because Hilbert space is a linear space, you're allowed to take super positions in principle.
+[19:09.00] Any two vectors in the Hilbert space can be super posed to give you another state.
+[19:15.00] And if you take two product states that aren't the same, you can take the super positions, they ought to be allowed in our space of states.
+[19:22.00] And well, it might be the case that no matter how you take super positions of product states, you can always write that as a product that could have been the case, although it would make everything horribly nonlinear.
+[19:35.00] But that of course doesn't happen.
+[19:38.00] And the Hilbert space of a composite system contains many more states than just product states.
+[19:47.00] And those states which are not of this product form have a special name today, we call them quantum entangled states.
+[19:53.00] And they have many pretty remarkable properties, which we will not spend so much time on today, but rather in the coming weeks we'll see how the fact that you can have entangled states leads to all the dramatic effects we observe in quantum noise and decoherence.
+[20:14.00] So the fact that we can have super positions between products is if you will the reason why we have decoherence.
+[20:23.00] And quantum computers is the way we exploit these new states that are entangled to do interesting things.
+[20:32.00] So what we are somehow doing is we have entanglement fighting with entanglement. And that's the theme, I guess, for this course, that noise comes from non-product states within environment.
+[20:45.00] That's noise. And good things like quantum computers come from non-product states within a quantum system.
+[20:52.00] And to make a quantum computer work, you have to fight entanglement with entanglement.
+[21:02.00] However, there are more than states than just these vector states that get product states completely defined in another way.
+[21:29.00] As always, vector states are just a subclass of quantum states. They're also mixed states. And they're the ones that definitely concern us in this course.
+[21:48.00] So the most general expression for a product state is one like this.
+[22:17.00] And to connect these product states with these vector array states over here, we're going to write out the density operator corresponding density operator for those guys here just to show that they match up with this definition.
+[22:47.00] So if you have a pure product state, then it's identified with one of these vector states here. And the way you identify them is really just take the tensor product of the density operators.
+[23:16.00] Now, I've spoken about entanglement already, and it's tempting to think that this sentence here is a definition of entanglement.
+[23:45.00] So if we have a state which is not written, which you can't write as a tensor product of row A and row B, you might think that that's entangled.
+[23:55.00] Because it looks really similar to saying that a vector state can't be written as a tensor product of vectors like this.
+[24:02.00] So that's tempting, you might think it's true, but it's not.
+[24:06.00] There are states, there are mixed states which can't be written as a product of preparations, independent preparations.
+[24:13.00] But nonetheless, they are still not entangled.
+[24:18.00] We will get to that topic, perhaps in a later part of this course. But for now, I'll just give you an example of one of a state which is definitely not a product, but which is definitely not entangled.
+[24:32.00] So we'll go to two qubits.
+[24:37.00] Here's a state that you can prepare. I claim that everyone in the room probably right now could prepare the state.
+[24:45.00] It's the following state.
+[24:53.00] Well, yeah. You have to work slightly hard to prepare the state. It's true.
+[25:00.00] Now, this state here, row, is with probability p, both qubits are in state 0, and with probability 1 minus p, both qubits are in state 1 will spin up.
+[25:22.00] And this represents a correlated pair of coins.
+[25:29.00] So you have some two coins. When you flip heads, then the other one will flip heads. When you flip tails and the other one will flip tails.
+[25:37.00] I mean, how you build this device, I don't know, but you could, you can certainly imagine ways to do this.
+[25:48.00] And however, you don't need entanglement to do this. You could build this with ordinary classical devices. This is a classically correlated state.
+[26:00.00] So there's just an example to make the point that being a product at this level is not the same as being a product at this level.
+[26:15.00] Alright, we're going to talk about reduced states, and then we can talk about entanglement.
+[26:27.00] Alright, we're going to do our first quantum noise calculation today.
+[26:42.00] I'll actually answer that question in about five minutes.
+[27:07.00] So what's the difference between entanglement and correlation?
+[27:14.00] So, I mean, one way to build this funny state here would be, if you flip a coin and don't look at it, then the state of the coin, you know, if no one's gained any information about the single coin,
+[27:26.00] the state of a single coin when you flip it, is p heads plus 1 minus p tails, and why is it p will no coin is completely fair, right?
+[27:35.00] Now, the way, one way you could build that device is you could have a little, you could have a raspberry pie set up or something, right?
+[27:44.00] You flip a coin and you have the raspberry pie under your hand, and it looks at the coin, and it takes another coin and it flips it around to the right way.
+[27:53.00] And then, without looking at these two coins, you can hand one coin to Alice and the other coin to Bob.
+[27:59.00] So with a robot and a coin, you could produce, this is one way that occurred to me.
+[28:15.00] All right, so let's get to reduced density operators.
+[28:18.00] This is a, a vital topic before we get to this question of entanglement versus correlations.
+[28:30.00] Reduced states.
+[28:32.00] So if we have a big quantum system, a massive one, and we only look at part of it, we want to answer questions about that part.
+[28:38.00] What does it mean to look at part?
+[28:40.00] Good, thank you.
+[28:42.00] If I miss it again, please remind me otherwise. I won't remember to press the record button.
+[28:47.00] If we have reduced states as an important topic, if we have some big quantum system, and we want to only ask questions about a part of it of this big quantum system, a.
+[29:00.00] So we only allow ourselves the ability to ask questions about this little part, a.
+[29:07.00] And the rest, we don't ask about, then we want to, and we then suppose that this big quantum system is in some state omega.
+[29:19.00] And to make it clear that this state is the state of the big quantum system we call omega AE.
+[29:25.00] Now we know that we live at a quantum universe, and we know all the effects that were allowed to measure an A.
+[29:33.00] So we should be at a model every yes or no question with a state of error, with a preparation that would be an effective model for the answer for any question that we can ask.
+[29:46.00] There ought to be a state of just the subsystem A, a legal quantum state of the subsystem A.
+[29:53.00] And that's called a reduced state. And if you like, that's just the state of my quantum system A ignoring the rest of the universe.
+[30:03.00] We need to talk about that. If we, it seems like a reasonable thing to allow us to talk about it. And what we're going to do is say what that quantum state is.
+[30:22.00] So when we restrict the state omega AE of the universe or about composite system AE
+[30:38.00] to observables, which are nontrivial only on A, meaning that we're only asking questions about degrees of freedom inside A.
+[31:01.00] Then I have to actually tell you what the observables are that ask nontrivial questions only about A. They are of the form.
+[31:10.00] I think I wrote them, yeah. XA turns the identity on E. So an observable which models a question you ask about a quantum system only on the subsystem A has this form there.
+[31:30.00] And the corresponding state is called the reduced state.
+[31:53.00] And you can find it this reduced state according to this formula here.
+[32:12.00] And in terms of density operators, it has a very specific representation which I'll do in the next board.
+[32:32.00] And in terms of density, it has a very specific representation which I'll do in the next board.
+[32:52.00] Now for almost all of this course, we can represent states with density operators. And everything you can say about a state has a corresponding representation in terms of density operators.
+[33:13.00] And the case of building the effective reduced state of a subsystem is called partial trace when you do it on density operators.
+[33:42.00] So this is called partial trace when you do it on density operators.
+[34:03.00] So the density operator for reduced state, you find it by this formula here.
+[34:32.00] And we give this a name called the partial trace of row AE with respect to E.
+[34:52.00] And this partial trace is just a linear algebra map and it's very concrete.
+[35:22.00] And this is called the partial trace of row AE with respect to E.
+[35:43.00] And this is called the partial trace of row AE with respect to E.
+[36:04.00] The partial trace takes a density operator for a big system and gives you the density operator of a small system.
+[36:26.00] It's such a useful operation that you might wish that it's a standard function in MATLAB or Mathematica.
+[36:37.00] And in fact there are clever ways to build it and there are stupid ways to build it.
+[36:45.00] However, if you just type in partial trace, Mathematica or partial trace MATLAB, plenty of people have now built these functions or partial trace Python or whatever your language of choice is and you can just download them.
+[37:04.00] All right, one more thing. This thing is called the partial trace as you've no doubt become aware.
+[37:16.00] And row AE is the reduced state or reduced density operator or marginal because it's exactly the same as the marginal in probability theory.
+[37:42.00] If you have a probability distribution for two random variables and you look at the marginal, then it's exactly you can map it into a density operator calculation.
+[38:06.00] All right, we're about to get to quantum entanglement now and quantum noise and why these are in a very superficial abstract sense, the same thing.
+[38:24.00] And it all boils down to one thing, one amazing thing about quantum mechanics.
+[38:31.00] So quantum mechanics allows the existence of pure states of big systems which look mixed, which are not pure on any reduced subsystem.
+[38:45.00] Now, that doesn't have an analog in probability theory. If you have a pure state of a composite system, that's going to be a definite state of each subsystem.
+[38:56.00] Now, if I have two coins, that's our composite system. Then what are the pure states of a system of two coins? Well, there's four of them, heads, heads, tails, tails, tails and tails, tails.
+[39:08.00] And each of these assign a definite state to the subsystem, so coin A is definitely in heads or tails and so on.
+[39:18.00] Quantum mechanics, on the other hand, allows the existence of pure states that don't assign a definite state to the subsystems.
+[39:30.00] And some people would call it the defining feature of quantum mechanics.
+[39:35.00] In quantum noise language, what this means is that your overall system can be completely pure at zero temperature, evolving in a unitary fashion, no noise whatsoever.
+[39:44.00] But nonetheless, if you only look at a part of it, the system looks very noisy and is mixed and is deco hearing rapidly.
+[39:55.00] That's the connection between entanglement and quantum noise, and we're going to certainly spend, I would say, most of this course, making that statement more precise.
+[40:11.00] So the key tools that we're going to use to do this, I assume you've seen this before, is the Schmitt decomposition.
+[40:35.00] This is only true for finite dimensional systems. If you want to go to infinite dimensional systems,
+[40:40.00] you can learn about some far out mysteries like the Tomita Takasaki theory, but luckily we won't need to do that in this course.
+[40:57.00] So remember, I'm going to be super sloppy in this course and call these things states, even though technically speaking, they're not functions on an observable algebra.
+[41:09.00] But you know how to translate them into functions on an observable algebra. So that's why they're going to be called states from now on.
+[41:15.00] So for any state psi of a composite system, H A and B, like two qubits, two modes of light, whatever, with D equal to the minimum of the dimensions of H A and H B.
+[41:35.00] So we're really in the finite dimensional setting here for this theorem to even work.
+[41:58.00] There exists an orthonormal basis EGA, J equals 1 to D A.
+[42:57.00] Oh yeah.
+[43:25.00] So
+[44:20.00] for every vector, every state of a composite quantum system, there's this normal form. You can always write it like this. There's a single sum of non-negative coefficients of a bunch of orthogonal vectors like that.
+[44:48.00] And this is super useful for lots and lots of reasons. Product states are exactly of this form, where P1 is 1 and the rest is 0. And this is a constructive representation here.
+[45:08.00] There exists algorithm. You can do it on a computer. You can do it by hand to work out this decomposition. So this allows you to work out if a state is a product or not. Remember there's this ambiguity. If you have a state, and it's a superposition of product states, it might be that it's itself a product state.
+[45:26.00] I can give you a quick example of one of those. Just think of the two qubits. And think of the state which is the superposition of 0,0,0,1,1,1. That's the superposition of four product states.
+[45:44.00] Now it's not immediately obvious if that itself is a product state. One way you can tell if it's a product state is to keep fiddling with it until you can write it as a product state.
+[46:01.00] Or another is that you work out at Schmitt decomposition according to the way to work out the Schmitt decomposition. And you'll write it in this form here, and it will immediately give you the right representation as a product state.
+[46:20.00] So the Schmitt decomposition is this great way of telling if a state is quantum correlated or not. The state is quantum correlated if and only if it's not one term in this sum here.
+[46:34.00] And the example I just mentioned 0 plus 0,1 plus 1,0 plus 1,1. That is exactly a product state, namely the product state, 0 plus 1, 10,0 plus 1.
+[47:04.00] Superposition of product states is itself a product state, maybe. It can it is. And you can exploit the Schmitt decomposition to actually find out what that product state is.
+[47:23.00] And it is none other than this one. That's a pure state of subsystem A. It's a pure state of subsystem B. It's a product state.
+[47:43.00] But if I had changed just one term here, it would not be a product state anymore.
+[47:59.00] But I'm going to change two terms because it's easier to do. A state like this, an EPR type state can never be written as a product state.
+[48:23.00] It's in quantum entangled. And the way you can tell is this is already in the Schmitt decomposition form here. Now I'm not going to do the proof of the Schmitt decomposition.
+[48:43.00] It is an exercise, but it's an exercise that you can solve by googling. There's a YouTube video I believe on it. There's no end of articles on it. You can just sit and work it out yourself. Any number of ways of dealing with this exercise are fine and good for you to do.
+[49:02.00] I certainly recommend either working out your own proof or just looking up a proof. And once you prove the Schmitt decomposition, it's a constructive algorithm. You put in a vector and it will hand you back EJ, FJ, and root PJ.
+[49:20.00] And that's what's kind of amazing about it. It's not just saying this exists. An existence proof, you know, this is how you tell the difference between mathematician and a physicist.
+[49:30.00] So a mathematician is excited when an existence proof is not constructive and a physicist is excited when an existence proof is constructive. So this is the difference.
+[49:40.00] So here it's constructive. We can actually construct that from the input, whereas it doesn't involve any axioms of choice or anything.
+[49:58.00] And again, it's sad that MATLAB doesn't have a function to do this, but you can download functions to do this. Yeah, a question?
+[50:14.00] If we can't find a Schmitt decomposition with only one term, then it's entangled, yes. That's what we mean by entangled. That's here by the definition of quantum entanglement.
+[50:26.00] It's a state which is not, which has a Schmitt form involving more than one term. So I'll write that out. Now that's very distinct from the notion of a correlated state, as that other example shows.
+[50:42.00] Can we tell if a correlated state is entangled? Hard question. No one knows the answer in general. That's a current research topic in quantum information theory.
+[50:54.00] Or happily, depending on whether you want to do research in quantum information theory or not.
+[51:24.00] So this is a definition lemma, if you like.
+[51:46.00] So one, I'll give, I'll say one more thing about the composite systems before we move to dynamics.
+[52:06.00] I'll give, I'll give, I'll give.
+[52:34.00] I'll give.
+[53:02.00] It is a super handy result to remember. If you have a vector state of a composite system, a pure state of a composite system, and you want to work out its reduced state, then one way to do it is you work out its Schmitt decomposition, and then turn this ket around, so to speak, and square that.
+[53:26.00] So that's the formula. It's an exercise, but not a very tricky one.
+[53:38.00] Most of this should be familiar, I hope, from either your previous quantum courses or from your experiences with quantum mechanics.
+[54:04.00] That's the end of the kinematics part of this review of quantum mechanics. Now we're going to get to the dynamics part.
+[54:14.00] A good theory should have a kinematics and a dynamics, and dynamics are just a way of saying, of answering questions to do with time.
+[54:28.00] And the fundamental question we want to answer when you want to model dynamics is if I know how to represent this measurement at time t is zero, then how do I represent the same measurement but only occurring at t seconds later?
+[54:42.00] The way to represent that mathematically, that's what dynamics means.
+[55:10.00] That's the goal of dynamics.
+[55:39.00] Come up with a way to represent measurements or effects that take place after some time.
+[56:03.00] And the picture is pretty much as before. We have some preparation of our system, and we're going to divide the experiment now into a preparation, some evolution, and then a measurement.
+[56:26.00] And I have to say what is this?
+[56:36.00] There's two ways you could turn this back into a kinematics question, corresponding to an infinite number of ways, actually, corresponding to what we call the Heisenberg picture or the Schrodinger picture.
+[56:47.00] So this is the Schrodinger picture where we discuss how evolution leads to a different effective state omega prime.
+[57:05.00] And this picture here, where we discuss how evolution leads to the measurement of a different effective observable, it's called the Heisenberg picture.
+[57:18.00] And there's an infinite number of different ways of cutting up this pie according to if we evolve a bit according to one evolution on the left hand side and then a bit to the evolution on the right hand side, and any other way you want to cut it like that.
+[57:32.00] All of those pictures are called interaction like pictures.
+[57:35.00] We won't really need to talk so much about that in the first part of this course.
+[57:42.00] So we just focus on the Schrodinger type and the Heisenberg type picture. They're all the same thing. They all describe exactly the same experiment.
+[58:00.00] Now, our first task is to describe how we're going to model closed systems, ones which don't interact with any environment.
+[58:12.00] That's our first task for today. How do we model closed systems where there's no information coming in or out of the system?
+[58:30.00] What's the bare minimum? And the other way is the constructive way where you come up with a proposal for what you think are closed or reversible dynamics or to be, and then you check that one thing matches the other.
+[58:53.00] So let's just ask ourselves while I'm erasing this board what an evolution ought to do.
+[59:08.00] So what's the bare minimum it should do? Well, one thing it should do is not create nor destroy probability that would be bad.
+[59:17.00] If an evolution destroyed probability from the universe that defies my understanding, maybe it happens, or worse, still it creates probability.
+[59:32.00] So, evolutions must preserve probability. That's the bare minimum we can expect from them.
+[59:37.00] They ought to be linear, and the argument there goes along the lines of if I flip a coin and then allow my system, and then do a different preparation depending on the coin flip.
+[59:48.00] You know, a flip a coin, I prepare the qubit in an upstate, a flip a coin, and prepare it in a down state or something. Then subject that to an evolution.
+[59:55.00] Then that ought to be the same as if I first evolved the system, then flip the coin.
+[60:05.00] Now, those are some bare minimum requirements for something to be called an evolution, and let's express those.
+[60:28.00] By saying the evolution is going to be a linear transformation of something, either the observables or the states.
+[60:58.00] So, that's the Heisenberg picture. Evolution is either a transformation or linear transformation of your observables, or it's a transformation of your states.
+[61:26.00] And there better be some way, some compatibility check criterion to make sure that both of these two ways match up.
+[61:35.00] So, this is my calligraphic S. S of A means states of A. I'll say that in a second.
+[62:05.00] And there's got to be a compatibility thing.
+[62:34.00] If you have an evolution of an observable, modeled on observables, and you model the same evolution, but instead do it on states, you better get the same answer for any question, otherwise it's not the same evolution.
+[62:46.00] So, I have to say how these two different evolutions are identified with each other, these two different ways of doing evolution.
+[63:04.00] So, this is my calligraphic S. S of A. I have to say how these two different evolutions are identified with each other.
+[63:26.00] So, here's the constraint that these are exactly the same evolution, and the constraint is that trace, we're going to use density operators unless we're not allowed to.
+[63:47.00] The result of measuring the observable, the expectation value of the observable A measured a time represented by u later, is got to be the same as if we did that evolution instead on the state and just measured the original observable.
+[64:18.00] Oh, all right, do that.
+[64:35.00] And we better have some other constraints on our evolutions. It's not good enough that this occurs. An evolution might be really bad, right?
+[64:42.00] It might destroy probability, so there's a bad minimum that it ought to satisfy, namely it takes the effect of doing nothing, measuring nothing, better take that to that, because if an evolution were to take the effect meaning I do no experiment at all,
+[65:06.00] I mean to I've done an experiment, or I'm checking something, then that's just created or destroyed probability in the present.
+[65:16.00] And the other condition that it ought to satisfy is that it's got to take legal effects, legal things that we are allowed to measure to legal things we're allowed to measure.
+[65:35.00] Any observable, any positive element, anything you can write as a form x dagger x, hit a better be the case that it hands you another effect, and for it to be an effect we need that it's expressable as y dagger y, or that it's positive.
+[65:58.00] There are minimum that any map has to satisfy to be called an observable at all. If this was not satisfied it would create or destroy probability. If this were not satisfied it would take effects that correspond to outcomes of experiment to things that don't even correspond to outcomes of experiment, so I don't know how to think about that.
+[66:19.00] It's like a bare minimum that anything an evolution is ought to satisfy. And the closed systems or unitary evolutions or reversible evolutions are exactly those evolutions which are represented as unitary operators.
+[66:41.00] And actually for finite dimensional systems that's it, that's all you have to say, but for infinite dimensional systems we have some really crazy stuff going on.
+[67:11.00] Now just as for states, it might be that all states are pure states, but that's not the case we have things good big states.
+[67:38.00] And it might be that all dynamics are so called closed or reversible dynamics, once I define it, but that also is not the case.
+[67:48.00] So how do we model dynamics for a closed system which doesn't gain or it doesn't exchange anything with another system or in terms of a unitary operator.
+[68:05.00] I'll do it in the Heisenberg picture. U of A is U dagger A U.
+[68:24.00] So this is my calorific U. And this is my normal U. Just see the way you can tell the difference is there's a little curly bit there.
+[68:49.00] And actually I told you a lie, this is only true for finite dimensional systems.
+[69:12.00] It's a kind of fascinating fact that if you have an infinite dimensional system, there exist operations which ought to be reversible, but which you cannot represent as a unitary on a Hilbert space like this.
+[69:33.00] So I'll just give you a warning example.
+[69:53.00] No, I actually can't think of the example correctly at this point. So just be warned.
+[70:23.00] Some unitaries might not be, some reversible dynamics might not be representable as unitaries in some bounded, some bunch of operators.
+[70:49.00] So this is nothing that should concern you in finite dimensional systems, but for infinite dimensional systems you have to be a lot more careful.
+[70:56.00] And the first place where this becomes an issue is when you have an infinite tensor product of qubits or spins.
+[71:05.00] And there you can write down evolutions that really ought to be representable as unitaries, but yet which do not admit a representation like this.
+[71:18.00] Now of course we can largely just avoid this because I would never consider those examples. And if that does come up then I'll tell you about it then.
+[71:33.00] Now if this evolution you depends on some t, some time parameter.
+[71:43.00] And if it depends on it in a homogenous way, I'll see what that is.
+[71:50.00] And then it will satisfy an equation that's familiar to you.
+[71:57.00] So we're going to call this parameter time and homogenous I'll see what that means.
+[72:05.00] So i u of t plus s is the same as do u for t and then do u for s, or to be the case.
+[72:17.00] Then this thing obeys an equation. Oh, I've written calligraphic u. That's okay.
+[72:34.00] Now u is not calligraphic u.
+[72:44.00] And this thing here is called the Hamiltonian. And this is Schrodinger's equation.
+[73:14.00] Okay.
+[73:44.00] So this point you might wonder, well everyone knows the Schrodinger equation is how we do dynamics in quantum mechanics.
+[73:57.00] Is this all there is to it? Is this all there is to dynamics? And the answer is yes and no.
+[74:05.00] The whole aim of this course is to study dynamics of composite quantum systems.
+[74:12.00] This is the aim of this course. This is the picture that I'm going to draw for the next ten lectures.
+[74:19.00] Or is the same picture. We have a system. This might be an atom you've got in some trap.
+[74:28.00] It might be a mode of light that you can manipulate. And this system is embedded in a bigger quantum system, namely A and E.
+[74:39.00] And this is a model for the universe, right? Because if you think of E as the universe and A is whatever you can control, then this is a good model for that.
+[74:50.00] You can usually always separate an experiment into the bits you can control and the bits you can't.
+[74:56.00] Now it is assumed to be the case that the universe is going undergoing reversible evolution.
+[75:05.00] You know there's no reason to not think that. Wait, did I just double the gate that?
+[75:13.00] There's every reason to think that the universe is undergoing reversible evolution maybe, right? And this black holes are really doing something irreversible.
+[75:24.00] It's kind of a cool question. Let's say that we won't be able to really cover it in this course.
+[75:30.00] We think the universe is undergoing reversible evolution. And our job is to understand what does this evolution but restricted to A look like?
+[75:41.00] Is that a reversible evolution?
+[75:47.00] And of course, whenever you ask a question, the answer is no. If you, is U T a reversible evolution restricted to A reversible, not always?
+[76:11.00] I mean, this is how thermodynamics works. You have some reservoir, maybe E. You have some closed system.
+[76:20.00] And then you open up your closed system to the reservoir and it starts exchanging information, state subsystems with the reservoir.
+[76:29.00] And then you shut off the connection to the reservoir. The whole evolution was unitary, right?
+[76:34.00] The laws of quantum mechanics govern the universe. But if you just focus on what had happened to A, I mean A can even change in this evolution.
+[76:43.00] A could have been made of three particles and at the end, you opened it to some chemical bath and then lots of more particles flew in.
+[76:51.00] So at the end, you get a different subsystem, A pro. At the end of that process, what happened here might be completely irreversible.
+[77:02.00] And it's our job in this course to define the words irreversible and irreversible to actually model, actually calculate what happens to A as time passes if we ignore the rest of the universe.
+[77:13.00] How can we model that? Is there a shredding equation just for A? And the answer is sometimes. And in fact, that's going to be the main result in this course.
+[77:23.00] That shredding and like equation is called a limp loud equation or a master equation. We're going to derive that equation.
+[77:31.00] And then we have to worry about such things as what if there's correlations between A and E and then evolution occurs.
+[77:38.00] Multiple questions can be asked. It's a topic that can take us months, years, the rest of your life.
+[77:45.00] I just want to give you the minimum amount of knowledge that you need to start modeling experiments that you might be exposed to in the near future.
+[77:54.00] So as I look at the timing of 10 more minutes, it's good. And we can start talking about open systems, which are precisely systems which are interacting with another system according to a shredding equation.
+[78:15.00] And it used to be that open systems were like these messy things that we don't want to have to model as theorists.
+[78:30.00] We like to make everything spherical and cow-like. And then open systems is just as annoying detail that will leave to a PhD student.
+[78:40.00] It's not the case anymore. Open systems have a whole rich character themselves which can't be understood directly just in terms of reversible evolution, or not at least in a nice way.
+[78:53.00] And we've only really just begun to discover this. This was in the past five to ten years. We learnt that you can use dissipative dynamics coming from interactions with the noisy bar.
+[79:03.00] If you do stuff for you, it can be a useful thing as well as a bad annoying irritation.
+[79:33.00] All right. That's where it happens. I already said it.
+[80:02.00] Irreversible dynamics usually occur when you have something evolving reversibly with a system you then ignore.
+[80:27.00] What we're going to do now is axiomatically characterize irreversible dynamics. We've already essentially done it, but I missed out one thing.
+[80:44.00] Well, actually I missed out two things.
+[80:56.00] So the first thing I missed out is that a legal evolution might produce you at the end of the evolution a quantum system that's different from the original one.
+[81:05.00] And the good example to keep in mind here is a quantum system A that's like a box of particles. You then let a part of the box become permeable and then more particles fly in from some chemical potential because there's a difference in chemical potentials.
+[81:20.00] You shut that barrier and now you have a box with more particles than you began before or less particles than you began before.
+[81:26.00] So that system's got bigger or smaller. That's one way in which dynamics we should allow that process within the set of things we call dynamics or evolutions.
+[81:41.00] And the other thing that I didn't mention before because it wasn't really relevant for reversible dynamics is the notion of complete positivity.
+[81:51.00] So I've got to talk about those two things and then I reckon we'll be done.
+[81:58.00] So positivity is this requirement that anything you call an evolution ought to take a positive effect to a positive effect.
+[82:06.00] Complete positivity is the same thing but when you add in additional systems that do nothing.
+[82:14.00] So at the moment may seem mysterious but I'll give you an example. So definition. So this is the axiomatic. This is what we define now a legal evolution in quantum mechanics to be.
+[82:31.00] And then we're going to check that actually matches physics. A channel E we call any evolution in quantum physics a channel.
+[82:42.00] And channels convert systems from one to another.
+[83:12.00] Well, we've already discussed linearity.
+[83:41.00] It's a linear operator and we're going to do things in the Heisenberg picture.
+[83:48.00] So it's going to take things in what looks like the wrong way.
+[83:57.00] It takes observables on B the output system to observables on A the input system.
+[84:02.00] So remember in the Heisenberg picture you do everything in the opposite order. I'll draw a picture which should explain that.
+[84:15.00] Alright, we've met this before. Better not create nor destroy probability.
+[85:45.00] Okay.
+[86:16.00] The first one, you know, I hope that's not too controversial.
+[86:25.00] Oh, the second one I completely messed up. Sorry. He doesn't act just on A. He acts on A and this auxiliary system.
+[86:41.00] So I'm going to explain these two conditions here and where they come from.
+[86:45.00] So firstly, why is E mapping B to A instead of like what should be A to B? Right.
+[86:50.00] So this is draw the picture. We have a preparation. We have an evolution that takes system A to B.
+[87:02.00] And then we have some kind of measurement on B.
+[87:13.00] So if we do things in the Heisenberg picture like this, we insist that that's an legal measurement we could have done on our original system A.
+[87:22.00] Then E had better have the property that it takes an effect or an observation you can do on B and gives you one you can do on A.
+[87:30.00] Right. So that's why even though time goes this way, you know, A goes to B, A gets turned into B.
+[87:37.00] The actual evolution has to take B, the effects on B onto the effects on A.
+[87:42.00] So the first one. Now the second one looks really technical and why would you bother with this?
+[87:50.00] Well, the answer is if we add stuff in and do nothing to them, then it better be the case that those are
+[87:59.00] mapped to legal measurements or draw a picture, a picture is probably more helpful than the words here.
+[88:08.00] So suppose we join a system, we have our original system A, but we add in an ancillary system, another system.
+[88:17.00] Let's call it N. So A gets mapped, you know, we add in an ancillary system,
+[88:27.00] modeled by an N level quantum system like this, but it could have been anything.
+[88:34.00] But this is for the moment, just do this operation here. If we, the second condition is the so-called complete positivity
+[88:44.00] and the reasoning behind that is as follows, if you take your original system and subjected it to an evolution,
+[88:50.00] then that ought to take a legal measurement on B to a legal measurement on A.
+[88:54.00] But if you add in another system and do nothing to it, then it had better be the case today is not my day.
+[89:04.00] So this is, so your piece of paper is going to have a big messy blurry mark right here.
+[89:17.00] So.
+[89:48.00] All right, let's start again.
+[89:59.00] So you do your original experiment and it has some evolution modeled by a map E,
+[90:04.00] and you have that completely isolated from everything else.
+[90:07.00] And then you want to do your experiment, you have another laboratory next door.
+[90:14.00] It doesn't interact in your experiment at all.
+[90:18.00] So the way we would model that evolution is the evolution of doing the experiment on lab A, and then on lab B, you do nothing.
+[90:30.00] That ought to be a legal operation in our set of allowed operations, it ought to be allowed.
+[90:36.00] And for it to be allowed, it must have the property that takes a legal measurement on the joint system.
+[90:41.00] And after this time evolution occurs, you then do some crazy correlated measurement between the two laboratories.
+[90:48.00] That better have been an allowed measurement on the joint state of your laboratory.
+[90:58.00] And it might be puzzled, but of course it is, isn't that obvious?
+[91:02.00] Well, unfortunately, it's not true.
+[91:04.00] It exists channels which are unit preserving, and just positive, meaning that they take positive effects in B to positive effects in A.
+[91:15.00] But when you add in ancillary systems, they cease to be positive.
+[91:20.00] And I'll give you one example.
+[91:22.00] So the classical example is the transports channel.
+[91:31.00] You can check that the operation that A gets taken to its transpose, if you've got an N by N matrix, you can check that that is unit preserving and takes positive operators to positive operators.
+[91:48.00] But if you extend it by answering the identity on, by adding in ancillary system, it ceases to become a positive operator.
+[92:00.00] I think we might stop here for today. So thank you very much.

@@ -1,0 +1,273 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 11 — Continuous Measurement and the Lindblad Equation
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 7 (Classical noise and stochastic calculus);
+% opens Section 8 (Quantum stochastic calculus).
+
+\subsection{From repeated measurements to continuous evolution}%
+\label{sec:repeated-to-continuous}
+
+We now carry out the programme announced in the previous lecture:
+starting from $n$~discrete von~Neumann measurements of position, we
+take $n \to \infty$ and $\tau \to 0$ simultaneously, obtaining a
+Lindblad master equation that models \emph{continuous measurement}.
+
+\begin{intuition}[Decoherence as information flow]
+  A system loses coherence when the environment gains information
+  about it.  Information gain builds up entanglement between system
+  and environment.  Continuous measurement provides a transparent
+  model for this process.
+\end{intuition}
+
+\subsubsection{Hilbert space and Hamiltonian}
+
+Recall the setup: the system is a continuous quantum variable with
+canonical operators $\hat{x}_S$, $\hat{p}_S$ satisfying
+$[\hat{x}_S, \hat{p}_S] = i$, and we introduce $n$~independent
+meter systems with canonical pairs $(\hat{x}_j, \hat{p}_j)$.
+The total Hilbert space is
+\begin{equation}\label{eq:cm-hilb}
+  \hilb_{\mathrm{tot}}
+  = \hilb_{M_1} \tp \cdots \tp \hilb_{M_n} \tp \hilb_S\,,
+  \qquad \hilb_{M_j} = L^2(\R)\,.
+\end{equation}
+The time-dependent Hamiltonian modelling $n$~instantaneous
+measurements at times $t_j = j\tau$ is
+\begin{equation}\label{eq:cm-hamiltonian}
+  \eqbox{H(t) = H_0
+  + \sum_{j=1}^{n} \delta(t - j\tau)\;\hat{x}_S \tp \hat{p}_j}\,,
+\end{equation}
+where $H_0$ is the free system Hamiltonian.
+Each meter is prepared in a Gaussian state of width~$\sqrt{\sigma}$:
+\begin{equation}\label{eq:meter-gaussian}
+  g_j(x_j) = \braket{x_j}{g_j}
+  = \frac{1}{(\pi\sigma)^{1/4}}\,
+    \exp\!\Bigl(-\frac{x_j^2}{2\sigma}\Bigr)\,,
+\end{equation}
+so the total initial state is
+$\rho(0) = \ketbra{g_1}{g_1} \tp \cdots \tp \ketbra{g_n}{g_n}
+\tp \rho_S$.
+
+\begin{remark}
+  The parameter $\sigma$ controls measurement resolution: a narrow
+  Gaussian ($\sigma \to 0$) approximates a projective measurement;
+  a wide one ($\sigma \to \infty$) yields almost no information.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Selective and non-selective state update}%
+\label{sec:state-update}
+
+Write $\rho_S(t_j^-)$ and $\rho_S(t_j^+)$ for the system state
+just before and just after the $j$-th interaction.  Integrating the
+Schr\"odinger equation across the delta-function impulse gives
+\begin{equation}\label{eq:post-impulse}
+  \rho_S(t_j^+)
+  = \tr_{M_j}\!\Bigl[
+      U_j\,\bigl(\ketbra{g_j}{g_j} \tp \rho_S(t_j^-)\bigr)\,
+      U_j^\adj \Bigr]\,,
+  \quad U_j = e^{-i\,\hat{x}_S \tp \hat{p}_j}\,.
+\end{equation}
+
+\paragraph{Selective measurement.}
+If we measure the pointer and obtain outcome $\bar{x}_j$, the
+system is updated to the sub-normalised conditional state
+$\tilde{\rho}_S(t_j^+ \mid \bar{x}_j)
+= \hat{\Upsilon}(\bar{x}_j)\,\rho_S(t_j^-)\,
+  \hat{\Upsilon}(\bar{x}_j)^\adj$,
+where the \textbf{measurement operator} is
+\begin{equation}\label{eq:upsilon-op}
+  \eqbox{\hat{\Upsilon}(\bar{x}_j)
+  = \frac{1}{(\pi\sigma)^{1/4}}\,
+    \exp\!\Bigl(-\frac{(\hat{x}_S - \bar{x}_j)^2}{2\sigma}
+    \Bigr)}\,.
+\end{equation}
+The normalised posterior is
+$\rho_S(t_j^+ \mid \bar{x}_j)
+= \tilde{\rho}_S / p(\bar{x}_j)$ with
+$p(\bar{x}_j)
+= \tr[\hat{\Upsilon}(\bar{x}_j)^2\,\rho_S(t_j^-)]$.
+
+\paragraph{Non-selective measurement.}
+If the meter outcome is discarded (or controlled by the
+environment), we average over all outcomes:
+\begin{equation}\label{eq:nonselective-update}
+  \eqbox{\rho_S(t_j^+)
+  = \int_{-\infty}^{\infty}\dd\bar{x}_j\;
+    \hat{\Upsilon}(\bar{x}_j)\;\rho_S(t_j^-)\;
+    \hat{\Upsilon}(\bar{x}_j)^\adj}\,.
+\end{equation}
+This defines a completely positive, trace-preserving map on~$\rho_S$.
+
+\begin{intuition}[Measurement back-action]
+  In quantum mechanics, information gain always entails disturbance.
+  Even when the meter outcome is discarded, the interaction has
+  irreversibly altered the system state---this is the physical
+  origin of decoherence.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Full evolution and measurement trajectories}%
+\label{sec:full-evolution}
+
+After $j$~measurements with outcomes
+$\bar{x}_1, \ldots, \bar{x}_j$, the conditional system state is
+\begin{equation}\label{eq:selective-full}
+  \rho_S(t_j^+ \mid \bar{x}_1, \ldots, \bar{x}_j)
+  = \frac{\hat{M}_j \;\rho_S(0)\; \hat{M}_j^\adj}
+         {p(\bar{x}_1, \ldots, \bar{x}_j)}\,,
+\end{equation}
+where the time-ordered product is
+\begin{equation}\label{eq:composite-op}
+  \hat{M}_j
+  = \hat{\Upsilon}(\bar{x}_j)\,U(\tau)\;
+    \hat{\Upsilon}(\bar{x}_{j-1})\,U(\tau)
+    \;\cdots\;
+    \hat{\Upsilon}(\bar{x}_1)\,U(\tau)\,,
+\end{equation}
+with $U(\tau) = e^{-iH_0\tau}$, and
+$p(\bar{x}_1, \ldots, \bar{x}_j)
+= \tr[\hat{M}_j\,\rho_S(0)\,\hat{M}_j^\adj]$.
+The sequence $(\bar{x}_1, \ldots, \bar{x}_n)$ is the
+\textbf{measurement trajectory}.  Averaging over all trajectories
+yields the unconditional (non-selective) state
+\begin{equation}\label{eq:nonselective-full}
+  \rho_S(t_j^+)
+  = \int \dd\bar{x}_1 \cdots \dd\bar{x}_j\;
+    \hat{M}_j\;\rho_S(0)\;\hat{M}_j^\adj\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{The continuous limit}\label{sec:continuous-limit}
+
+Fix a total observation time~$T$ and set $\tau = T/n$.  As
+$n \to \infty$, both $\tau \to 0$ and the number of measurements
+grows without bound.
+
+\begin{keyresult}[Gaussian integral identity]
+  Evaluating~\eqref{eq:nonselective-update} in closed form and
+  expanding for large~$\sigma$, one obtains the single-step update
+  \begin{equation}\label{eq:single-step-expanded}
+    \rho_S(t_j^+)
+    = \rho_S(t_j^-)
+      - \frac{1}{8\sigma}\bigl[\hat{x}_S,
+        [\hat{x}_S, \rho_S(t_j^-)]\bigr]
+      + O(1/\sigma^2)\,.
+  \end{equation}
+\end{keyresult}
+
+\noindent Combining with the free evolution
+$\rho_S(t_{j+1}^-) = U(\tau)\,\rho_S(t_j^+)\,U(\tau)^\adj$ and
+expanding $U(\tau) = \One - iH_0\tau + O(\tau^2)$, the state
+increment over one period is
+\begin{equation}\label{eq:state-increment}
+  \rho_S(t_{j+1}^+) - \rho_S(t_j^+)
+  = -i[H_0, \rho_S]\,\tau
+    - \frac{1}{8\sigma}\bigl[\hat{x}_S,
+      [\hat{x}_S, \rho_S]\bigr]
+    + O(\tau^2)\,.
+\end{equation}
+Dividing by~$\tau$ and taking $n \to \infty$, the character of the
+limiting equation depends on how $\sigma$ scales with~$\tau$:
+\begin{enumerate}
+  \item \textbf{Quantum Zeno regime} ($\sigma$ fixed):
+    the $1/\sigma$ term dominates; the system freezes in a position
+    eigenstate.
+  \item \textbf{Unitary regime}
+    ($\sigma \to \infty$ faster than~$1/\tau$):
+    the measurement term vanishes; the system evolves freely.
+  \item \textbf{Lindblad regime}
+    ($\sigma = 1/(k\tau)$, $k > 0$ fixed):
+    both terms contribute at the same order, yielding a non-trivial
+    differential equation.
+\end{enumerate}
+
+\begin{keyresult}[Master equation from continuous measurement]
+  In the Lindblad regime with $\sigma = 1/(k\tau)$ and decoherence
+  rate $\Gamma = k/8$, the continuous limit of the non-selective
+  evolution is
+  \begin{equation}\label{eq:cm-lindblad}
+    \eqbox{\frac{\dd\rho_S}{\dd t}
+    = -i[H_0,\,\rho_S]
+      - \Gamma\,\bigl[\hat{x}_S,
+        [\hat{x}_S,\,\rho_S]\bigr]}\,.
+  \end{equation}
+  This is a Lindblad equation with $L \propto \hat{x}_S$;
+  equivalently,
+  $-\Gamma[\hat{x}_S,[\hat{x}_S,\rho_S]]
+  = 2\Gamma\,\mathcal{D}[\hat{x}_S]\,\rho_S$.
+\end{keyresult}
+
+\begin{intuition}[Balancing information and disturbance]
+  Each meter in the Lindblad regime is very broad
+  ($\sigma \propto 1/\tau \to \infty$) and extracts almost no
+  information.  But infinitely many such measurements accumulate a
+  finite back-action, producing steady decoherence---precisely the
+  mechanism by which a thermal environment induces decoherence.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\section{Quantum stochastic calculus (discrete case)}%
+\label{sec:quantum-stochastic-discrete}
+
+\subsection{Free particle under continuous position measurement}%
+\label{sec:free-particle}
+
+We illustrate~\eqref{eq:cm-lindblad} for a free particle with
+$H_0 = \hat{p}_S^2/(2m)$.
+
+\subsubsection{First moments}
+
+Using the canonical commutation relations
+$[\hat{x}_S, \hat{p}_S] = i$, the Ehrenfest equations are
+\begin{equation}\label{eq:ehrenfest-free}
+  \frac{\dd}{\dd t}\expect{\hat{x}_S}
+  = \frac{\expect{\hat{p}_S}}{m}\,,
+  \qquad
+  \frac{\dd}{\dd t}\expect{\hat{p}_S} = 0\,.
+\end{equation}
+These are identical to the unitary case: the first moments are
+unaffected by the dephasing.
+
+\subsubsection{Momentum diffusion}
+
+The effect of continuous measurement appears in the second moments.
+Computing
+$\frac{\dd}{\dd t}\expect{\hat{p}_S^2}
+= \tr(\hat{p}_S^2\,\dot{\rho}_S)$ yields
+\begin{equation}\label{eq:mom-var}
+  \eqbox{\frac{\dd}{\dd t}\,\mathrm{Var}(\hat{p}_S) = 2\Gamma}\,.
+\end{equation}
+The momentum variance grows linearly: continuous position monitoring
+induces \textbf{momentum diffusion}.
+
+\begin{keyresult}[Heisenberg uncertainty at work]
+  Monitoring position makes it more definite but, by the uncertainty
+  principle, makes momentum \emph{less} definite.  The diffusion
+  rate~$2\Gamma$ is set by the measurement strength---the same
+  parameter that controls the decoherence rate.
+\end{keyresult}
+
+\begin{exercise}\label{ex:double-comm-dephasing}
+  Verify that $[\hat{x}_S, [\hat{x}_S, \rho_S]]$ in the position
+  representation equals $(x - x')^2\,\rho_S(x,x')$, where
+  $\rho_S(x,x') = \bra{x}\rho_S\ket{x'}$.  Conclude that diagonal
+  elements are unaffected while off-diagonal elements decay at a
+  rate proportional to~$(x - x')^2$.
+\end{exercise}
+
+\begin{exercise}\label{ex:momentum-diffusion}
+  Starting from~\eqref{eq:cm-lindblad} with
+  $H_0 = \hat{p}_S^2/(2m)$,
+  derive~\eqref{eq:ehrenfest-free} and~\eqref{eq:mom-var}.
+  \emph{Hint:}\ use $[\hat{x}_S, \hat{p}_S^n] = in\,\hat{p}_S^{n-1}$
+  and the cyclic property of the trace.
+\end{exercise}
+
+\begin{exercise}\label{ex:gauss-identity}
+  Derive~\eqref{eq:single-step-expanded} by evaluating the
+  Gaussian integral in~\eqref{eq:nonselective-update} and expanding
+  the result to first order in~$1/\sigma$.
+\end{exercise}

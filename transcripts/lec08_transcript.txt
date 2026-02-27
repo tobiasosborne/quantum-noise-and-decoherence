@@ -1,0 +1,531 @@
+# Theory of Quantum Noise and Decoherence, Lecture 8: Lindblad Equations II
+# YouTube: https://www.youtube.com/watch?v=YpnVwa8rqHA
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] Last week we looked at the derivation of the master equation. We went through the steps
+[00:10.16] of the derivation and we arrived at an equation of motion for the density operator of a system
+[00:19.16] S embedded in some environment E. And then we began the discussion of this equation in
+[00:29.68] the very specific context of the radiative damping. So here we began looking at an extremely
+[00:40.24] specific model where we modeled the environment as a collection of harmonic oscillators.
+[01:03.12] And this is the kind of description that's appropriate for the electromagnetic field or for
+[01:07.20] phonons propagating in a material. And we considered the very specific example of a two level atom.
+[01:24.40] That means two addressable levels of some atom embedded in this environment.
+[01:38.08] Now if the system and the environment evolved without interacting with each other, then we
+[01:49.28] wouldn't see any decay of the atom. The atom would just oscillate around the block sphere,
+[01:55.68] depending on its initial state. But of course there is always an unavoidable interaction with the
+[02:00.48] environment. And the interaction we took was dipole coupling. So the emphasis of this course
+[02:22.64] is not on the quantum optics of these situations, but more on the general abstract properties
+[02:27.76] of systems interacting with environments. So I won't go through this derivation. I won't explain why
+[02:34.64] this is a good model for an atom that interacts with the electromagnetic field. That's something for the
+[02:40.72] course on quantum optics which I either assume you've taken or you're willing to believe what I'm
+[02:48.56] writing down here. So either works. Let's put hats on operators still because maybe I end up writing
+[03:00.80] down numbers as well with the letter B. That's how the atom was taken to interact with this field.
+[03:09.44] I mean you've got to understand this in a very generalized sense, this collection of harmonic oscillators
+[03:15.36] here, it's just a collection of continuous degrees of freedom that somehow interact with the system
+[03:24.48] and whether or not we call it a field or a collection of harmonic oscillators depends on the physical
+[03:29.04] situation we care about. So this is a prototype of a noisy process where a system is exposed to some
+[03:39.28] environmental noise. And the initial state that we took was the simplest possible one you could
+[03:50.40] imagine that this field, these harmonic oscillators are in the vacuum.
+[04:20.40] So without putting pen to paper without trying to derive an equation of motion, already looking at
+[04:43.76] this system here you might have some intuition for what's going to happen. Let's think through the
+[04:50.32] intuition, do the derivation of the equation of motion, solve the equation of motion and then see that
+[04:56.16] that intuition was correct. This, if the field is in the vacuum state, there's no photons in the field or
+[05:07.92] no phonons in the field or whatever. Then there's no way for an excited state here at time zero to have
+[05:15.12] any back action on the system. And therefore let's imagine that we've got the atom in some excited
+[05:24.24] state of the atom, maybe not an eigenstate, but just some excited state. The atom evolves and then every
+[05:32.40] you can imagine this interaction here is weak, that's one of the assumptions we made throughout this
+[05:36.40] course, that the system interacts weakly with the environment. And you can imagine that as time
+[05:42.16] progresses, this particular term here builds up some amplitude. This one can't, because BK on
+[05:51.44] the vacuum is zero. This will never play a part in the early dynamics of the system and the atom.
+[05:57.44] So the atom rotates around the block sphere like this and slowly this term here gathers amplitude
+[06:06.72] and it creates an excitation in this field, which you might call a photon or a phone on,
+[06:12.88] depending on the context. And then applies this jump type operated to the system flipping in the
+[06:20.48] block sphere, depending on where it is in the block sphere. I mean, if it was at the zero state,
+[06:25.28] it just annihilates it. Of course, you've got the combination of these two things, which really
+[06:30.08] does flip it through the x-axis, flips it through the x-axis on the block sphere.
+[06:43.28] Now this has created a degree of freedom in the environment.
+[06:48.88] Now as time progresses, you might imagine that this degree of freedom could then act back on the atom,
+[06:55.44] right? There's no reason I've already stopped that. However, that's one of our assumptions that
+[07:00.24] the bath is so designed, this environment is so designed that these excitations just fly away
+[07:04.88] and never have another chance to interact with the atom. So as time progresses, the only process
+[07:11.44] that really matters is this one, where degrees of freedom are created in the environment and flips
+[07:17.44] executed on the atom. And as this happens incoherently, because you don't know when it happened,
+[07:25.04] you're tracing out the environment, you should see that an initial excited state, so
+[07:30.56] suppose we put it in originally at the top of the bottom of the block sphere. So the word
+[07:36.24] block sphere enough now that I ought to draw it. If we put it in the excited state here,
+[07:43.44] then there's an amplitude for a process where this excited state gets mapped down to this
+[07:50.08] vacuum state, a phone or photon is created and flies away, and once it's there, there it stays
+[07:57.76] forever more. Because now there's no process, which can take it back. Right, so that's the cartoon
+[08:16.08] depiction of what we expect, the dynamics of this big interacting system to do.
+[08:21.44] Let's derive the actual equation of motion following all these approximations in this derivation
+[08:27.20] that we discussed last week.
+[08:35.12] Now we're going to go through this calculation in some detail and this will be the first and last time
+[08:42.96] that we do one of these derivations in detail. They are very long and complicated.
+[08:48.64] I don't know very many ways to speed up these kind of calculations. I don't know that many
+[08:54.64] efficient terminologies and notations you can use to speed up the calculation. It's a bit of a tedious
+[09:00.00] business to derive one of these equations of motion. But once you've done it, you'll spot the pattern,
+[09:06.32] I hope. And then whenever you have to deal with a different situation, a different interaction,
+[09:11.68] a different system, you'll see that there's a derivation has a certain pattern that you can
+[09:16.64] always exploit. And after a while you get so good at it, you just write the answer down.
+[09:23.60] So it's an algorithm, but there's a tedious couple of steps in the middle. But we're going to do
+[09:28.00] them today, these very tedious steps, just so that you've seen it once in your life.
+[09:42.32] Now the first thing we do in these kind of derivations is we move to the interaction picture,
+[09:49.12] so we move to the frame of reference rotating with h of s and h of e. And that just puts a phase
+[09:57.68] on these terms here. Okay, minus omega a.
+[10:11.68] So the interaction in the interaction picture looks like this. And well, not quite, right?
+[10:32.96] We've dropped some terms. I discussed this last week, right? There's four terms here.
+[10:41.84] That times that, that times that, and so on. However, some of them are not as important as the others.
+[10:50.72] Notice that we've always taken the terms which in the interaction picture have a difference
+[10:55.20] of these two frequencies here. And we've dropped two terms where the frequencies were added
+[11:01.84] because they self-average. Now you don't have to believe that you could just keep them in there,
+[11:06.96] do the full derivation, solve the equation and see that they're equivalent to this.
+[11:12.40] We won't do that strategy. We'll just drop them straight away.
+[11:17.20] So we're going to call this guy here V plus, and this guy V minus of t.
+[11:32.16] And we've made the so-called rotating wave approximation at this point.
+[12:07.76] So you're invited to not make that approximation and do the full derivation
+[12:18.08] with these additional terms. I've seen it done in the people who don't like the rotating wave
+[12:22.96] approximation when they first meet it, and they insist on not making it. And it's a very long
+[12:29.04] derivation. And I've seen the answer. I've never done this fully myself. I must admit. I've seen
+[12:36.16] the answer and seen that these terms that we dropped here did not have any effect on the solution.
+[12:45.04] Either it's an article of faith from now on, or we should go and prove this to yourself.
+[12:53.28] All right. In the born approximation, the equation of motion for the system alone,
+[13:06.48] we have an equation of motion for that, is given by this equation here, and here is where it gets messy.
+[13:17.52] Am I going from naught? Yes.
+[14:54.00] So the full derivation, what we're going to do here, there's nothing beyond linear algebra that we're
+[14:59.76] going to do. But if you count the number of terms that we're looking at right here, you can see that
+[15:05.36] it's going to be a little bit tedious. So we've got two terms here, and we've got two terms here,
+[15:15.20] and the commutator distributes over addition. So we've actually got four possible combinations we
+[15:21.20] have to deal with, and the other thing that turns out to be a simplification rather than a complication
+[15:30.64] is that some of these terms, when they act on the vacuum, they vanish.
+[15:36.96] We just have to keep track of what happens, the fate of these four terms as we go through
+[15:42.80] this derivation and substitute these in and distribute over the bracket. And then we've got this
+[15:48.80] nice partial trace here, which will bring this vacuum ket all the way around here,
+[15:56.64] except there's not four terms, there's actually more than that. And the reason there's more than
+[16:02.40] that is that we're going to have to expand out the commutators, this is the unfortunate difficulty
+[16:06.64] of this derivation. So actually we've got four terms here rather than two, times by four terms here
+[16:15.76] that gives us 16 terms we have to worry about ultimately. Now every single one of these 16 terms
+[16:21.84] is quite elementary, right? It's just some, a product of this guy, one of these, one of these,
+[16:28.96] and a partial trace.
+[16:36.64] It should definitely be DT.
+[16:38.64] That really, that would create some very interesting interpretation. Differentiating the system
+[16:47.12] with respect to itself. Kind of fun to imagine what that might mean. So there's four terms,
+[16:59.68] but actually there's 16 terms because you've got commutators here. And you have to do 16 calculations.
+[17:06.08] Now I don't want to do 16 calculations and I'm sure you don't want to either. In fact,
+[17:12.16] it's not a very satisfying process because if you have a probability of error in your calculations of
+[17:18.88] like, I don't know, 4% or 10% or something like that and empirically determine probabilities of
+[17:26.00] errors are probably a bit higher than 4% or 5%. Then after 16 of these calculations you'll have made
+[17:32.08] a mistake somewhere. And so this is why it's somewhat frustrating to do this calculation.
+[17:40.88] And I'm not good enough with Mathematica to automate this personally. I know you can do that.
+[17:45.60] People have done this, but I can't decode Mathematica to do that. So I actually do it by hand
+[17:52.48] and make mistakes and compare it with the textbook until I get the right answer.
+[17:57.52] I know people who think about this much harder than me have worked out quicker ways to do these
+[18:06.16] derivations, but at the kernel at its heart, what it is is 16 similar calculations.
+[18:14.00] And that's what we're going to do right now. We're going to do 16 calculations.
+[18:17.76] Although, of course, I'm going to not do all of them.
+[18:33.04] I guess I can use the boards behind first. Yes, indeed.
+[18:47.28] All right, there's going to be lots of dot, dot, dots in this calculation.
+[18:53.12] Because once you've seen one or two of these things, you've seen them all.
+[19:16.88] So this is really the crucial part here. I'll explain how this comes about in a second.
+[19:24.56] And it really creates the most simplifications for us.
+[19:42.48] All right, there's a mistake. There should be a T1 here.
+[19:47.60] And over there, no, I haven't missed the trace.
+[19:52.72] It's coming.
+[19:56.64] Yeah, so the step that you might be wondering about is there's a partial trace over the environment here.
+[20:03.04] But if you look at this object here, that's an outer product of a cat with a cat.
+[20:07.76] And the partial trace, I'll write out the missing trick that I'm doing here.
+[20:16.88] So I'm going to repeat the use of following identity throughout this derivation.
+[20:46.88] It's the only trick you have to know for the rest or and the definition of the vacuum.
+[21:04.32] If you take a partial trace of something tends to product with the outer product of a pure state
+[21:09.68] like that, then you can always pull that guy around. That's the sum of the identity.
+[21:17.04] That has to be zero in this row.
+[21:20.56] Oh, gosh, where did Rho go? That's a good question.
+[21:24.16] Oh, Rho is in here.
+[21:34.08] Like that.
+[21:39.20] Yes.
+[21:39.68] I mean, this one has the row base.
+[21:42.72] In this row, there is zero.
+[21:44.96] Yeah, the zero is not relevant, actually.
+[21:46.72] It could be anything.
+[21:59.12] Okay, and let's put another bracket in here to make it completely clear.
+[24:14.88] So I've done three eighths of the terms you need to do.
+[24:40.72] There's 16 terms and I've only done six.
+[24:44.80] But I think these terms here are enough that you can spot the general pattern and you can do
+[24:49.60] the remaining 10 yourself.
+[24:57.68] So there's one particular fact that makes our life extremely easy and it's this.
+[25:10.08] This V plus term contains annihilation operators and annihilation operators when you apply them
+[25:30.16] to the vacuum or zero. So that really makes life so much easier.
+[25:40.32] And that's the other version of this identity.
+[25:47.44] So we can start to eliminate a term straight away.
+[25:51.52] We're going to eliminate quite a lot.
+[25:54.88] For example, this one here.
+[25:58.00] This term here is zero because you've got a V minus
+[26:01.68] and you've got this projection here applied to the V minus and according to this identity here that zero.
+[26:08.88] That's gone.
+[26:10.96] This first one's not gone, that's really there.
+[26:15.12] Because none of these two identities helps us out here.
+[26:19.04] The next one that's also really here.
+[26:23.52] No, it's not actually.
+[26:32.56] Now the first one's also gone.
+[26:34.40] It takes a little bit more thought.
+[26:36.56] If you look at the V plus, what is V plus?
+[26:39.92] V plus is a sum of operators on the environment and the system.
+[26:44.08] The environment operators commute past this identity here.
+[26:51.60] And then you can use the fact that the BK that's in the V plus always annihilates this vacuum here.
+[27:01.20] So this one's gone.
+[27:05.76] This one, you have no such luck.
+[27:09.04] That one's really there.
+[27:10.00] This is the one that's actually there.
+[27:26.96] Ah, where's the difference?
+[27:29.68] Yeah, I think I've written the same term out twice, you're absolutely right.
+[27:33.76] Gee, that really helps things, doesn't it?
+[27:39.28] Minus plus plus plus.
+[27:43.76] Yeah, I wrote the same thing out twice, which was
+[27:50.96] a waste of energy.
+[27:53.20] So that term is not even there.
+[27:56.40] I could replace it with a legal term but I think that
+[27:58.64] I'm just going to do fewer of the terms but I think we've already started to see how
+[28:04.72] this calculation is going to work.
+[28:07.92] This one here, does it stay or go?
+[28:09.84] Can anyone see straight away?
+[28:12.00] Does this one stay or go?
+[28:18.72] It goes.
+[28:21.52] V plus on, sorry, other one, yeah, V plus on this thing
+[28:27.92] that identity kills that one.
+[28:29.92] What about this one?
+[28:30.72] Does this one stay or go?
+[28:39.84] Can we use this identity?
+[28:43.44] Yeah, it goes.
+[28:45.52] In fact, the number of pluses and minuses has to be equal for any term to actually stay.
+[28:50.56] So you don't ever get terms like V minus V minus or V plus V plus.
+[29:01.20] So now you're down to four terms because there's only four terms that have that property
+[29:06.48] and that's why I hope you'll believe the next line.
+[29:20.72] Okay, I really did skip a few lines.
+[29:22.48] Maybe I won't skip as many as I did in the line notes.
+[29:27.44] So remaining terms, let's just investigate one remaining term
+[29:35.52] and then do this calculation full for that remaining term and then we will extend
+[29:41.68] by a process of changing pluses and minuses to get the other three remaining terms.
+[29:46.32] So I claim the first remaining term is this one up here.
+[29:50.24] The one with the bracket underneath it.
+[30:02.32] The first remaining term looks like this.
+[30:19.76] To deal with this, it's a matter of substituting in this equation up here for V plus.
+[31:49.76] And the row depends on T1 still, yes.
+[32:20.72] All right, I think that's correct.
+[32:31.84] You can see it takes a little while.
+[32:41.12] So the most important thing to observe about this equation is that BK,
+[32:45.20] BL dagger in the vacuum state, that's just a delta function.
+[32:58.80] So this remaining term simplifies quite a bit.
+[33:01.44] There's no double sum anymore as a single sum.
+[33:04.56] The GK's come in squared.
+[33:15.20] I think that's what we get.
+[33:45.20] So this, yes.
+[33:55.20] That's what we get.
+[34:03.20] So, this is a multiply sign, yeah, dot, yeah, it's a multiply sign.
+[34:27.68] So, this ugly expression of outer products and tensor products simplifies to this expression
+[34:38.40] here where the environment is completely gone. That's the crucial point here with this derivation.
+[34:46.68] Now, your exercise, of course, is to do the other three terms.
+[34:59.28] And do you need to do this exercise? Well, do you know how to do linear algebra? Maybe
+[35:04.80] the answer is you don't have to do this exercise. But if you don't do it, then you won't have
+[35:10.60] that intuition for what these equations look like at the end of the derivation. So, sometimes
+[35:15.84] it's like every single step here was elementary. I never did anything beyond multiplying
+[35:21.72] stuff and then evaluating expectation values. But the end result of this derivation
+[35:27.64] is something that you probably wouldn't have guessed at just looking at the original equation
+[35:32.44] way up here. Now, as I said, when you do these calculations a couple of times, you get
+[35:39.16] very good at this. You spot this pattern very quickly and you can moralist write down
+[35:43.64] the answer straight away. The only way I know how to get that intuition is to do examples.
+[35:50.92] Maybe you're better than I. Well, after you've done the exercise, because you're all going
+[36:02.76] to do it, we're going to be left with an equation. I wrote it out last week. I'll write it
+[36:11.64] out again.
+[36:41.64] We get this equation after you've done those remaining three terms. So, hopefully you recognize
+[36:59.04] this first term here. We've done this first term. It's just that one and two more to do.
+[37:06.88] Actually, you can make your life easier by noticing that things are Hermitian conjugates of
+[37:10.84] each other.
+[37:40.84] What's gamma? Oh, I haven't defined gamma yet. I'll define gamma in a second.
+[38:09.84] If you look at the line above, I think you can already guess what gamma might be. But I haven't
+[38:15.84] defined it down. So, it needs to be done. I should have done that here.
+[38:45.84] So, already this equation is quite useful. It's not
+[39:15.80] trivial to solve, but it's an equation that involves only the system density operator.
+[39:29.56] The environment's completely gone now. So, this is an equation involving roughly speaking
+[39:35.92] three degrees of freedom, the three elements of the block vector. So, this is just some
+[39:41.96] function now, this particular complex function here. This is a 2 by 2 matrix. Everything's
+[39:50.76] a 2 by 2 matrix, and you've got a derivative of a 2 by 2 matrix. For us, 2 by 2 matrices,
+[39:59.04] density operators that are 2 by 2 are equivalent to block vectors, equivalent to a three-dimensional
+[40:04.48] vector, I've erased the block ball. So, this is, if you expand things in terms of the
+[40:09.28] parallel operator, it's an equation of motion for a three-dimensional vector moving on a sphere,
+[40:15.80] inside a sphere properly speaking. I think you can take a Laplace transform of this equation
+[40:23.72] and actually work out a solution. I don't know if it will work so easily. I think it works.
+[40:38.72] Well, we're not going to do this, because it turns out we can make some approximations
+[40:44.24] that are very good approximations for start, and secondly, give us an equation of motion
+[40:50.48] that will feature very heavily in the rest of this course. So, this equation of motion here
+[40:54.44] is not independent, the right-hand side depends on all the previous times, not just the current
+[41:00.56] time. So, it doesn't have this mychovian quality of being memoryless. That's what we're going to do now.
+[41:13.36] Another thing about this equation is that it's not a tool obvious, that it's completely positive.
+[41:21.28] This should disturb you, because what we've done is we've approximated a physical process that
+[41:28.88] occurs in quantum mechanics, we've arrived at equation of motion for the density operator.
+[41:33.20] What promises or guarantees do we have that this equation of motion here is completely positive,
+[41:39.36] so that it is a process in quantum mechanics. Could it be that in the process of doing our approximations,
+[41:44.48] we've destroyed positivity. We've allowed, by truncating Taylor series, we're allowing probability to
+[41:50.16] be destroyed. The answer is yes, actually. We have in these derivations, in intermediate steps,
+[41:57.28] violated the conservation of probability just by truncating Taylor series.
+[42:02.96] But what's really totally remarkable is that we can recover complete positivity by making more
+[42:08.64] approximations. So, this is like where your errors cancel out in the derivation. And you end
+[42:15.84] and you end up with the right answer in the exam. So, this is exactly, it's got that quality.
+[42:20.32] The first one is to replace the sum with an integral.
+[42:30.72] This should be something that you're fairly used to doing in physics now,
+[42:38.16] when you have a sum of things, why not turn it into an integral.
+[42:46.80] When can you do that? Well, you can do that when the spacing between these modes
+[42:50.08] is very, very small.
+[42:59.20] So, this thing here is called the density of states.
+[43:17.20] This is actually exactly equal to this when the density of states is sum of delta functions.
+[43:40.00] So, when omega k equals omega, sorry, when omega equals omega k1, omega equals omega k2,
+[43:53.52] and so on. If you use for this density of states of sum of delta functions,
+[43:57.20] you'll just exactly recover this expression. But the situations we have in mind,
+[44:03.04] we're going to have a continuous spectrum, and we're going to replace this set of delta functions
+[44:08.56] here with a continuous density of states. Do I need a minus sign?
+[44:17.20] Where's the minus sign? Yeah, I guess I need a minus sign, don't I?
+[44:23.60] I don't have it in there, but nothing later on depends on this, so I guess that's okay.
+[44:30.24] Or did I just flip around the argument? Oh, I flipped around the argument, so yeah, the minus sign,
+[44:33.84] is there.
+[44:59.92] So, this becomes an integral against the density of states
+[45:03.44] for this expression up here is just the sum of delta functions, it's a very discontinuous
+[45:08.64] object. But when you make the markup approximation, you're assuming you have a smooth distribution of
+[45:16.96] energy levels in a given interval, and that integral becomes a smooth, it has a smooth kernel.
+[45:33.44] Oh, you're totally right, this should be just an omega, right? There's no omega k's anymore.
+[45:55.84] Yeah, the density of states gets rid of the omega k's.
+[46:04.16] We're going to assume that rho of omega, this density of states is smooth.
+[46:21.12] It's actually infinite, right? There's an infinite number of delta functions in a unit interval.
+[46:26.96] So, this is a case for physical intuition rather than mathematical rigor. We can go and spend
+[46:35.60] our semester on the theory of distributions, but we're not going to, we're just going to employ
+[46:41.60] our physical intuitions, and conclude that this object
+[46:56.24] is finite. So, this, if you like, here is an infinite number of delta functions, as we've got more
+[47:02.24] and more modes coming in. There's more and more delta functions, more and more eigenvalues in a given
+[47:07.92] interval. But when you multiply it by these coupling constants G here, they're getting smaller.
+[47:14.16] So, they compensate each other, and the idea is this is finite.
+[47:19.20] That's the core content of the approximation.
+[47:26.16] The next assumption we're going to make is that this is
+[47:44.96] this combination rho G squared omega. We're going to assume that that's slowly varying over
+[48:01.76] a frequency range around omega A, the frequency of the two level atom. Now, we're going to do a
+[48:10.72] little bit of Fourier analysis to get some intuition about what gamma of tau is going to look like.
+[48:20.96] So, you recognize that gamma of tau is basically the sine transform of this kernel here. So,
+[48:26.72] it's the Fourier transform, but we're going from zero rather than minus infinity. So, it's the sine
+[48:31.12] and the cosine transforms of this kernel here. And we're going to imagine what do these Fourier
+[48:38.00] transforms look like? When we do this Fourier transform here, what does the end result look like if
+[48:45.76] this thing is indeed slowly varying over some frequency range omega A? So, here's omega A.
+[48:55.12] Here's what it means smoothly varying.
+[49:00.48] Now, in real space or in time domain, if you have a function that's smoothly varying
+[49:05.76] and kind of extended, then what do you expect in the frequency domain? Well, you expect something
+[49:14.16] that looks like a very tightly peaked Fourier transform.
+[49:27.60] So, I'll write that out slightly more. I'll label some axes and stuff.
+[49:35.68] So, actually this is at the origin.
+[50:05.68] And there's a phase shift depending on where omega is.
+[50:35.68] So, if this kernel here rho omega g squared omega is slowly varying over this interval here,
+[51:03.52] then gamma of tau is going to look very much like a delta function at the origin.
+[51:14.40] Because tau is like the Fourier vector.
+[51:20.00] That's a really fundamental approximation that we're going to exploit.
+[52:20.40] Is there a minus?
+[52:39.04] Minus minus minus. So, is that not correct?
+[52:50.88] Compared to this one minus, oh, there's a plus. I see.
+[52:58.88] Yeah, that then. I see.
+[53:04.80] Yeah, I think that's now.
+[53:09.60] All right. So, let's look back at our equation for rho of s.
+[53:27.36] And we're going to exploit this approximation here.
+[53:30.72] So, this will turn this nasty memoryful equation into a memory less equation, as we'll see.
+[53:39.76] I just so want to write DDS.
+[54:00.48] Actually, notice I've added this minus infinity here. That's also part of this
+[54:04.16] mark of approximation that we make over here.
+[54:34.16] That's the equation for rs of t. I've just rewritten it out. In fact, I've added in the
+[55:00.96] Hermitian conjugate term there. Now, let's exploit this fact that the Fourier transform of gamma
+[55:09.12] is strongly peaked when t minus t1 is 0. So, that's really great, right? Integral delta.
+[55:20.72] Integrals love delta functions, and so they're going to cancel each other out, and then we end
+[55:25.04] up with our final equation.
+[55:55.04] And then this stuff in the brackets.
+[56:25.04] So, this is a number. It's a complex number. We don't know what it is yet.
+[56:55.04] This complex number depends on these g's and these omega and this road omega.
+[57:03.04] The thing you can do with any complex numbers you can break into its real and imaginary parts.
+[57:08.72] We're going to give this real part a name, gamma on 2. We're going to give the imaginary part
+[57:12.56] another name, delta, omega a. And then it's a matter of taking complex conjugates and adding.
+[57:26.72] And that will be definitely as a little exercise for you, just a nice little exercise to get you used
+[57:44.40] to complex conjugates and commutators. And you end up with, it's not so hard as it looks.
+[57:57.12] You end up with a commutator of the sigma z operator plus another term.
+[58:05.52] And here I'll introduce some very important notation.
+[58:36.48] This is calligraphic d.
+[58:46.56] I could speak in latex, right? I think most people here, I know people who do this, right?
+[59:08.00] Slash in sub x super y. It's kind of a natural way to talk once you've spent any time writing in tech.
+[59:17.52] So this is slash math cal d.
+[59:25.92] This is a remarkable equation. So we've gone from an equation that had a memory,
+[59:34.24] depended on what the system system state was in the past times. It was an equation just for
+[59:39.12] the system alone. To an equation which doesn't depend on the state of the system before time t.
+[59:44.32] This is now a memoryless equation. It's got a very distinctive form. There's a unitary part.
+[59:56.40] So this unitary part here generates just unitary rotation. You recognize this sigma z term here.
+[60:03.20] This is the Hamiltonian of the original system. It's reappeared. And this term here is like the
+[60:09.28] frequency of the atom, but it shifted a bit. It picks up some correctness. And we have another term
+[60:16.40] here. This generates the non-unitary dynamics. And it has this very distinctive form here.
+[60:34.16] An equation like this has a special name. It's a lint blood equation.
+[60:50.80] And it has a remarkable and astonishing property that it generates a completely positive map.
+[60:58.56] So dynamics according to a lint blood equation are completely positive. There's no
+[61:02.48] even though intermediate steps were not completely positive. The final result is again completely
+[61:06.40] positive. Later on, we're going to see, and this I find that even more remarkable result,
+[61:12.72] that at least for finite dimensional systems, any evolution equation in quantum mechanics that's
+[61:19.28] continuous and memoryless will give rise to a lint blood equation. So that's not obvious. And in
+[61:26.40] fact, in infinite dimensions, I think we can say that this is still a controversial statement,
+[61:32.24] whether all completely positive dynamics in infinite dimensions look also like this. I think it's
+[61:38.64] currently controversial. And we're going to focus now our energies on this equation and understand
+[61:55.28] its dynamics. What does it look like when you solve this equation?
+[62:04.00] So that's what we'll focus on now. We'll solve the equation in motion and see if it matches
+[62:07.52] our original fairy tale that I told at the beginning.
+[62:11.44] If you assume properties of the operator that always leads to legal dynamics, yes, the other
+[62:40.08] way around works, that's because of the Stein spring dilation theorem. So once you've got an
+[62:48.88] equation that looks like this, it's guaranteed to be completely positive. You can always find an
+[62:52.80] environment, a fictional environment, and a process with this system and this environment where this
+[62:59.84] is the exact equation of motion. But that's not quite how it works in physics, of course. You don't
+[63:06.48] get to write down the equations of motion you like for physics and physical systems and then
+[63:10.32] sort of work out what system had them. You know, we're that at the case, but
+[63:16.80] unfortunately, physical systems, they don't accommodate our wishes so nice, you know, easily.
+[63:37.28] Actually, in one of the future lectures, we're going to see how to turn a limp-blood equation into a
+[63:50.88] physical process. And it'll turn out that these things are the exact descriptions of continuous
+[63:58.24] measurement processes where you have a system that you monitor continuously. And that's actually a
+[64:07.68] key intuition for how this system arises in decoherence. If you think of the environment as like a
+[64:13.68] gigantic measuring device, its only job is to extract information from your system as time passes.
+[64:21.52] Then you could think of this decoherence process as where the system has been subjected to a
+[64:26.00] continuous but weak measurement by the environment over and over again. And the word measurement
+[64:32.00] here is meant to evoke that you can't undo the measurement. The measurement doesn't act back
+[64:36.56] on your system. It doesn't have a memory, but the analogy is not quite perfect. All right, let's go
+[64:44.56] ahead and solve our first limp-blood equation.
+[64:56.40] Now, it's an equation involving a two by two matrix. How hard can this be?
+[65:04.32] Famous last words. It's not that hard.
+[65:08.80] We're going to set for simplicity this frequency shift to zero because it's like an additional
+[65:28.72] rotating wave, sorry, additional interaction picture you can do to get rid of it. I don't want to
+[65:33.52] worry so much about that. That's not really the interesting part of the dynamics. It just generates
+[65:37.04] a rotation on the box sphere. So we're going to focus all our energies now on solving the following
+[65:45.20] equation of motion. We have some density operator notation that I use X.
+[65:57.20] So this is a density operator for a qubit, right? It's got four entries,
+[66:02.16] its Hermitian and trace one. So I've made that it's got trace one and I've made that its Hermitian.
+[66:14.16] And we have to
+[66:21.44] somewhat tediously put this into the right hand side.
+[67:01.92] That's the full limp-blood equation, right? Well, with the delta A omega A equals zero.
+[67:17.60] Now I haven't put this on the box sphere and I don't want to put it on the box
+[67:20.16] sphere because it's actually simpler to solve it this way.
+[67:36.00] So I hope it's like, it looks like one of these first ordinary differential equations you met
+[67:40.48] in sort of undergraduate maths and physics. It's in slightly encoded form, right? We've got one,
+[67:48.08] two, three, or two numbers, really. One complex number, one real one that we've got to keep track of, but
+[67:54.88] so let's multiply all these matrices out and the claim is we get this equation at the end of it.
+[68:03.76] Oh yeah, that's not very clear, it's a minus.
+[68:25.12] So the nice thing about this equation of motion is it decouples, right? The P equation of motion decouples
+[68:29.60] from the x equation of motion. That doesn't always happen. In fact, basically never happens, but
+[68:35.52] at least in this case it does so we can exploit that. So we get two equations now. We get an
+[68:42.80] equation for P. So we get the DPDT equals gamma one minus P.
+[68:52.88] And we get another equation for x. The x equation is even better.
+[68:59.60] So you might look at this and say, well no, there's actually four equations there, aren't there? There's an equation for the zero zero entry. There's an equation for the one one entry. There's an equation for the zero one and the one zero. But these two equations, these extra two equations that are having written down are just identical to these two equations.
+[69:30.56] You just take the complex conjugate of this one and you just subtract one, but this from one for the other one and it works out.
+[69:40.56] So I guess you know the answer to this one, right? Can anyone tell me what x of t is, right? This is a look at proof.
+[69:50.64] What do I write here? What's the right hand side? x of naught, I'll help you out. What do I write now?
+[70:00.24] Exponential, yes. There you go, you're done. That one's easy. This one, this one's not a look at proof. I thought I could just write out the answer. And I had to do this whole, you know, particular solution, blah blah blah.
+[70:16.72] When you write at the answer, you're like, well, okay, it is pretty simple, but here's the answer. I'm just going to write it for you.
+[70:29.60] Alright, while I raise the board, I invite you to ponder the solution now. Think about what it looks like for large t.
+[70:59.60] What it tells us is the one qubit— the ones qubit. sorry, density OK.
+[71:06.16] What it tells us is that the one-cubit, sorry, density operator time t has the following form.
+[71:33.56] It looks like 1 minus an exponentially decaying function of whatever, the initial value,
+[71:42.56] the off diagonal terms are decaying exponentially quickly in time.
+[71:50.56] So all this nice coherence, like this is where the coherence lives, when you have a super position,
+[71:55.56] it's just getting destroyed exponentially fast.
+[72:01.56] And of course, and the last term down here looks like 1 minus an exponentially decaying function, like this.
+[72:18.56] So if you look at this equation here and ask, what do we expect our atom to have done after some time?
+[72:25.56] Well after a characteristic decay time, one of a gamma, this atom is with very high probability in the state 1, 0, 0, 0, it's in its ground state.
+[72:37.56] So this quanta of energy in the atom, if there was one, propagates to the environment, flies away at the speed of light if it's the electromagnetic field and never comes back.
+[72:49.56] System lands in its ground state and that's where it stays forever more.
+[72:54.56] Hence radiative damping.
+[72:57.56] And on the block sphere, you can draw this dynamics as a kind of vector field inside the block sphere.
+[73:02.56] Suppose I started in an excited state, where do I end up after some time?
+[73:07.56] Well you end up exponentially close to the ground state.
+[73:11.56] What if I had some nice coherence?
+[73:13.56] It's a super cat state of 0 plus 1.
+[73:16.56] Well you also end up with such a, it's a bit of a curve I think.
+[73:22.56] And then you, no matter where you are, you end up at the ground state after a characteristic time, decay time.
+[73:38.56] And that's exactly the intuition we had at the beginning.
+[73:45.56] Now this is a prototype for every other calculation we're going to do with decoherence processes.
+[73:53.56] You have an environment, it acts like a gigantic measuring instrument.
+[73:57.56] It sucks out coherence in some preferred basis, in this case, this basis here, the diagonal basis, and then it sends you to some specific fixed point.
+[74:07.56] So we call this thing here, this state here, the steady state.
+[74:14.56] So the limit t tends to infinity of rho t.
+[74:21.56] We call that rho ss in the literature.
+[74:24.56] And that, in our case, is that state there.
+[74:54.56] Okay, let's do exactly the same thing all over again, but for another system.
+[75:09.56] You can make this arbitrarily baroque.
+[75:11.56] You can add in as many environments as you like, as many interactions, as many complicated systems.
+[75:19.56] The limit is your imagination.
+[75:24.56] And every single time, if these approximations are valid, you should end up with an equation that has this characteristic.
+[75:32.56] Lint blood form that we'll investigate further in this course.
+[75:37.56] And along the way, you'll encounter steps where you have to do these kind of partial traces.
+[75:43.56] So very, very rapidly, go through one particular, another example, to do a cavity emission.
+[75:57.56] Oh, there it is over there.
+[76:03.56] So in this example, we're going to look at a cavity, a little box with mirrors, right?
+[76:12.56] There's going to be some light in this box.
+[76:16.56] One of the mirrors will not be a perfect mirror.
+[76:19.56] The other mirrors will assume to be as perfect as we can make them.
+[76:24.56] And that means that whatever electromagnetic field was in the box to begin with, after some time it decays out of this mirror.
+[76:33.56] So the cartoon picture for cavity emission is this.
+[76:38.56] We have some box of a mirror, there's some electromagnetic field, and it couples to the radiation outside.
+[76:45.56] So if you're inside the box, what does it look like?
+[76:48.56] Well, you know what it looks like? You've been in elevators before.
+[76:51.56] You've seen the infinite tunnel.
+[76:54.56] That's just all the round trips of these photons through the mirror.
+[76:59.56] But the tunnel gets darker, yeah?
+[77:01.56] If you look in this way, this infinite tunnel, it looks darker and darker and darker and all the reflected images.
+[77:07.56] That's because the mirrors aren't perfect and that's the process we're going to model.
+[77:11.56] If you were a photon in this mirror, you'd see lots and lots of reflections of yourself until eventually you weren't there anymore.
+[77:22.56] And I refer you to the most excellent movie interstellar for the depiction of what it's like to be in a box in four dimensions.
+[77:37.56] Okay, so what are these BK? These are the bath modes.
+[77:44.56] Because we're talking about an electromagnetic field in a box, we're going to have a mode of the cavity, we'll describe it as a single mode.
+[77:52.56] We're going to integrate out or imagine we're not in any of the higher modes.
+[78:11.56] The total Hamiltonian for this is just quadratic, right? It's the electromagnetic field interacting with the electromagnetic field.
+[78:17.56] There's no nasty nonlinear interactions. It's actually very, very simple.
+[78:22.56] So we have the cavity Hamiltonian. This is the system Hamiltonian.
+[78:28.56] We have the environment Hamiltonian. It's just the same as before, basically. It's a bunch of modes, bunch of harmonic oscillators.
+[78:36.56] And we have the interaction, which is now even simpler than it was before.
+[78:53.56] But I hope that in looking at this Hamiltonian, you're impressed that it looks sufficiently similar to the last calculation that you would know what to do.
+[79:05.56] Omega C here.
+[79:16.56] So this is on HS. This is HE. This is V int.
+[79:26.56] Now it's a nice exercise with no, it's a no thinking exercise. You just have to follow a lot of derivations, but it's no thinking that after the weak coupling limit,
+[79:42.56] born Markov equation will lead you exactly the same steps. You just have this one substitution you have to make throughout.
+[79:54.56] Wherever you saw a sigma plus last time, you put an A. That's the only change you make in the whole derivation.
+[80:09.56] Oh, I didn't tell you what the initial state was. I'll do that in a second.
+[80:18.56] If the field outside the cavity is in a vacuum, then you will get this equation here, which I hope looks rather familiar.
+[80:27.56] But if the field outside the cavity is not in the vacuum, you'll get an additional term. That's kind of interesting to derive that.
+[80:34.56] Where N, oh, at frequency, cavity frequency.
+[81:01.56] Yeah, so there's an additional term. You didn't expect that on the basis of the previous calculation.
+[81:06.56] The additional term comes from the fact that if you assume the environment is not in the vacuum state, but in some thermal state, then there's a chance for the environment to incoherently stuff a photon back in the box.
+[81:28.56] So whereas before you had 16 terms, here you have 32 terms you have to worry about.
+[81:57.56] You still have 16, but you only have 4 or 8 left over depending on whether the environment was in a vacuum state or an thermal state.
+[82:06.56] So I should say that clearly. Here the row north for the system and environment was taken to be some initial system state of the cavity, there's some photons in there.
+[82:19.56] It's going to tense up a thermal state.
+[82:30.56] Now we know how to do this now, right? We solve those things.
+[82:37.56] It's a bit annoying to have this term here. This is the incoherent process where photons come back into the cavity to compare it very nicely with our previous derivation.
+[83:01.56] Let's assume that the environment was in the vacuum.
+[83:11.56] We end up with a simplified equation of motion.
+[83:19.56] This one here, which looks identical to the one for the spin system, except instead of sigma plus we now have an A.
+[83:48.56] And we're going to solve this equation in full generality, even though it's an infinite dimensional equation. Now we've got an equation for an infinite number of degrees of freedom here.
+[83:55.56] It's a harmonic oscillator inside the box rather than a spin. We can still solve it by using this characteristic function.
+[84:10.56] So remember that's what the characteristic function is, trace of your density operator times by d of psi.
+[84:17.56] If you write out this equation here in terms of the characteristic function, this was actually an exercise, one of the exercise classes,
+[84:25.56] that the derivatives with respect to psi bring down operators.
+[84:38.56] Write this last bit out.
+[85:00.56] So the derivative of the characteristic function is just substituting in this equation into the right hand side. That's not too controversial.
+[85:08.56] But look at this, we've got A dagger times by this displacement operator here. Now there's a way to get A daggers from displacement operators, and the way is you differentiate the displacement operator with respect to this complex number psi.
+[85:21.56] So that's the thing we did in the exercise class.
+[85:31.56] In the last moments I will do one term.
+[86:01.56] Actually I'll just write out the equation of motion in terms of the d's and you can just verify it. That's probably the quickest way.
+[86:13.56] Oh, there's a bracket missing here. Definitely, thank you.
+[86:26.56] So it's an exercise to prove that the derivative with respect to time of the characteristic function has this form here.
+[86:49.56] So every time you do a derivative with respect to psi that brings down A's and A's daggers from this thing here, and depending on the order in which you do your derivatives, whether you do derivatives with respect to psi or psi bar, you'll get down A's and A daggers.
+[87:08.56] If you just do this expression, do this calculation on the right hand side here. You should end up with exactly this expression here in terms of the A's. Very good exercise. I will definitely set that later.
+[87:21.56] And we can actually solve this equation. So remarkably we can solve it.
+[87:31.56] And you solve it by knowing the answer.
+[87:41.56] So we're going to guess that chi of psi is a quadratic function. Now, how could you convince yourself that that's probably the case? Well, this term here is homogenous. This term here is homogenous and this term here is homogenous. So it's not going to change the order of any polynomial.
+[88:04.56] We know that the vacuum state is a fixed point. So let's just hope that it's like this.
+[88:14.56] And if you do the derivation, you'll find out that remarkably this k-capper of t is exactly the same expression as what we had for the probability of the atom being in its excited state in the previous example.
+[88:41.56] So we're going to have more to say on equations like this. These equations will come up more often. This is an example of a fuck a plunk equation type equation.
+[88:53.56] There's a general theory of their solutions. And that's how I knew that it would be like this.
+[89:06.56] And it also matches our physical intuition because if you look at this, what is it saying? It says that as time progresses, the characteristic function looks more and more like the number one times by e to the minus a half psi squared.
+[89:20.56] But that's the characteristic function of the vacuum. So, well, okay, surprise, surprise. If you put your cavity in an excited state and you let it run, then it'll out couple to the environment.
+[89:31.56] And it will eventually decay out of the cavity and the cavity will be left in the vacuum.
+[89:38.56] The process where we allow the environment to be in a thermal state is a bit more complicated and we won't cover it, I think in complete generality.
+[89:46.56] Okay, that's it for today. Thank you very much.

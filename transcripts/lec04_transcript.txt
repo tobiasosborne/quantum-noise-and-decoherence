@@ -1,0 +1,359 @@
+# Theory of Quantum Noise and Decoherence, Lecture 4: Second Quantisation and Gaussian States
+# YouTube: https://www.youtube.com/watch?v=ZvOBigJWx8I
+# Whisper transcription (base model, whisper-ctranslate2)
+
+[00:00.00] Last week we looked, we began a discussion last week with that of many particles.
+[00:07.00] We went from one particle to many particles.
+[00:28.00] This is vital if we want to talk about open quantum systems in which are connected to the environment.
+[00:35.00] So here's our picture. We have our system which might be a cavity, a mode of light, a two level atom, something like this.
+[00:46.00] And we have an environment and the goal of this course is to explain the dynamics of this small quantum system embedded in this environment.
+[01:03.00] Now the thing is usually the environment has many particles in it, many photons or many phonons or many electrons or many something.
+[01:14.00] And that's why we have to talk about many particles.
+[01:20.00] And last week what we did is we described the Hilbert space that we should associate with a system of many particles.
+[01:36.00] I'll say a Hilbert space because I'm hesitant to say the word that Hilbert space because there might be degrees of freedom we cannot yet observe that you should include in your description.
+[01:50.00] This is a model that's very useful for describing many particle systems but it might not be the right one.
+[01:55.00] So far it's turned out to be very useful but just beware that everything we say like this should be qualified.
+[02:02.00] We shouldn't say this is the Hilbert space of a system of many particles just in case we missed something out.
+[02:08.00] So we described a Hilbert space.
+[02:38.00] That's what we did last week. We described a Hilbert space to associate, we're just going to say this is how we describe the states of the system.
+[03:00.00] We associate it with a system of an indefinite number of particles. So we're just having to acknowledge the fact that we can't say for sure how many particles there is in the environment.
+[03:13.00] And we're going to build it on top of the Hilbert space that we associate just for a single Schrodinger particle.
+[03:21.00] That's what we discussed last week. And the answer was depending on the types of particles, one of three things.
+[03:38.00] So the answer was box space. And here's the definition of it.
+[03:57.00] OK, that was the definition we wrote last week. And this is for bosons. We use the plus symbol and for fermions the minus.
+[04:24.00] OK, that was last week. This is a fantastically infinite space. It's really, really infinite because this space here, the single particle space for a single Schrodinger particle is usually infinite already. Just think of a particle in a square well.
+[04:40.00] And then you've got this direct sum of an infinite number for the case of bosons, tensor products of this infinite dimensional space. There's a lot of degrees of freedom that we can associate with systems in here.
+[04:57.00] So we're going to recall just to remind you of the notation, this h superscript, anything is you tense a product this n times.
+[05:14.00] And this p plus minus thing is the projection onto the symmetric or anti symmetric vectors.
+[05:29.00] OK, we'll put an n here. That's just from the review of what we covered last week.
+[05:43.00] Now today I'm going to take us away from this somewhat abstract object here.
+[05:53.00] And we're going to spend the whole lesson dealing with the very, very simplest version of fox base.
+[06:10.00] And the very simplest version of fox base is when you take for your single particle Hilbert space, just the complex numbers of one dimensional Hilbert space.
+[06:20.00] And as I mentioned last week, we're going to pretty much leave fermions behind for the rest of the course.
+[06:35.00] We could do we could indeed describe environments as gases of fermions. And this is certainly relevant for when you have a piece of metal describing a phosphorus atom embedded in a piece of metal, you would need to describe your environment as a combination of bosons and fermions actually because the metal has electrons flying around in it.
+[06:57.00] And there's phonons floating on top of the of the electron fluid and and and there's lots of lots of things in the environment here, but that's just making our lives more complicated.
+[07:07.00] Let's make our life simpler and talk about the simplest possible systems and at least understand those.
+[07:19.00] So the simplest one is when your single particle Hilbert space is a one dimensional space. Now this is where it gets useful for physics in the lab.
+[07:30.00] We're going to this is the kind of system you need to use to describe a single mode of light in a cavity.
+[07:41.00] So last week, this is all abstract, you're quite welcome to forget everything we said last week about that if you're not interested in the mathematical foundations.
+[07:50.00] And if you're interested in actually applying this stuff to something that's going to take place in a lab, then this is when we're going to start.
+[07:59.00] So if you build, if you choose your single particle Hilbert space just the complex number C or one dimensional, it's even less than two dimensional, so it's one dimensional.
+[08:16.00] And then if you build yourself a fox space using this single particle space, then we're going to actually encounter something quite familiar.
+[08:27.00] So remember we're doing bosons. Now fermions is trivial.
+[08:36.00] And we're going to convert this direct sum of projections and so on blah, blah, blah. We're going to convert that all down to something really concrete and familiar.
+[08:57.00] All right, the first thing to observe about this fox space is that in fact each of these subspaces here is one dimensional.
+[09:17.00] Let's just convince ourselves of this fact. So hn is meant to be the tensor product of this single particle space n time.
+[09:28.00] But our single particle space is just C. And if you tend to see with itself, you get C.
+[09:40.00] That's just something that's true about the tensor product.
+[09:54.00] So what we're going to, and then if you've got this projection operator here, this projects onto the symmetric states, well if your system is one dimensional, then this projection operator acts as the number one.
+[10:09.00] It's just multiplying by one. And that means that we've learned that our fox space for a single mode is none other than this infinite direct sum here which may not look exactly familiar to you.
+[10:24.00] But I hope in the next board, you'll recognize what that space is.
+[10:33.00] So it's infinite dimensional. We have to contend with the fact that we could have an arbitrary number of bosons in this single mode.
+[10:48.00] If you think of a cavity, there could be no bosons, no photons in the mode, there could be one, there could be two, there could be three.
+[10:54.00] And each one of those situations corresponds to one of these subspaces C in this infinite dimensional direct sum here. And that really gives us the key to interpreting this space.
+[11:14.00] So if you want the formal isomorphism, it's isomorphic to this space here. But let's be slightly less formal and interpret each of these subspaces here.
+[11:32.00] And we're going to write n for the basis for the nth subspace.
+[12:01.00] So remember that each of these spaces here is one dimensional and when you apply the projection of radius, the little one dimensional subspace.
+[12:11.00] So there's only one vector you need to span the complex numbers, just the vector one. And I like to put cats around things so that that's meant to be just the vector that's the basis for this nth space there.
+[12:24.00] So that means that an arbitrary state in this fox space of one mode is something that can be expressed as a sum of basis vectors.
+[12:51.00] And what I didn't write and what I will write is that these basis vectors are orthogonal to each other. But I hope that that's kind of clear from this direct sum. We'll write it down in a moment anyway.
+[13:01.00] So an arbitrary state psi in fox space has the form. Well, it's some linear combination of these basis vectors.
+[13:17.00] Such that these numbers don't sum up to infinity.
+[13:29.00] And an arbitrary state in this particular fox space looks like this.
+[13:50.00] And I hope this starts to ring some bells. If I say fox state for this n here, if you think of that as n photons in a mode, then what we have here is the state of a harmonic oscillator.
+[14:09.00] So we can identify in a physically transparent way this Hilbert space here with the Hilbert space of a single harmonic oscillator.
+[14:18.00] And that I hope sort of marries up with your understanding of the electromagnetic field in a cavity. Good.
+[14:28.00] So that's great. We're going to interpret this space F plus C as that of a harmonic oscillator. And we're going to want to work with this space, but it's infinite dimensional.
+[14:47.00] If we're going to carry out our program of understanding how systems interact with our environments, we're going to need to do a couple of things.
+[14:54.00] We're going to need to say, well, what's the state of the environment? We're going to have to specify a state.
+[14:58.00] We're going to have to say, how does the environment interact with the system? We're going to have to specify an interaction. But if you have an infinite dimensional space, then specifying the state of an infinite dimensional space is a bit tricky, right? You need an infinite number of numbers.
+[15:14.00] And today we're going to talk about a way of specifying states and operators on infinite dimensional spaces a human readable way of doing this.
+[15:29.00] Now nature doesn't have to care about how we want to represent states.
+[15:36.00] But it just happens at the way I'm going to tell you about today. It does a very good job of modeling the states we encounter in experiments.
+[15:51.00] And the name we associate with a quantum system, an infinite dimensional quantum system with Fox Space F plus C. The name we associate with that is a continuous quantum variable.
+[16:04.00] That's what we call a system that has this Hilbert space here. So a harmonic oscillator is an example of a continuous quantum variable. A mode of light in a cavity is an example of a continuous quantum variable.
+[16:16.00] And by the end of this course, we're going to model our environment as a lot of continuous quantum variables in our system, probably as a two level system, or itself a continuous quantum variable.
+[16:27.00] They are the ones that are really appropriate for experiments. So we have to spend some time talking about them. And I'll remind you of some facts about harmonic oscillators.
+[16:39.00] I will introduce you to some new techniques and tricks to work with quantum harmonic oscillators that sort of make the whole task of specifying states for the environment a bit easier.
+[16:57.00] Let's drop this off.
+[17:13.00] So if you think about a qubit, a qubit has two levels. How hard is it to specify a state of a qubit? Well, if it's a pure state, you only need two complex numbers.
+[17:22.00] And if it's a mixed state, you need three real numbers, which is basically the same as two complex numbers, up to a normalization.
+[17:29.00] And so you never really had to worry about how you specified states of qubits. You just wrote those two numbers down, all those three numbers down.
+[17:37.00] It's the same with n qubits. You need two to the n numbers, but there's usually no better way than to just write those numbers down in a list.
+[17:45.00] Although there are some pretty advanced techniques we use these days to talk about states of qubits. When you have a single harmonic oscillator, you need to write down states of that harmonic oscillator.
+[17:57.00] It's all very well to say that it's in a state, but until you've written down what that state is, you haven't said very much at all.
+[18:05.00] And I'm going to show you today, one way of doing that before I show you this, the way we use it in practice, is really to write down the infinite list of coefficients here, cn, wherever I had them here.
+[18:17.00] You could just write them all down. That's a perfectly legitimate way of specifying the state of a harmonic oscillator.
+[18:26.00] Now, I want you to think about this for a moment. How can you write down an infinite list of numbers?
+[18:37.00] This will give you the key to understanding everything we do from now on. You can't do that, because as a human, you will run out of time.
+[18:46.00] You start writing the numbers down and eventually you'll die. You'll never get to the end.
+[18:54.00] So there's two ways you could, two naive ways to approach this problem. One is you say, I'll write down the first hundred, and then hope that the error between my description and the real state is zero, or small.
+[19:05.00] That's a perfectly legitimate way of going, and people do this all the time. Another way you can do it is you can write down an algorithm for the numbers.
+[19:14.00] An algorithm is a box, and the box takes the number n, and it spits out the coefficient cn.
+[19:22.00] So cn, you have to know all the cn's for every n, but it's enough to have an algorithm for those numbers.
+[19:31.00] You don't have to write them all down. You just have to write down a program that will give you those numbers.
+[19:35.00] And a perfectly legitimate program is a function. So the exponential function, for example, is an algorithm.
+[19:41.00] You give it the number n, and it hands back the number e to the minus n, for example.
+[19:46.00] That's a perfectly legitimate way to specify a state in an infinite dimensional space.
+[19:51.00] And that's precisely what we're going to do in this lecture today. We're going to describe somewhat sophisticated ways of giving algorithms for these coefficients here.
+[20:02.00] Now, it's up to you whether you want to use these algorithms or not, but they turn out to be very useful in our course.
+[20:07.00] They also turn out to be directly corresponding to things we can measure in experiments.
+[20:12.00] So, if you do homodine detection and heterodine detection on a mode of light, then the numbers that come out of your detectors,
+[20:21.00] detection apparatus, correspond to this way we have a specifying state. So, I'll explain this all today.
+[20:28.00] All right.
+[20:33.00] So, we come to a definition now. This was all a motivation for the definition. Here comes the definition.
+[21:03.00] Okay. We hereby define this to be a continuous content variable.
+[21:26.00] Now, if you do something about Hilbert spaces, then you will no doubt point out that that means everything as a continuous content variable,
+[21:40.00] because all separable Hilbert spaces are isomorphic to this h here. Yes, that's true, but that's not in the spirit of the definition.
+[21:49.00] So, this is not, this is a physical definition, which is why I haven't written definition and made it sound mathematical.
+[21:56.00] So, a physicist definition is one way you have to use your intuition to understand it.
+[22:08.00] All right. Now, it's super convenient to have this annihilation and creation operators for this space.
+[22:18.00] I define them last week, but I'm going to just write them down again and you're going to recognize them instantly, I hope.
+[22:25.00] So, remember last week we talked about annihilation and creation operators as being defined in terms of a state of the single particle Hilbert space,
+[22:48.00] but for us, the single particle Hilbert space has only one state. It's one dimensional. And hence, there is only one annihilation operator and there is only one creation operator.
+[22:59.00] So, you may as well call a, similarly. And last week, I wrote down the commutation relations for these guys, well, this week we can write them down for these guys and they are as simple as possible.
+[23:29.00] So, it's none other than a harmonic oscillator creation and annihilation operator.
+[24:00.00] So, one of the core prerequisites for this course is you've met the quantum harmonic oscillator.
+[24:10.00] So, at some point, you should remind yourselves of that system.
+[24:40.00] So, these vectors that I introduced, these n vectors or these four states, they are related to the annihilation and creation operators.
+[25:03.00] You can actually prove that from the definition that we gave last week for the annihilation and creation operators. They're exactly given by applying the creation operator to the zero state or the vacuum state.
+[25:21.00] Exactly according to the formula that you've no doubt encountered before.
+[25:32.00] We also have that a dagger a on the fox state is n. So, then this is the number operator here.
+[25:43.00] And we also have that if you annihilate a boson from the state n, you get the state n minus 1, but you get a factor of course.
+[25:58.00] So, that is in fact square root n, I think.
+[26:04.00] And finally, we have that these states are all open normal.
+[26:34.00] Alright, that's, we're done with the review of harmonic oscillators.
+[26:46.00] Now, we're going to come to something that you may not have encountered before.
+[26:49.00] I mean, if you're an experimentalist, you probably would have encountered this already, but if you're not the when it's worth it to spend some time talking about these objects that I'm going to introduce now are called displacement operators.
+[27:04.00] So, let alpha be some complex number.
+[27:11.00] So, let alpha be some complex number.
+[27:18.00] So, let alpha be some complex number. And we're going to build an operator on L, fill that space H.
+[28:19.00] Why would you bother defining one of these displacement operators?
+[28:31.00] So, I'm going to give you two answers. I'll give you a mathematicians answer and I'll give you a physicist answer.
+[28:36.00] So, the mathematician answer is, well okay, sure we could work with these A's, but these A's are unbounded operators.
+[28:43.00] And then we have to worry about are they continuous and do expressions involving A's converge.
+[28:50.00] Another way to work with A operators is simply to exponentiate them and turn them into a unitary operator.
+[28:55.00] And the nice thing about unitary operators is they're bounded.
+[28:58.00] And so we can use these as a proxy for these guys up here and do all our calculations instead with these things.
+[29:06.00] And then when we want an expression involving A's, we just differentiate with respect to alpha and set alpha to zero.
+[29:12.00] So, that was the mathematicians answer for why bother defining these operators here.
+[29:17.00] The physicist answer is a bit different. And that is these are operations actually correspond to linear optics transformations.
+[29:24.00] Transformations you can do with linear optics. So, if you have phase shifters and beam splitters, then you can describe their operation in terms of these displacement type operators here.
+[29:36.00] So, these more closely correspond with what you actually do in the experiment. You stick the piece of glass on the table.
+[29:42.00] And the transformation it affects on the motorbike is this. It's represented by this unitary operator here.
+[29:48.00] Whereas, I invite you to think about what is the physical operation which does A.
+[29:58.00] Can you look through your catalog and buy a machine that will do A.
+[30:03.00] And the answer is you can't because it's a Hermitian operator and the only operations you're allowed to do in quantum mechanics are completely positive maps or as a subset of those unitaries.
+[30:14.00] So, you can't buy an A. You can buy a beam splitter which will, if you couple it to the vacuum, sort of act like A.
+[30:21.00] But you can't buy an A box.
+[30:24.00] So, these are, that's the physicist reason for why you should care about displacement operators.
+[30:31.00] Now, the claim is, and I said it two or three times in that justification that these displacement operators are unitary operators, let's go some way to proving that.
+[30:55.00] Alright, in some sense the proof is trivial because the exponent here is i times by a Hermitian operator.
+[31:08.00] So, e to the i times by a Hermitian operator is unitary. That should suffice for any physicist.
+[31:15.00] And exactly that's the level we are in this course. We're not going to bother proving the continuity of this mapping and so on.
+[31:24.00] So, one way, I mean knowing that its unitary doesn't really help you though in actually manipulating this object.
+[31:32.00] So, we're going to go a little bit further by noting that the inverse of this operator is the same as just having minus alpha in there.
+[31:46.00] And that happens to equal the dagger of this operator.
+[31:53.00] That is how we're going to work with this guy as a unitary operator.
+[32:00.00] We simply note that if you turn alpha to minus alpha, that's the same as taking the dagger.
+[32:14.00] And so, d is unitary, end of proof. This is not a proof in the mathematician sense, but this is a good enough argument I hope that you won't be too skeptical.
+[32:27.00] Now, there's a little exercise that I want you to do.
+[32:34.00] It's a television exercise.
+[32:44.00] But I do want you to think it through because you won't be able to do half the calculations in the rest of today unless you've done this exercise.
+[32:53.00] Proof that this displacement operator can be written as, I always have to look up this formula because I always forget the factors of two.
+[33:16.00] Proof that.
+[33:22.00] Now, this is a total pain to prove. I really don't know a super elegant way to prove this.
+[33:29.00] The hint is to use the Baker Campbell Health Store formula. I hate that formula, but whatever.
+[33:49.00] That's the hint. I actually don't know how to prove it any other way.
+[33:54.00] Well, apart from the super brute force way of writing out the exponential of the palace series and somehow collecting it together.
+[34:01.00] But that's not elegant. It's just, yeah.
+[34:31.00] Once you've got this formula, you can do all kinds of interesting things.
+[34:57.00] Once you've got this formula, you can do all kinds of interesting things.
+[35:03.00] The first thing we're going to do is define things called, okay, no, the second thing we're going to do is define things called coherent states.
+[35:12.00] Before we do that, we're going to write down some identities. In fact, today, if you like, it's just going to be a list of identities involving this D.
+[35:20.00] We have to do it at some point, and that's now is the moment.
+[35:26.00] So firstly, this notation is a bit clumsy, DA comma alpha. This matters more when we have multiple modes of light right now.
+[35:35.00] We don't, so we know that we're only talking about one mode of light, so let's get rid of the A.
+[35:49.00] You probably encounter this guy written like that anyway before.
+[35:56.00] Let's write down some interesting identities now. These are all exercises.
+[36:14.00] I'll give you a hint how to solve some of them.
+[36:21.00] Let me think.
+[36:30.00] Could you use that formula?
+[36:33.00] I don't like that formula. I like another way of doing it. You could also differentiate with respect to alpha and set up a differential equation,
+[36:41.00] and solve that differential equation and find out the answer to that.
+[36:44.00] That's kind of using a hammer to swipe a fly, but it feels cooler.
+[36:54.00] And then the other formula that we're going to need today is the composition rule for these D.
+[37:03.00] This is almost if you like the definition of these D-alphas and basis.
+[37:11.00] So if I, you might catch me saying vial operator instead of displacement operator.
+[37:18.00] So I better write that down, that I may say that by mistake, because these things are meant to be the, okay.
+[37:31.00] Depending on where you come from, the word vial operator may be the thing you recognize these things as.
+[37:47.00] So there's a formula for how to compose these guys, and it's this minus 1, 2, D alpha plus beta.
+[38:08.00] So if you displace by beta, then displace by alpha, that's the same as displacing by alpha plus beta, but you have some funny factor at the front.
+[38:26.00] And I'm pretty much with these two identities you can get through this whole lecture today, pretty much.
+[38:38.00] Now that we've got these displacement operators, and hopefully now that you believe me that they've got something to do with optics, we can use them to do stuff.
+[38:46.00] And we're going to use them to build states.
+[38:56.00] You take the zero-fog state, the vacuum, the empty mode, whatever you want to call it, and you apply this displacement operator to it, and you're going to get another state out, right.
+[39:05.00] If D is unitary, then it's going to take you to something else. And that state is called alpha, and we call this a coherent state.
+[39:14.00] And you can use this formula here, the Baker Campbell Hellstuff one, and use the fact that A annihilates the vacuum to work out an exact expression for this, the one that you might be more familiar with.
+[39:31.00] There it is there.
+[39:40.00] So this state here is called a coherent state.
+[39:54.00] And these are the ones that get prepared in experiments involving many optics.
+[40:08.00] If you've got squeezing operations, if you can prepare a wider class of states, which will also call, well, we won't call them galsine, we'll call them squeeze states.
+[40:20.00] Well, maybe we'll call them galsine in this course, I don't know. But you can prepare a wider class of states, but they all have this typical form here. So even with squeezing, they look like somehow galsines in many modes.
+[40:35.00] Now, it's a little exercise for you to prove that a Fox state on this N is zero is not a coherent state.
+[40:46.00] Not a little exercise for you to think about.
+[41:11.00] Now coherent states are super useful, not just because they are relevant for describing experiments. They're super useful because they're also mathematically very, had very many nice properties.
+[41:22.00] And so let's understand the coolest property of the coherent state mathematically, in my opinion, my humble opinion, this is the one I like the most.
+[41:40.00] Coherent states are over complete. So they don't form a basis in the normal sense, they're not like an orthonormal basis, but they are, you can express any state in terms of them.
+[42:00.00] And what does this mean? It means that we're going to express this statement mathematically like this.
+[42:15.00] If you integrate this thing over all the coherent states, you're going to find that it acts like the identity. That's the R. One mathematical way of saying the word over complete here.
+[42:30.00] And that's an exercise, not a very difficult one.
+[42:37.00] And the measure here, how do you integrate over the complex numbers? Well, no tricks here, it's just the real part, the imaginary part.
+[42:59.00] So I only know a tedious way to do this exercise. The tedious way that I know is you use this formula here
+[43:24.00] to write n in a product alpha is e to the minus alpha, alpha, blah, blah, blah, alpha to the n. Alpha in a product m has got the alpha stars in it.
+[43:43.00] And then you just look at the integrand and show that it's 0 on this n equals m. And then when n equals m, it's pi. That's the way I know how to solve this. I don't know if there's a more elegant way.
+[44:03.00] And this is just another expression of this completeness relation.
+[44:24.00] Now completeness relations are amazing because they allow us to express things in terms of bases that we like.
+[44:55.00] And I'll show you how that goes for coherent states. Suppose you have an arbitrary state and you want to express it as a linear combination of coherent states.
+[45:04.00] I said that over complete, so you should be able to find a way to write any state as a linear combination of coherent states.
+[45:16.00] How would we do it? Well, as long as you can compute the inner product between your state and an arbitrary coherent state, then you can use the completeness relation to work out an expression for your state in terms of alpha.
+[45:38.00] So let's do this all. Write all that down. So let's psi be some state of your harmonic oscillator. And suppose you can compute.
+[46:01.00] So you have an algorithm for. Suppose you can do that. You can get that number for every alpha. Then this completeness relation allows you to write psi purely in terms of alpha.
+[46:31.00] So we're going to apply the identity to psi.
+[46:50.00] And we've just written with this one line here. Let's call this f of alpha.
+[47:20.00] Knowing f of alpha is the same as knowing psi. And that's extremely useful observation. That's in fact how we're going to work through this course.
+[47:34.00] We're going to always, with some exceptions involving Fox states, specify states in terms of functions like this. This is called a quasi-distribution function.
+[47:47.00] It's not the one we'll use most often. I'm going to spend the rest of today talking about one that's arguably more useful than this way of doing it.
+[47:56.00] Now, why am I saying there's more than one? Well, the thing is about coherent states. They're very beautiful and all that, but they're over complete, which is actually one of the features of coherent states, which is not particularly beautiful.
+[48:09.00] If you have an over complete basis, then there's more than one way to represent any state in terms of that basis. That is super annoying.
+[48:20.00] An example. So over completeness creates problems as well as solves them. So if you have three vectors in R2, these three vectors,
+[48:39.00] E1, E2, and then you add a third one, W2 to your basis. So this is an over complete basis, right? You don't need all three to specify a point in R2.
+[49:06.00] In fact, any two will give you a basis for R2 and give you a nice representation of a vector.
+[49:14.00] But if you insist on using all three, then there's an infinite number of ways to represent any point in R2.
+[49:20.00] Suppose here's a point here. Well, you could work out its projection onto W and E2. That would give you a way of specifying W. Or you could work out its projection on E1 and E2, or on W and E1, or any combination thereof.
+[49:39.00] And so you have this redundant representation of your state. You have more than one function F will give you exactly the same state.
+[49:51.00] That's what this argument here is intended to convince you of. That's a blessing and a curse. It's a blessing in the sense that maybe this one was horribly ugly and you can find it with a nice one.
+[50:03.00] But it's also a curse in showing that two things are equal. Suppose you have F. You've got this integral with F alpha alpha. Is that the same as another integral with the G alpha alpha? Blessing and a curse.
+[50:17.00] Now, so far I've been talking about states, pure states. But in this course we're not allowed to just restrict a pure state.
+[50:46.00] Because we're going to be describing systems in contact with their environment, systems that have exchanged information with their environment. And the only general way to do this, we're going to have to grab mixed states.
+[51:00.00] For infinite dimensional systems, this is as more complicated as it is. For pure states, we're going to have to somehow deal with an infinite list of numbers.
+[51:14.00] And the rest of today will be focused on generalizing this observation here to mixed states.
+[51:25.00] Because we remember a mixed state is, we usually represent them as density operator. So we're going to have to represent operators on this infinite dimensional space.
+[51:34.00] An operator is just a matrix, right? You can think of it like that. And to represent an infinite dimensional matrix, well, you need an infinite number of numbers for every entry of the matrix.
+[51:45.00] We're going to use these displacement operators to exactly find a way of specifying operators just in this way, analogous to this way here.
+[52:00.00] So the next thing we want to discuss is the orthogonality and completeness of the displacement operators.
+[52:25.00] Just as the coherent states are an over-complete basis for Hilbert space, it will turn out that the displacement operators are an over-complete basis for the operators on Hilbert space.
+[52:36.00] It's quite a pretty observation.
+[52:46.00] So to convince ourselves of this statement, we're going to do a computation. It's a physically slightly nonsensical calculation, but it turns out to be useful mathematically.
+[52:58.00] Let's work out the trace of D alpha. Now, this is not something you can really observe in an experiment. In fact, you basically cannot observe it in an experiment.
+[53:07.00] Because the only way you could get that number is if you had a completely mixed state of a harmonic oscillator subjected to a displacement and then coherently subjected to a displacement and then work out the transition probability for that process.
+[53:22.00] Problem being, you can't have a completely mixed state of a harmonic oscillator. It's infinite dimensional.
+[53:30.00] That would be an infinite temperature state, and I don't want to prepare an infinite temperature state of a harmonic oscillator that would be dangerous.
+[53:40.00] So this is a mathematical trick. What I'm showing you, not something corresponding to something in an experiment.
+[53:53.00] And the way we're going to do this mathematical trick is we're going to insert the identity via this alpha. I'm using alpha here, no beta, sorry.
+[54:13.00] So I've done nothing in this step here. I put the identity in. This is via the over completeness relation.
+[54:26.00] Now, each of these steps is basically an exercise, although it's in principle follows directly from the formula I've shown you now.
+[54:41.00] The next step here is to note that any coherent state beta is just the same as putting a displacement operator on the vacuum.
+[54:48.00] So that's the next step. And then you use another one of these identities that I showed you.
+[54:56.00] So I've skipped a couple of steps, which is why this is an exercise.
+[55:26.00] So I'm going to take a couple of steps.
+[55:33.00] I'm going to take a couple of steps.
+[55:40.00] I'm going to take a couple of steps.
+[55:47.00] Alright, what have we done in this calculation? We've taken these coherent states here. We've replaced them with displacement operators on the vacuum.
+[56:16.00] And we've used this rule for taking the products of displacement operators to get this expression here that's an exercise.
+[56:23.00] It's a couple of lines. And now we've got the A displacement operator. It's a funny looking one. Just applied to the vacuum state.
+[56:31.00] If you use the Baker Campbell Hellstoff expression here, then you can get this number here. Now this is a number.
+[56:40.00] And this number has, it's the exponential of some complex number. In fact, it's the exponential of a real number.
+[56:49.00] No, purely imaginary number, right? It's the exponential of a purely imaginary number. And it just so happens that this integral here is none other than a representation of the delta function.
+[57:08.00] Alright, that's just a mathematical trick. There's nothing else, no other way to describe it. But it's a very useful one.
+[57:24.00] And we're going to exploit that to prove that displacement operators are orthogonal to each other.
+[57:34.00] But also linearly independent, not orthogonal.
+[58:04.00] Hence that. This calculation here pretty much immediately shows this.
+[58:34.00] Super. Still looks like a mathematical trick. But what it should start to bring you in mind of is inner products between vectors.
+[58:54.00] If you think of this expression here as somehow analogous to an inner product between operators.
+[59:06.00] In your mind, just think when you exceed this expression here, this is like taking the inner product of two vectors. But now the vectors are operators. But you know, we can still interpret this thing as an inner product symbol.
+[59:20.00] This expression here is like the completeness relation if you regard these operators as vectors. Now, if that made no sense to you whatsoever, then just forget what I said. But if you do, if you are familiar with operator algebra, I hope that sort of speaks to you a bit more.
+[59:37.00] But for now, it's still a mathematical trick. It's the next line, which is the important one.
+[59:43.00] A, B, a bounded operator doesn't work for unbounded operators in general on our Hilbert space. So remember density operators are bounded operators.
+[59:58.00] And we're going to have to talk about next states of harmonic oscillators.
+[60:12.00] Now, what we're going to show is that we can express our operator, not the state, now an operator, in terms of a linear combination of these d's.
+[60:25.00] And this is a very important formula.
+[60:43.00] I'm going to put a box around.
+[61:12.00] It's still a mathematical trick. We're almost there, though. It's something more physical.
+[61:41.00] So I'm going to go ahead and prove this in the next couple of lines. But let's just look at what this says. If you think of the alpha as like a coherent state, then this looks exactly like the inner product. This looks exactly like the over completeness relation and how we use it to express a state psi in terms of a linear combination of alphas.
+[62:00.00] But now we've got an operator A, and we're expressing it in terms of a linear combination of d alphas. This thing here has a name. It's called chi of minus alpha, otherwise known as the characteristic function.
+[62:12.00] So this allows us to express any operator A in terms of a linear combination of these displacement operators d alpha.
+[62:24.00] And that is the most powerful version of these displacement operators, in my opinion, that you can use them to express operators in terms of them.
+[62:45.00] And these are a more manageable object. And we're going to turn this around relation around. We're going to say suppose we have some chi alpha, what's the operator that comes from that chi alpha? We use the right hand side as our way of specifying operators.
+[63:03.00] So it would be extremely useful when we start looking at dissipative processes. So let's prove this.
+[63:15.00] The proof is, again, just the boring direct computation proof.
+[63:33.00] Assuming this is true, we're going to compute the left hand side and the right hand side. So I've got to put a question mark there. We don't know that these are equal yet.
+[63:47.00] So I'm just doing the trace here. That's what that is. That's this bit. And then there's an n and an m.
+[64:06.00] Oh, yeah, right. So I'm going to call this i. We're going to do that part there involving d alpha l n d alpha m.
+[64:26.00] It's going to be called i. No, not yet. Sorry.
+[64:45.00] Okay, we got to put in the completeness relation here. Now this is the Fox state completeness relation.
+[64:58.00] That's i. We're going to study that expression i now.
+[65:14.00] Okay.
+[65:24.00] Okay.
+[65:34.00] Okay.
+[66:04.00] Now for the moment, we're going to just, we're going to pretend that I, also this little integral here is part of i. I should have said that.
+[66:29.00] I'm going to pretend that i. It has a special value.
+[66:58.00] Suppose i equal that.
+[67:25.00] Well, then it's easy.
+[67:47.00] Let's call this the right hand side here. Then the right hand side equals. If we have this expression.
+[68:16.00] So as long as i equals this convenient formula in terms of delta functions and it's all good.
+[68:44.00] Let's convince ourselves that it's all good.
+[69:01.00] And i follows from a more general statement about these displacement operators.
+[69:30.00] So i is indeed true and you can get it from this formula here.
+[69:43.00] And this formula here follows from.
+[70:13.00] This is not the only way to prove it, but this is sort of the least tedious way, which is unfortunately an exercise for you.
+[70:42.00] These are not particularly hard exercises, but you have to sit down and make sure
+[71:11.00] you don't get minus sign errors and just use the formulas that you have one by one.
+[71:41.00] So.
+[72:09.00] So we're almost done now with our discussion of specifying states and operators for harmonic oscillators.
+[72:22.00] I really want more observation to make and that's to do with density operators.
+[72:30.00] And it brings us to the topic of things called characteristic functions.
+[72:44.00] Now characteristic functions are ways of specifying density operators.
+[73:05.00] Now in this course where all our states are represented by density operators, which means they are positive operators, who's traces one, not all states have this form in infinite dimensions.
+[73:29.00] It's a super interesting fact that you can build states that aren't representable like this. Of course they're not particularly useful for physics, but it's still an interesting fact.
+[73:39.00] The states that are interesting for the physics in this course will be, you can always write them like this.
+[73:44.00] You don't have to worry about singular states and other crazy things.
+[73:54.00] So we're going to call by alpha chi alpha the expression trace of rho d alpha.
+[74:08.00] We call by this expression, I'll put a little rho here, the characteristic function of rho.
+[74:38.00] This is a really interesting function chi of rho.
+[75:01.00] So I'm going to enumerate some of the reasons why this is interesting. So it's interesting because you can estimate it in using experiments.
+[75:10.00] If you can do heterodyne and homodyne detection and processing of your data, you can estimate chi of alpha.
+[75:27.00] It's related to and we'll get to this in the next lecture. The Vignor function, if you just express this in terms of real and imaginary components and take a Fourier transform, then you get the Vignor function from the characteristic function.
+[75:38.00] We'll do that next week.
+[75:42.00] And thirdly, if you know the characteristic function, then you know rho.
+[75:48.00] And that is because we have this formula, this complete installation.
+[76:06.00] The fact that rho is a Hermitian operator places some constraints on the shape of the characteristic function.
+[76:15.00] If you take rho dagger, if you take the complex conjugate of this expression, you see that chi of rho is the same as the chi, complex conjugate of the chi of minus alpha.
+[76:34.00] And as I said, knowing chi means you know rho.
+[76:44.00] Because of this identity, that A equals trace of A, D, dagger, alpha, D, alpha,
+[77:02.00] we can reconstruct rho from just knowing chi of alpha.
+[77:32.00] It's quite a nice way to represent density operators, you can get some quite pretty plots.
+[78:00.00] Especially for coherent states, it's boring. It's always a Gaussian bump in the complex plane.
+[78:10.00] But for fox states, it's got some nice ring structures and ripples and other interesting states also have some pretty properties when you plot them in Mathematica.
+[78:26.00] That's all I want to say about single mode. Well, not quite. I'm going to talk about Gaussian states next week, both of single and multiple modes.
+[78:35.00] But this is more or less all I wanted to say about representing how we represent single modes of continuous quantum variables, how we do that mathematically.
+[78:46.00] I'll just say a couple of words about multiple modes.
+[79:09.00] Suppose you have indistinguishable continuous quantum variables. That means they're labeled by some number that allows you to see which mode you've got or which harmonic oscillator you've got.
+[79:30.00] They might be labeled by mode number or polarization or angular momentum or whatever way you have of distinguishing these modes.
+[79:44.00] So the Hilbert space for this setup is just then the n-fold tensor product of this original fox space.
+[80:07.00] So that's so easy.
+[80:35.00] If they were indistinguishable continuous quantum variables, we'd have to apply the symmetry thingy, but they're distinguishable. They're labeled by polarization or something.
+[80:49.00] So then I'm just going to write out how we would generalize everything we said today to the multiple mode case. And it's just as straightforward as you would imagine.
+[81:08.00] First thing we're going to build displacement operators for multiple modes. That's what you think it is.
+[81:24.00] So now we just have n complex numbers. And we define d alpha for this list of complex numbers just to be the tensor product of the d-alphas.
+[81:53.00] That's an easy calculation.
+[82:22.00] Now, a-j are the annihilation and creation operators for each of these n modes.
+[82:45.00] So that gives us how coherent states for n modes, which is tensor products of coherent states.
+[83:02.00] So that's pretty much all we need to do in defining extending this formula into multiple modes. I guess I'll do the completeness relation, I think that's probably worth writing out.
+[83:28.00] So we just define coherent states like that, n copies for n different modes.
+[83:45.00] So we're completeness relation.
+[84:14.00] Now, interestingly, there are more, these coherent states are examples of what are called Gaussian states. It turns out there are more Gaussian states than there are coherent states in multiple modes. That's kind of interesting. And we're going to encounter these in the coming weeks.
+[84:31.00] And a special class of Gaussian states that we're going to encounter are called squeeze states. They're ones that you get by applying displacement like operators to multiple modes, but they're not product states, they're entangled.
+[84:44.00] We're going to meet them in the coming weeks. But for today, I think we'll stop here. I think we've covered everything I want to cover for today.
+[84:53.00] And next week, we will discuss Gaussian states in general. What are they? What are their properties? How to define them?
+[85:03.00] Okay, thank you very much.

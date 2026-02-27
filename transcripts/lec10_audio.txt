@@ -1,0 +1,351 @@
+Good morning, everyone.
+Last week we started talking about a fermionic system which comprised of two external leads
+and a quantum dot.
+And I outlined, I did not derive this Hamiltonian, but I outlined how the Hamiltonian that I have
+written here could be argued to be a good model for this situation.
+Of course, the actual physics is a bit more complicated than what's captured by this Hamiltonian,
+but it's a reasonably good model, effective model for what's going on in a quantum dot
+connected to two external leads.
+So this Hamiltonian has two parts.
+There's a free part here, what we call the free part, H0.
+It's quadratic in the fermion operators.
+So these operators here, this is the mode operator for the source.
+For mode K in the source, it takes away a fermion in mode K.
+Then we have C, which is the annihilation operator for the dot.
+And we assume that the dot supports only one bound state.
+And then we have the annihilation operator for the drain for the mode labeled by P.
+These numbers here are the tunneling coefficients, which are not precisely easy to derive.
+And these are easier to derive.
+These are the energies of a fermion in mode K.
+And this whole system is exposed to an external voltage, which creates a bias between the source
+and the drain, so the electrons want to go from the source to the drain or the early run.
+At this point, I can't see, but the electrons want to move from one lead to the other lead
+through the quantum dot, because it's so cold we reduced the temperatures in this example
+down to about one Kelvin, the electrons pretty much have to go through this dot.
+And we're interested in what is the dynamics of the dot by itself.
+This is the objective for today.
+And we're going to apply the same derivation we applied to study cavity decay to study this
+example here.
+This is a fermion version of a cavity in an input and output mode, just like for a cavity.
+You have stuff that wants to go through the cavity, namely the electrons here and photons
+in the previous example.
+And we want to describe the dynamics of the cavity alone.
+In this system environment picture here, the dot is the system and the leads are the environment.
+All right, let's go to the interaction picture now and begin to solve the system.
+Now as for the cavity emission example, this model is actually exactly solvable, because
+it's quadratic in all the operators, so you only have a C2 operators to fermion anylation
+in creation operators that ago.
+So actually the whole thing is solvable, you can reduce it to a single particle problem.
+And you might ask why don't we do this?
+This example will show us that as long as some extra assumptions are valid for the TPs and
+Ds and so on, this is a good enough approximation.
+So the derivation we're about to do will be an approximation to the exact solution of
+this model, and this approximation will be easier to use, because it will allow us to describe
+the dynamics of the dot alone.
+Whereas if you exactly solve this, then you have to keep track of all the modes available
+to you in the system, both in the source and the drain and the dot, and it's not so trivial
+to extract the dot dynamics.
+I mean it's, we've got orders of magnitude of difficulty here, we're already at the relatively
+non-difficult stage, exactly solving it, so we're going to just make simplifications.
+What we're going to do is we're just going to exactly follow the derivation of the Born Markov
+Master equation that we carried out a couple of lectures ago, exactly follow it, as though
+these operators were boson operators, and see what we get.
+The first step in these derivations is to go to the interaction picture.
+We say that this H0 is the free dynamics, even though the whole thing is free, but whatever.
+We say that the H0 is the free dynamics, and we go to a rotating frame where that free
+dynamics is trivialized.
+This is the expression we find.
+In the interaction picture, we don't need to worry about H0 anymore because we've gone
+to a frame where H0, the dynamics due to H0, is trivial.
+But the price we pay, of course, is that the other part of the Hamiltonian becomes time-dependent.
+And if you look at the expression for V, you can see that these two operators, oops along
+one and oops along two, they're just the time-evolved versions of the two parts of this
+interaction here.
+Now it's more or less a task of just following this derivation of a couple of lectures ago.
+You get the Schrodinger equation, you expand it to second order, you take partial traces
+over the reservoirs, you employ the Markov assumption to get these integrals lower limits
+and to be minus infinity, and that allows you to express the dynamics of the system, which
+is the dot in this case, not the leads of the dot, in terms of information, in terms of
+information that is discoverable purely in terms of the dot alone.
+So, this equation of motion depends on some
+reservoir correlation functions, in principle
+there's a lot of correlation functions that could in principle appear when you expand
+the Schrodinger equation to second order, but there's only two that actually are non-zero.
+I'm going to write them like this.
+So, we've got this subscript n here, n means normal ordered, you see the dagger comes before
+the annihilator there, and we've got another correlation function we need, which is the anti-normal
+solution, this is somewhat new relative to the boson example, this is because fermions can
+function, and that means that this correlation function can also be non-zero.
+So, is there a dagger missing?
+There's definitely a dagger missing on the second line.
+We're going to assume that the leads that couple to the dot are at thermal equilibrium, low
+temperature, but nonetheless thermal equilibrium.
+Now, this allows us, as we saw in the exercise class, we can derive the density operator for a fermion system at thermal
+equilibrium, and the leads are very, very simple fermion systems, they're completely free.
+And we can use that to calculate these correlation functions, they're actually not so difficult to calculate,
+and they should give you some numbers that you should recognize pretty quickly.
+I'll just do the calculation for the normal ordered correlation function, the anti-normal one is similar.
+So, it's a simple matter of just substituting in this epsilon object into this correlation function here,
+and working out the answer.
+That's what we'll get, I'm going to show you how we got that, where did this come from?
+We've got this n-bar object, average number of fermions in mode k in the source.
+And we'll derive this equation right now.
+Of course, you have to do this four times right for the four different possible correlators that we need for the derivation.
+We've got two possibilities here, two possibilities here.
+It's four in total, you have to do this calculation for, but it's the same calculation ever and ever again.
+You just need to pay attention to the minus sign.
+So, the way to convince you of this is just to look at this correlation function here for a family reservoir inverse temperature beta.
+So, just straight away substituting in these expressions down here for the epsilon operators,
+I've just substituted in that in place of this operator here, it should be a one there,
+and it's adjoint in place of this operator here.
+So, we can see we've got tunneling coefficients there there.
+We've got these phase factors here, and we've got some operators here.
+They're the only things that are really non-trivial. I'll put the operators in.
+There they are.
+These are the annihilation and creation operators for fermions in mode k in the source.
+Now, the source is at thermal equilibrium, so it's e to the minus beta h for some h, but the h is diagonal, right?
+If you look at the original model h0, we're assuming that the reservoirs are in the thermal equilibrium state for this free model here,
+and this is already diagonal, so we know what the density operator is, it's just e to the minus beta this,
+which is just the product across every mode of the thermal state for each fermion oscillator here.
+So, this is very simple formula, and that, because the system, the reservoirs diagonal by itself in terms of these a's,
+and we already know that this has to be a delta function. There can be no coherence across different loads in the thermal state,
+and we can just write that as sk delta k comma l.
+And that's how we arrive at this formula up there.
+So, we're substituting this expression into this expression here, we already have the desired result.
+Well, I'll do one extra line.
+These are the delta function, we get a square here,
+and that is the part that corresponds to the part outside of the integral sign,
+and the other three correlation functions have exactly the same derivations.
+That's the first step, but we need to employ a couple more approximations before we end up with a macovian master equation.
+So, the next step in the derivation of our equation emotion,
+we have to assume that the reservoir has lots of energy levels in that they're closely spaced.
+Just to remind you, if the reservoir has a discrete number of energy levels, then you're guaranteed that the reservoir and the system will feed information backwards and forwards to each other.
+There's no way for the reservoir to effectively lose information if it only has a finite number of energy levels.
+So, these are approximations only ever work when reservoirs are very, very large.
+So, we go to sum up here, sum over the k-modes, and then we're going to just replace up with an integral over the k-modes.
+So, if rho omega was just a bunch of delta functions, we would immediately obtain our previous expression.
+So, now we've got this integral here and we can start to talk about this integral.
+So, this is a highly oscillatory integral here. So, if omega is very, if tau is very large, then this thing oscillates the whole time.
+So, if the separation between omega and EC is very large, then as you integrate over larger and larger time windows, these oscillations cancel out and this integral is nearly zero.
+So, the only time when this integral is likely to have a large contribution is for omega near EC, near the stationary phase part of this integral here.
+So, we can approximate this by a delta function.
+Next step.
+So, only frequencies near the energy of the dot matter.
+Now, this average number of fermions at energy omega is a formula for that that you should remember for free fermions systems.
+So, this is the equation here where omega f is this Fermi energy.
+So, the reservoir has all its modes filled up up to the Fermi energy at zero temperature.
+So, at finite temperature, a couple of the modes below the Fermi energy are depleted and a couple above are occupied.
+So, it smooths out this Fermi C picture.
+Now, according to the picture we had, last week we assumed that the energy of the dot is less than the Fermi energy of the source.
+Now, we can't wait Fermions want to go on to the dot.
+And that's all thanks to this bias that we've applied.
+So, I'm going to assume that the temperature is small, like really small.
+So, I understand that you can routinely, well, routinely. I understand that T can be brought down to one Kelvin or two Kelvin in experiments.
+Some of you are nodding.
+And that means that the average occupation of the reservoir below the Fermi energy is basically one.
+So, every mode is just full because this smoothing out here is heavily suppressed.
+And now we're going to make this Markov approximation where we replace this lower limit here with minus infinity.
+And now we can get rid of the statement close to a delta function and make it actually equal to a delta function.
+So, all this discussion just tells us that we can replace this correlation function with a number gamma L over 2.
+And this number gamma L over 2 is dominated by what happens at the energy of the dot.
+Now, there is some very hard physics in some of these numbers here. These tunneling coefficients here are not trivial numbers.
+They're determined by the wave functions of the bound state of the dot and also the structure of the leads.
+So, it's not trivial, not completely trivial, these numbers here. The density of states is, well, that can be worked out for the most ideal systems.
+So, in principle, these numbers can be determined and in principle we have this number gamma L over 2.
+And the same argument is then going to be applied to the other correlators.
+I won't do it here. You can repeat exactly what I did for all the other correlation functions.
+It's just going to be minus signs in different places.
+So, I'm going to do this again.
+Similar considerations apply to all the other correlators.
+You'll get numbers that look like gamma L over 2. And then exercise. Just as the last assignment was to re-derive the cavity decay equation.
+You have another exercise which is to derive the equation of motion for the cavity in this case, which is the quantum dot.
+But you just follow steps one through six or one through five. I forget the numbering I used several lectures ago. Replacing all the bath correlators where they appear with gamma L over 2 and gamma R over 2.
+It'll be obvious from the context what that means. And we'll end up with an equation of motion just for the quantum dot alone.
+Trace out the leads altogether. And the equation of motion we get is this one here.
+This one here.
+This one here.
+So, rho is now the state of just the dot.
+So, we've traced out the leads. The leads are no longer there. We've just got the dot by itself.
+And on the dot there can be one electron in the bound state or no electron in the bound state.
+Very, very simple system. We can't have more than one electron in there. It's a fermion.
+So, the Hilbert space is none other. The Hilbert space for the quantum dot is none other than c2.
+Now, of course, because electrons have spin, there could actually be two electrons in this story. But we've polarized the spin so heavily that the second spin doesn't play a role.
+So, this is our simplest equation yet. It's even simpler than the one we had for the two level system.
+The first master equation we considered. It's simpler because there's even the states that the system can never enter.
+You can never have a superposition of no electrons. Thanks to super selection rules.
+So, it turns out we can solve this equation very, very easily. We can do that right now. We're going to solve. And it only depends on one number.
+Namely, the probability that the electron is there. Because the only other number that's important is the probability that the electron isn't there. And that's one minus the probability that the electron is there.
+So, we only really need one number.
+Things get much more interesting when you have more bound states or when you have more dots that can interact with each other. But this simple case here already describes a lot that's interesting.
+Let's go ahead and solve this equation.
+We're going to look at the average occupancy of the bound state. How many electrons are in the bound state? Which is the same as the probability that the electron is in the bound state.
+Oops, I don't need to put a row there. That's that. And let's just differentiate this and hope for the best.
+Lots of terms go to zero.
+Let's step one. We differentiate the left hand side. Which goes straight past the operators here and applies to the density operator of the dot. But we know what that is. We have an equation for that.
+It's this equation up here. It's called this equation star star. And we can substitute that in. And already we get the huge simplifications. Because these are fermions.
+And c times c is zero. And c dagger times c dagger is zero. And c dagger c is squared is c dagger c and things like this.
+So you can use the cyclic rule of trace. I'm beginning to write out this equation here. I've just written in the first term. The second term, what happens to that? Well, it's instantly zero.
+Because we've got c times by c that's zero. It's gone. And in the third term, that's also zero. Because if you use the cyclic rule of trace, this c dagger will come around, hit this c dagger and that's zero straight away.
+So there's a lot that's just straight out zero. In fact, of the first line, only one term survives. And also in the second line, only one term survives.
+Name that term there.
+Now we can use anti-commutation relations to make that take simpler yet again until there's really nothing more to the calculation.
+So we can already write this as n hat squared.
+Now use the cyclic rule of trace to bring that round there. And then what you see is this other term is one minus n hat squared.
+There should be a trace here. Now for fermions, we know something about the number operator.
+The number operator squared is itself again. You can check that from the anti-commutation relations. It's just a reminder.
+And expanding out this bracket here and using that rule a couple of times, we end up with this equation here for the average number of fermions on the quantum dot.
+So this is the first order in time linear in homogenous differential equation.
+Now I know you've all solved equations like this before.
+But after a while, one doesn't have to solve them. And one gets a bit rusty. So I'll go through the whole solution even though it's just integrating, but doesn't hurt to remind ourselves of these things now and again.
+So I'm just going to write the equation is dy dx equals gamma L1 minus y minus gamma y. So I'm just calling, but I don't want to write out n hat ket all the time.
+We'll call that y and then make that t still. So this is the equation we have to solve. It's a linear first order differential equation, but it's in homogenous.
+This part you can solve here. But then you've got this in homogenous bit here.
+We can already see what the fixed point is. That's when the left hand side doesn't change anymore. That's the equilibrium point zero equals minus gamma L plus gamma R y plus gamma L.
+So what value of the fermion average fermion number does that occur for? Well, the answer is y equals n. So I call this y star, the equilibrium value y star.
+And it's gamma L over gamma L plus gamma R.
+And that actually is the solution to our equation to get the full temporal dynamics to the equation. We're going to solve the homogenous part.
+That's just this thing. That's easy to solve. Yes, we know how to do that. Some constant times by e to the minus gamma L plus gamma R.
+So this is the function of time. And this constant is your initial occupation of the dot, time t, it better be on, no, no, no, no.
+Let's leave it a c for the moment. And well, we know what the fixed point is. So we actually know the full solution. We just add on that term there.
+The full solution here. So the full solution is the homogenous part plus the fixed point in this case.
+So
+looking at that solution, you can already see what the system does. So it, if it's not in equilibrium, then it rapidly relaxes to the equilibrium value.
+Or for the average number of electrons on the dot. And this relaxation rate is determined by gamma L plus gamma R. And if gamma R is zero.
+So for the full solution, we need the boundary conditions, like what, what do we start with?
+We need the boundary conditions, like what, what do we start with?
+And that tells us what c has to be.
+There we go. So for example, if there's no electron on the dot at time zero,
+then the system rapidly equilibrates up until it reaches a density equal to gamma L on gamma L plus up.
+So
+in the past weeks, we've covered three equations of motion. We've derived an equation of motion for a two level atom,
+subject to spontaneous decay. We've covered the equation of motion for an optical cavity subject to decay into some output modes. And we've covered a fermion version of the optical cavity. And in each case, we've ended up with an equation of motion, which has a very special form.
+We've written it down multiple times now. It's first order in time equation of motion for the density operator. And you see various system operators on the left hand side of the density operator. So the typical equations of motion we end up with for the system alone look like equations of motion like this.
+This calligraphic D is this second order operator in a.
+So after you see a thing a couple of times, you might wonder, is this an accident, or is this a pattern? Are we seeing a hint of a more general result? And the answer in this case is that we're seeing a hint of a more general result.
+And when you want to describe the dynamics, the non-unitary dynamics of a system with a differential equation, you don't actually have as many options as you might think for what kinds of operators you can write on the right hand side.
+So the question is, is your constraint by the requirement that this process has to be completely positive? So we're going to see in the coming lectures how this requirement of complete positivity places huge constraints on equations of motion like that.
+If you assume that they are Markovian, if you assume that the change in the state at time t can only depend on the state at time t and not the history.
+So in a minute you allow the history to play a role, then there are fewer constraints on these equations of motion. But these equations of motion good approximations to quite a few situations where the reservoir does it does act in a memory this way where information flows into the reservoir, flies away and never again interacts with the system.
+Now before I want to do that, I want to give a fourth derivation of an equation of motion like this, but it's for a completely different situation to the three we've already considered.
+And I think this derivation is worth showing because it gives the principle intuition about what happens, about what's the dynamics of these equations.
+And this is by far, in my opinion, by far the most important derivation I'm going to show you, because it also gives this equation of motion exactly. This does not arise as an approximation in the example I'm about to consider.
+So this was actually the place where I first learnt about linear equations and master equations. And I can give you no better reference than the original paper itself. It's still very readable today.
+And it provides a quantum mechanical model for the continuous measurement of position.
+So this is the paper we're going to discuss in this and the following lecture.
+And what's going to happen is we're going to derive an equation of motion that looks exactly like this, except we'll be able to interpret what this right hand side means in a very direct way.
+And that will allow us to understand how this process is or is not unitary. So this I think really provides one of the core intuitions for what these limplied master equations, how they behave.
+So I give you the reference by caves and millburn from 1987.
+So in it, they describe a model for how a system might be subjected to multiple measurements of position.
+And the model is as follows. You have a system. It's like a particle in a harmonic oscillator or a particle in the line or just some system.
+And the system is isolated from the environment except at certain times when we measure the system, just make a measurement of what state it's in.
+But we don't, of course, we can't measure what state it's in. We have to do a process and describe that process by a completely positive map.
+And we repeat this process of interacting a system with a measurement device. We do this n times. And then we see what's the state of the system after we've done this measurement process n times.
+So the picture that we had in mind is you have a meter or a gauge. And I'm drawing a dial here to indicate like speed or something.
+And we're going to call this meter one and it's going to be a harmonic oscillator.
+So the measurement device, the device we use to measure as it will turn out to be position will be a harmonic oscillator.
+It's an auxiliary system that we bring in. We're going to call m1. And then we've got another one.
+This is m2 and all the way up to mn.
+And then underneath all this or beside this, we have our system.
+This system is initially closed off from both the meters and the environment.
+And then at time t0, we interact the system with the first meter to get some information about the system.
+And then we wait and then we interact the system with the second meter at time t2 and so on until we've done m interactions.
+And this is not such a bad model for how we do experiments.
+You think optically, have some cavity.
+It's in some state. The cavity is a system. Make it say perfect cavity.
+Nothing gets in or out. And then at t1 you somehow modulate or you interrogate the cavity.
+You do some interaction with the cavity. You try and interact with the mode in the cavity with some measuring device.
+And then you close the cavity off again and you wait and then you interrogate it again at t2 and so on.
+And then you look at these meters or these measuring devices and you see what result you got.
+And you get a sequence of random numbers, most likely.
+And our job is going to be to describe the state of the meters and the state of the system as we go through this process.
+And the added twist is we're going to talk about doing more and more measurements but weaker and weaker.
+So we're going to do it at just the right rate. We're going to increase the number of measurements we do but reduce their strength and there will be a natural way to measure the strength of these measurements.
+And if you do it just right, you'll get a very interesting conditional evolution for the meters and a particularly interesting evolution for the system.
+If you do it too strong, we can already let's use some physical intuition here to really guess what's going to happen.
+If you do a really strong measurement of position using meter one, you're going to slam it almost into a position eigenstate.
+Then the system evolves and then you'll do another almost completely projective measurement here and so on.
+If you do more and more essentially projective measurements as time passes, you increase the density then you encounter something called the Xeno effect.
+Have you encountered the quantum Xeno effect?
+Okay, I tell you we will actually see the result.
+When we do this derivation, we'll actually see the quantum Xeno effect.
+The quantum Xeno effect refers to the expression the watched pot never boils in the quantum setting.
+So if you keep watching that pot, if you keep measuring this thing very, very repeatedly and with a great strength so that your measurements are almost projective, then the system never evolves.
+It goes into an eigenstate of your observable and remains there forevermore.
+Is it called the quantum Xeno effect?
+The other extreme is that if the measurements are too weak, then as you increase the number of measurements and decrease their strength,
+the system becomes effectively decoupled from the meters and it just evolves by itself according to its own internal dynamics.
+And there's a Goldilocks spot in between where you're not in the quantum Xeno regime and you're not in the completely decoupled regime.
+You're in an intermediate regime where the meters interfere with the system just enough so that there's some back action between the two.
+And that intermediate regime turns out to be a really good model for how environments act with systems.
+So the total Hilbert space describing this system and its measuring devices.
+Well, the Hilbert space, we need the Hilbert space for the system itself.
+We need to describe the state of meter one, the state of meter two and the state of meter n.
+So that's the total Hilbert space to describe this process.
+Now this will not be a time independent process, this will be a time dependent process.
+So energy is not going to be conserved because we're going to be actively twiddling knobs to make this happen.
+And this is how we're going to describe the measurement process.
+This is a time dependent Hamiltonian.
+The way it works is you take your system, allow it to evolve according to its natural Hamiltonian.
+And then at instance j times tau, we instantaneously interact the system with the meter according to this interaction here.
+Now have you met for Neumann's measurement prescription for measuring a hermitian operator?
+Okay. So this one looks unmotivated then.
+So I'll just spend a couple of words on why that interaction and not any other.
+So this is due to fun Neumann.
+And the idea is that if you want to describe a measurement of a hermitian operator,
+you know, hermitian operators are observables, right?
+So they're meant to be observable.
+So there's meant to be a measuring device which corresponds to measuring this hermitian operator.
+That measuring device should presumably obey the laws of quantum mechanics so it should have a Hamiltonian associated with it.
+And for Neumann realize that the right Hamiltonian to associate with it,
+one Hamiltonian you could associate to a device which measures observable x is one which interacts the system with an external meter according to this interaction here.
+And I'll run through the derivation of that and why this works.
+It doesn't solve the measurement problem of quantum mechanics but it just pushes it further away.
+But it's a very useful device.
+It's a very useful device.
+It's a very useful device.
+So
+what I'm going to argue is that dynamics according to this Hamiltonian here will carry out what we understand by a measurement of this operator here.
+So
+we're going to set up this is all the parenthetic remark by the way.
+What I'm saying from this moment onwards has nothing to do with this object up to here, this multiple meter setting.
+We're just talking about one system and one meter and measuring some observable A.
+So time t equals zero. The system in Ansela is assumed to be in some product state.
+So I for the system tensor and here and this is crucial we set the meter which is like a harmonic oscillator or just a free Schrodinger particle.
+We set the meter up in the state x, the position variable x equals zero. This is a delta function.
+This is a badly behaved object but nonetheless that's just assumed that we can do this.
+And I'm going to argue that if you evolve the system plus meter system plus Ansela according to this Hamiltonian here that will effectively carry out a measurement of the observable A on the system.
+Well, not right because it's a unitary evolution and we haven't done a measurement but it'll push this a little bit further.
+So this is step one.
+So the next step is to evolve for a time tau according to this interaction.
+And we're going to see something quite remarkable happen.
+First, we just write the spectral decomposition of this observable A in terms of its ID and ID vectors.
+And then actually turns out we can diagonalize the Hamiltonian as of this step here.
+And that means we can do this exponential. I'll write out the answer. It's an exercise for you to check it.
+So we can do this exponential. It's one of those rare cases where we can solve something.
+Written it the other way around there that's not so nice.
+You can exponentially that Hamiltonian work it out and you get this really cool result.
+If you exponentiate e to the minus i ht, this Hamiltonian here, claim is you get this operator here.
+It's a little exercise for you. But it's not so hard to convince yourself that it's true because each of these terms here alpha j tensor p commutes with every other one.
+You can exponentially that it's a product of these things. And you get this answer here.
+And now the next step is the interesting one. When you substitute in size s, x equals not into here and apply this operator to it, you get the following posterior state.
+Now this, if you look at it, you should recognize this as the translational operator. This is the thing that shifts in position.
+So the state after the interaction is an entangled state between the system and the meter given by this.
+So you're also called as the pointer.
+Now if you just look at the meter and you look at what value is the pointer, then you're going to get one of impossible values depending on what alpha j is and what t is.
+So the system is initially in a product state. The system is in an unknown state psi. It evolves according to this interaction which is modeling our measurement process. It becomes entangled with a meter.
+Now the meter has some information about the system. And you do a measurement now of the meter. So I'm not going to tell you how to do a measurement of the meter.
+Otherwise we have this gordian knot. We model the measurement of the meter with yet another one that process like this and so on. That's the measurement problem.
+We just measure the meter and we get one of m possible outcomes. The meter, the value of this particle, which is the meter, is in a superposition of values. This is alpha 1t, this is alpha 2t, alpha 3t, alpha 4t and so on.
+So this is a meter state or pointer. And if you measure the, you do a complete projective measurement of the meter, although I don't like that, but imagine that you are able to determine what value x has for this meter.
+Then you're going to get one of m possible outcomes, depending on alpha j. And that will project your system into one of these posterior states alpha j here, which are the eigenstates of the Hermitian operator. And what's the probability that that occurs? Well it's just that number squared.
+So this is a way to measure a Hermitian operator A, an arbitrary observable, by reducing the problem if you like to measuring a single harmonic oscillator or a single free particle.
+So where are we at? I just got ahead of myself a little. That's step 2. So step 3, measure the meter or the pointer, you get outcome x equals alpha jt with probability alpha j psi squared.
+And the posterior state of the meat of the system is then alpha j.
+So if you're an experimentalist and a theorist says, you just go away and measure this Hermitian operator A, then what you don't look through the catalog to buy the A observable measure. Instead you have to work out a way to interact your system with a meter.
+According to an interaction which looks something like H for Neumann. And then you apply measurements that you already know how to do on this Hermitian oscillator, like homodine or heterodine detection there.
+So this is a way to interpret a theorist saying, just go ahead and measure 8.
+And you can see, this is the end of the parenthesis here. So this is for Neumann's prescription to measure a Hermitian observable A. And you can see that this system here that I've written down, this time dependent system, is like doing this n times, one after the other.
+So we got this delta function here, which says that it's doing nothing, there's no interaction, the system evolves happily by itself, except at that instant of time when tau equals jt equals jt, when it undergoes an interaction with a meter, according to this interaction here, which means that this Hamiltonian is effectively measuring this Hermitian observable here.
+If you look at this for Neumann measurement prescription, we do this n times, and we're going to study the conditional dynamics of the system and see that if you repeat this very, very many times, we'll get an equation of motion like our master equation.
+But I think this is probably a good moment to stop. And yeah, we'll continue this discussion again in the next lecture.
+Thank you very much.

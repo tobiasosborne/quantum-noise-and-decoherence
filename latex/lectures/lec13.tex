@@ -1,0 +1,233 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 13 — The Lindblad Theorem and Quantum Jumps
+% ──────────────────────────────────────────────────────────────
+
+% Concludes Section 5 (Lindblad equations); opens Section 9
+% (Quantum trajectories / quantum jumps).
+
+\subsection{The GKSL theorem}\label{sec:gksl-theorem}
+
+We have seen that every master equation derived so far has the
+Lindblad form~\eqref{eq:generic-lindblad}.  Last lecture we showed
+that if $\{\chan_s\}_{s\ge0}$ is a dynamical semigroup
+($\chan_0 = \id$, $\chan_s \circ \chan_t = \chan_{s+t}$) that is
+linear and completely positive, then $\chan_s = e^{s\mathcal{L}}$
+with $\mathcal{L}(\rho) = \Phi(\rho) - K\rho - \rho K^\adj$ for a
+CP map~$\Phi$ and operator~$K$.  It remains to impose \emph{trace
+preservation}.
+
+\begin{theorem}[Gorini--Kossakowski--Sudarshan--Lindblad]%
+\label{thm:gksl}
+  Let $\{\chan_s\}_{s\ge0}$ be a continuous semigroup of CPTP maps on
+  a finite-dimensional system.  Then $\chan_s = e^{s\mathcal{L}}$
+  with
+  \begin{equation}\label{eq:gksl-generator}
+    \eqbox{\mathcal{L}(\rho)
+    = -i[H,\,\rho]
+      + \sum_j \Bigl(
+        L_j\,\rho\, L_j^\adj
+        - \tfrac{1}{2}\{L_j^\adj L_j,\,\rho\}
+      \Bigr)}\,,
+  \end{equation}
+  where $H = H^\adj$ and $\{L_j\}$ are the Lindblad operators.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+  Trace preservation requires
+  $\tr\bigl(\mathcal{L}(\rho)\bigr) = 0$ for all~$\rho$.  Using
+  $\mathcal{L}(\rho) = \Phi(\rho) - K\rho - \rho K^\adj$ and the
+  adjoint map $\Phi^*$ (defined by
+  $\tr(\Phi^*(X)\,\rho) = \tr(X\,\Phi(\rho))$), this becomes
+  \begin{equation}\label{eq:tp-condition}
+    \Phi^*(\One) = K + K^\adj\,.
+  \end{equation}
+  The Kraus theorem gives
+  $\Phi(\rho) = \sum_j L_j\,\rho\, L_j^\adj$, so
+  $\Phi^*(\One) = \sum_j L_j^\adj L_j$.  Hence
+  $K + K^\adj = \sum_j L_j^\adj L_j$.  Decomposing $K$ into
+  Hermitian and anti-Hermitian parts---just as a complex number splits
+  into real and imaginary parts---we set
+  $H = -\tfrac{i}{2}(K - K^\adj)$ and obtain
+  $K = \tfrac{1}{2}\sum_j L_j^\adj L_j + iH$.
+  Substituting back yields~\eqref{eq:gksl-generator}.
+\end{proof}
+
+\begin{keyresult}[Physical significance]
+  The theorem guarantees that any equation of motion with Lindblad
+  structure is a physically implementable process: it maps density
+  operators to density operators for all $t \ge 0$.  This is
+  non-trivial---the Born--Markov approximation truncates a series,
+  and there is no \emph{a priori} reason for the truncated equation
+  to preserve complete positivity.
+\end{keyresult}
+
+\begin{intuition}[The inverse question]
+  So far we have derived Lindblad equations from unitary
+  system--environment models.  Can we go the other way?  Given an
+  arbitrary Lindblad equation, does there exist a unitary dilation
+  that reproduces it?  The answer is \emph{yes}, and quantum jumps
+  provide an explicit construction.
+\end{intuition}
+
+% ──────────────────────────────────────────────────────────────
+\section{Quantum trajectories and quantum jumps}%
+\label{sec:quantum-jumps}
+
+\subsection{Dichotomic measurement model}\label{sec:dichotomic}
+
+Consider the single-jump-operator Lindblad equation
+\begin{equation}\label{eq:single-lindblad}
+  \frac{\dd\rho}{\dd t}
+  = -i[H,\,\rho]
+    + C\,\rho\, C^\adj
+    - \tfrac{1}{2}\{C^\adj C,\,\rho\}\,,
+\end{equation}
+with $C$ a single jump operator (generalisation to multiple~$L_j$ is
+straightforward).  We model a detector that continuously interrogates
+the system in time bins of width~$\dd t$, reporting either ``click''
+or ``no click''.
+
+\begin{definition}[Measurement operators]\label{def:jump-measurement}
+  The dichotomic instrument is defined by
+  \begin{equation}\label{eq:measurement-ops}
+    \eqbox{M_0
+    = \One - \bigl(iH + \tfrac{1}{2}C^\adj C\bigr)\dd t}\,,
+    \qquad
+    M_1 = C\,\sqrt{\dd t}\,.
+  \end{equation}
+  These satisfy
+  $M_0^\adj M_0 + M_1^\adj M_1 = \One + \mathcal{O}(\dd t^2)$,
+  forming a valid POVM to first order.
+\end{definition}
+
+\begin{remark}
+  Setting $\hat{R} = C^\adj C$, the operator $\hat{R}$ is the number
+  operator for the relevant excitations (e.g.\ photons in an output
+  beam).
+\end{remark}
+
+\subsection{Non-selective evolution}\label{sec:nonselective}
+
+When the measurement outcome is \emph{not} recorded, the state
+updates as
+\begin{equation}\label{eq:nonselective-update}
+  \rho(t + \dd t)
+  = M_0\,\rho\, M_0^\adj + M_1\,\rho\, M_1^\adj\,.
+\end{equation}
+Expanding to order~$\dd t$ recovers exactly the Lindblad
+equation~\eqref{eq:single-lindblad}, confirming that this measurement
+model is a valid dilation.
+
+\subsection{Selective evolution}\label{sec:selective}
+
+When we \emph{look} at the measurement record, the detection
+probabilities in a window~$\dd t$ are
+\begin{equation}\label{eq:click-prob}
+  p_1 = \tr(C^\adj C\,\rho)\,\dd t\,,\qquad
+  p_0 = 1 - p_1\,.
+\end{equation}
+
+\begin{intuition}[Poisson statistics]
+  The click probability is proportional to~$\dd t$: as $\dd t \to 0$
+  the per-bin probability vanishes, but the number of bins in a finite
+  interval grows, so a finite average number of clicks occurs---the
+  hallmark of a \textbf{Poisson process}.
+\end{intuition}
+
+If the system is in a pure state $\ket{\psi(t)}$ before the
+measurement, it remains pure afterwards:
+
+\begin{keyresult}[State update rules]
+  \textbf{No click} ($\dd N = 0$):
+  \begin{equation}\label{eq:psi-noclick}
+    \ket{\psi_0(t+\dd t)}
+    = \ket{\psi(t)}
+      - \Bigl(iH + \tfrac{1}{2}C^\adj C
+        - \tfrac{1}{2}\expect{C^\adj C}_t\Bigr)
+        \ket{\psi(t)}\,\dd t
+      + \mathcal{O}(\dd t^2)\,,
+  \end{equation}
+  where $\expect{C^\adj C}_t = \bra{\psi(t)}C^\adj C\ket{\psi(t)}$.
+
+  \textbf{Click} ($\dd N = 1$)---the \textbf{quantum jump}:
+  \begin{equation}\label{eq:psi-click}
+    \ket{\psi_1(t+\dd t)}
+    = \frac{C\ket{\psi(t)}}{\norm{C\ket{\psi(t)}}}\,.
+  \end{equation}
+\end{keyresult}
+
+\begin{intuition}[Information from silence]
+  Even when the detector does \emph{not} click, information is
+  gained: the absence of a click updates the state via the
+  $-\tfrac{1}{2}C^\adj C + \tfrac{1}{2}\expect{C^\adj C}_t$
+  correction.  Seeing nothing is not the same as learning nothing.
+\end{intuition}
+
+\subsection{Stochastic Schr\"odinger equation}%
+\label{sec:stochastic-schroedinger}
+
+Let $N(t)$ count the total clicks in~$[0,t]$.  The increment
+$\dd N(t) \in \{0,1\}$ satisfies
+\begin{equation}\label{eq:dN-properties}
+  \dd N(t)^2 = \dd N(t)\,,\qquad
+  \mathbb{E}[\dd N(t)]
+  = \expect{C^\adj C}_t\,\dd t\,.
+\end{equation}
+Combining both branches and using
+$\dd N\,\dd t = \mathcal{O}(\dd t^2)$, the conditional pure-state
+evolution is
+\begin{equation}\label{eq:sse}
+  \eqbox{\dd\ket{\psi}
+  = -\Bigl(iH
+    + \tfrac{1}{2}C^\adj C
+    - \tfrac{1}{2}\expect{C^\adj C}_t\Bigr)
+    \ket{\psi}\,\dd t
+  + \biggl(\frac{C}{\sqrt{\expect{C^\adj C}_t}}
+    - \One\biggr)\ket{\psi}\;\dd N(t)}\,.
+\end{equation}
+The first term is deterministic drift; the second activates at each
+click and implements the quantum jump.
+
+\subsection{Quantum jump trajectories}\label{sec:trajectories}
+
+A realisation of $N(t)$---a staircase with jumps at random times
+$t_1 < t_2 < \cdots$---defines a \textbf{quantum jump trajectory}.
+Between clicks the state evolves under the non-Hermitian effective
+Hamiltonian $H_{\mathrm{eff}} = H - \tfrac{i}{2}C^\adj C$; at each
+click the operator~$C$ is applied:
+\begin{equation}\label{eq:trajectory}
+  \ket{\psi(t)}
+  \propto \mathcal{T}\exp\!\biggl(
+      -i\!\int_{t_{k}}^{t} H_{\mathrm{eff}}\,\dd s
+    \biggr)\;
+    C\;\mathcal{T}\exp\!\biggl(
+      -i\!\int_{t_{k-1}}^{t_k} H_{\mathrm{eff}}\,\dd s
+    \biggr)\;C\;\cdots\;\ket{\psi(0)}\,,
+\end{equation}
+where $\mathcal{T}$ denotes time ordering.
+
+\begin{keyresult}[Recovering the Lindblad equation]
+  Averaging over all measurement records recovers the Lindblad
+  dynamics:
+  \begin{equation}\label{eq:ensemble-average}
+    \rho(t)
+    = \mathbb{E}\bigl[\ketbra{\psi(t)}{\psi(t)}\bigr]
+    = e^{t\mathcal{L}}\rho(0)\,.
+  \end{equation}
+  The non-selective evolution is the statistical mixture of all
+  selective quantum jump trajectories.
+\end{keyresult}
+
+\begin{exercise}\label{ex:verify-nonselective}
+  Verify~\eqref{eq:nonselective-update} reproduces~%
+  \eqref{eq:single-lindblad} by expanding to order~$\dd t$.
+\end{exercise}
+
+\begin{exercise}\label{ex:sse-average}
+  From the stochastic Schr\"odinger equation~\eqref{eq:sse}, compute
+  $\dd\!\ketbra{\psi}{\psi}$ to order~$\dd t$ using
+  $\dd N^2 = \dd N$ and $\dd N\,\dd t \approx 0$.  Take the
+  expectation and recover the Lindblad equation
+  for~$\rho = \mathbb{E}[\ketbra{\psi}{\psi}]$.
+\end{exercise}

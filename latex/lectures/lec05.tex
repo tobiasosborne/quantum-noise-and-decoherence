@@ -1,0 +1,250 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 5 — Gaussian States and Covariance Matrices
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 4 (Continuous variables).
+
+\subsection{Quadrature operators}\label{sec:quadratures}
+
+So far we parameterised displacement operators using complex numbers
+$\vb{\alpha} \in \C^n$.  It is standard in the Gaussian-state
+literature to work instead with their real and imaginary parts.
+
+\begin{definition}[Quadrature operators]\label{def:quadratures}
+  For a single mode with annihilation operator~$a$, define the
+  \textbf{quadrature operators}
+  \begin{equation}\label{eq:quadratures}
+    \hat{q} = \frac{a + a^\adj}{\sqrt{2}}\,,\qquad
+    \hat{p} = \frac{a - a^\adj}{i\sqrt{2}}\,.
+  \end{equation}
+  Both are hermitian and satisfy $[\hat{q},\, \hat{p}] = i\One$.
+\end{definition}
+
+For $n$~modes we collect the $2n$ quadrature operators into a vector
+\begin{equation}\label{eq:R-vector}
+  \hat{\vb{R}}
+  = (\hat{q}_1, \ldots, \hat{q}_n,\;
+     \hat{p}_1, \ldots, \hat{p}_n)^\top\,.
+\end{equation}
+The commutation relations are encoded by the \textbf{symplectic matrix}
+\begin{equation}\label{eq:symplectic-matrix}
+  [\hat{R}_j,\, \hat{R}_k] = i\,\sigma_{jk}\,\One\,,\qquad
+  \sigma = \begin{pmatrix} 0 & \One_n \\ -\One_n & 0 \end{pmatrix}\,.
+\end{equation}
+
+\subsubsection{Displacement operator in quadrature notation}
+
+For $\vb{\xi} = (x_1,\ldots,x_n,\, p_1,\ldots,p_n)^\top \in \R^{2n}$
+the displacement operator becomes
+\begin{equation}\label{eq:displacement-xi}
+  D(\vb{\xi})
+  = \exp\!\bigl(i\,\vb{\xi}^\top \sigma\, \hat{\vb{R}}\bigr)\,,
+\end{equation}
+with $\alpha_j = (x_j + i\,p_j)/\sqrt{2}$ connecting to the complex
+parameterisation of Lecture~4.  The characteristic function in these
+variables is
+\begin{equation}\label{eq:char-fn-xi}
+  \chi_\rho(\vb{\xi})
+  = \tr\bigl(\rho\, D(\vb{\xi})\bigr)\,,\qquad
+  \vb{\xi} \in \R^{2n}\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Gaussian states}\label{sec:gaussian-states}
+
+\begin{definition}[Gaussian state]\label{def:gaussian}
+  An $n$-mode state~$\rho$ is a \textbf{Gaussian state} if its
+  characteristic function is a Gaussian in~$\vb{\xi}$:
+  \begin{equation}\label{eq:gaussian-char-fn}
+    \eqbox{\chi_\rho(\vb{\xi})
+      = \exp\!\Bigl(
+          -\tfrac{1}{4}\,\vb{\xi}^\top \gamma\, \vb{\xi}
+          - i\,\vb{m}^\top \sigma\, \vb{\xi}
+        \Bigr)}\,,
+  \end{equation}
+  where $\vb{m} \in \R^{2n}$ is the \textbf{displacement vector} and
+  $\gamma$ is a real $2n \times 2n$ symmetric matrix called the
+  \textbf{covariance matrix}.
+\end{definition}
+
+The absence of a constant term is fixed by normalisation:
+$\chi_\rho(\vb{0}) = \tr(\rho) = 1$.
+
+The displacement vector records the \textbf{first moments}
+\begin{equation}\label{eq:first-moments}
+  m_j = \expect{\hat{R}_j} = \tr(\rho\, \hat{R}_j)\,,
+\end{equation}
+and the covariance matrix records the symmetrised \textbf{second
+moments}
+\begin{equation}\label{eq:second-moments}
+  \gamma_{jk}
+  = \expect{\{\hat{R}_j - m_j,\; \hat{R}_k - m_k\}}\,,
+\end{equation}
+where $\{A,B\} = AB + BA$ is the anticommutator.
+
+\begin{intuition}[Why Gaussian states are remarkable]
+  A Gaussian state of $n$~modes lives in an infinite-dimensional
+  Hilbert space, yet is completely determined by $\vb{m}$ ($2n$ reals)
+  and $\gamma$ ($2n(2n+1)/2$ entries).  All higher moments follow, as
+  for a classical Gaussian, making polynomial expectation values
+  computable on paper.
+\end{intuition}
+
+\begin{remark}
+  Superpositions of Gaussian states are \emph{not} generally Gaussian.
+  A superposition of the vacuum and a coherent state produces a
+  Schr\"odinger-cat-like state, which is non-Gaussian.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Examples of Gaussian states}\label{sec:gaussian-examples}
+
+\begin{example}[Vacuum state]\label{ex:vacuum-gaussian}
+  The $n$-mode vacuum $\rho = \ketbra{\vb{0}}{\vb{0}}$ is Gaussian
+  with
+  \begin{equation}\label{eq:vacuum-gaussian}
+    \vb{m} = \vb{0}\,,\qquad \gamma = \One_{2n}\,.
+  \end{equation}
+  It is a minimum-uncertainty state:
+  $(\Delta q)^2 = (\Delta p)^2 = \tfrac{1}{2}$.
+\end{example}
+
+\begin{example}[Coherent states]\label{ex:coherent-gaussian}
+  Every coherent state $\ket{\vb{\alpha}}$ is Gaussian.  For a single
+  mode with $\alpha = (x_0 + i\,p_0)/\sqrt{2}$:
+  \begin{equation}\label{eq:coherent-gaussian}
+    \vb{m} = \begin{pmatrix} x_0 \\ p_0 \end{pmatrix}\,,\qquad
+    \gamma = \One_2\,.
+  \end{equation}
+  The covariance matrix equals that of the vacuum; only the
+  displacement shifts, consistent with
+  $\ket{\alpha} = D(\alpha)\ket{0}$.
+\end{example}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Legitimate covariance matrices}\label{sec:legit-cov}
+
+Not every symmetric matrix $\gamma$ corresponds to a physical quantum
+state.  Positivity of~$\rho$ imposes a constraint.
+
+\begin{keyresult}[Covariance matrix condition]
+  A real symmetric matrix $\gamma \in \R^{2n \times 2n}$ is the
+  covariance matrix of a quantum state if and only if
+  \begin{equation}\label{eq:cov-condition}
+    \eqbox{\gamma + i\sigma \geq 0}\,,
+  \end{equation}
+  where the inequality is positive semi-definiteness as a hermitian
+  matrix.  This is the continuous-variable uncertainty principle.
+\end{keyresult}
+
+In particular, $\gamma > 0$ (strictly positive definite): zero
+eigenvalues are forbidden.
+
+\begin{proof}[Proof (necessity)]
+  For any $\vb{c} \in \C^{2n}$, define
+  $A = \sum_j c_j\,(\hat{R}_j - m_j)$.  Since $\rho \geq 0$:
+  \begin{equation}\label{eq:cov-proof}
+    0 \leq \tr(\rho\, A^\adj A)
+    = \sum_{j,k} \bar{c}_j\, c_k\;
+      \tr\!\bigl(\rho\,(\hat{R}_j - m_j)(\hat{R}_k - m_k)\bigr)
+    = \tfrac{1}{2}\sum_{j,k} \bar{c}_j\, c_k\;
+      (\gamma_{jk} + i\sigma_{jk})\,.
+  \end{equation}
+  Since this holds for all $\vb{c}$, we conclude
+  $\gamma + i\sigma \geq 0$.
+\end{proof}
+
+\begin{remark}
+  The converse also holds: every $(\vb{m}, \gamma)$
+  satisfying~\eqref{eq:cov-condition} gives a legitimate Gaussian
+  state.  Constructively, for any such~$\gamma$ there exists a system
+  of harmonic oscillators whose \emph{thermal state} has that
+  covariance matrix, since thermal states of quadratic Hamiltonians
+  are always Gaussian.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Bipartite Gaussian states and reduced states}%
+\label{sec:bipartite-gaussian}
+
+Consider two parties, Alice ($A$) and Bob ($B$), each holding
+$n$~modes (joint system: $2n$ modes), described by a displacement
+vector $\vb{m}_{AB}$ and a $4n \times 4n$ covariance matrix
+$\gamma_{AB}$.
+
+\begin{proposition}[Reduced states of Gaussian states]%
+\label{prop:reduced-gaussian}
+  If $\rho_{AB}$ is Gaussian, then the reduced state
+  $\rho_A = \tr_B(\rho_{AB})$ is also Gaussian, with
+  \begin{equation}\label{eq:reduced-gaussian}
+    \vb{m}_A = (\vb{m}_{AB})_A\,,\qquad
+    \gamma_A = (\gamma_{AB})_{AA}\,,
+  \end{equation}
+  i.e.\ one simply extracts the sub-vector and sub-matrix
+  corresponding to Alice's modes.
+\end{proposition}
+
+\begin{proof}
+  The characteristic function of the reduced state is
+  \[
+    \chi_{\rho_A}(\vb{\xi}_A)
+    = \tr_{AB}\!\bigl(\rho_{AB}\,
+        (D(\vb{\xi}_A) \tp \One_B)\bigr)
+    = \chi_{\rho_{AB}}(\vb{\xi}_A, \vb{0}_B)\,,
+  \]
+  using $D(\vb{0}) = \One$.  Setting $\vb{\xi}_B = \vb{0}$ in the
+  Gaussian form~\eqref{eq:gaussian-char-fn} yields a Gaussian in
+  $\vb{\xi}_A$ with the stated parameters.
+\end{proof}
+
+\begin{remark}
+  Reducing Gaussian states is trivial (extract a sub-matrix), but the
+  reverse---\emph{extending}---is subtler.  Trivial extensions by
+  tensoring always exist, but \emph{pure} Gaussian extensions
+  (purifications) require a non-trivial construction; they always exist
+  and will appear in later lectures.  For tripartite systems $ABC$, it
+  is possible that $\rho_{AB}$ and $\rho_{BC}$ are both Gaussian yet
+  no global $\rho_{ABC}$ is consistent with both marginals---a
+  manifestation of entanglement monogamy.
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Example: the two-mode squeezed state}%
+\label{sec:two-mode-squeezed}
+
+The \textbf{two-mode squeezed state} is the canonical entangled
+Gaussian state, produced by parametric down-conversion in a nonlinear
+crystal.  For two modes $A$, $B$ with
+$\hat{\vb{R}} = (\hat{q}_A, \hat{q}_B, \hat{p}_A, \hat{p}_B)^\top$
+and squeezing parameter $r \geq 0$:
+\begin{equation}\label{eq:tmsv-moments}
+  \vb{m} = \vb{0}\,,\qquad
+  \gamma =
+  \begin{pmatrix}
+    \cosh 2r & \sinh 2r & 0 & 0 \\
+    \sinh 2r & \cosh 2r & 0 & 0 \\
+    0 & 0 & \cosh 2r & -\sinh 2r \\
+    0 & 0 & -\sinh 2r & \cosh 2r
+  \end{pmatrix}.
+\end{equation}
+At $r = 0$ this is the two-mode vacuum ($\gamma = \One_4$).
+In the Fock basis the corresponding pure state is
+\begin{equation}\label{eq:tmsv-fock}
+  \ket{\psi_r}
+  = \frac{1}{\cosh r}\sum_{n=0}^{\infty}
+    (\tanh r)^n\,\ket{n}_A\ket{n}_B\,.
+\end{equation}
+For large~$r$ the coefficients decay slowly, so $\ket{\psi_r}$
+resembles a maximally entangled state up to a photon-number
+cutoff---one of the primary entanglement sources in continuous-variable
+quantum information.
+
+\begin{exercise}\label{ex:tmsv-reduced}
+  Verify Proposition~\ref{prop:reduced-gaussian} for the two-mode
+  squeezed state: (a)~extract the sub-matrix of~\eqref{eq:tmsv-moments}
+  for mode~$A$; (b)~compute
+  $\rho_A = \tr_B(\ketbra{\psi_r}{\psi_r})$ directly
+  from~\eqref{eq:tmsv-fock}.  In both cases, confirm
+  $\gamma_A = \cosh(2r)\,\One_2$ (a thermal state).
+\end{exercise}

@@ -1,0 +1,227 @@
+%!TEX root = ../QuantumNoiseAndDecoherence.tex
+% ──────────────────────────────────────────────────────────────
+%  Lecture 4 — Continuous Variables and Characteristic Functions
+% ──────────────────────────────────────────────────────────────
+
+% Continues Section 3 briefly, then opens Section 4.
+
+\subsection{Single-mode Fock space and the harmonic oscillator}%
+\label{sec:single-mode}
+
+When the single-particle Hilbert space is $\hilb = \C$ (a single mode
+of the electromagnetic field), Bose Fock space simplifies dramatically.
+Since $\C^{\tp n} \cong \C$ for every~$n$ and the symmetrisation
+projector acts as the identity, we obtain
+\begin{equation}\label{eq:single-mode-fock-2}
+  \mathcal{F}_+(\C)
+  = \bigoplus_{n=0}^{\infty} \C
+  \cong \ell^2(\N)\,.
+\end{equation}
+This is the Hilbert space of a single \emph{quantum harmonic
+oscillator}, spanned by \textbf{Fock states} (number states)
+$\ket{0}, \ket{1}, \ket{2}, \ldots$ The creation and annihilation
+operators reduce to a single pair $a^\adj$, $a$ satisfying
+\begin{equation}\label{eq:single-mode-ccr}
+  [a,\, a^\adj] = \One\,,
+\end{equation}
+with the standard relations
+\begin{equation}\label{eq:fock-state-relations}
+  \ket{n} = \frac{(a^\adj)^n}{\sqrt{n!}}\ket{0}\,,\qquad
+  a\ket{n} = \sqrt{n}\,\ket{n-1}\,,\qquad
+  a^\adj\ket{n} = \sqrt{n+1}\,\ket{n+1}\,,\qquad
+  a^\adj a\,\ket{n} = n\ket{n}\,.
+\end{equation}
+
+\begin{definition}[Continuous quantum variable]\label{def:cqv}
+  A \emph{continuous quantum variable} (or \emph{mode}) is a quantum
+  system whose Hilbert space is the single-mode Fock space
+  $\mathcal{F}_+(\C) \cong \ell^2(\N)$.
+\end{definition}
+
+This is the relevant description for a single mode of light in an
+optical cavity, a single phonon mode, or any quantum harmonic
+oscillator.  In this course, both our system and its environment will
+typically be modelled as collections of continuous quantum variables.
+
+% ══════════════════════════════════════════════════════════════
+\section{Continuous variables}\label{sec:continuous-variables}
+
+We now develop the mathematical toolkit for working with continuous
+quantum variables.  The key challenge: states and operators on the
+infinite-dimensional space $\ell^2(\N)$ require infinitely many
+parameters to specify.  We need compact, physically meaningful ways
+to represent them.
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Displacement operators}\label{sec:displacement}
+
+\begin{definition}[Displacement operator]\label{def:displacement}
+  For $\alpha \in \C$, the \textbf{displacement operator} is
+  \begin{equation}\label{eq:displacement}
+    \eqbox{D(\alpha) = \exp\!\bigl(\alpha\, a^\adj - \alpha^*\, a\bigr)}\,.
+  \end{equation}
+\end{definition}
+
+Since the exponent is $i$ times a hermitian operator, $D(\alpha)$ is
+\emph{unitary}: $D(\alpha)^\adj = D(\alpha)^{-1} = D(-\alpha)$.
+
+\begin{intuition}[Why displacement operators?]
+  Two reasons to prefer $D(\alpha)$ over the bare operators $a$,
+  $a^\adj$:
+  \begin{itemize}
+    \item \textbf{Mathematical:} $a$ and $a^\adj$ are unbounded; $D(\alpha)$
+      is bounded (unitary).  We can recover $a$ by differentiating
+      $D(\alpha)$ with respect to~$\alpha$ at $\alpha = 0$.
+    \item \textbf{Physical:} displacement operators correspond to
+      linear optics transformations (beam splitters, phase shifters).
+      You can buy a device that implements $D(\alpha)$; you cannot
+      buy a device that implements~$a$.
+  \end{itemize}
+\end{intuition}
+
+\begin{exercise}\label{ex:bch-displacement}
+  Using the Baker--Campbell--Hausdorff formula, show that
+  \begin{equation}\label{eq:displacement-bch}
+    D(\alpha)
+    = e^{-\lvert\alpha\rvert^2/2}\, e^{\alpha\, a^\adj}\,
+      e^{-\alpha^*\, a}\,.
+  \end{equation}
+\end{exercise}
+
+The displacement operators satisfy the \textbf{composition rule}:
+\begin{equation}\label{eq:displacement-compose}
+  D(\alpha)\,D(\beta)
+  = e^{(\alpha\beta^* - \alpha^*\beta)/2}\,D(\alpha + \beta)\,.
+\end{equation}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Coherent states}\label{sec:coherent-states}
+
+\begin{definition}[Coherent state]\label{def:coherent-state}
+  The \textbf{coherent state} $\ket{\alpha}$ is obtained by displacing
+  the vacuum:
+  \begin{equation}\label{eq:coherent-state}
+    \ket{\alpha} = D(\alpha)\ket{0}
+    = e^{-\lvert\alpha\rvert^2/2}
+      \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}\,\ket{n}\,.
+  \end{equation}
+\end{definition}
+
+Coherent states are the states produced by lasers and are central to
+quantum optics.  They are eigenstates of the annihilation operator:
+$a\ket{\alpha} = \alpha\ket{\alpha}$.
+
+\subsubsection{Overcompleteness}
+
+Coherent states form an \emph{overcomplete} set: they span the Hilbert
+space, but are not orthogonal.  The \textbf{resolution of the identity}
+reads
+\begin{equation}\label{eq:coherent-completeness}
+  \eqbox{\frac{1}{\pi}\int_{\C}
+    \ketbra{\alpha}{\alpha}\;\dd^2\alpha = \One}\,,
+  \qquad \dd^2\alpha = \dd(\mathrm{Re}\,\alpha)\;\dd(\mathrm{Im}\,\alpha)\,.
+\end{equation}
+
+Using this, any state $\ket{\psi}$ can be expanded as
+\[
+  \ket{\psi}
+  = \frac{1}{\pi}\int_{\C} f(\alpha)\,\ket{\alpha}\;\dd^2\alpha\,,
+  \qquad f(\alpha) = \braket{\alpha}{\psi}\,.
+\]
+Knowing the function $f(\alpha)$ is equivalent to knowing the state.
+This is the simplest example of a \emph{quasi-distribution} function.
+
+\begin{remark}
+  Because the coherent states are overcomplete, the representation of
+  a state in terms of $f(\alpha)$ is \emph{not unique}---different
+  functions can yield the same state.  This redundancy is both a
+  blessing (one can choose a convenient representative) and a curse
+  (proving equality of two representations requires care).
+\end{remark}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Characteristic functions}\label{sec:characteristic}
+
+For \emph{mixed} states (density operators on an infinite-dimensional
+space), we need a way to specify operators---not just vectors---in
+terms of functions on~$\C$.
+
+\subsubsection{Orthogonality of displacement operators}
+
+The displacement operators satisfy the trace orthogonality relation
+\begin{equation}\label{eq:displacement-orthogonality}
+  \tr\bigl(D(\alpha)^\adj\, D(\beta)\bigr)
+  = \pi\,\delta^{(2)}(\alpha - \beta)\,,
+\end{equation}
+where $\delta^{(2)}$ is the two-dimensional Dirac delta.  As a
+consequence, any bounded operator~$A$ can be expanded as
+\begin{equation}\label{eq:operator-expansion}
+  \eqbox{A = \frac{1}{\pi}\int_{\C}
+    \tr\bigl(A\, D(\alpha)^\adj\bigr)\, D(\alpha)\;\dd^2\alpha}\,.
+\end{equation}
+
+\subsubsection{The characteristic function}
+
+\begin{definition}[Characteristic function]\label{def:char-fn}
+  The \textbf{characteristic function} of a density operator~$\rho$ is
+  \begin{equation}\label{eq:char-fn}
+    \eqbox{\chi_\rho(\alpha) = \tr\bigl(\rho\, D(\alpha)\bigr)}\,,
+    \qquad \alpha \in \C\,.
+  \end{equation}
+\end{definition}
+
+\begin{keyresult}[Properties of the characteristic function]
+  \leavevmode
+  \begin{enumerate}[(i)]
+    \item \textbf{Normalisation:} $\chi_\rho(0) = \tr(\rho) = 1$.
+    \item \textbf{Hermiticity constraint:}
+      $\chi_\rho(\alpha)^* = \chi_\rho(-\alpha)$.
+    \item \textbf{Determines $\rho$:} the density operator can be
+      reconstructed from its characteristic function via
+      \begin{equation}\label{eq:rho-from-chi}
+        \rho = \frac{1}{\pi}\int_{\C}
+          \chi_\rho(\alpha)\, D(-\alpha)\;\dd^2\alpha\,.
+      \end{equation}
+    \item \textbf{Experimentally accessible:} $\chi_\rho(\alpha)$ can
+      be estimated from homodyne and heterodyne detection data.
+    \item \textbf{Related to the Wigner function:} writing
+      $\alpha = (q + ip)/\sqrt{2}$, the Fourier transform of
+      $\chi_\rho$ yields the Wigner function (see next lecture).
+  \end{enumerate}
+\end{keyresult}
+
+% ──────────────────────────────────────────────────────────────
+\subsection{Multiple modes}\label{sec:multiple-modes}
+
+For $n$~distinguishable modes, the Hilbert space is
+\begin{equation}\label{eq:multi-mode-hilb}
+  \mathcal{F}_+(\C)^{\tp n}
+  \cong \ell^2(\N)^{\tp n}\,,
+\end{equation}
+with independent creation and annihilation operators $a_j^\adj$, $a_j$
+for $j = 1,\ldots,n$ satisfying $[a_j, a_k^\adj] = \delta_{jk}\One$.
+
+The multi-mode displacement operator and coherent state are simply
+tensor products:
+\begin{align}
+  D(\vb{\alpha})
+  &= D(\alpha_1) \tp \cdots \tp D(\alpha_n)\,,
+  &\vb{\alpha} &= (\alpha_1,\ldots,\alpha_n) \in \C^n\,,
+  \label{eq:multi-mode-disp}\\
+  \ket{\vb{\alpha}}
+  &= \ket{\alpha_1} \tp \cdots \tp \ket{\alpha_n}\,.
+  \label{eq:multi-mode-coherent}
+\end{align}
+The overcompleteness relation generalises to
+\begin{equation}\label{eq:multi-mode-completeness}
+  \frac{1}{\pi^n}\int_{\C^n}
+    \ketbra{\vb{\alpha}}{\vb{\alpha}}\;\dd^{2n}\vb{\alpha} = \One\,,
+\end{equation}
+and the characteristic function of an $n$-mode state~$\rho$ is
+$\chi_\rho(\vb{\alpha}) = \tr(\rho\, D(\vb{\alpha}))$.
+
+\begin{remark}
+  Multi-mode coherent states are always product states.  The richer
+  class of \emph{Gaussian states}---which includes squeezed and
+  entangled states---will be the subject of the next lecture.
+\end{remark}
